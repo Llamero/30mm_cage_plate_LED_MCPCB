@@ -1,4 +1,4 @@
-22352670420729793
+22361165191341454
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -52878,12 +52878,47 @@ Custom
 0
 0
 Custom
+D_SOD-128
+D_SOD-128 (CFP5 SlimSMAW), https://assets.nexperia.com/documents/outline-drawing/SOD128.pdf
+D_SOD-128
+0
+2
+2
+Custom
+IND_3965101_WRE
+
+744373965101 
+0
+2
+2
+Custom
+LED_SST-20-DR
+
+SST-20-WDS-A120-L5571 
+0
+3
+3
+Custom
+SAMTEC_SSM-104-L-SH
+
+
+0
+8
+4
+Custom
 SO-8EP_3P9X4P95_DIO
 
 AL8843QSP-13 
 0
 9
 9
+Custom
+SRP1038A-220M_BRN
+
+SRP1038A-220M 
+0
+2
+2
 Diode_SMD
 D_0201_0603Metric
 Diode SMD 0201 (0603 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: https://www.vishay.com/docs/20052/crcw0201e3.pdf), generated with kicad-footprint-generator
