@@ -660,7 +660,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x04") (at 125.73 48.26 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 0a4452c5-b72c-4494-8602-244a3d856a8c)
-    (property "Reference" "J2" (at 128.27 48.26 0)
+    (property "Reference" "J1" (at 128.27 48.26 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "Conn_01x04" (at 128.27 50.8 0)
@@ -685,7 +685,7 @@
     (instances
       (project "Thorlabs 30 mm Cage Plate LED MCPCB"
         (path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
-          (reference "J2") (unit 1)
+          (reference "J1") (unit 1)
         )
       )
     )
