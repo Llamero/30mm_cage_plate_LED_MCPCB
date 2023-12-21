@@ -7,15 +7,15 @@ This board is an entirely self-contained LED and driver circuitry designed to be
 To view and modify the board, download KiCAD https://www.kicad.org/, and open the project file.
 
 Make sure to modify the LED footprint to match the footprint for your desired LED, and to change the current limit resistor to the desired value (see AL8843Q datasheet, p. 11):
-
-RSET (Ω) Nominal Average Output Current (mA)
-0.033 3,000
-0.05 2,000
-0.067 1,500
-0.1 1,000
-0.15 667
-0.3 333
-
+```
+RSET (Ω)  Nominal Average Output Current (mA)
+0.033     3,000
+0.05      2,000
+0.067     1,500
+0.1       1,000
+0.15      667
+0.3       333
+```
 ## Ordering:
 The BOM can be found here: https://docs.google.com/spreadsheets/d/1ZUOHqLCISnd-vsBcDY3z2q5rFzEznOQzioUf6a6fGwg/edit?usp=sharing
 
