@@ -16,6 +16,11 @@ RSET (Ω) Nominal Average Output Current (mA)
 0.15 667
 0.3 333
 
+## Ordering:
+The BOM can be found here: https://docs.google.com/spreadsheets/d/1ZUOHqLCISnd-vsBcDY3z2q5rFzEznOQzioUf6a6fGwg/edit?usp=sharing
+
+To order the PCBs, upload the Gerber files to your desired PCB vendor, such as: https://www.pcbway.com/project/shareproject/30_mm_Cage_Plate_LED_Driver_8c990405.html
+
 ## Assembly:
 This board is assembled similarly to other reflow soldering boards. See the following manual: https://github.com/Llamero/Light_Color_and_Intensity_Datalogger/blob/master/Data%20logger%20assembly%20manual.pdf
 
