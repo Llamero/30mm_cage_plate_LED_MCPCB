@@ -2908,6 +2908,12 @@
 		)
 	)
 	(junction
+		(at 179.07 111.76)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1a15b43b-25c0-4933-a079-e1a5e524f5d7")
+	)
+	(junction
 		(at 173.99 106.68)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2918,12 +2924,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "284247e1-237c-47cf-87f5-a0932999904e")
-	)
-	(junction
-		(at 184.15 111.76)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "32bff487-0dad-4306-894b-e500c7c26558")
 	)
 	(junction
 		(at 113.03 50.8)
@@ -2948,18 +2948,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "482d6376-0ab0-4927-bae2-926931e736f9")
-	)
-	(junction
-		(at 179.07 111.76)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6741f800-3325-456e-b53d-e0f0bd1622ce")
-	)
-	(junction
-		(at 179.07 106.68)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "746bd5fd-06b0-4a2f-8fd7-3ad826a4ba0e")
 	)
 	(junction
 		(at 173.99 55.88)
@@ -2992,10 +2980,22 @@
 		(uuid "a526f2a3-4b3e-4122-b6cf-acca33cb3d75")
 	)
 	(junction
+		(at 184.15 106.68)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ada7e5b9-ac17-4875-ae88-db04734fcb4d")
+	)
+	(junction
 		(at 173.99 76.2)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "adbd32e0-1df6-4afc-834a-cafa6dc27794")
+	)
+	(junction
+		(at 179.07 106.68)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b51923d1-8f56-4dd4-8198-0d226db9e2b6")
 	)
 	(junction
 		(at 173.99 68.58)
@@ -3004,10 +3004,10 @@
 		(uuid "bd97551f-5c67-41f6-bff7-2f94377b885d")
 	)
 	(junction
-		(at 184.15 106.68)
+		(at 184.15 111.76)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "c6cddd8c-71e7-4481-b506-65c46dc89935")
+		(uuid "d7175024-bd7c-4187-b812-83a984027bac")
 	)
 	(junction
 		(at 173.99 111.76)
@@ -3190,16 +3190,6 @@
 			(type default)
 		)
 		(uuid "3479632c-6c0f-4664-9230-edaf49e6a17f")
-	)
-	(wire
-		(pts
-			(xy 184.15 106.68) (xy 186.69 106.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3e62924b-2b5f-4fe7-9285-47e28fa5deaf")
 	)
 	(wire
 		(pts
@@ -3423,13 +3413,13 @@
 	)
 	(wire
 		(pts
-			(xy 179.07 111.76) (xy 184.15 111.76)
+			(xy 184.15 106.68) (xy 186.69 106.68)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7dc29e74-6f64-470d-bbd7-4092ba94b8bb")
+		(uuid "7d6eb8d1-c822-44fd-9c3c-99e02a58231d")
 	)
 	(wire
 		(pts
@@ -3593,13 +3583,13 @@
 	)
 	(wire
 		(pts
-			(xy 179.07 106.68) (xy 184.15 106.68)
+			(xy 179.07 111.76) (xy 184.15 111.76)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "adc789e0-599f-4bd5-b7b3-56b07db56fb1")
+		(uuid "a9145043-7cd7-4add-866d-753082b71d99")
 	)
 	(wire
 		(pts
@@ -3660,6 +3650,16 @@
 			(type default)
 		)
 		(uuid "d27df348-92a8-40fd-b77b-d938e072dd17")
+	)
+	(wire
+		(pts
+			(xy 179.07 106.68) (xy 184.15 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d8757075-135e-4ea1-89e8-af3423d28bdd")
 	)
 	(wire
 		(pts
@@ -3990,94 +3990,6 @@
 		(uuid "fa272e5e-f606-470e-8ff2-03b9c8047936")
 	)
 	(symbol
-		(lib_id "Device:C_Small")
-		(at 179.07 109.22 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "0c23ab6c-22e3-4a52-a3df-9049caac5c41")
-		(property "Reference" "C2"
-			(at 182.88 111.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Value" "10μF"
-			(at 181.61 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 179.07 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R6YA106MA73-01A.pdf"
-			(at 179.07 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 179.07 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Murata Electronics"
-			(at 179.07 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "GRM188R6YA106MA73D"
-			(at 179.07 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "c6479d76-e676-4322-9ff6-78f7b5276754")
-		)
-		(pin "2"
-			(uuid "4570b751-d751-43f7-9b6d-12c9551dce53")
-		)
-		(instances
-			(project "30 mm Cage Plate LED MCPCB"
-				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
-					(reference "C2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector:Conn_01x08_Socket")
 		(at 200.66 109.22 0)
 		(mirror x)
@@ -4244,94 +4156,6 @@
 			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
 					(reference "#PWR03")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 184.15 109.22 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "3b4fc969-104c-4752-98ff-87d6f179aec2")
-		(property "Reference" "C3"
-			(at 187.96 111.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Value" "10μF"
-			(at 186.69 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 184.15 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R6YA106MA73-01A.pdf"
-			(at 184.15 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 184.15 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Murata Electronics"
-			(at 184.15 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "GRM188R6YA106MA73D"
-			(at 184.15 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f101861f-4abd-424b-a901-e996202d46a8")
-		)
-		(pin "2"
-			(uuid "9ebea3b2-c73c-4bbe-b513-01d647211976")
-		)
-		(instances
-			(project "30 mm Cage Plate LED MCPCB"
-				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
-					(reference "C3")
 					(unit 1)
 				)
 			)
@@ -5119,7 +4943,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "10μF"
+		(property "Value" "22μF"
 			(at 176.53 105.41 0)
 			(effects
 				(font
@@ -5128,7 +4952,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 173.99 109.22 0)
 			(effects
 				(font
@@ -5137,7 +4961,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R6YA106MA73-01A.pdf"
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/339/CL21A226MAYNNNE_Spec.pdf"
 			(at 173.99 109.22 0)
 			(effects
 				(font
@@ -5155,7 +4979,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Murata Electronics"
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 173.99 109.22 0)
 			(effects
 				(font
@@ -5164,7 +4988,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "GRM188R6YA106MA73D"
+		(property "Part" "CL21A226MAYNNNE"
 			(at 173.99 109.22 0)
 			(effects
 				(font
@@ -5532,6 +5356,94 @@
 			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
 					(reference "L1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 179.07 109.22 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b2730164-3ef0-4d44-b422-b1279cace09d")
+		(property "Reference" "C2"
+			(at 182.88 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Value" "22μF"
+			(at 181.61 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 179.07 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/339/CL21A226MAYNNNE_Spec.pdf"
+			(at 179.07 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 179.07 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 179.07 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "CL21A226MAYNNNE"
+			(at 179.07 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a7b7bde7-0247-48dc-bf25-0da733c893a6")
+		)
+		(pin "2"
+			(uuid "8513b5db-e946-4d92-979c-b8fa3ad971ba")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "C2")
 					(unit 1)
 				)
 			)
@@ -6102,6 +6014,94 @@
 			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
 					(reference "U4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 184.15 109.22 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e690202c-2867-417d-801d-45f310981273")
+		(property "Reference" "C3"
+			(at 187.96 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Value" "22μF"
+			(at 186.69 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 184.15 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/339/CL21A226MAYNNNE_Spec.pdf"
+			(at 184.15 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 184.15 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 184.15 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "CL21A226MAYNNNE"
+			(at 184.15 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ec17756d-c19e-4d30-b2bf-8c72b3a3bc44")
+		)
+		(pin "2"
+			(uuid "4a1cb64c-77eb-49a7-9226-b1ce6a4f0730")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "C3")
 					(unit 1)
 				)
 			)

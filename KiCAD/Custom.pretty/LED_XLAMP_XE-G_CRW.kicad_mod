@@ -1,0 +1,149 @@
+(footprint "LED_XLAMP_XE-G_CRW"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(tags "XEGABL-H2-0000-000-000000P4005 ")
+	(property "Reference" "REF**"
+		(at 0.5 -2.12 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "8b04529d-401d-4f31-80b1-abbe43e1fa48")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "LED_XLAMP_XE-G_CRW"
+		(at -0.41 2.35 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "6b938598-84e5-4574-9360-d0812d4e52cb")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "d01fd18e-c731-464a-82cb-cb13c41d1f92")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "3b7c2483-3b14-40b1-a043-fcff109268c6")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "b938fda7-285f-4299-b712-cf90f17ba0b1")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start -1.0287 -0.8001)
+		(end -1.0287 0.8001)
+		(stroke
+			(width 0.0254)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "bdb257b1-0a21-4663-ab20-d1e020db2bf3")
+	)
+	(fp_line
+		(start -1.0287 0.8001)
+		(end 1.0287 0.8001)
+		(stroke
+			(width 0.0254)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "1201a636-842e-405f-b844-99affd70146c")
+	)
+	(fp_line
+		(start 1.0287 -0.8001)
+		(end -1.0287 -0.8001)
+		(stroke
+			(width 0.0254)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "1e1f6347-e1b3-497a-851f-a95cf12b2b5b")
+	)
+	(fp_line
+		(start 1.0287 0.8001)
+		(end 1.0287 -0.8001)
+		(stroke
+			(width 0.0254)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "8f143ec3-ace2-4cbc-b576-9e276805f513")
+	)
+	(fp_circle
+		(center 0 0)
+		(end 0.0762 0)
+		(stroke
+			(width 0.0254)
+			(type solid)
+		)
+		(fill none)
+		(layer "F.Fab")
+		(uuid "7a5ca441-4300-48fd-bc25-2e921f160e36")
+	)
+	(pad "1" smd rect
+		(at -0.762 -0.425)
+		(size 0.3302 0.5588)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "893df2ab-dc58-42af-91a6-96362adc719d")
+	)
+	(pad "2" smd rect
+		(at -0.762 0.425)
+		(size 0.3302 0.5588)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "185c8a65-5229-46e2-ae90-d2be24577fe2")
+	)
+	(pad "3" smd rect
+		(at 0.2921 0)
+		(size 1.27 1.397)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "02cc3889-afd7-46d7-8cf3-55444aa20e16")
+	)
+	(model "${KIPRJMOD}/CAD models/LED_XLAMP_XE-G_CRW.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)
