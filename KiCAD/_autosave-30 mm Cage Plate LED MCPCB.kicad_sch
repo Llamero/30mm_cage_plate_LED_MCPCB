@@ -2968,6 +2968,12 @@
 		(uuid "904b8ff2-8ef1-40c2-851e-1bf3f5602eaf")
 	)
 	(junction
+		(at 173.99 38.1)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "94c222b8-b2dd-4285-b513-2d30083a24f2")
+	)
+	(junction
 		(at 173.99 50.8)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3073,6 +3079,16 @@
 	)
 	(wire
 		(pts
+			(xy 179.07 50.8) (xy 173.99 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0fe006fb-e332-4fe9-8e71-3f71a9af0ddb")
+	)
+	(wire
+		(pts
 			(xy 125.73 55.88) (xy 129.54 55.88)
 		)
 		(stroke
@@ -3100,6 +3116,16 @@
 			(type default)
 		)
 		(uuid "1c0dea3e-a9b8-433b-995c-1182ddfcb3c4")
+	)
+	(wire
+		(pts
+			(xy 173.99 38.1) (xy 179.07 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1cfd62fd-5416-43c4-8205-99e033ba04ee")
 	)
 	(wire
 		(pts
@@ -3610,6 +3636,16 @@
 			(type default)
 		)
 		(uuid "ba7362e7-2205-4b9e-a558-99c31cf7156a")
+	)
+	(wire
+		(pts
+			(xy 179.07 45.72) (xy 179.07 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bb2f0604-9aee-4ba1-b6d4-b84a831ffde7")
 	)
 	(wire
 		(pts
@@ -4763,6 +4799,91 @@
 			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
 					(reference "IC1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 179.07 41.91 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "82fd75f4-0f24-4280-9d4a-75f44c68909c")
+		(property "Reference" "R2"
+			(at 182.88 41.91 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "0"
+			(at 179.07 41.91 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 177.292 41.91 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.keyelco.com/userAssets/file/M65p54.pdf"
+			(at 179.07 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 179.07 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Keystone Electronics"
+			(at 179.07 41.91 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "5104"
+			(at 179.07 41.91 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "32f231b3-75d7-4beb-b0fb-3b377e167810")
+		)
+		(pin "2"
+			(uuid "1ae2ab29-391b-497f-bda3-290aad4b5c2a")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "R2")
 					(unit 1)
 				)
 			)
