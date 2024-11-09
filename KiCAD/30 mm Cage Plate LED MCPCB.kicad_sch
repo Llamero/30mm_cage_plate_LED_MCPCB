@@ -5235,6 +5235,88 @@
 		)
 	)
 	(symbol
+		(lib_id "Graphic:Logo_Open_Hardware_Small")
+		(at 97.79 72.39 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "48fce3ee-267a-46d6-8c62-0480e85acc42")
+		(property "Reference" "SYM2"
+			(at 97.79 65.405 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "Logo_Open_Hardware_Small"
+			(at 97.79 78.105 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Custom:CC-BY-SA Symbol"
+			(at 97.79 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 97.79 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Open Hardware logo, small"
+			(at 97.79 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 97.79 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" ""
+			(at 97.79 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "SYM2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Relay_SolidState:ASSR-1218")
 		(at 149.86 73.66 0)
 		(mirror x)
@@ -6677,13 +6759,13 @@
 		(lib_id "Graphic:Logo_Open_Hardware_Small")
 		(at 97.79 72.39 0)
 		(unit 1)
-		(exclude_from_sim no)
+		(exclude_from_sim yes)
 		(in_bom no)
-		(on_board no)
+		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9a779888-c9d3-4e99-9858-631a391f7a94")
-		(property "Reference" "#SYM1"
+		(property "Reference" "SYM1"
 			(at 97.79 65.405 0)
 			(effects
 				(font
@@ -6701,7 +6783,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Symbol:OSHW-Logo_5.7x6mm_SilkScreen"
 			(at 97.79 72.39 0)
 			(effects
 				(font
@@ -6728,7 +6810,16 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Enable" "0"
+		(property "Manufacturer" ""
+			(at 97.79 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" ""
 			(at 97.79 72.39 0)
 			(effects
 				(font
@@ -6740,7 +6831,7 @@
 		(instances
 			(project ""
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
-					(reference "#SYM1")
+					(reference "SYM1")
 					(unit 1)
 				)
 			)
