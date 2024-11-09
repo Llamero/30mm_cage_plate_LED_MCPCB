@@ -675,6 +675,259 @@
 				)
 			)
 		)
+		(symbol "Custom:SN74LVC1G139DCUR"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at -12.7 11.16 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left bottom)
+				)
+			)
+			(property "Value" "SN74LVC1G139DCUR"
+				(at -2.286 6.604 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Footprint" "SN74LVC1G139DCUR:SOP50P310X90-8N"
+				(at 5.334 -20.828 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "PARTREV" "E"
+				(at 11.43 -16.002 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "STANDARD" "IPC-7351B"
+				(at 17.526 -15.748 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "MAXIMUM_PACKAGE_HEIGHT" "0.9 mm"
+				(at 23.114 -19.304 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "MANUFACTURER" "Texas Instruments"
+				(at 4.572 -19.812 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(symbol "SN74LVC1G139DCUR_0_1"
+				(rectangle
+					(start 3.81 1.27)
+					(end 12.7 -8.89)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SN74LVC1G139DCUR_1_0"
+				(pin input line
+					(at 1.27 0 0)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 1.27 -2.54 0)
+					(length 2.54)
+					(name "B"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 1.27 -5.08 0)
+					(length 2.54)
+					(name "Y3"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 1.27 -7.62 0)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 15.24 -7.62 180)
+					(length 2.54)
+					(name "Y2"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 15.24 -5.08 180)
+					(length 2.54)
+					(name "Y1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 15.24 -2.54 180)
+					(length 2.54)
+					(name "Y0"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 15.24 0 180)
+					(length 2.54)
+					(name "VCC"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Device:C_Small"
 			(pin_numbers hide)
 			(pin_names
@@ -2094,6 +2347,140 @@
 				)
 			)
 		)
+		(symbol "Device:Thermistor"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "TH"
+				(at 2.54 1.27 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Thermistor"
+				(at -2.54 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Temperature dependent resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "R res thermistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Thermistor_0_1"
+				(rectangle
+					(start -1.016 2.54)
+					(end 1.016 -2.54)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.905 3.175) (xy -1.905 1.905) (xy 1.905 -1.905) (xy 1.905 -3.175) (xy 1.905 -3.175)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Thermistor_1_1"
+				(pin passive line
+					(at 0 5.08 270)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -5.08 90)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Mechanical:Heatsink"
 			(pin_names
 				(offset 1.016)
@@ -2270,6 +2657,212 @@
 					)
 					(fill
 						(type none)
+					)
+				)
+			)
+		)
+		(symbol "Motor:Fan"
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "M"
+				(at 2.54 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "Fan"
+				(at 2.54 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0.254 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0.254 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Fan"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "Fan Motor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "PinHeader*P2.54mm* TerminalBlock*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Fan_0_1"
+				(arc
+					(start -2.54 -0.508)
+					(mid 0.0028 0.9121)
+					(end 0 3.81)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -5.08) (xy 0 -4.572)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -2.2352) (xy 0 -2.6416)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 4.2672) (xy 0 4.6228)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 4.572) (xy 0 5.08)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0 1.016)
+					(radius 3.2512)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 3.81)
+					(mid 0.053 0.921)
+					(end 2.54 -0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 2.54 -0.508)
+					(mid 0 1.0618)
+					(end -2.54 -0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Fan_1_1"
+				(pin passive line
+					(at 0 7.62 270)
+					(length 2.54)
+					(name "+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -5.08 90)
+					(length 2.54)
+					(name "-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
 					)
 				)
 			)
@@ -2926,7 +3519,7 @@
 		(uuid "284247e1-237c-47cf-87f5-a0932999904e")
 	)
 	(junction
-		(at 113.03 50.8)
+		(at 113.03 53.34)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "36ff6fa0-3fd2-4ecc-b95a-ea4dc5cd74fb")
@@ -2950,16 +3543,22 @@
 		(uuid "482d6376-0ab0-4927-bae2-926931e736f9")
 	)
 	(junction
+		(at 106.68 48.26)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "78e7d56e-12fc-4e5f-ae8d-de362ba9f011")
+	)
+	(junction
 		(at 173.99 55.88)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "79f76d89-cbf6-4426-b8d2-3ec56627888a")
 	)
 	(junction
-		(at 113.03 60.96)
+		(at 113.03 48.26)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "8d58d540-7688-4470-acc5-327976da2022")
+		(uuid "8acfdb4e-3971-4510-a0a8-9181ee2b7048")
 	)
 	(junction
 		(at 129.54 107.95)
@@ -2968,13 +3567,19 @@
 		(uuid "904b8ff2-8ef1-40c2-851e-1bf3f5602eaf")
 	)
 	(junction
+		(at 173.99 38.1)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "94c222b8-b2dd-4285-b513-2d30083a24f2")
+	)
+	(junction
 		(at 173.99 50.8)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9cdc30a8-bb77-4f62-a99c-a6c880bb17fa")
 	)
 	(junction
-		(at 113.03 55.88)
+		(at 113.03 58.42)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a526f2a3-4b3e-4122-b6cf-acca33cb3d75")
@@ -3073,6 +3678,26 @@
 	)
 	(wire
 		(pts
+			(xy 179.07 50.8) (xy 173.99 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0fe006fb-e332-4fe9-8e71-3f71a9af0ddb")
+	)
+	(wire
+		(pts
+			(xy 101.6 48.26) (xy 106.68 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "116dfa43-a352-4937-88bc-fb96e7fbeab1")
+	)
+	(wire
+		(pts
 			(xy 125.73 55.88) (xy 129.54 55.88)
 		)
 		(stroke
@@ -3103,6 +3728,16 @@
 	)
 	(wire
 		(pts
+			(xy 173.99 38.1) (xy 179.07 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1cfd62fd-5416-43c4-8205-99e033ba04ee")
+	)
+	(wire
+		(pts
 			(xy 125.73 76.2) (xy 142.24 76.2)
 		)
 		(stroke
@@ -3120,16 +3755,6 @@
 			(type default)
 		)
 		(uuid "24a9521f-2972-4111-b2d7-9b9c34e79659")
-	)
-	(wire
-		(pts
-			(xy 113.03 60.96) (xy 113.03 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "257116cc-df04-4649-bb37-60efe362eca2")
 	)
 	(wire
 		(pts
@@ -3153,7 +3778,7 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 55.88) (xy 113.03 60.96)
+			(xy 113.03 58.42) (xy 113.03 63.5)
 		)
 		(stroke
 			(width 0)
@@ -3193,7 +3818,7 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 50.8) (xy 115.57 50.8)
+			(xy 113.03 53.34) (xy 115.57 53.34)
 		)
 		(stroke
 			(width 0)
@@ -3313,7 +3938,7 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 45.72) (xy 113.03 50.8)
+			(xy 113.03 48.26) (xy 113.03 53.34)
 		)
 		(stroke
 			(width 0)
@@ -3443,6 +4068,16 @@
 	)
 	(wire
 		(pts
+			(xy 106.68 48.26) (xy 113.03 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8994949c-c2f1-40d2-ab3e-e3879513d944")
+	)
+	(wire
+		(pts
 			(xy 173.99 63.5) (xy 173.99 68.58)
 		)
 		(stroke
@@ -3483,7 +4118,7 @@
 	)
 	(wire
 		(pts
-			(xy 115.57 45.72) (xy 113.03 45.72)
+			(xy 115.57 48.26) (xy 113.03 48.26)
 		)
 		(stroke
 			(width 0)
@@ -3493,7 +4128,7 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 50.8) (xy 113.03 55.88)
+			(xy 113.03 53.34) (xy 113.03 58.42)
 		)
 		(stroke
 			(width 0)
@@ -3613,7 +4248,17 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 55.88) (xy 115.57 55.88)
+			(xy 179.07 45.72) (xy 179.07 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bb2f0604-9aee-4ba1-b6d4-b84a831ffde7")
+	)
+	(wire
+		(pts
+			(xy 113.03 58.42) (xy 115.57 58.42)
 		)
 		(stroke
 			(width 0)
@@ -3723,7 +4368,7 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 60.96) (xy 115.57 60.96)
+			(xy 113.03 63.5) (xy 115.57 63.5)
 		)
 		(stroke
 			(width 0)
@@ -3802,8 +4447,30 @@
 		)
 		(uuid "00f29c46-b27e-44c0-a8c5-846446ab900a")
 	)
-	(label "D"
-		(at 115.57 63.5 180)
+	(label "4"
+		(at 87.63 53.34 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "0b83fede-1d0b-4b68-b191-67cbc9248847")
+	)
+	(label "2"
+		(at 101.6 53.34 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "10a1bf4f-6b67-4d79-b74b-e6621a715500")
+	)
+	(label "4"
+		(at 115.57 45.72 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3824,19 +4491,30 @@
 		)
 		(uuid "19c45725-3f39-4ee6-be3b-0bb55ac99e69")
 	)
-	(label "D"
-		(at 195.58 106.68 180)
+	(label "3"
+		(at 101.6 55.88 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
-		(uuid "33483499-d9e1-493c-bc12-03fdfc983623")
+		(uuid "3b660775-7624-4732-be7b-e3d5aab39077")
+	)
+	(label "Vin"
+		(at 95.25 115.57 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "554eae79-c9bd-4963-b644-be646fa3900b")
 	)
 	(label "A"
-		(at 195.58 99.06 180)
+		(at 195.58 104.14 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3856,6 +4534,17 @@
 			(justify left bottom)
 		)
 		(uuid "696cafec-2bb4-4654-8636-39edb519ab14")
+	)
+	(label "B"
+		(at 87.63 50.8 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "7067d9ea-b357-4141-8042-b2fa1397398d")
 	)
 	(label "Vin"
 		(at 157.48 111.76 0)
@@ -3878,6 +4567,17 @@
 			(justify left bottom)
 		)
 		(uuid "7f5f3e11-5f18-4d97-a891-16f2f61bb2d3")
+	)
+	(label "5V"
+		(at 113.03 48.26 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "80ba5052-a53a-49eb-ace6-fe5e8d866b6d")
 	)
 	(label "PWM"
 		(at 157.48 114.3 0)
@@ -3912,8 +4612,8 @@
 		)
 		(uuid "9c4537de-94b4-4288-bb12-8ea85b3f57b3")
 	)
-	(label "C"
-		(at 195.58 104.14 180)
+	(label "A"
+		(at 87.63 48.26 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3921,10 +4621,43 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "b0ab02ad-34ec-4dab-a308-ea124811cf0b")
+		(uuid "b19b85de-e33d-4a84-a81c-15e61d6b47f1")
 	)
-	(label "B"
-		(at 115.57 53.34 180)
+	(label "1"
+		(at 101.6 50.8 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b235c06d-25e3-4507-a68a-e927a73a33eb")
+	)
+	(label "5V"
+		(at 195.58 99.06 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "b23e0fb9-7905-4c81-9262-a78d20e94ca5")
+	)
+	(label "Temp"
+		(at 177.8 86.36 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "b6d6341c-dce0-4f1e-a517-b012285cab76")
+	)
+	(label "2"
+		(at 115.57 55.88 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3967,8 +4700,8 @@
 		)
 		(uuid "ed33e270-056e-4fc0-b287-4884b421752b")
 	)
-	(label "A"
-		(at 115.57 48.26 180)
+	(label "1"
+		(at 115.57 60.96 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3978,8 +4711,19 @@
 		)
 		(uuid "f025ff3f-c512-4935-bbdf-cca9efa9e40e")
 	)
-	(label "C"
-		(at 115.57 58.42 180)
+	(label "Temp"
+		(at 195.58 106.68 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "f7b23beb-8191-40b1-bbb0-8817e9259b1a")
+	)
+	(label "3"
+		(at 115.57 50.8 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3988,6 +4732,111 @@
 			(justify right bottom)
 		)
 		(uuid "fa272e5e-f606-470e-8ff2-03b9c8047936")
+	)
+	(symbol
+		(lib_id "Custom:SN74LVC1G139DCUR")
+		(at 86.36 48.26 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "13b9bd1b-5ac6-4996-9de8-94c45d7f3f1a")
+		(property "Reference" "U6"
+			(at 94.615 42.9725 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SN74LVC1G139DCUR"
+			(at 94.615 45.3968 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Custom:SOP50P310X90-8N"
+			(at 91.694 69.088 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/sn74lvc1g139.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1731105583281&ref_url=https%253A%252F%252Fwww.ti.com%252Fgeneral%252Fdocs%252Fsuppproductinfo.tsp%253FdistId%253D10%2526gotoUrl%253Dhttps%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Fsn74lvc1g139"
+			(at 86.36 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 86.36 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 86.36 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "SN74LVC1G139DCUR"
+			(at 86.36 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "3a3e6ea8-1493-4f40-b89b-bcb48168cf93")
+		)
+		(pin "1"
+			(uuid "9a051fa1-0588-418b-9cc6-8b2b1f51659c")
+		)
+		(pin "6"
+			(uuid "0e2d0948-af2d-4311-9013-f1d8a61e38c7")
+		)
+		(pin "5"
+			(uuid "fa28d4b5-a837-4b09-a6ab-6bd0b8ff2bdb")
+		)
+		(pin "8"
+			(uuid "49d76f4f-5a76-4cf4-a8f5-628b7ea1d914")
+		)
+		(pin "3"
+			(uuid "cc79f218-f599-4544-beea-0218999741f9")
+		)
+		(pin "4"
+			(uuid "9d0dbef4-6de4-419e-8280-fa89ffe0bb94")
+		)
+		(pin "7"
+			(uuid "50ffd9bd-2149-4dd3-9f07-7afe9c203959")
+		)
+		(instances
+			(project ""
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "U6")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x08_Socket")
@@ -4156,6 +5005,95 @@
 			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
 					(reference "#PWR03")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:Thermistor")
+		(at 177.8 91.44 0)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3d0952eb-6e53-484f-9743-95b395ed6946")
+		(property "Reference" "TH1"
+			(at 177.8 90.17 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Thermistor"
+			(at 180.467 90.297 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 177.8 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.murata.com/products/productdata/8796839149598/NTHCG158.txt?1437969900000"
+			(at 177.8 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 177.8 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
+			(at 177.8 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "NCP18XM472J03RB"
+			(at 177.8 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "fa258cad-cea1-4b35-8942-53f023cd98b8")
+		)
+		(pin "2"
+			(uuid "be9b5e01-7e22-4922-a6fe-62fc3e9c42ca")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "TH1")
 					(unit 1)
 				)
 			)
@@ -4571,6 +5509,160 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Small")
+		(at 106.68 50.8 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "77beede5-5624-42e9-bdb8-d7b7e5523843")
+		(property "Reference" "C4"
+			(at 110.49 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Value" "0.1μF"
+			(at 109.22 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 106.68 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://search.kemet.com/download/datasheet/C0603C101J1HACAUTO"
+			(at 106.68 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 106.68 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "KEMET"
+			(at 106.68 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "C0603C101J1HACAUTO"
+			(at 106.68 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3306d41c-7343-41bb-a702-3e02ed5e04ef")
+		)
+		(pin "2"
+			(uuid "2f31db9c-9fb5-4c9b-91fe-b6dd348c860b")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "C4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 95.25 128.27 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7b043d22-707c-49e4-a5e4-ebb863057af4")
+		(property "Reference" "#PWR08"
+			(at 95.25 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 95.25 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 95.25 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 95.25 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 95.25 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b9ba75d6-b36b-49a7-8bfc-6a3942bcffb0")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "#PWR08")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:LED_Pad")
 		(at 166.37 50.8 0)
 		(unit 1)
@@ -4763,6 +5855,91 @@
 			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
 					(reference "IC1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 179.07 41.91 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "82fd75f4-0f24-4280-9d4a-75f44c68909c")
+		(property "Reference" "R2"
+			(at 181.864 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "0"
+			(at 179.07 41.91 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 177.292 41.91 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.keyelco.com/userAssets/file/M65p54.pdf"
+			(at 179.07 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 179.07 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Keystone Electronics"
+			(at 179.07 41.91 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "5104"
+			(at 179.07 41.91 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "32f231b3-75d7-4beb-b0fb-3b377e167810")
+		)
+		(pin "2"
+			(uuid "1ae2ab29-391b-497f-bda3-290aad4b5c2a")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "R2")
 					(unit 1)
 				)
 			)
@@ -5362,6 +6539,71 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 106.68 53.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a1e9cf3f-0730-4832-b005-e86803615214")
+		(property "Reference" "#PWR07"
+			(at 106.68 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 106.68 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 106.68 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 106.68 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 106.68 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0d51a0af-6560-4ae0-8a19-be40987542bd")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "#PWR07")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C_Small")
 		(at 179.07 109.22 180)
 		(unit 1)
@@ -5444,6 +6686,71 @@
 			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
 					(reference "C2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 177.8 96.52 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "beea84eb-4066-4d6b-8a6b-65e8f02eb888")
+		(property "Reference" "#PWR06"
+			(at 177.8 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 177.8 100.584 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 177.8 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 177.8 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 177.8 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "cb6c7535-64ba-4d77-a4ff-3524b033d6f9")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "#PWR06")
 					(unit 1)
 				)
 			)
@@ -5574,6 +6881,94 @@
 			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
 					(reference "H4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Motor:Fan")
+		(at 95.25 123.19 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ce7a6db1-eb56-41ca-a95a-611129b66c41")
+		(property "Reference" "M1"
+			(at 99.2632 121.9778 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Fan"
+			(at 99.2632 124.4021 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 95.25 122.936 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.sunon.com/PROSEARCH_FILES/(D03033640G-01)-1.pdf"
+			(at 95.25 122.936 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Fan"
+			(at 95.25 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Sunon Fans"
+			(at 95.25 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "HA30101V3-1000U-A99"
+			(at 95.25 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "dcf16e1c-7b6c-4908-ac52-2cb6a2513016")
+		)
+		(pin "1"
+			(uuid "7c98fa6e-3632-478a-a2e7-8b7e4d648100")
+		)
+		(instances
+			(project ""
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "M1")
 					(unit 1)
 				)
 			)
@@ -6108,6 +7503,71 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 87.63 55.88 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f28bf31d-9780-41a0-a7f7-2fa743f3b2ea")
+		(property "Reference" "#PWR04"
+			(at 87.63 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 87.63 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 87.63 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 87.63 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 87.63 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "045aeafc-6ff6-4ce0-823d-9ca4f58971b6")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "#PWR04")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:D_Schottky")
 		(at 142.24 87.63 0)
 		(unit 1)
@@ -6187,71 +7647,6 @@
 			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
 					(reference "D1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 113.03 63.5 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "f7acee53-ba5f-4d98-bcdb-1af696bf99d4")
-		(property "Reference" "#PWR04"
-			(at 113.03 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 113.03 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 113.03 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 113.03 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 113.03 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "fa5efa96-7ce0-48ca-918d-da1a3edfcf7c")
-		)
-		(instances
-			(project "30 mm Cage Plate LED MCPCB"
-				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
-					(reference "#PWR04")
 					(unit 1)
 				)
 			)
