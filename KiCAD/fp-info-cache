@@ -1,4 +1,4 @@
-24213276844995442
+24220202929454373
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -54796,6 +54796,13 @@ Symbol, Creative Commons Public Domain, SilkScreen Top, Small,
 0
 0
 Custom
+DFN6_TDS3011_SEM
+
+TDS3011P.C 
+0
+6
+2
+Custom
 D_SOD-128
 D_SOD-128 (CFP5 SlimSMAW), https://assets.nexperia.com/documents/outline-drawing/SOD128.pdf
 D_SOD-128
@@ -54838,6 +54845,13 @@ XEGABL-H2-0000-000-000000P4005
 3
 3
 Custom
+PTVS20VD1ULZ
+
+PTVS20VD1ULZ 
+0
+2
+2
+Custom
 SAMTEC_SSM-104-L-SH
 
 
@@ -54866,6 +54880,13 @@ AL8843QSP-13
 9
 9
 Custom
+SOP-8_3.9x4.9mm_P1.27mm
+SOP, 8 Pin (http://www.macronix.com/Lists/Datasheet/Attachments/7534/MX25R3235F,%20Wide%20Range,%2032Mb,%20v1.6.pdf#page=79), generated with kicad-footprint-generator ipc_gullwing_generator.py
+SOP SO
+0
+8
+8
+Custom
 SOP50P310X90-8N
 
 
@@ -54886,6 +54907,13 @@ TLP3480TP_E
 0
 4
 4
+Custom
+WDFN8-511DH-O
+
+FDMC86139P 
+0
+9
+3
 Diode_SMD
 D_0201_0603Metric
 Diode SMD 0201 (0603 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: https://www.vishay.com/docs/20052/crcw0201e3.pdf), generated with kicad-footprint-generator
