@@ -66,24 +66,34 @@
 	)
 	(attr smd)
 	(fp_line
-		(start -0.249716 0.9271)
-		(end 0.249716 0.9271)
+		(start -0.85 0.9)
+		(end 1.25 0.9)
 		(stroke
-			(width 0.1524)
-			(type solid)
+			(width 0.15)
+			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "c3e06dc7-46f9-4181-8c1c-e889659c3a7d")
+		(uuid "e23f2d64-0e0a-48a7-8220-fa3193f62dad")
 	)
 	(fp_line
-		(start 0.249716 -0.9271)
-		(end -0.249716 -0.9271)
+		(start 1.25 -0.9)
+		(end -0.85 -0.9)
 		(stroke
-			(width 0.1524)
-			(type solid)
+			(width 0.15)
+			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "33d83efc-49d1-499f-8d96-228cf43f1a67")
+		(uuid "6e8de34a-0386-4a3f-8012-3f7a6c8f45e8")
+	)
+	(fp_line
+		(start 1.25 0.9)
+		(end 1.25 -0.9)
+		(stroke
+			(width 0.15)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "b62adfc6-c17f-43ce-8631-831f84b37af9")
 	)
 	(fp_line
 		(start -1.3589 -0.881126)
@@ -268,7 +278,7 @@
 		(uuid "967da351-4766-405e-9e45-b2d9f5bea20b")
 	)
 	(fp_text user "*"
-		(at -2.14 0.32 0)
+		(at -2.2 0.1 0)
 		(unlocked yes)
 		(layer "F.SilkS")
 		(uuid "2109eb14-33fe-4ea1-8e21-954c5780e5ba")
@@ -327,6 +337,12 @@
 		(size 0.7112 0.254)
 		(layers "F.Cu" "F.Paste" "F.Mask")
 		(uuid "ee9ffebd-98b3-471c-bb27-5caaacb38d1b")
+	)
+	(group ""
+		(uuid "84f752bc-6371-43d9-8b1e-d4bfc207769e")
+		(members "6e8de34a-0386-4a3f-8012-3f7a6c8f45e8" "b62adfc6-c17f-43ce-8631-831f84b37af9"
+			"e23f2d64-0e0a-48a7-8220-fa3193f62dad"
+		)
 	)
 	(model "${KIPRJMOD}/CAD models/DFN6_TDS3011_SEM.step"
 		(offset

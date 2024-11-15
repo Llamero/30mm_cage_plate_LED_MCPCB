@@ -1955,6 +1955,128 @@
 				)
 			)
 		)
+		(symbol "Device:R_Small"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0.254) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "R"
+				(at 0.762 0.508 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "R_Small"
+				(at 0.762 -1.016 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Resistor, small symbol"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "R resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "R_Small_0_1"
+				(rectangle
+					(start -0.762 1.778)
+					(end 0.762 -1.778)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_Small_1_1"
+				(pin passive line
+					(at 0 2.54 270)
+					(length 0.762)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 90)
+					(length 0.762)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Device:Thermistor"
 			(pin_numbers hide)
 			(pin_names
@@ -3530,6 +3652,12 @@
 		(uuid "284247e1-237c-47cf-87f5-a0932999904e")
 	)
 	(junction
+		(at 189.23 111.76)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2d90c7f0-a9f9-4c25-a710-f85f027ecda3")
+	)
+	(junction
 		(at 170.18 52.07)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3638,12 +3766,6 @@
 		(uuid "cb99129a-62f0-41ab-a91a-4e7499e77490")
 	)
 	(junction
-		(at 184.15 111.76)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d7175024-bd7c-4187-b812-83a984027bac")
-	)
-	(junction
 		(at 173.99 111.76)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3654,6 +3776,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d89ae8d8-af87-47de-ada4-5ce251a8f671")
+	)
+	(junction
+		(at 189.23 106.68)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "de55d430-4de0-49b8-b5aa-8cd73bc761e5")
 	)
 	(junction
 		(at 175.26 69.85)
@@ -3672,6 +3800,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e669fcda-37a8-4864-a781-bab64afd91ae")
+	)
+	(junction
+		(at 184.15 111.76)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f8c3a0cd-8f18-441f-83db-351c9e9cffab")
 	)
 	(junction
 		(at 125.73 58.42)
@@ -3811,16 +3945,6 @@
 	)
 	(wire
 		(pts
-			(xy 186.69 106.68) (xy 186.69 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3479632c-6c0f-4664-9230-edaf49e6a17f")
-	)
-	(wire
-		(pts
 			(xy 125.73 22.86) (xy 125.73 30.48)
 		)
 		(stroke
@@ -3931,16 +4055,6 @@
 	)
 	(wire
 		(pts
-			(xy 186.69 111.76) (xy 195.58 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "65c2795c-2273-4867-a917-5b96d0280f91")
-	)
-	(wire
-		(pts
 			(xy 156.21 111.76) (xy 163.83 111.76)
 		)
 		(stroke
@@ -3971,6 +4085,16 @@
 	)
 	(wire
 		(pts
+			(xy 189.23 111.76) (xy 194.31 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6c311391-ff85-43e6-afc7-a57978e1dac8")
+	)
+	(wire
+		(pts
 			(xy 125.73 20.32) (xy 125.73 22.86)
 		)
 		(stroke
@@ -3991,6 +4115,16 @@
 	)
 	(wire
 		(pts
+			(xy 189.23 106.68) (xy 194.31 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "752808dd-f7e5-4099-9005-2f1219cd9c65")
+	)
+	(wire
+		(pts
 			(xy 170.18 44.45) (xy 170.18 52.07)
 		)
 		(stroke
@@ -3998,16 +4132,6 @@
 			(type default)
 		)
 		(uuid "7a70019a-aa56-4f9e-99d7-bd85dbb22d8e")
-	)
-	(wire
-		(pts
-			(xy 157.48 116.84) (xy 195.58 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7a772049-80b3-4ca3-b4f8-dc25531b4760")
 	)
 	(wire
 		(pts
@@ -4031,7 +4155,7 @@
 	)
 	(wire
 		(pts
-			(xy 184.15 106.68) (xy 186.69 106.68)
+			(xy 184.15 106.68) (xy 189.23 106.68)
 		)
 		(stroke
 			(width 0)
@@ -4068,16 +4192,6 @@
 			(type default)
 		)
 		(uuid "8df8bed7-efcf-4852-a74b-d2042c2a850a")
-	)
-	(wire
-		(pts
-			(xy 184.15 111.76) (xy 184.15 114.3)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "906b5f09-2c8d-4175-bd97-8cc6925b761d")
 	)
 	(wire
 		(pts
@@ -4158,6 +4272,16 @@
 			(type default)
 		)
 		(uuid "a9145043-7cd7-4add-866d-753082b71d99")
+	)
+	(wire
+		(pts
+			(xy 184.15 111.76) (xy 189.23 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aa39f9e2-1859-4a71-86c4-b8cf6b7d677b")
 	)
 	(wire
 		(pts
@@ -4311,6 +4435,16 @@
 	)
 	(wire
 		(pts
+			(xy 208.28 114.3) (xy 210.82 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e9ca025c-5e6f-44e1-8f4e-af853760a8ed")
+	)
+	(wire
+		(pts
 			(xy 162.56 69.85) (xy 162.56 72.39)
 		)
 		(stroke
@@ -4359,16 +4493,6 @@
 		)
 		(uuid "f98bc87a-c11c-4c66-af93-19d7a7c04c58")
 	)
-	(wire
-		(pts
-			(xy 184.15 114.3) (xy 195.58 114.3)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f9bc06f6-2461-4271-a654-7f3137dea980")
-	)
 	(label "Vin"
 		(at 113.03 111.76 180)
 		(fields_autoplaced yes)
@@ -4390,6 +4514,17 @@
 			(justify left bottom)
 		)
 		(uuid "1fdc323c-42fd-42c4-9be1-8e907cac8ac7")
+	)
+	(label "Vin"
+		(at 210.82 116.84 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "212f21a1-f291-4d3e-9399-b54839e61a57")
 	)
 	(label "4"
 		(at 185.42 69.85 0)
@@ -4458,7 +4593,7 @@
 		(uuid "696cafec-2bb4-4654-8636-39edb519ab14")
 	)
 	(label "3"
-		(at 195.58 104.14 180)
+		(at 210.82 104.14 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4480,7 +4615,7 @@
 		(uuid "787ff7a3-8169-449a-a7c8-776a627463c7")
 	)
 	(label "1"
-		(at 195.58 99.06 180)
+		(at 210.82 99.06 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4491,7 +4626,7 @@
 		(uuid "79c48a70-5b3b-4977-b407-19a3008afce1")
 	)
 	(label "2"
-		(at 195.58 101.6 180)
+		(at 210.82 101.6 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4513,7 +4648,7 @@
 		(uuid "7f5f3e11-5f18-4d97-a891-16f2f61bb2d3")
 	)
 	(label "Temp"
-		(at 195.58 109.22 180)
+		(at 210.82 109.22 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4567,6 +4702,17 @@
 		)
 		(uuid "b6d6341c-dce0-4f1e-a517-b012285cab76")
 	)
+	(label "PWM"
+		(at 210.82 111.76 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "cdc98efa-f991-48c4-a967-b5256d1e8914")
+	)
 	(label "LED-"
 		(at 156.21 95.25 180)
 		(fields_autoplaced yes)
@@ -4601,7 +4747,7 @@
 		(uuid "dd9cba8d-c904-4291-a3f8-39e503208b42")
 	)
 	(label "4"
-		(at 195.58 106.68 180)
+		(at 210.82 106.68 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4717,8 +4863,96 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Small")
+		(at 194.31 109.22 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2958ec72-6e6a-47b5-82b9-5069063b8082")
+		(property "Reference" "C5"
+			(at 198.12 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Value" "22μF"
+			(at 196.85 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 194.31 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/339/CL21A226MAYNNNE_Spec.pdf"
+			(at 194.31 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 194.31 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 194.31 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "CL21A226MAYNNNE"
+			(at 194.31 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b2abf33b-e925-471a-b75a-fb97acc7e1a6")
+		)
+		(pin "2"
+			(uuid "3c20166a-509a-4b83-824a-98d217642d59")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "C5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:Conn_01x08_Socket")
-		(at 200.66 109.22 0)
+		(at 215.9 109.22 0)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4727,7 +4961,7 @@
 		(dnp no)
 		(uuid "29b70df7-7b24-4ba6-a748-93213cae49d1")
 		(property "Reference" "J1"
-			(at 201.3712 109.1622 0)
+			(at 216.6112 109.1622 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4736,7 +4970,7 @@
 			)
 		)
 		(property "Value" "Conn_01x08_Socket"
-			(at 201.3712 106.7379 0)
+			(at 216.6112 106.7379 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4745,7 +4979,7 @@
 			)
 		)
 		(property "Footprint" "Custom:SAMTEC_SSM-108-F-SH-TR"
-			(at 200.66 109.22 0)
+			(at 215.9 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4754,7 +4988,7 @@
 			)
 		)
 		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/6129/ssm-1xx-xxx-xx-xx-xx-xx-x-xx-mkt.pdf"
-			(at 200.66 109.22 0)
+			(at 215.9 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4763,7 +4997,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x08, script generated"
-			(at 200.66 109.22 0)
+			(at 215.9 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4772,7 +5006,7 @@
 			)
 		)
 		(property "Manufacturer" "Samtec Inc."
-			(at 200.66 109.22 0)
+			(at 215.9 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4781,7 +5015,7 @@
 			)
 		)
 		(property "Part" "SSM-108-F-SH-TR"
-			(at 200.66 109.22 0)
+			(at 215.9 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4858,7 +5092,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/PTVS20VD1UL.pdf"
+		(property "Datasheet" "https://semtech.my.salesforce.com/sfc/p/#E0000000JelG/a/2R000000UnaW/6sOvwFk2B_mQIjtUCoaHvma6qnHHWm9s784Kyn_XC9w"
 			(at 148.59 72.39 0)
 			(effects
 				(font
@@ -5075,6 +5309,72 @@
 			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
 					(reference "SYM2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 157.48 121.92 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "54dbd532-b4cc-4dd1-8b05-9eadc7a79e89")
+		(property "Reference" "#PWR03"
+			(at 157.48 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 157.48 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 157.48 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 157.48 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 157.48 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ad3653bb-4daa-4e3d-87e6-0a3e9ea37d57")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "#PWR03")
 					(unit 1)
 				)
 			)
@@ -5998,6 +6298,94 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Small")
+		(at 189.23 109.22 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "918a9c73-0b3b-4e22-9927-22a3d610b2dc")
+		(property "Reference" "C4"
+			(at 193.04 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Value" "22μF"
+			(at 191.77 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 189.23 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/339/CL21A226MAYNNNE_Spec.pdf"
+			(at 189.23 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 189.23 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 189.23 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "CL21A226MAYNNNE"
+			(at 189.23 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "71f362c3-9768-4dd0-9fab-137f62f0d31e")
+		)
+		(pin "2"
+			(uuid "b9005a14-4b50-4f1f-8898-e0112457f2b2")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "C4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Mechanical:Heatsink")
 		(at 93.98 111.76 0)
 		(unit 1)
@@ -6334,6 +6722,71 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 208.28 114.3 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9fa89103-f148-4a91-a816-b93d57719b79")
+		(property "Reference" "#PWR04"
+			(at 201.93 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 203.454 114.3 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 208.28 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 208.28 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 208.28 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "fdd29358-67fe-4e65-bbaa-bc9bf20ce789")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "#PWR04")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C_Small")
 		(at 179.07 109.22 180)
 		(unit 1)
@@ -6488,32 +6941,32 @@
 	)
 	(symbol
 		(lib_id "Device:R_Pack04")
-		(at 180.34 67.31 270)
+		(at 180.34 64.77 270)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "c0b9f92d-3946-4f23-a861-6fc72f3baf95")
 		(property "Reference" "RN1"
-			(at 180.34 56.8155 90)
+			(at 180.34 58.166 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "2200"
-			(at 180.34 59.2398 90)
+		(property "Value" "4700"
+			(at 180.34 59.944 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_Array_Convex_4x0603"
-			(at 180.34 74.295 90)
+		(property "Footprint" "Resistor_SMD:R_Array_Convex_4x1206"
+			(at 180.34 57.785 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6522,7 +6975,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.yageo.com/upload/media/product/app/datasheet/rchip/pyu-yc_tc_group_51_rohs_l.pdf"
-			(at 180.34 67.31 0)
+			(at 180.34 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6531,7 +6984,7 @@
 			)
 		)
 		(property "Description" "4 resistor network, parallel topology"
-			(at 180.34 67.31 0)
+			(at 180.34 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6540,7 +6993,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 180.34 67.31 0)
+			(at 180.34 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6548,8 +7001,8 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "YC164-JR-072K2L"
-			(at 180.34 67.31 0)
+		(property "Part" "YC324-JK-074K7L"
+			(at 180.34 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7108,6 +7561,93 @@
 			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
 					(reference "C3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 157.48 119.38 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e8d90dfd-15bb-446f-bbc4-00ffecc8933c")
+		(property "Reference" "R2"
+			(at 158.9786 118.1678 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4700"
+			(at 158.75 120.142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 157.48 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf"
+			(at 157.48 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 157.48 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Stackpole Electronics Inc"
+			(at 157.48 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "RMCF0603FT4K70"
+			(at 157.48 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "74f692d4-3756-4878-abb1-f35674890f7b")
+		)
+		(pin "1"
+			(uuid "6757a9d0-05af-445e-87ce-2db0eb522260")
+		)
+		(instances
+			(project ""
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "R2")
 					(unit 1)
 				)
 			)
