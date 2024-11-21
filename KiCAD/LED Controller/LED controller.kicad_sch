@@ -4332,6 +4332,141 @@
 				)
 			)
 		)
+		(symbol "Device:C_Small"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0.254) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "C"
+				(at 0.254 1.778 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "C_Small"
+				(at 0.254 -2.032 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Unpolarized capacitor, small symbol"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "capacitor cap"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "C_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "C_Small_0_1"
+				(polyline
+					(pts
+						(xy -1.524 -0.508) (xy 1.524 -0.508)
+					)
+					(stroke
+						(width 0.3302)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.524 0.508) (xy 1.524 0.508)
+					)
+					(stroke
+						(width 0.3048)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C_Small_1_1"
+				(pin passive line
+					(at 0 2.54 270)
+					(length 2.032)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 90)
+					(length 2.032)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Device:R_Pack04"
 			(pin_names
 				(offset 0) hide)
@@ -5917,16 +6052,46 @@
 		)
 	)
 	(junction
+		(at 149.86 38.1)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "12f78fa4-ecb0-4d63-aa6d-2f2531a5803a")
+	)
+	(junction
+		(at 96.52 29.21)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "331e54a6-945c-4a7e-83cb-3277c37c451c")
+	)
+	(junction
 		(at 105.41 39.37)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "33236f83-92f1-4928-875d-6a25c93715e9")
 	)
 	(junction
-		(at 166.37 33.02)
+		(at 66.04 38.1)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4b88e740-661d-4196-8f01-32614cc1bfb4")
+	)
+	(junction
+		(at 180.34 33.02)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6220c45c-8846-4d22-a084-e7d48a2927da")
+	)
+	(junction
+		(at 120.65 29.21)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "794a07d7-e0ff-4048-8203-74068520ff59")
+	)
+	(junction
+		(at 115.57 29.21)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7a8ee0f2-4855-4674-97d9-cc52a0f92bca")
 	)
 	(junction
 		(at 114.3 177.8)
@@ -5935,7 +6100,7 @@
 		(uuid "819a173d-6880-4258-9316-c8e7e4b3c637")
 	)
 	(junction
-		(at 166.37 35.56)
+		(at 180.34 35.56)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "902fdbc6-e57c-46a1-9f9d-26fca07f5be6")
@@ -5947,16 +6112,22 @@
 		(uuid "90f4c19e-3ca3-4a20-a93f-374317478630")
 	)
 	(junction
-		(at 115.57 29.21)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9abecfa1-eca1-49fb-a6de-3256e52d6486")
-	)
-	(junction
 		(at 107.95 29.21)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a982cafc-6977-4912-b03f-55baf8dc5b18")
+	)
+	(junction
+		(at 115.57 39.37)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c36439a7-c93a-423f-a428-a689159f105b")
+	)
+	(junction
+		(at 96.52 39.37)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d8cac445-5343-404e-b5c1-fcdae098c0fb")
 	)
 	(junction
 		(at 107.95 39.37)
@@ -5977,7 +6148,7 @@
 		(uuid "6a6cecad-e28b-46c1-94d1-e6e4dfeec86c")
 	)
 	(no_connect
-		(at 156.21 38.1)
+		(at 170.18 38.1)
 		(uuid "8094761b-f126-421b-9521-c018793657ee")
 	)
 	(no_connect
@@ -6031,6 +6202,26 @@
 			(type default)
 		)
 		(uuid "0d3a84cb-ebf0-493a-8fd6-b4a61773ca28")
+	)
+	(wire
+		(pts
+			(xy 140.97 30.48) (xy 149.86 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0f07dbb6-8942-49fe-a91a-03128801db8f")
+	)
+	(wire
+		(pts
+			(xy 106.68 146.05) (xy 114.3 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1018a094-d3dc-4ed1-b815-5d335619ed8f")
 	)
 	(wire
 		(pts
@@ -6104,7 +6295,7 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 33.02) (xy 166.37 35.56)
+			(xy 180.34 33.02) (xy 180.34 35.56)
 		)
 		(stroke
 			(width 0)
@@ -6121,16 +6312,6 @@
 			(type default)
 		)
 		(uuid "2efbc348-eb48-40c5-b408-228ea13b102c")
-	)
-	(wire
-		(pts
-			(xy 97.79 33.02) (xy 97.79 29.21)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2f571210-d61c-4256-825f-0bb36c9e068d")
 	)
 	(wire
 		(pts
@@ -6171,16 +6352,6 @@
 			(type default)
 		)
 		(uuid "35977cf6-4f2f-4d19-918b-d4cbcfdf0426")
-	)
-	(wire
-		(pts
-			(xy 90.17 35.56) (xy 97.79 35.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "35fcedad-9e8f-4a47-aefb-9e5087a983f1")
 	)
 	(wire
 		(pts
@@ -6254,6 +6425,26 @@
 	)
 	(wire
 		(pts
+			(xy 87.63 35.56) (xy 87.63 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "52e84677-286a-4839-b1d3-7fe26f0e01a1")
+	)
+	(wire
+		(pts
+			(xy 88.9 33.02) (xy 88.9 29.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "55683335-2681-4a06-ac3a-9bac3f8162ad")
+	)
+	(wire
+		(pts
 			(xy 251.46 83.82) (xy 266.7 83.82)
 		)
 		(stroke
@@ -6264,13 +6455,13 @@
 	)
 	(wire
 		(pts
-			(xy 97.79 29.21) (xy 100.33 29.21)
+			(xy 96.52 36.83) (xy 96.52 39.37)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "61b84e5d-868a-4e5f-a0cc-3cf724c4e321")
+		(uuid "63d86910-4d27-4706-b52b-d683a6801cb9")
 	)
 	(wire
 		(pts
@@ -6294,6 +6485,16 @@
 	)
 	(wire
 		(pts
+			(xy 149.86 35.56) (xy 149.86 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6b87eb7c-0b33-42b7-83b5-4e0fbd050cc6")
+	)
+	(wire
+		(pts
 			(xy 251.46 60.96) (xy 266.7 60.96)
 		)
 		(stroke
@@ -6301,16 +6502,6 @@
 			(type default)
 		)
 		(uuid "6ceaa8f0-6e80-41b3-a017-db57bf19493d")
-	)
-	(wire
-		(pts
-			(xy 97.79 39.37) (xy 100.33 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6e8b5a94-20de-430a-a7af-b3e6d98b8814")
 	)
 	(wire
 		(pts
@@ -6331,6 +6522,16 @@
 			(type default)
 		)
 		(uuid "7826fc28-3a96-471f-a5cb-08fdd7bce4e8")
+	)
+	(wire
+		(pts
+			(xy 87.63 39.37) (xy 96.52 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "78e704f6-5276-4a50-ad67-80e1fc8b8921")
 	)
 	(wire
 		(pts
@@ -6414,7 +6615,7 @@
 	)
 	(wire
 		(pts
-			(xy 115.57 35.56) (xy 115.57 39.37)
+			(xy 120.65 35.56) (xy 120.65 39.37)
 		)
 		(stroke
 			(width 0)
@@ -6424,7 +6625,7 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 30.48) (xy 166.37 33.02)
+			(xy 180.34 30.48) (xy 180.34 33.02)
 		)
 		(stroke
 			(width 0)
@@ -6444,6 +6645,26 @@
 	)
 	(wire
 		(pts
+			(xy 115.57 39.37) (xy 120.65 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "86723eb9-3eaa-47a0-9384-a04ae4d7e00f")
+	)
+	(wire
+		(pts
+			(xy 66.04 35.56) (xy 66.04 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "887d1ec5-a278-4c65-9d34-5b2e6e8aa001")
+	)
+	(wire
+		(pts
 			(xy 187.96 88.9) (xy 203.2 88.9)
 		)
 		(stroke
@@ -6451,6 +6672,16 @@
 			(type default)
 		)
 		(uuid "8e4ccb62-c2df-478e-a904-81c1e9dcd773")
+	)
+	(wire
+		(pts
+			(xy 96.52 29.21) (xy 100.33 29.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8fa62d11-451b-47e5-bacd-b1baec6170db")
 	)
 	(wire
 		(pts
@@ -6474,6 +6705,16 @@
 	)
 	(wire
 		(pts
+			(xy 66.04 38.1) (xy 72.39 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "997ff346-a597-49b5-a417-30ab53d2970e")
+	)
+	(wire
+		(pts
 			(xy 187.96 45.72) (xy 203.2 45.72)
 		)
 		(stroke
@@ -6481,6 +6722,16 @@
 			(type default)
 		)
 		(uuid "9c68f11e-0bda-4559-a5f4-0344013e133b")
+	)
+	(wire
+		(pts
+			(xy 85.09 35.56) (xy 87.63 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9d9e5853-0806-4c44-9d0e-165fb4146ce6")
 	)
 	(wire
 		(pts
@@ -6534,6 +6785,16 @@
 	)
 	(wire
 		(pts
+			(xy 69.85 81.28) (xy 76.2 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "afcefe2f-c9c8-4f90-b957-0fb86749cf88")
+	)
+	(wire
+		(pts
 			(xy 251.46 96.52) (xy 266.7 96.52)
 		)
 		(stroke
@@ -6574,13 +6835,13 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 33.02) (xy 97.79 33.02)
+			(xy 85.09 33.02) (xy 88.9 33.02)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "b9d45184-a121-4035-8031-b0e08594a8c2")
+		(uuid "bac58333-5b80-4928-ae0a-e338b379720d")
 	)
 	(wire
 		(pts
@@ -6594,6 +6855,26 @@
 	)
 	(wire
 		(pts
+			(xy 115.57 29.21) (xy 115.57 31.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bc4a1250-9f57-40e9-8509-f216f05c62fc")
+	)
+	(wire
+		(pts
+			(xy 96.52 29.21) (xy 96.52 31.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bc50f8d0-196b-4486-b070-b07d0ff86a3e")
+	)
+	(wire
+		(pts
 			(xy 187.96 78.74) (xy 203.2 78.74)
 		)
 		(stroke
@@ -6604,7 +6885,7 @@
 	)
 	(wire
 		(pts
-			(xy 115.57 29.21) (xy 115.57 33.02)
+			(xy 120.65 29.21) (xy 120.65 33.02)
 		)
 		(stroke
 			(width 0)
@@ -6614,13 +6895,13 @@
 	)
 	(wire
 		(pts
-			(xy 97.79 35.56) (xy 97.79 39.37)
+			(xy 115.57 29.21) (xy 120.65 29.21)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "c455f239-029d-49e1-a072-b662070bdddc")
+		(uuid "c309229d-1f36-4f03-af05-d3f5cd2724fa")
 	)
 	(wire
 		(pts
@@ -6634,13 +6915,33 @@
 	)
 	(wire
 		(pts
-			(xy 115.57 33.02) (xy 123.19 33.02)
+			(xy 132.08 120.65) (xy 139.7 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c95040a0-7871-40e4-9903-7d85c2cdb21d")
+	)
+	(wire
+		(pts
+			(xy 120.65 33.02) (xy 128.27 33.02)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "c9a712fe-35c1-46ad-9e7b-46a92e4660cc")
+	)
+	(wire
+		(pts
+			(xy 66.04 30.48) (xy 72.39 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d2f3a55c-50df-4dcf-b571-339d5b0db505")
 	)
 	(wire
 		(pts
@@ -6674,7 +6975,7 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 35.56) (xy 166.37 38.1)
+			(xy 180.34 35.56) (xy 180.34 38.1)
 		)
 		(stroke
 			(width 0)
@@ -6694,6 +6995,16 @@
 	)
 	(wire
 		(pts
+			(xy 69.85 110.49) (xy 76.2 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dbc8b2ca-6bab-4daa-82c3-d7de7d179a03")
+	)
+	(wire
+		(pts
 			(xy 92.71 88.9) (xy 92.71 91.44)
 		)
 		(stroke
@@ -6701,6 +7012,26 @@
 			(type default)
 		)
 		(uuid "dcad262f-baf7-443e-92d7-3f16149d4a49")
+	)
+	(wire
+		(pts
+			(xy 88.9 29.21) (xy 96.52 29.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dde89d0b-43f0-4bc5-b970-9cd08ee99ed0")
+	)
+	(wire
+		(pts
+			(xy 97.79 162.56) (xy 114.3 162.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e2ea8668-19e7-4ef1-bc2a-dc8875b94794")
 	)
 	(wire
 		(pts
@@ -6714,6 +7045,26 @@
 	)
 	(wire
 		(pts
+			(xy 133.35 162.56) (xy 146.05 162.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e664f995-9b07-4143-b3b8-661dec4e3733")
+	)
+	(wire
+		(pts
+			(xy 115.57 36.83) (xy 115.57 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e73487f2-c6b7-4c53-90d2-f42e69a3befb")
+	)
+	(wire
+		(pts
 			(xy 187.96 68.58) (xy 203.2 68.58)
 		)
 		(stroke
@@ -6721,6 +7072,16 @@
 			(type default)
 		)
 		(uuid "e96c2456-0a9f-4826-8b6a-02a6beeab75f")
+	)
+	(wire
+		(pts
+			(xy 69.85 52.07) (xy 76.2 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e9ddf0bf-c732-49ef-9086-f58f05bd7ee9")
 	)
 	(wire
 		(pts
@@ -6744,7 +7105,17 @@
 	)
 	(wire
 		(pts
-			(xy 123.19 35.56) (xy 115.57 35.56)
+			(xy 96.52 39.37) (xy 100.33 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eda9076f-9adb-45d1-bbb8-689c61244af2")
+	)
+	(wire
+		(pts
+			(xy 128.27 35.56) (xy 120.65 35.56)
 		)
 		(stroke
 			(width 0)
@@ -6791,6 +7162,16 @@
 			(type default)
 		)
 		(uuid "fd943795-4e52-4f3b-9d4f-eb88eee55444")
+	)
+	(wire
+		(pts
+			(xy 140.97 38.1) (xy 149.86 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fe93fd2a-eddb-4334-ac89-8653bb1c5459")
 	)
 	(label "LED_PWM3"
 		(at 132.08 138.43 0)
@@ -6859,7 +7240,7 @@
 		(uuid "093120fc-4249-454a-a345-e3793d955497")
 	)
 	(label "Temp2"
-		(at 156.21 33.02 180)
+		(at 170.18 33.02 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -6947,7 +7328,7 @@
 		(uuid "12abc684-42af-4806-ad01-e219d74fa093")
 	)
 	(label "18V"
-		(at 77.47 35.56 180)
+		(at 72.39 35.56 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -6991,7 +7372,7 @@
 		(uuid "16c004d8-74eb-4542-83a5-4cdaf64f8962")
 	)
 	(label "3v3"
-		(at 90.17 33.02 0)
+		(at 85.09 33.02 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7178,7 +7559,7 @@
 		(uuid "341727c7-7062-4e35-a481-d4220f66ffe1")
 	)
 	(label "Temp1"
-		(at 156.21 30.48 180)
+		(at 170.18 30.48 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7233,7 +7614,7 @@
 		(uuid "39fb8fb3-8e80-4d8d-a5c0-61856e37bf09")
 	)
 	(label "5V"
-		(at 135.89 35.56 0)
+		(at 140.97 35.56 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7442,7 +7823,7 @@
 		(uuid "5b15d7bb-2a53-404f-bfa9-9da9c64276c1")
 	)
 	(label "3v3"
-		(at 77.47 33.02 180)
+		(at 72.39 33.02 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7706,7 +8087,7 @@
 		(uuid "7875be1c-64a4-455a-b3c9-873dedab4454")
 	)
 	(label "Temp3"
-		(at 156.21 35.56 180)
+		(at 170.18 35.56 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7794,7 +8175,7 @@
 		(uuid "84a760a5-ea09-4737-80f0-6d482bec4782")
 	)
 	(label "18V"
-		(at 90.17 35.56 0)
+		(at 85.09 35.56 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7904,7 +8285,7 @@
 		(uuid "94703a27-1dbc-4a0b-9e95-3d8dd3c4fa51")
 	)
 	(label "12V"
-		(at 90.17 30.48 0)
+		(at 85.09 30.48 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8025,7 +8406,7 @@
 		(uuid "a5959c03-40d3-4c7c-9aa1-c04bb27541d1")
 	)
 	(label "12V"
-		(at 123.19 30.48 180)
+		(at 128.27 30.48 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8047,7 +8428,7 @@
 		(uuid "a9757830-1a59-44fd-bdb0-3fb0dfeac50c")
 	)
 	(label "12V"
-		(at 77.47 30.48 180)
+		(at 72.39 30.48 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8102,7 +8483,7 @@
 		(uuid "b256f7e2-5e63-4faf-8aba-a8e888024a63")
 	)
 	(label "3v3"
-		(at 166.37 30.48 0)
+		(at 180.34 30.48 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8388,7 +8769,7 @@
 		(uuid "d86c6c3e-e5ef-4821-a9e1-ff3623172a3d")
 	)
 	(label "5V"
-		(at 123.19 35.56 180)
+		(at 128.27 35.56 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8487,7 +8868,7 @@
 		(uuid "e586406c-2bce-4dd1-aace-9951b6676e51")
 	)
 	(label "12V"
-		(at 135.89 30.48 0)
+		(at 140.97 30.48 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8606,6 +8987,71 @@
 			(justify right bottom)
 		)
 		(uuid "ffd77559-f95e-4663-a959-02720f0a7652")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 146.05 167.64 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "04d236bb-647a-4ad3-b260-5e8033e0315a")
+		(property "Reference" "#PWR045"
+			(at 146.05 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 149.606 169.672 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 146.05 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 146.05 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 146.05 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9468c54d-1d41-45eb-a17b-035709e59e2c")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "#PWR045")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -9423,6 +9869,180 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Small")
+		(at 146.05 165.1 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "264b9a6f-0356-473a-a52d-e60f28d6cdeb")
+		(property "Reference" "C10"
+			(at 148.3741 163.8941 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10µF"
+			(at 148.3741 166.3184 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 146.05 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_General_Purpose.pdf"
+			(at 146.05 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 10UF 25V X5R 0805"
+			(at 146.05 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 146.05 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "0805X106K250CT"
+			(at 146.05 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "ffd365d0-a63c-4f79-ae69-9612fd002bef")
+		)
+		(pin "1"
+			(uuid "868bc773-ba8f-4bfc-9ce2-aa6570425ff6")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "C10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 139.7 123.19 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "30317637-369c-445e-8c10-b33c38a0509b")
+		(property "Reference" "C9"
+			(at 142.0241 121.9841 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10µF"
+			(at 142.0241 124.4084 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 139.7 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_General_Purpose.pdf"
+			(at 139.7 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 10UF 25V X5R 0805"
+			(at 139.7 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 139.7 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "0805X106K250CT"
+			(at 139.7 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "a243ce38-35f4-4cef-8a5a-50c848da1e71")
+		)
+		(pin "1"
+			(uuid "25099447-9c41-4be7-96be-d3826f27af88")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "C9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 266.7 43.18 270)
 		(unit 1)
@@ -9491,6 +10111,72 @@
 	)
 	(symbol
 		(lib_id "power:GND")
+		(at 106.68 151.13 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3d046e15-bafd-42b3-8083-317e54a78864")
+		(property "Reference" "#PWR026"
+			(at 106.68 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 103.124 153.162 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 106.68 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 106.68 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 106.68 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "40e9421b-4a8d-4a72-b025-a72f1189128b")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "#PWR026")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
 		(at 76.2 128.27 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9551,6 +10237,93 @@
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
 					(reference "#PWR017")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 115.57 34.29 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "42324aff-eeff-4db3-894f-de127e214143")
+		(property "Reference" "C6"
+			(at 117.348 32.004 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10µF"
+			(at 117.602 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 115.57 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_General_Purpose.pdf"
+			(at 115.57 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 10UF 25V X5R 0805"
+			(at 115.57 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 115.57 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "0805X106K250CT"
+			(at 115.57 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "de814b52-37ca-4dff-9e79-46dbf261efa1")
+		)
+		(pin "1"
+			(uuid "cbae46a4-8c7c-4a34-bca6-fc1cdf8a01fe")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "C6")
 					(unit 1)
 				)
 			)
@@ -10486,6 +11259,72 @@
 	)
 	(symbol
 		(lib_id "power:GND")
+		(at 69.85 115.57 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5a563f53-f8e8-497f-8ae5-4e042a40c18a")
+		(property "Reference" "#PWR042"
+			(at 69.85 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 66.294 117.602 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 69.85 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 69.85 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 69.85 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4c3eebeb-0ac6-4c84-adc2-20e1a247860d")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "#PWR042")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
 		(at 251.46 43.18 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -10559,10 +11398,9 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "5cb2910d-0060-4b55-b5cc-67af55336cfb")
 		(property "Reference" "RN1"
-			(at 109.982 33.0778 0)
+			(at 109.982 34.036 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10571,7 +11409,7 @@
 			)
 		)
 		(property "Value" "3600"
-			(at 109.982 35.5021 0)
+			(at 109.982 36.068 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10929,6 +11767,182 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Small")
+		(at 69.85 54.61 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "64722fe9-dd48-43c7-b058-81cca4abf895")
+		(property "Reference" "C1"
+			(at 67.5259 53.4041 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10µF"
+			(at 67.5259 55.8284 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 69.85 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_General_Purpose.pdf"
+			(at 69.85 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 10UF 25V X5R 0805"
+			(at 69.85 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 69.85 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "0805X106K250CT"
+			(at 69.85 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "ef0eeedc-f9b3-4242-94d0-15ab4e74c680")
+		)
+		(pin "1"
+			(uuid "0ae94c4f-5081-4791-ad17-a98351e46991")
+		)
+		(instances
+			(project ""
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "C1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 97.79 165.1 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "64a6aabf-c0d0-4c4f-ac64-c69f4992cba7")
+		(property "Reference" "C11"
+			(at 95.4659 163.8941 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10µF"
+			(at 95.4659 166.3184 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 97.79 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_General_Purpose.pdf"
+			(at 97.79 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 10UF 25V X5R 0805"
+			(at 97.79 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 97.79 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "0805X106K250CT"
+			(at 97.79 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "c7d89551-2205-41c0-ae0b-05145c9bc127")
+		)
+		(pin "1"
+			(uuid "3274b1ac-5148-489f-9fe4-4a097a7e494f")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "C11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 116.84 55.88 270)
 		(unit 1)
@@ -11062,16 +12076,16 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 77.47 38.1 270)
+		(at 66.04 38.1 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "72fa4c52-bd8d-4a18-82b2-60c7b6f25e6b")
-		(property "Reference" "#PWR026"
-			(at 71.12 38.1 0)
+		(uuid "6e09120f-f844-4091-b057-c2b30c7c9dd9")
+		(property "Reference" "#PWR043"
+			(at 66.04 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11080,16 +12094,15 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 74.2951 38.1 90)
+			(at 62.484 40.132 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" ""
-			(at 77.47 38.1 0)
+			(at 66.04 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11098,7 +12111,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 77.47 38.1 0)
+			(at 66.04 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11107,7 +12120,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 77.47 38.1 0)
+			(at 66.04 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11116,12 +12129,100 @@
 			)
 		)
 		(pin "1"
-			(uuid "0c8df254-1d05-4a1f-a4c6-6e20b22dee78")
+			(uuid "1414a7d6-38b6-4554-910c-0601d3795641")
 		)
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR026")
+					(reference "#PWR043")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 96.52 34.29 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "754ca975-4e60-408e-aee8-2cdb3245d173")
+		(property "Reference" "C5"
+			(at 94.1959 33.0841 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10µF"
+			(at 94.1959 35.5084 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 96.52 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_General_Purpose.pdf"
+			(at 96.52 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 10UF 25V X5R 0805"
+			(at 96.52 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 96.52 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "0805X106K250CT"
+			(at 96.52 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "65237425-279e-4bc0-8c7e-7277b4deb6cb")
+		)
+		(pin "1"
+			(uuid "c9a66170-74ef-4e83-80a1-629e76253d93")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "C5")
 					(unit 1)
 				)
 			)
@@ -11129,7 +12230,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 123.19 38.1 270)
+		(at 128.27 38.1 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11138,7 +12239,7 @@
 		(fields_autoplaced yes)
 		(uuid "799b14f5-be59-4ef0-9009-750b1453a8df")
 		(property "Reference" "#PWR012"
-			(at 116.84 38.1 0)
+			(at 121.92 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11147,7 +12248,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 120.0151 38.1 90)
+			(at 125.0951 38.1 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11156,7 +12257,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 123.19 38.1 0)
+			(at 128.27 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11165,7 +12266,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 123.19 38.1 0)
+			(at 128.27 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11174,7 +12275,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 123.19 38.1 0)
+			(at 128.27 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11189,6 +12290,94 @@
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
 					(reference "#PWR012")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 66.04 33.02 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7b96666a-ab15-4225-b5f3-8f03dc572586")
+		(property "Reference" "C4"
+			(at 63.7159 31.8141 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10µF"
+			(at 63.7159 34.2384 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 66.04 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_General_Purpose.pdf"
+			(at 66.04 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 10UF 25V X5R 0805"
+			(at 66.04 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 66.04 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "0805X106K250CT"
+			(at 66.04 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "6ec30975-804a-415f-b50b-efde94bf29fa")
+		)
+		(pin "1"
+			(uuid "d174daa5-fee3-4009-81eb-eb0f99715c79")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "C4")
 					(unit 1)
 				)
 			)
@@ -11325,7 +12514,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 135.89 33.02 90)
+		(at 140.97 33.02 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11334,7 +12523,7 @@
 		(fields_autoplaced yes)
 		(uuid "7d9d42cd-4df0-4568-9930-78e90f5864df")
 		(property "Reference" "#PWR015"
-			(at 142.24 33.02 0)
+			(at 147.32 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11343,7 +12532,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 139.065 33.02 90)
+			(at 144.145 33.02 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11352,7 +12541,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 135.89 33.02 0)
+			(at 140.97 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11361,7 +12550,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 135.89 33.02 0)
+			(at 140.97 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11370,7 +12559,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 135.89 33.02 0)
+			(at 140.97 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11523,8 +12712,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 139.7 125.73 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "829e542b-57bd-48a0-a5ef-aef810712975")
+		(property "Reference" "#PWR044"
+			(at 139.7 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 143.256 127.762 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 139.7 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 139.7 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 139.7 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ab7a20db-bb58-4f14-ae3b-c30bb19c87cf")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "#PWR044")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Custom:DC-DC_15V")
-		(at 83.82 27.94 0)
+		(at 78.74 27.94 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11533,7 +12787,7 @@
 		(fields_autoplaced yes)
 		(uuid "85431f1e-0e51-4b2c-b36a-29e6c925149c")
 		(property "Reference" "PS1"
-			(at 83.82 27.6169 0)
+			(at 78.74 27.6169 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11541,7 +12795,7 @@
 			)
 		)
 		(property "Value" "15V DC-DC"
-			(at 83.82 27.94 0)
+			(at 78.74 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11550,7 +12804,7 @@
 			)
 		)
 		(property "Footprint" "Custom Footprints:SRS-1215-2"
-			(at 83.82 27.94 0)
+			(at 78.74 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11559,7 +12813,7 @@
 			)
 		)
 		(property "Datasheet" "http://diwellshop.cafe24.com/web/DATASHEET/01_subtitle/4_POWER/2_DC-DC/SRS-1212-2/SR.pdf"
-			(at 83.82 27.94 0)
+			(at 78.74 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11568,7 +12822,7 @@
 			)
 		)
 		(property "Description" "DC DC CONVERTER 15V 1W"
-			(at 83.82 27.94 0)
+			(at 78.74 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11577,7 +12831,7 @@
 			)
 		)
 		(property "Manufacturer" "Diwell Electronics"
-			(at 83.82 27.94 0)
+			(at 78.74 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11586,7 +12840,7 @@
 			)
 		)
 		(property "Part" "SRS-1215-2"
-			(at 83.82 27.94 0)
+			(at 78.74 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11622,6 +12876,226 @@
 			(project ""
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
 					(reference "PS1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 69.85 86.36 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8d93e78a-f567-412b-b621-20f4161d1769")
+		(property "Reference" "#PWR041"
+			(at 69.85 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 66.294 88.392 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 69.85 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 69.85 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 69.85 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ea80e71b-4ba0-4167-bd5f-08b346f22f3f")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "#PWR041")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 69.85 57.15 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8f239c8a-a0ae-499c-b0f5-9144c5883233")
+		(property "Reference" "#PWR040"
+			(at 69.85 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 66.294 59.182 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 69.85 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 69.85 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 69.85 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "bda58fa6-ecc0-4d12-88f3-735a13ae8f43")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "#PWR040")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 69.85 113.03 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9280472b-712d-44a1-85d7-ee41befbaeeb")
+		(property "Reference" "C3"
+			(at 67.5259 111.8241 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10µF"
+			(at 67.5259 114.2484 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 69.85 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_General_Purpose.pdf"
+			(at 69.85 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 10UF 25V X5R 0805"
+			(at 69.85 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 69.85 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "0805X106K250CT"
+			(at 69.85 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "26f83866-5023-46c6-8792-148156c7da19")
+		)
+		(pin "1"
+			(uuid "b5fd2c86-60e9-4cc1-bb6e-0ea655491100")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "C3")
 					(unit 1)
 				)
 			)
@@ -11696,7 +13170,7 @@
 	)
 	(symbol
 		(lib_id "Custom:DC-DC_15V")
-		(at 129.54 27.94 0)
+		(at 134.62 27.94 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11705,7 +13179,7 @@
 		(fields_autoplaced yes)
 		(uuid "943bdb91-b75d-4809-8cb6-87e664b7972f")
 		(property "Reference" "PS2"
-			(at 129.54 27.6169 0)
+			(at 134.62 27.6169 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11713,7 +13187,7 @@
 			)
 		)
 		(property "Value" "15V DC-DC"
-			(at 129.54 27.94 0)
+			(at 134.62 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11722,7 +13196,7 @@
 			)
 		)
 		(property "Footprint" "Custom Footprints:SRS-1215-2"
-			(at 129.54 27.94 0)
+			(at 134.62 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11731,7 +13205,7 @@
 			)
 		)
 		(property "Datasheet" "http://diwellshop.cafe24.com/web/DATASHEET/01_subtitle/4_POWER/2_DC-DC/SRS-1212-2/SR.pdf"
-			(at 129.54 27.94 0)
+			(at 134.62 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11740,7 +13214,7 @@
 			)
 		)
 		(property "Description" "DC DC CONVERTER 5V 1W"
-			(at 129.54 27.94 0)
+			(at 134.62 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11749,7 +13223,7 @@
 			)
 		)
 		(property "Manufacturer" "Diwell Electronics"
-			(at 129.54 27.94 0)
+			(at 134.62 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11758,7 +13232,7 @@
 			)
 		)
 		(property "Part" "SRS-1205-2"
-			(at 129.54 27.94 0)
+			(at 134.62 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12247,6 +13721,182 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Small")
+		(at 69.85 83.82 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a1417195-fd24-4496-81f9-d47f328987f7")
+		(property "Reference" "C2"
+			(at 67.5259 82.6141 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10µF"
+			(at 67.5259 85.0384 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 69.85 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_General_Purpose.pdf"
+			(at 69.85 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 10UF 25V X5R 0805"
+			(at 69.85 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 69.85 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "0805X106K250CT"
+			(at 69.85 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "7d98b679-144d-4f37-ba75-d412ae3dfa19")
+		)
+		(pin "1"
+			(uuid "7c44dbbc-1950-46e0-aab5-8baff3b894a0")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "C2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 106.68 148.59 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a21f3bf9-891e-4a2e-9e4b-80782536e6a9")
+		(property "Reference" "C8"
+			(at 104.3559 147.3841 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10µF"
+			(at 104.3559 149.8084 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 106.68 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_General_Purpose.pdf"
+			(at 106.68 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 10UF 25V X5R 0805"
+			(at 106.68 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 106.68 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "0805X106K250CT"
+			(at 106.68 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "2f08491d-2491-471d-8790-c26cd9eca81e")
+		)
+		(pin "1"
+			(uuid "c7e32b16-7e6d-4e6c-99e3-280171efd382")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "C8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 116.84 72.39 270)
 		(unit 1)
@@ -12382,7 +14032,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 135.89 38.1 90)
+		(at 149.86 38.1 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12391,7 +14041,7 @@
 		(fields_autoplaced yes)
 		(uuid "b4adb356-8a2f-4c0b-a5e9-f13c72c23c92")
 		(property "Reference" "#PWR013"
-			(at 142.24 38.1 0)
+			(at 149.86 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12400,16 +14050,15 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 139.065 38.1 90)
+			(at 149.86 42.2331 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" ""
-			(at 135.89 38.1 0)
+			(at 149.86 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12418,7 +14067,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 135.89 38.1 0)
+			(at 149.86 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12427,7 +14076,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 135.89 38.1 0)
+			(at 149.86 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12581,7 +14230,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 115.57 29.21 180)
+		(at 120.65 29.21 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12590,7 +14239,7 @@
 		(fields_autoplaced yes)
 		(uuid "b9e4b589-655d-4e20-bc62-5804a9e64386")
 		(property "Reference" "#PWR014"
-			(at 115.57 22.86 0)
+			(at 120.65 22.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12599,7 +14248,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 115.57 25.0769 0)
+			(at 120.65 25.0769 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12607,7 +14256,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 115.57 29.21 0)
+			(at 120.65 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12616,7 +14265,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 115.57 29.21 0)
+			(at 120.65 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12625,7 +14274,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 115.57 29.21 0)
+			(at 120.65 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13644,6 +15293,93 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Small")
+		(at 149.86 33.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e42c7c75-53f0-47d7-ba3c-586e7371c332")
+		(property "Reference" "C7"
+			(at 151.638 30.734 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10µF"
+			(at 151.892 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 149.86 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_General_Purpose.pdf"
+			(at 149.86 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 10UF 25V X5R 0805"
+			(at 149.86 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 149.86 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "0805X106K250CT"
+			(at 149.86 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "5abdfdc6-aeaa-4b7a-ae63-54a290d13da5")
+		)
+		(pin "1"
+			(uuid "5a1f7671-345b-43fb-b62b-650ece7aa37b")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "C7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 133.35 156.21 0)
 		(unit 1)
@@ -13710,7 +15446,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Pack04")
-		(at 161.29 33.02 90)
+		(at 175.26 33.02 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -13719,7 +15455,7 @@
 		(fields_autoplaced yes)
 		(uuid "e8d83e85-f0b1-45f5-a688-cfb8a96f4b0e")
 		(property "Reference" "RN3"
-			(at 161.29 25.0655 90)
+			(at 175.26 25.0655 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13727,7 +15463,7 @@
 			)
 		)
 		(property "Value" "3600"
-			(at 161.29 27.4898 90)
+			(at 175.26 27.4898 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13735,7 +15471,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_Array_Convex_4x0603"
-			(at 161.29 26.035 90)
+			(at 175.26 26.035 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13744,7 +15480,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.bourns.com/docs/Product-Datasheets/CATCAY.pdf"
-			(at 161.29 33.02 0)
+			(at 175.26 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13753,7 +15489,7 @@
 			)
 		)
 		(property "Description" "RES ARRAY 4 RES 3.6K OHM 1206"
-			(at 161.29 33.02 0)
+			(at 175.26 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13762,7 +15498,7 @@
 			)
 		)
 		(property "Manufacturer" "Bourns Inc."
-			(at 161.29 33.02 0)
+			(at 175.26 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13771,7 +15507,7 @@
 			)
 		)
 		(property "Part" "CAY16-362J4LF"
-			(at 161.29 33.02 0)
+			(at 175.26 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13879,7 +15615,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 90.17 38.1 90)
+		(at 85.09 38.1 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -13888,7 +15624,7 @@
 		(fields_autoplaced yes)
 		(uuid "f06112cc-8327-43d9-91f6-a11f2a8b4c7c")
 		(property "Reference" "#PWR027"
-			(at 96.52 38.1 0)
+			(at 91.44 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13897,7 +15633,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 93.345 38.1 90)
+			(at 88.265 38.1 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13906,7 +15642,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 90.17 38.1 0)
+			(at 85.09 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13915,7 +15651,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 90.17 38.1 0)
+			(at 85.09 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13924,7 +15660,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 90.17 38.1 0)
+			(at 85.09 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14327,6 +16063,72 @@
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
 					(reference "#PWR033")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 97.79 167.64 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "fee2acb1-fab9-49e7-9c48-2271388c99c0")
+		(property "Reference" "#PWR046"
+			(at 97.79 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 94.234 169.672 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 97.79 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 97.79 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 97.79 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "cba9c3a1-f67b-4e98-8bfc-b9ccd8ef8451")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "#PWR046")
 					(unit 1)
 				)
 			)
