@@ -1,4 +1,4 @@
-24189183227998210
+24204899853705896
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -54781,6 +54781,69 @@ SMD SMT ceramic resonator filter filter hand-soldering
 0
 3
 3
+Custom Footprints
+AMPHENOL_RJE3A2886102N
+
+
+0
+20
+17
+Custom Footprints
+D16-4x gate driver
+
+SN75374D 
+0
+16
+16
+Custom Footprints
+DAC084S085CIMMXNOPB
+
+DAC084S085CIMMX/NOPB 
+0
+10
+10
+Custom Footprints
+ELUMOASAQ2C22_CNK
+
+ELUMOASAQ2C22 
+0
+5
+5
+Custom Footprints
+P160KN2-4QC20B10K
+
+
+0
+3
+3
+Custom Footprints
+RJ45_x4-RJSSE-5380-04
+
+
+0
+34
+33
+Custom Footprints
+SN74LV4053ADR
+
+SN74LV4053ADR 
+0
+16
+16
+Custom Footprints
+SRS-1215-2
+
+
+0
+8
+8
+Custom Footprints
+TSSOP14_NXB0104_NEX
+
+NXB0104PWJ 
+0
+14
+14
 Custom Footprints
 Teensy_3_6_with_headers
 translated Allegro footprint

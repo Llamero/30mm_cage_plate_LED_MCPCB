@@ -1,0 +1,119 @@
+(footprint "P160KN2-4QC20B10K"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 -5 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "7939276a-187b-40ed-81a5-cfb6e427d079")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "P160KN2-4QC20B10K"
+		(at 0 1 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "bf76536e-1827-4c1e-a2b2-b0c8b64c7f78")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "7f026e89-85e9-4429-9eb7-62f6a5edf89f")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "3f6f6215-700f-4ae5-876e-3071cab14a89")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "3abfd9c0-3c3c-4087-be33-b1b530f0312c")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_rect
+		(start -8.5 -6)
+		(end 8.5 3.5)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(fill none)
+		(layer "F.SilkS")
+		(uuid "61c8cdee-7baa-4872-b345-d7d541efdf36")
+	)
+	(pad "1" thru_hole oval
+		(at -5 0)
+		(size 4.2 2.2)
+		(drill oval 2.8 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.102)
+		(uuid "6e5ed736-5d2a-4daa-9978-fb10b73be231")
+	)
+	(pad "2" thru_hole oval
+		(at 0 0)
+		(size 4.2 2.2)
+		(drill oval 2.8 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.102)
+		(uuid "1a4072b2-beff-4ec8-a01c-8f2fbbc580bb")
+	)
+	(pad "3" thru_hole oval
+		(at 5 0)
+		(size 4.2 2.2)
+		(drill oval 2.8 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.102)
+		(uuid "322bc2fb-38de-4d1a-bd73-76393b2cf46d")
+	)
+	(model "${KIPRJMOD}/CAD models/P160KN2-4QC20B10K.stp"
+		(offset
+			(xyz 0 -2.25 14.1)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 180 0 0)
+		)
+	)
+)

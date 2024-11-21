@@ -3324,7 +3324,7 @@
 				)
 			)
 		)
-		(symbol "Motor:Fan"
+		(symbol "Motor:Fan_4pin"
 			(pin_names
 				(offset 0)
 			)
@@ -3340,7 +3340,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "Fan"
+			(property "Value" "Fan_4pin"
 				(at 2.54 -2.54 0)
 				(effects
 					(font
@@ -3358,7 +3358,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "~"
+			(property "Datasheet" "http://www.formfactors.org/developer%5Cspecs%5Crev1_2_public.pdf"
 				(at 0 0.254 0)
 				(effects
 					(font
@@ -3367,7 +3367,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Fan"
+			(property "Description" "Fan, tacho output, PWM input, 4-pin connector"
 				(at 0 0 0)
 				(effects
 					(font
@@ -3376,7 +3376,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "Fan Motor"
+			(property "ki_keywords" "Fan Motor tacho PWM"
 				(at 0 0 0)
 				(effects
 					(font
@@ -3385,7 +3385,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "PinHeader*P2.54mm* TerminalBlock*"
+			(property "ki_fp_filters" "FanPinHeader*P2.54mm*Vertical* PinHeader*P2.54mm*Vertical* TerminalBlock*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -3394,11 +3394,85 @@
 					(hide yes)
 				)
 			)
-			(symbol "Fan_0_1"
+			(symbol "Fan_4pin_0_0"
+				(arc
+					(start -5.588 1.524)
+					(mid -5.08 1.0182)
+					(end -4.572 1.524)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -5.08 2.032)
+					(mid -5.4392 1.8832)
+					(end -5.588 1.524)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -5.08 2.032) (xy -5.334 2.159)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -5.08 2.032) (xy -5.207 1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -4.064 2.54) (xy -4.064 1.016) (xy -3.302 1.016)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Fan_4pin_0_1"
 				(arc
 					(start -2.54 -0.508)
 					(mid 0.0028 0.9121)
 					(end 0 3.81)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -4.064 2.54) (xy -5.08 2.54)
+					)
 					(stroke
 						(width 0)
 						(type default)
@@ -3455,6 +3529,31 @@
 						(type none)
 					)
 				)
+				(polyline
+					(pts
+						(xy -2.54 -1.016) (xy -4.064 -1.016) (xy -4.064 -2.54) (xy -5.08 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -5.334 -3.302) (xy -5.08 -3.302) (xy -5.08 -3.048) (xy -4.826 -3.048) (xy -4.826 -3.302) (xy -4.318 -3.302)
+						(xy -4.318 -3.048) (xy -4.064 -3.048) (xy -4.064 -3.302) (xy -3.556 -3.302)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
 				(circle
 					(center 0 1.016)
 					(radius 3.2512)
@@ -3491,11 +3590,11 @@
 					)
 				)
 			)
-			(symbol "Fan_1_1"
+			(symbol "Fan_4pin_1_1"
 				(pin passive line
-					(at 0 7.62 270)
+					(at 0 -5.08 90)
 					(length 2.54)
-					(name "+"
+					(name "-"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3511,9 +3610,9 @@
 					)
 				)
 				(pin passive line
-					(at 0 -5.08 90)
+					(at 0 7.62 270)
 					(length 2.54)
-					(name "-"
+					(name "+"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3521,6 +3620,42 @@
 						)
 					)
 					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -7.62 2.54 0)
+					(length 2.54)
+					(name "Tacho"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 -2.54 0)
+					(length 2.54)
+					(name "PWM"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3813,6 +3948,10 @@
 		(color 0 0 0 0)
 		(uuid "fc3756ee-1ae8-4ebe-8785-5192587c21b8")
 	)
+	(no_connect
+		(at 87.63 120.65)
+		(uuid "45d4c776-d55f-47dc-a040-3a804c0451a2")
+	)
 	(wire
 		(pts
 			(xy 166.37 39.37) (xy 170.18 39.37)
@@ -3992,6 +4131,16 @@
 			(type default)
 		)
 		(uuid "4c9736ef-572e-453d-9ca1-5547f8d0cae3")
+	)
+	(wire
+		(pts
+			(xy 86.36 125.73) (xy 87.63 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "55c29167-1622-4016-a174-878d1fd89047")
 	)
 	(wire
 		(pts
@@ -4581,6 +4730,17 @@
 		)
 		(uuid "554eae79-c9bd-4963-b644-be646fa3900b")
 	)
+	(label "PWM"
+		(at 86.36 125.73 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "5ec25a82-628e-49d4-850e-c38b47c8aac6")
+	)
 	(label "LED+"
 		(at 170.18 26.67 0)
 		(fields_autoplaced yes)
@@ -4857,6 +5017,100 @@
 			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
 					(reference "Q5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Motor:Fan_4pin")
+		(at 95.25 123.19 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board no)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "27ae4b45-e794-4341-8772-596317cb7320")
+		(property "Reference" "M2"
+			(at 99.2632 121.9778 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Fan_4pin"
+			(at 99.2632 124.4021 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 95.25 122.936 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://wakefieldthermal.com/content/data_sheets/wfv-dc-fans-rev-a3%20%281%29.pdf"
+			(at 95.25 122.936 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "FAN AXIAL 35X10MM 12VDC WIRE"
+			(at 95.25 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Wakefield-Vette"
+			(at 95.25 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "DC0351012W2B-BT0"
+			(at 95.25 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "cfc826fd-d655-4a4e-85a4-7824ea662d4b")
+		)
+		(pin "4"
+			(uuid "2e2e33d6-063f-4e99-a063-f9d93a09c241")
+		)
+		(pin "3"
+			(uuid "158da883-d84a-439b-bd46-3e402f21a365")
+		)
+		(pin "2"
+			(uuid "f3002aae-948e-433b-812b-8918f695d440")
+		)
+		(instances
+			(project ""
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "M2")
 					(unit 1)
 				)
 			)
@@ -7168,94 +7422,6 @@
 			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
 					(reference "H4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Motor:Fan")
-		(at 95.25 123.19 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ce7a6db1-eb56-41ca-a95a-611129b66c41")
-		(property "Reference" "M1"
-			(at 99.2632 121.9778 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Fan"
-			(at 99.2632 124.4021 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 95.25 122.936 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.sunon.com/PROSEARCH_FILES/(D03033640G-01)-1.pdf"
-			(at 95.25 122.936 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Fan"
-			(at 95.25 123.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Sunon Fans"
-			(at 95.25 123.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "HA30101V3-1000U-A99"
-			(at 95.25 123.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "dcf16e1c-7b6c-4908-ac52-2cb6a2513016")
-		)
-		(pin "1"
-			(uuid "7c98fa6e-3632-478a-a2e7-8b7e4d648100")
-		)
-		(instances
-			(project ""
-				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
-					(reference "M1")
 					(unit 1)
 				)
 			)
