@@ -1,0 +1,144 @@
+(footprint "DC-jack_54-00165"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 8.5 -7 0)
+		(layer "F.SilkS")
+		(uuid "75e537fe-2962-42d5-a469-dd15df9fee33")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "DC-jack_54-00165"
+		(at -0.02 -2.32 0)
+		(layer "F.Fab")
+		(uuid "54ddb089-719f-4269-a3ad-ec0a84059228")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "ac965f02-dbc6-4ac5-ad9e-f686ea6cb185")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "266f7a25-3508-46a4-a296-177513425bc4")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "70e8fdfd-679a-4087-802e-4106f7b303ba")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_line
+		(start 0 -4)
+		(end 0 4)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "13cc1167-78af-435f-8741-5b32127c0d20")
+	)
+	(fp_line
+		(start 0 4)
+		(end 12.5 4)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "4b665e19-29ed-4de8-bf32-5db15d5912aa")
+	)
+	(fp_line
+		(start 12.5 -4)
+		(end 0 -4)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "fe8012f9-5583-4a67-a881-26c018423367")
+	)
+	(pad "" np_thru_hole circle
+		(at 5 0)
+		(size 1.6 1.6)
+		(drill 1.6)
+		(layers "*.Cu" "*.Mask")
+		(uuid "39ddad16-4b77-4b7f-9959-95ba56a20994")
+	)
+	(pad "" np_thru_hole circle
+		(at 9.5 0)
+		(size 1.8 1.8)
+		(drill 1.8)
+		(layers "*.Cu" "*.Mask")
+		(uuid "67fd354b-3810-4a68-8c86-66b7e4683e31")
+	)
+	(pad "1" smd rect
+		(at 5 -5.5)
+		(size 2 2)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "04309160-b76b-467c-a891-aa7536854dea")
+	)
+	(pad "1" smd rect
+		(at 11.2 -5.5)
+		(size 2 2)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "327769b5-9292-4d26-9060-15d19283c15d")
+	)
+	(pad "2" smd rect
+		(at 5 5.5)
+		(size 2 2)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "c67396ae-d2c4-40a7-9f97-6c8b6a666bb5")
+	)
+	(pad "3" smd rect
+		(at 11.2 5.5)
+		(size 2 2)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "f81b408c-6427-463a-87a1-96fe21ad5566")
+	)
+	(model "${KIPRJMOD}/CAD models/54-00165.STEP"
+		(offset
+			(xyz 21.22 -9.72 -5)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz -90 0 90)
+		)
+	)
+)

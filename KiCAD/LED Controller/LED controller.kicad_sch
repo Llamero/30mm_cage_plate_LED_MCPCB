@@ -5,6 +5,225 @@
 	(uuid "7e3ae51b-fd56-44ae-a416-05dd2481d5ac")
 	(paper "A4")
 	(lib_symbols
+		(symbol "Connector:Barrel_Jack_Switch"
+			(pin_names hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 5.334 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Barrel_Jack_Switch"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 1.27 -1.016 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 1.27 -1.016 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "DC Barrel Jack with an internal switch"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "DC power barrel jack connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "BarrelJack*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Barrel_Jack_Switch_0_1"
+				(rectangle
+					(start -5.08 3.81)
+					(end 5.08 -3.81)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(arc
+					(start -3.302 3.175)
+					(mid -3.9343 2.54)
+					(end -3.302 1.905)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -3.302 3.175)
+					(mid -3.9343 2.54)
+					(end -3.302 1.905)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -2.286) (xy 1.905 -1.651)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 2.54) (xy 3.81 2.54)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 0) (xy 1.27 0) (xy 1.27 -2.286) (xy 0.635 -1.651)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -3.81 -2.54) (xy -2.54 -2.54) (xy -1.27 -1.27) (xy 0 -2.54) (xy 2.54 -2.54) (xy 5.08 -2.54)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 3.683 3.175)
+					(end -3.302 1.905)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+			)
+			(symbol "Barrel_Jack_Switch_1_1"
+				(pin passive line
+					(at 7.62 2.54 180)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 -2.54 180)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 0 180)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Custom:4x_RJ45"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -4995,6 +5214,88 @@
 				)
 			)
 		)
+		(symbol "Mechanical:MountingHole"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim yes)
+			(in_bom no)
+			(on_board yes)
+			(property "Reference" "H"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MountingHole"
+				(at 0 3.175 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Mounting Hole without connection"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "mounting hole"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "MountingHole*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "MountingHole_0_1"
+				(circle
+					(center 0 0)
+					(radius 1.27)
+					(stroke
+						(width 1.27)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+		)
 		(symbol "power:GND"
 			(power)
 			(pin_numbers hide)
@@ -6058,10 +6359,10 @@
 		(uuid "12f78fa4-ecb0-4d63-aa6d-2f2531a5803a")
 	)
 	(junction
-		(at 96.52 29.21)
+		(at 40.64 34.29)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "331e54a6-945c-4a7e-83cb-3277c37c451c")
+		(uuid "31da16e4-1c4d-4bb7-ad25-caf4897de95d")
 	)
 	(junction
 		(at 105.41 39.37)
@@ -6122,12 +6423,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c36439a7-c93a-423f-a428-a689159f105b")
-	)
-	(junction
-		(at 96.52 39.37)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d8cac445-5343-404e-b5c1-fcdae098c0fb")
 	)
 	(junction
 		(at 107.95 39.37)
@@ -6262,6 +6557,16 @@
 			(type default)
 		)
 		(uuid "1ed52aa7-4f20-44bb-b1a5-81e4b4cb371f")
+	)
+	(wire
+		(pts
+			(xy 100.33 39.37) (xy 100.33 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "20e171c9-7851-4f22-8389-67fce620112c")
 	)
 	(wire
 		(pts
@@ -6405,6 +6710,16 @@
 	)
 	(wire
 		(pts
+			(xy 40.64 31.75) (xy 40.64 34.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4bf4a8a6-e7ed-4cdf-b3b7-b0b0351635df")
+	)
+	(wire
+		(pts
 			(xy 251.46 93.98) (xy 266.7 93.98)
 		)
 		(stroke
@@ -6452,16 +6767,6 @@
 			(type default)
 		)
 		(uuid "5b72c676-6af9-45ea-8390-fd3d4306f92c")
-	)
-	(wire
-		(pts
-			(xy 96.52 36.83) (xy 96.52 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "63d86910-4d27-4706-b52b-d683a6801cb9")
 	)
 	(wire
 		(pts
@@ -6522,16 +6827,6 @@
 			(type default)
 		)
 		(uuid "7826fc28-3a96-471f-a5cb-08fdd7bce4e8")
-	)
-	(wire
-		(pts
-			(xy 87.63 39.37) (xy 96.52 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "78e704f6-5276-4a50-ad67-80e1fc8b8921")
 	)
 	(wire
 		(pts
@@ -6675,16 +6970,6 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 29.21) (xy 100.33 29.21)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8fa62d11-451b-47e5-bacd-b1baec6170db")
-	)
-	(wire
-		(pts
 			(xy 251.46 68.58) (xy 266.7 68.58)
 		)
 		(stroke
@@ -6752,6 +7037,16 @@
 			(type default)
 		)
 		(uuid "a4d6cde6-46ca-43da-8248-0f170a109ced")
+	)
+	(wire
+		(pts
+			(xy 88.9 29.21) (xy 95.25 29.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a677edbb-4230-4a21-9670-17f39bfe8a10")
 	)
 	(wire
 		(pts
@@ -6865,13 +7160,13 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 29.21) (xy 96.52 31.75)
+			(xy 87.63 39.37) (xy 95.25 39.37)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "bc50f8d0-196b-4486-b070-b07d0ff86a3e")
+		(uuid "bc7d7814-dfdb-42dd-960d-7e58e1f0e7da")
 	)
 	(wire
 		(pts
@@ -7015,13 +7310,23 @@
 	)
 	(wire
 		(pts
-			(xy 88.9 29.21) (xy 96.52 29.21)
+			(xy 95.25 39.37) (xy 95.25 36.83)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "dde89d0b-43f0-4bc5-b970-9cd08ee99ed0")
+		(uuid "e1f2ca7b-1561-485e-acc9-84c521505b79")
+	)
+	(wire
+		(pts
+			(xy 95.25 29.21) (xy 95.25 31.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e22d1ed9-5696-455c-b5a1-c733537ed765")
 	)
 	(wire
 		(pts
@@ -7105,16 +7410,6 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 39.37) (xy 100.33 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "eda9076f-9adb-45d1-bbb8-689c61244af2")
-	)
-	(wire
-		(pts
 			(xy 128.27 35.56) (xy 120.65 35.56)
 		)
 		(stroke
@@ -7185,7 +7480,7 @@
 		(uuid "04a0074b-efc5-4da5-8442-ed1e98a81886")
 	)
 	(label "Pot3"
-		(at 251.46 60.96 0)
+		(at 251.46 53.34 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7262,7 +7557,7 @@
 		(uuid "0acb141e-0b77-4643-8d79-82865271168d")
 	)
 	(label "Ch1b"
-		(at 76.2 64.77 180)
+		(at 76.2 57.15 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7284,13 +7579,13 @@
 		(uuid "0f5d96f6-0ff9-4cd1-950e-620671a03b9c")
 	)
 	(label "Ch3a"
-		(at 76.2 115.57 180)
+		(at 92.71 115.57 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "0f862f11-9bb3-4a9f-b6de-709ba691d8ba")
 	)
@@ -7317,13 +7612,13 @@
 		(uuid "11b90e7d-dcfd-40e4-9060-f768b260b422")
 	)
 	(label "3-4"
-		(at 92.71 113.03 0)
+		(at 76.2 125.73 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "12abc684-42af-4806-ad01-e219d74fa093")
 	)
@@ -7350,13 +7645,13 @@
 		(uuid "15eefe02-4221-465a-a75a-c70b66b95410")
 	)
 	(label "Ch2d"
-		(at 92.71 86.36 0)
+		(at 76.2 93.98 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "16527e46-219d-41b0-ae42-edf9c09a10b4")
 	)
@@ -7383,13 +7678,13 @@
 		(uuid "1728f46e-8b28-4c39-a6a1-304d382086dc")
 	)
 	(label "1-1"
-		(at 76.2 54.61 180)
+		(at 92.71 54.61 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "184beac9-96ba-4e9b-a3f3-98b63590f9c7")
 	)
@@ -7415,6 +7710,17 @@
 		)
 		(uuid "1d3845e8-bed8-4941-a2a3-bc6291883503")
 	)
+	(label "3v3"
+		(at 100.33 41.91 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "1d6239dc-60bb-4a06-a6bf-00b4e3b90f34")
+	)
 	(label "Ctrl2"
 		(at 132.08 123.19 0)
 		(fields_autoplaced yes)
@@ -7427,13 +7733,13 @@
 		(uuid "205f079a-ede4-4376-9cd8-b140908ce5e8")
 	)
 	(label "1-4"
-		(at 92.71 54.61 0)
+		(at 76.2 67.31 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "20e04c5c-c285-4c9d-a8b9-ffe13e4b5bd5")
 	)
@@ -7460,7 +7766,7 @@
 		(uuid "276a5c47-8bfb-4e24-be68-fa8cbcf59b87")
 	)
 	(label "Pot2"
-		(at 251.46 58.42 0)
+		(at 251.46 50.8 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7491,6 +7797,17 @@
 			(justify left bottom)
 		)
 		(uuid "2859dd9e-aec2-4a2c-bfe0-6f8b4ac5fe46")
+	)
+	(label "5V"
+		(at 92.71 91.44 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "289e2893-f4a3-4756-b013-d0581049ed8f")
 	)
 	(label "SW3 green"
 		(at 116.84 86.36 180)
@@ -7559,7 +7876,7 @@
 		(uuid "341727c7-7062-4e35-a481-d4220f66ffe1")
 	)
 	(label "Temp1"
-		(at 170.18 30.48 180)
+		(at 170.18 35.56 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7581,18 +7898,18 @@
 		(uuid "3969ea0a-cefe-44c5-94de-14bc77cd2958")
 	)
 	(label "Ch1d"
-		(at 92.71 57.15 0)
+		(at 76.2 64.77 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "39de1d63-fda9-4fa5-8ea5-b7bc79676764")
 	)
 	(label "Temp2"
-		(at 251.46 50.8 0)
+		(at 251.46 58.42 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7624,8 +7941,8 @@
 		)
 		(uuid "3aa7defd-da62-4d94-aa07-0f52a9516e23")
 	)
-	(label "2-4"
-		(at 92.71 83.82 0)
+	(label "5V"
+		(at 92.71 120.65 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7633,10 +7950,21 @@
 			)
 			(justify left bottom)
 		)
+		(uuid "3ce49ec5-10c6-416b-8a37-42cfa0601903")
+	)
+	(label "2-4"
+		(at 76.2 96.52 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
 		(uuid "3fd2c321-31d3-4ef9-91b3-b835d83420f5")
 	)
 	(label "Ch2b"
-		(at 76.2 93.98 180)
+		(at 76.2 86.36 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7647,13 +7975,13 @@
 		(uuid "401b51e4-6cbf-4abe-9dc3-e1c0ef687982")
 	)
 	(label "Ch1a"
-		(at 76.2 57.15 180)
+		(at 92.71 57.15 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "412f68d5-febc-4451-ac9b-66e60b423544")
 	)
@@ -7667,17 +7995,6 @@
 			(justify right bottom)
 		)
 		(uuid "41bf5615-431a-46af-ae14-42aab874462d")
-	)
-	(label "3v3"
-		(at 92.71 62.23 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "43228473-681c-457c-ad55-f1158235ea50")
 	)
 	(label "5V"
 		(at 251.46 40.64 0)
@@ -7833,14 +8150,25 @@
 		)
 		(uuid "5be9e197-185d-4fd8-9925-860949970e9b")
 	)
-	(label "3-1"
-		(at 76.2 113.03 180)
+	(label "5V"
+		(at 92.71 62.23 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
+		)
+		(uuid "5cf68f6d-bebd-4bbe-b512-1cb210d71e53")
+	)
+	(label "3-1"
+		(at 92.71 113.03 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
 		)
 		(uuid "5ef11ffb-2ce6-4ad6-a336-15706556648e")
 	)
@@ -8031,17 +8359,6 @@
 		)
 		(uuid "7166d28f-e79a-470b-aeeb-55ed6f090151")
 	)
-	(label "3v3"
-		(at 76.2 62.23 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "74636a82-0fed-4cb0-b364-996a93741a45")
-	)
 	(label "Fan_PWM1"
 		(at 44.45 146.05 0)
 		(fields_autoplaced yes)
@@ -8087,7 +8404,7 @@
 		(uuid "7875be1c-64a4-455a-b3c9-873dedab4454")
 	)
 	(label "Temp3"
-		(at 170.18 35.56 180)
+		(at 170.18 30.48 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8153,13 +8470,13 @@
 		(uuid "7fde9d2f-0c9e-4e15-882b-10485bead131")
 	)
 	(label "Ch2a"
-		(at 76.2 86.36 180)
+		(at 92.71 86.36 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "80d43abb-d9db-4e8c-a82c-e0379ad2b983")
 	)
@@ -8197,7 +8514,7 @@
 		(uuid "85a29ede-d152-4c26-b1a5-5ec45ad5b63f")
 	)
 	(label "Ch3b"
-		(at 76.2 123.19 180)
+		(at 76.2 115.57 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8217,6 +8534,17 @@
 			(justify right bottom)
 		)
 		(uuid "88df8e2d-1389-4738-b0c5-4669c6ed669b")
+	)
+	(label "18V"
+		(at 100.33 29.21 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "8b4b3a07-fced-4281-b5d8-6ed07202721b")
 	)
 	(label "Fan_PWM2"
 		(at 44.45 140.97 0)
@@ -8241,13 +8569,13 @@
 		(uuid "8e4ca3f5-51e8-4db9-8bcf-47926962a94b")
 	)
 	(label "Ch3d"
-		(at 92.71 115.57 0)
+		(at 76.2 123.19 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "90b9cfc2-d18e-4be8-bf98-395712b1bc35")
 	)
@@ -8328,17 +8656,6 @@
 		)
 		(uuid "9f51f2c4-4332-4cf5-8983-7803f6ed4a1d")
 	)
-	(label "3v3"
-		(at 92.71 91.44 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a01811e0-7b62-4b95-9843-5452ae96b926")
-	)
 	(label "Ana1"
 		(at 132.08 128.27 0)
 		(fields_autoplaced yes)
@@ -8384,17 +8701,6 @@
 		(uuid "a2e215b4-7d43-4422-b22a-5abf4b81cbb9")
 	)
 	(label "3v3"
-		(at 76.2 120.65 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "a4b8fe08-2f8a-4df3-b71f-592d2b0be606")
-	)
-	(label "3v3"
 		(at 123.19 99.06 0)
 		(fields_autoplaced yes)
 		(effects
@@ -8404,6 +8710,17 @@
 			(justify left bottom)
 		)
 		(uuid "a5959c03-40d3-4c7c-9aa1-c04bb27541d1")
+	)
+	(label "12V"
+		(at 40.64 29.21 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a5ca4e5c-8ce1-4933-8f59-79eb929a9d81")
 	)
 	(label "12V"
 		(at 128.27 30.48 180)
@@ -8449,17 +8766,6 @@
 		)
 		(uuid "ab5c6919-48b7-4d01-87b2-c64897c22e1e")
 	)
-	(label "3v3"
-		(at 92.71 120.65 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "aeb8cc1b-e4c5-40a5-9a79-93a13ac27f82")
-	)
 	(label "2-1"
 		(at 44.45 85.09 0)
 		(fields_autoplaced yes)
@@ -8472,7 +8778,7 @@
 		(uuid "afbf1f5a-8c10-4735-911b-ff295dfd5f6c")
 	)
 	(label "3-2"
-		(at 76.2 125.73 180)
+		(at 76.2 113.03 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8516,7 +8822,7 @@
 		(uuid "b5183529-7921-4873-98d4-60877eeeb9c0")
 	)
 	(label "1-2"
-		(at 76.2 67.31 180)
+		(at 76.2 54.61 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8560,13 +8866,13 @@
 		(uuid "b91846a1-ce84-4c95-998b-5196be1a5bda")
 	)
 	(label "2-1"
-		(at 76.2 83.82 180)
+		(at 92.71 83.82 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "ba710268-a2bb-4e22-b2dd-aa17022746c6")
 	)
@@ -8648,7 +8954,7 @@
 		(uuid "c3632b41-d525-44ca-955d-cd3a0d20b94f")
 	)
 	(label "2-2"
-		(at 76.2 96.52 180)
+		(at 76.2 83.82 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8669,6 +8975,17 @@
 		)
 		(uuid "c42a1a7e-5441-4a0d-ae8e-8cd5b3a093bd")
 	)
+	(label "5V"
+		(at 76.2 62.23 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "c56dc4e6-183b-49c7-8259-ddfa8b876746")
+	)
 	(label "Fan_PWM2_low"
 		(at 203.2 45.72 180)
 		(fields_autoplaced yes)
@@ -8679,6 +8996,17 @@
 			(justify right bottom)
 		)
 		(uuid "c88174e2-f2fb-402f-8d86-5be63a80c7fc")
+	)
+	(label "5V"
+		(at 76.2 91.44 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "cb203c0e-e6fe-43b5-9f18-aa2a28c246a7")
 	)
 	(label "18V"
 		(at 76.2 110.49 180)
@@ -8725,7 +9053,7 @@
 		(uuid "d3a1e141-0836-4551-9db8-cad74033eb5b")
 	)
 	(label "Pot1"
-		(at 251.46 55.88 0)
+		(at 251.46 48.26 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8846,7 +9174,7 @@
 		(uuid "e3ed4a2e-54e3-4436-b33d-4b33c04eb82e")
 	)
 	(label "Temp3"
-		(at 251.46 53.34 0)
+		(at 251.46 60.96 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8901,7 +9229,7 @@
 		(uuid "ebc859c9-baf7-42d2-a5d4-202b646ddaa1")
 	)
 	(label "Temp1"
-		(at 251.46 48.26 0)
+		(at 251.46 55.88 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8910,6 +9238,17 @@
 			(justify left bottom)
 		)
 		(uuid "f0708a73-bcd7-4e05-8313-84532271fea3")
+	)
+	(label "5V"
+		(at 76.2 120.65 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "f0ccf425-c938-4766-b75f-2954d9bce050")
 	)
 	(label "SW2 red"
 		(at 146.05 69.85 0)
@@ -8977,16 +9316,93 @@
 		)
 		(uuid "fb56b02c-f77a-497e-a603-b6e4b71ce07f")
 	)
-	(label "3v3"
-		(at 76.2 91.44 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 69.85 54.61 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "034a31b9-b840-42a8-8fcd-1153bd4dce0e")
+		(property "Reference" "C5"
+			(at 67.5259 53.4041 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
-			(justify right bottom)
 		)
-		(uuid "ffd77559-f95e-4663-a959-02720f0a7652")
+		(property "Value" "1µF"
+			(at 67.5259 55.8284 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 69.85 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL10A105KB8NNNC_Spec.pdf"
+			(at 69.85 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 1UF 50V X5R 0603"
+			(at 69.85 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 69.85 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "CL10A105KB8NNNC"
+			(at 69.85 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "b666489d-9443-4a92-b964-92c64bc5f64d")
+		)
+		(pin "1"
+			(uuid "31018868-4690-43e1-8b3e-6014c706d633")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "C5")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -9063,7 +9479,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "057c4fa6-ccce-4d8f-80d8-064cba39d087")
-		(property "Reference" "#PWR025"
+		(property "Reference" "#PWR016"
 			(at 69.85 69.85 0)
 			(effects
 				(font
@@ -9114,7 +9530,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR025")
+					(reference "#PWR016")
 					(unit 1)
 				)
 			)
@@ -9227,7 +9643,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0fdde0a9-3127-439c-9669-14103f850b3e")
-		(property "Reference" "#PWR039"
+		(property "Reference" "#PWR046"
 			(at 139.7 172.72 0)
 			(effects
 				(font
@@ -9278,7 +9694,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR039")
+					(reference "#PWR046")
 					(unit 1)
 				)
 			)
@@ -9294,7 +9710,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "123c4900-560b-48e5-94f7-8a8cefcf6a1d")
-		(property "Reference" "#PWR023"
+		(property "Reference" "#PWR029"
 			(at 50.8 123.19 0)
 			(effects
 				(font
@@ -9345,7 +9761,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR023")
+					(reference "#PWR029")
 					(unit 1)
 				)
 			)
@@ -9361,7 +9777,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "179ab28a-b318-44a7-9176-374133145124")
-		(property "Reference" "#PWR06"
+		(property "Reference" "#PWR019"
 			(at 260.35 76.2 0)
 			(effects
 				(font
@@ -9412,7 +9828,90 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR06")
+					(reference "#PWR019")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 177.8 142.24 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "186ac9eb-c15f-451e-8e22-2f092f223232")
+		(property "Reference" "H4"
+			(at 180.34 141.0278 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 180.34 143.4521 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Custom Footprints:1-4_20 standoff"
+			(at 177.8 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://media.digikey.com/pdf/Data%20Sheets/Richco%20Inc%20PDFs/TN4_thru_10_Dwg.pdf"
+			(at 177.8 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RND STNDFF 1/4\"-20 NYLON 2-1/2\""
+			(at 177.8 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Essentra Components"
+			(at 177.8 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "TN10-40-1/420-2"
+			(at 177.8 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "H4")
 					(unit 1)
 				)
 			)
@@ -9428,7 +9927,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1f33183a-a644-4b2c-8bac-b45b383c89b1")
-		(property "Reference" "#PWR035"
+		(property "Reference" "#PWR036"
 			(at 107.95 135.89 0)
 			(effects
 				(font
@@ -9479,7 +9978,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR035")
+					(reference "#PWR036")
 					(unit 1)
 				)
 			)
@@ -9495,7 +9994,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "20f9edf6-748e-4bc6-9158-268cd64d63a7")
-		(property "Reference" "U2"
+		(property "Reference" "U1"
 			(at 84.455 43.7454 0)
 			(effects
 				(font
@@ -9608,7 +10107,7 @@
 		(instances
 			(project ""
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "U2")
+					(reference "U1")
 					(unit 1)
 				)
 			)
@@ -9623,7 +10122,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "215cab21-2e7f-4b69-abf2-77a39e59113e")
-		(property "Reference" "#PWR010"
+		(property "Reference" "#PWR033"
 			(at 34.29 137.16 0)
 			(effects
 				(font
@@ -9673,7 +10172,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR010")
+					(reference "#PWR033")
 					(unit 1)
 				)
 			)
@@ -9689,7 +10188,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "22070149-2197-49f7-8c1a-6535bc721a4e")
-		(property "Reference" "J3"
+		(property "Reference" "J2"
 			(at 34.29 42.7299 0)
 			(effects
 				(font
@@ -9862,7 +10361,7 @@
 		(instances
 			(project ""
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "J3")
+					(reference "J2")
 					(unit 1)
 				)
 			)
@@ -9870,15 +10369,16 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 146.05 165.1 0)
+		(at 95.25 34.29 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "264b9a6f-0356-473a-a52d-e60f28d6cdeb")
-		(property "Reference" "C10"
-			(at 148.3741 163.8941 0)
+		(uuid "26eff7f5-341b-431e-aa2a-5822cef6dd48")
+		(property "Reference" "C3"
+			(at 92.9259 33.0841 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9886,8 +10386,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10µF"
-			(at 148.3741 166.3184 0)
+		(property "Value" "1µF"
+			(at 92.9259 35.5084 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9895,8 +10395,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 146.05 165.1 0)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 95.25 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9904,8 +10404,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_General_Purpose.pdf"
-			(at 146.05 165.1 0)
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL10A105KB8NNNC_Spec.pdf"
+			(at 95.25 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9913,8 +10413,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "CAP CER 10UF 25V X5R 0805"
-			(at 146.05 165.1 0)
+		(property "Description" "CAP CER 1UF 50V X5R 0603"
+			(at 95.25 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9922,8 +10422,8 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Walsin Technology Corporation"
-			(at 146.05 165.1 0)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 95.25 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9931,8 +10431,8 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "0805X106K250CT"
-			(at 146.05 165.1 0)
+		(property "Part" "CL10A105KB8NNNC"
+			(at 95.25 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9941,15 +10441,15 @@
 			)
 		)
 		(pin "2"
-			(uuid "ffd365d0-a63c-4f79-ae69-9612fd002bef")
+			(uuid "f3966750-7df0-4d59-9ec1-8728a451a3a5")
 		)
 		(pin "1"
-			(uuid "868bc773-ba8f-4bfc-9ce2-aa6570425ff6")
+			(uuid "d55d466a-169e-475f-bd2a-c2693a69d196")
 		)
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "C10")
+					(reference "C3")
 					(unit 1)
 				)
 			)
@@ -9957,15 +10457,16 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 139.7 123.19 0)
+		(at 106.68 148.59 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "30317637-369c-445e-8c10-b33c38a0509b")
+		(uuid "2b690010-7543-46e7-a814-01807ce1f2be")
 		(property "Reference" "C9"
-			(at 142.0241 121.9841 0)
+			(at 104.3559 147.3841 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9973,8 +10474,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10µF"
-			(at 142.0241 124.4084 0)
+		(property "Value" "1µF"
+			(at 104.3559 149.8084 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9982,8 +10483,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 139.7 123.19 0)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 106.68 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9991,8 +10492,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_General_Purpose.pdf"
-			(at 139.7 123.19 0)
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL10A105KB8NNNC_Spec.pdf"
+			(at 106.68 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10000,8 +10501,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "CAP CER 10UF 25V X5R 0805"
-			(at 139.7 123.19 0)
+		(property "Description" "CAP CER 1UF 50V X5R 0603"
+			(at 106.68 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10009,8 +10510,8 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Walsin Technology Corporation"
-			(at 139.7 123.19 0)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 106.68 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10018,8 +10519,8 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "0805X106K250CT"
-			(at 139.7 123.19 0)
+		(property "Part" "CL10A105KB8NNNC"
+			(at 106.68 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10028,10 +10529,10 @@
 			)
 		)
 		(pin "2"
-			(uuid "a243ce38-35f4-4cef-8a5a-50c848da1e71")
+			(uuid "9ad0146c-666e-4604-b70e-743d1d28253b")
 		)
 		(pin "1"
-			(uuid "25099447-9c41-4be7-96be-d3826f27af88")
+			(uuid "853a3064-75be-42d5-906b-e8d0524428a9")
 		)
 		(instances
 			(project "LED controller"
@@ -10052,7 +10553,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "330fac59-dcc3-4eba-9efb-172bff32f342")
-		(property "Reference" "#PWR05"
+		(property "Reference" "#PWR011"
 			(at 260.35 43.18 0)
 			(effects
 				(font
@@ -10103,7 +10604,94 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR05")
+					(reference "#PWR011")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 146.05 165.1 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "378ca097-7bdc-4b77-acf8-08964b2fc5f5")
+		(property "Reference" "C11"
+			(at 148.3741 163.8941 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1µF"
+			(at 148.3741 166.3184 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 146.05 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL10A105KB8NNNC_Spec.pdf"
+			(at 146.05 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 1UF 50V X5R 0603"
+			(at 146.05 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 146.05 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "CL10A105KB8NNNC"
+			(at 146.05 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "20bee9ab-d5d5-4f94-93c9-6270d5a55d6b")
+		)
+		(pin "1"
+			(uuid "5929b86b-a837-4832-a6ff-689a6c7f2911")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "C11")
 					(unit 1)
 				)
 			)
@@ -10119,7 +10707,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "3d046e15-bafd-42b3-8083-317e54a78864")
-		(property "Reference" "#PWR026"
+		(property "Reference" "#PWR040"
 			(at 106.68 157.48 0)
 			(effects
 				(font
@@ -10169,7 +10757,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR026")
+					(reference "#PWR040")
 					(unit 1)
 				)
 			)
@@ -10185,7 +10773,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "40cf91b8-1f1a-4b4d-96d9-bbd700d925e2")
-		(property "Reference" "#PWR017"
+		(property "Reference" "#PWR032"
 			(at 69.85 128.27 0)
 			(effects
 				(font
@@ -10236,94 +10824,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR017")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 115.57 34.29 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "42324aff-eeff-4db3-894f-de127e214143")
-		(property "Reference" "C6"
-			(at 117.348 32.004 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10µF"
-			(at 117.602 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 115.57 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_General_Purpose.pdf"
-			(at 115.57 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "CAP CER 10UF 25V X5R 0805"
-			(at 115.57 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Walsin Technology Corporation"
-			(at 115.57 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "0805X106K250CT"
-			(at 115.57 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "de814b52-37ca-4dff-9e79-46dbf261efa1")
-		)
-		(pin "1"
-			(uuid "cbae46a4-8c7c-4a34-bca6-fc1cdf8a01fe")
-		)
-		(instances
-			(project "LED controller"
-				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "C6")
+					(reference "#PWR032")
 					(unit 1)
 				)
 			)
@@ -10533,7 +11034,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "47038dd3-cf7f-4242-bbed-f29d4463b5cd")
-		(property "Reference" "J3"
+		(property "Reference" "J2"
 			(at 34.29 103.6899 0)
 			(effects
 				(font
@@ -10596,117 +11097,117 @@
 			)
 		)
 		(pin "SH"
-			(uuid "7fd5a234-e246-4d6d-8ee9-cb5e9368e76f")
+			(uuid "7fd5a234-e246-4d6d-8ee9-cb5e9368e770")
 		)
 		(pin "3"
-			(uuid "a175e584-ecbe-4428-8f70-7a61f7598294")
+			(uuid "a175e584-ecbe-4428-8f70-7a61f7598295")
 		)
 		(pin "10"
-			(uuid "a024470d-61e1-4eb1-bdb3-aebd8b9613a7")
+			(uuid "a024470d-61e1-4eb1-bdb3-aebd8b9613a8")
 		)
 		(pin "28"
-			(uuid "d5a09c17-41d2-4223-baed-ba7284533200")
+			(uuid "d5a09c17-41d2-4223-baed-ba7284533201")
 		)
 		(pin "5"
-			(uuid "c3fc8923-448e-4cc3-8718-1610beb1371d")
+			(uuid "c3fc8923-448e-4cc3-8718-1610beb1371e")
 		)
 		(pin "8"
-			(uuid "45b247be-8510-49c9-bf7e-54d38cb44924")
+			(uuid "45b247be-8510-49c9-bf7e-54d38cb44925")
 		)
 		(pin "32"
-			(uuid "17c43f14-4e16-4c47-af5e-d0a64d736eeb")
+			(uuid "17c43f14-4e16-4c47-af5e-d0a64d736eec")
 		)
 		(pin "SH"
-			(uuid "2a6a76ab-2de9-4625-b07f-827d16c9212c")
+			(uuid "2a6a76ab-2de9-4625-b07f-827d16c9212d")
 		)
 		(pin "6"
-			(uuid "3d40d97e-783c-427c-b390-c7a671c4c72e")
+			(uuid "3d40d97e-783c-427c-b390-c7a671c4c72f")
 		)
 		(pin "16"
-			(uuid "8a98adc7-4461-4035-9b39-9a93de0488fc")
+			(uuid "8a98adc7-4461-4035-9b39-9a93de0488fd")
 		)
 		(pin "18"
-			(uuid "a5cc0d32-9915-49fe-9613-2128def4bf89")
+			(uuid "a5cc0d32-9915-49fe-9613-2128def4bf8a")
 		)
 		(pin "21"
-			(uuid "a5255c6c-91c6-4f83-a1a2-f591bd55b7c3")
+			(uuid "a5255c6c-91c6-4f83-a1a2-f591bd55b7c4")
 		)
 		(pin "17"
-			(uuid "676135c3-b729-49cc-a572-93841ae2184d")
+			(uuid "676135c3-b729-49cc-a572-93841ae2184e")
 		)
 		(pin "23"
-			(uuid "ce228bb1-a0ca-4905-8ac4-80963b8c6ded")
+			(uuid "ce228bb1-a0ca-4905-8ac4-80963b8c6dee")
 		)
 		(pin "2"
-			(uuid "7a586997-603b-4ade-821a-4b46b5bc8c5a")
+			(uuid "7a586997-603b-4ade-821a-4b46b5bc8c5b")
 		)
 		(pin "22"
-			(uuid "7803671d-7342-4381-baa7-ccf6813d8e7a")
+			(uuid "7803671d-7342-4381-baa7-ccf6813d8e7b")
 		)
 		(pin "25"
-			(uuid "71346fa3-fee4-4b99-92be-b18d88430eb6")
+			(uuid "71346fa3-fee4-4b99-92be-b18d88430eb7")
 		)
 		(pin "14"
-			(uuid "0b38e89f-e79c-4348-9ef8-c03cb8f320b4")
+			(uuid "0b38e89f-e79c-4348-9ef8-c03cb8f320b5")
 		)
 		(pin "29"
-			(uuid "ba89b881-e670-49c3-94b4-b5e1c5935a69")
+			(uuid "ba89b881-e670-49c3-94b4-b5e1c5935a6a")
 		)
 		(pin "SH"
-			(uuid "3c14cb37-e9e2-451d-ac1d-03da0685e203")
+			(uuid "3c14cb37-e9e2-451d-ac1d-03da0685e204")
 		)
 		(pin "13"
-			(uuid "0380e6d1-6fb7-415c-8824-f09e74f20306")
+			(uuid "0380e6d1-6fb7-415c-8824-f09e74f20307")
 		)
 		(pin "15"
-			(uuid "b0402a3f-0b9f-4bb7-af0f-aae9ffb3b920")
+			(uuid "b0402a3f-0b9f-4bb7-af0f-aae9ffb3b921")
 		)
 		(pin "4"
-			(uuid "16a1249e-5830-46d6-bf62-d13257ab818a")
+			(uuid "16a1249e-5830-46d6-bf62-d13257ab818b")
 		)
 		(pin "20"
-			(uuid "7e2548b7-8e02-4c6e-b5f1-558035f97856")
+			(uuid "7e2548b7-8e02-4c6e-b5f1-558035f97857")
 		)
 		(pin "SH"
-			(uuid "0955b334-ef64-490f-a43e-c8e5a9631629")
+			(uuid "0955b334-ef64-490f-a43e-c8e5a963162a")
 		)
 		(pin "30"
-			(uuid "89e1e8ec-e053-4c92-a5e7-58d1ec07cb5c")
+			(uuid "89e1e8ec-e053-4c92-a5e7-58d1ec07cb5d")
 		)
 		(pin "11"
-			(uuid "ef5bbf21-9146-4079-9682-77fd157d23b5")
+			(uuid "ef5bbf21-9146-4079-9682-77fd157d23b6")
 		)
 		(pin "19"
-			(uuid "626b93b7-3838-4a6e-b4a7-77aa817cd8d3")
+			(uuid "626b93b7-3838-4a6e-b4a7-77aa817cd8d4")
 		)
 		(pin "1"
-			(uuid "c8d4f4a3-41d5-44ea-871c-5fc6d73dd7c5")
+			(uuid "c8d4f4a3-41d5-44ea-871c-5fc6d73dd7c6")
 		)
 		(pin "24"
-			(uuid "f916ffbc-38ed-4259-9afe-0ebe1bb26990")
+			(uuid "f916ffbc-38ed-4259-9afe-0ebe1bb26991")
 		)
 		(pin "26"
-			(uuid "07638a8e-e7c5-4161-9fce-3b43e06da0d0")
+			(uuid "07638a8e-e7c5-4161-9fce-3b43e06da0d1")
 		)
 		(pin "12"
-			(uuid "673e3140-1def-494f-b3e2-b11b69a773d5")
+			(uuid "673e3140-1def-494f-b3e2-b11b69a773d6")
 		)
 		(pin "27"
-			(uuid "a537dad6-d50d-402c-909b-cef309f757f5")
+			(uuid "a537dad6-d50d-402c-909b-cef309f757f6")
 		)
 		(pin "31"
-			(uuid "527c49e1-d003-4d73-adf0-48f02c06af05")
+			(uuid "527c49e1-d003-4d73-adf0-48f02c06af06")
 		)
 		(pin "7"
-			(uuid "c2433423-2c16-410c-9d79-529af6a24947")
+			(uuid "c2433423-2c16-410c-9d79-529af6a24948")
 		)
 		(pin "9"
-			(uuid "d455f68c-12c1-497c-94e8-19d84ce3adeb")
+			(uuid "d455f68c-12c1-497c-94e8-19d84ce3adec")
 		)
 		(instances
 			(project ""
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "J3")
+					(reference "J2")
 					(unit 3)
 				)
 			)
@@ -10846,7 +11347,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4a2cf1b1-21ab-4463-b21e-40752121e182")
-		(property "Reference" "#PWR04"
+		(property "Reference" "#PWR08"
 			(at 194.31 40.64 0)
 			(effects
 				(font
@@ -10897,7 +11398,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR04")
+					(reference "#PWR08")
 					(unit 1)
 				)
 			)
@@ -10913,7 +11414,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4d3bb31c-ff24-48ed-988a-4a5cc6e29c47")
-		(property "Reference" "#PWR024"
+		(property "Reference" "#PWR041"
 			(at 50.8 153.67 0)
 			(effects
 				(font
@@ -10964,7 +11465,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR024")
+					(reference "#PWR041")
 					(unit 1)
 				)
 			)
@@ -10980,7 +11481,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4f0aa5a3-f911-4731-9865-4ab78343bbcd")
-		(property "Reference" "U3"
+		(property "Reference" "U2"
 			(at 84.455 72.9554 0)
 			(effects
 				(font
@@ -11093,7 +11594,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "U3")
+					(reference "U2")
 					(unit 1)
 				)
 			)
@@ -11192,6 +11693,72 @@
 	)
 	(symbol
 		(lib_id "power:GND")
+		(at 40.64 34.29 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "53b1abbd-6077-4fc3-8bd1-13e324211995")
+		(property "Reference" "#PWR03"
+			(at 40.64 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 40.64 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 40.64 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 40.64 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 40.64 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6a3cf9c7-ed0c-4ddd-965a-47040bfae7a9")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "#PWR03")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
 		(at 44.45 92.71 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -11267,7 +11834,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5a563f53-f8e8-497f-8ae5-4e042a40c18a")
-		(property "Reference" "#PWR042"
+		(property "Reference" "#PWR028"
 			(at 69.85 121.92 0)
 			(effects
 				(font
@@ -11317,7 +11884,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR042")
+					(reference "#PWR028")
 					(unit 1)
 				)
 			)
@@ -11333,7 +11900,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5c7f37b0-a2ab-4960-a168-4ea992cceb6b")
-		(property "Reference" "#PWR01"
+		(property "Reference" "#PWR010"
 			(at 257.81 43.18 0)
 			(effects
 				(font
@@ -11384,7 +11951,7 @@
 		(instances
 			(project ""
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR01")
+					(reference "#PWR010")
 					(unit 1)
 				)
 			)
@@ -11399,7 +11966,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5cb2910d-0060-4b55-b5cc-67af55336cfb")
-		(property "Reference" "RN1"
+		(property "Reference" "RN2"
 			(at 109.982 34.036 0)
 			(effects
 				(font
@@ -11489,7 +12056,7 @@
 		(instances
 			(project ""
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "RN1")
+					(reference "RN2")
 					(unit 1)
 				)
 			)
@@ -11596,7 +12163,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "600727d2-7f5e-4e32-b438-edbbd6539533")
-		(property "Reference" "#PWR02"
+		(property "Reference" "#PWR018"
 			(at 257.81 76.2 0)
 			(effects
 				(font
@@ -11647,7 +12214,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR02")
+					(reference "#PWR018")
 					(unit 1)
 				)
 			)
@@ -11768,16 +12335,15 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 69.85 54.61 0)
-		(mirror y)
+		(at 139.7 123.19 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "64722fe9-dd48-43c7-b058-81cca4abf895")
-		(property "Reference" "C1"
-			(at 67.5259 53.4041 0)
+		(uuid "62e701ad-4e09-495c-9788-6d013396cb83")
+		(property "Reference" "C8"
+			(at 142.0241 121.9841 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11785,8 +12351,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10µF"
-			(at 67.5259 55.8284 0)
+		(property "Value" "1µF"
+			(at 142.0241 124.4084 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11794,8 +12360,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 69.85 54.61 0)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 139.7 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11803,8 +12369,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_General_Purpose.pdf"
-			(at 69.85 54.61 0)
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL10A105KB8NNNC_Spec.pdf"
+			(at 139.7 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11812,8 +12378,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "CAP CER 10UF 25V X5R 0805"
-			(at 69.85 54.61 0)
+		(property "Description" "CAP CER 1UF 50V X5R 0603"
+			(at 139.7 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11821,8 +12387,8 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Walsin Technology Corporation"
-			(at 69.85 54.61 0)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 139.7 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11830,8 +12396,8 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "0805X106K250CT"
-			(at 69.85 54.61 0)
+		(property "Part" "CL10A105KB8NNNC"
+			(at 139.7 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11840,103 +12406,15 @@
 			)
 		)
 		(pin "2"
-			(uuid "ef0eeedc-f9b3-4242-94d0-15ab4e74c680")
+			(uuid "584d3998-d623-41d4-91de-ed3b1f60582d")
 		)
 		(pin "1"
-			(uuid "0ae94c4f-5081-4791-ad17-a98351e46991")
-		)
-		(instances
-			(project ""
-				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "C1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 97.79 165.1 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "64a6aabf-c0d0-4c4f-ac64-c69f4992cba7")
-		(property "Reference" "C11"
-			(at 95.4659 163.8941 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10µF"
-			(at 95.4659 166.3184 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 97.79 165.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_General_Purpose.pdf"
-			(at 97.79 165.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "CAP CER 10UF 25V X5R 0805"
-			(at 97.79 165.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Walsin Technology Corporation"
-			(at 97.79 165.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "0805X106K250CT"
-			(at 97.79 165.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "c7d89551-2205-41c0-ae0b-05145c9bc127")
-		)
-		(pin "1"
-			(uuid "3274b1ac-5148-489f-9fe4-4a097a7e494f")
+			(uuid "0d9b7133-bd0b-4969-a270-724a6d3fc8a7")
 		)
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "C11")
+					(reference "C8")
 					(unit 1)
 				)
 			)
@@ -11952,7 +12430,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "66ec4a23-0d9c-401b-99c2-52aed51d0426")
-		(property "Reference" "#PWR018"
+		(property "Reference" "#PWR012"
 			(at 110.49 55.88 0)
 			(effects
 				(font
@@ -12003,7 +12481,265 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR018")
+					(reference "#PWR012")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 177.8 132.08 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "66f42ee9-d6cd-4d7c-ad8e-7b9ce4a91716")
+		(property "Reference" "H2"
+			(at 180.34 130.8678 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 180.34 133.2921 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Custom Footprints:1-4_20 standoff"
+			(at 177.8 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://media.digikey.com/pdf/Data%20Sheets/Richco%20Inc%20PDFs/TN4_thru_10_Dwg.pdf"
+			(at 177.8 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RND STNDFF 1/4\"-20 NYLON 2-1/2\""
+			(at 177.8 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Essentra Components"
+			(at 177.8 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "TN10-40-1/420-2"
+			(at 177.8 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "H2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 69.85 83.82 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "68c02dc0-1a3c-418f-b8d8-c7dfa4ce67f0")
+		(property "Reference" "C6"
+			(at 67.5259 82.6141 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1µF"
+			(at 67.5259 85.0384 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 69.85 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL10A105KB8NNNC_Spec.pdf"
+			(at 69.85 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 1UF 50V X5R 0603"
+			(at 69.85 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 69.85 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "CL10A105KB8NNNC"
+			(at 69.85 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "215e50ba-5083-4980-bfb3-2b411c32ec0a")
+		)
+		(pin "1"
+			(uuid "58519df5-d547-4456-86fa-324dae3046fc")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "C6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 149.86 33.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6b6ba029-b9ce-47c3-9d72-c22781067ae8")
+		(property "Reference" "C2"
+			(at 152.1841 31.8141 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1µF"
+			(at 152.1841 34.2384 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 149.86 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL10A105KB8NNNC_Spec.pdf"
+			(at 149.86 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 1UF 50V X5R 0603"
+			(at 149.86 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 149.86 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "CL10A105KB8NNNC"
+			(at 149.86 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "70498067-6abd-4d7d-b2e9-461416999dc0")
+		)
+		(pin "1"
+			(uuid "f3d3c70e-033b-42c2-acb0-901644d34ae3")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "C2")
 					(unit 1)
 				)
 			)
@@ -12018,7 +12754,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6dabd233-6ab9-43f6-acbc-ff2ac8a2e499")
-		(property "Reference" "#PWR029"
+		(property "Reference" "#PWR027"
 			(at 137.16 113.03 0)
 			(effects
 				(font
@@ -12068,7 +12804,90 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR029")
+					(reference "#PWR027")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 177.8 127 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6df60f82-d7f0-43c1-a82a-e2b1185e7a2b")
+		(property "Reference" "H1"
+			(at 180.34 125.7878 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 180.34 128.2121 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Custom Footprints:1-4_20 standoff"
+			(at 177.8 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://media.digikey.com/pdf/Data%20Sheets/Richco%20Inc%20PDFs/TN4_thru_10_Dwg.pdf"
+			(at 177.8 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RND STNDFF 1/4\"-20 NYLON 2-1/2\""
+			(at 177.8 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Essentra Components"
+			(at 177.8 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "TN10-40-1/420-2"
+			(at 177.8 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "H1")
 					(unit 1)
 				)
 			)
@@ -12084,7 +12903,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6e09120f-f844-4091-b057-c2b30c7c9dd9")
-		(property "Reference" "#PWR043"
+		(property "Reference" "#PWR04"
 			(at 66.04 44.45 0)
 			(effects
 				(font
@@ -12134,95 +12953,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR043")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 96.52 34.29 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "754ca975-4e60-408e-aee8-2cdb3245d173")
-		(property "Reference" "C5"
-			(at 94.1959 33.0841 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10µF"
-			(at 94.1959 35.5084 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 96.52 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_General_Purpose.pdf"
-			(at 96.52 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "CAP CER 10UF 25V X5R 0805"
-			(at 96.52 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Walsin Technology Corporation"
-			(at 96.52 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "0805X106K250CT"
-			(at 96.52 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "65237425-279e-4bc0-8c7e-7277b4deb6cb")
-		)
-		(pin "1"
-			(uuid "c9a66170-74ef-4e83-80a1-629e76253d93")
-		)
-		(instances
-			(project "LED controller"
-				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "C5")
+					(reference "#PWR04")
 					(unit 1)
 				)
 			)
@@ -12238,7 +12969,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "799b14f5-be59-4ef0-9009-750b1453a8df")
-		(property "Reference" "#PWR012"
+		(property "Reference" "#PWR06"
 			(at 121.92 38.1 0)
 			(effects
 				(font
@@ -12289,7 +13020,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR012")
+					(reference "#PWR06")
 					(unit 1)
 				)
 			)
@@ -12305,7 +13036,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "7b96666a-ab15-4225-b5f3-8f03dc572586")
-		(property "Reference" "C4"
+		(property "Reference" "C1"
 			(at 63.7159 31.8141 0)
 			(effects
 				(font
@@ -12314,7 +13045,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10µF"
+		(property "Value" "1µF"
 			(at 63.7159 34.2384 0)
 			(effects
 				(font
@@ -12323,7 +13054,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 66.04 33.02 0)
 			(effects
 				(font
@@ -12332,7 +13063,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_General_Purpose.pdf"
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL10A105KB8NNNC_Spec.pdf"
 			(at 66.04 33.02 0)
 			(effects
 				(font
@@ -12341,7 +13072,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "CAP CER 10UF 25V X5R 0805"
+		(property "Description" "CAP CER 1UF 50V X5R 0603"
 			(at 66.04 33.02 0)
 			(effects
 				(font
@@ -12350,7 +13081,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Walsin Technology Corporation"
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 66.04 33.02 0)
 			(effects
 				(font
@@ -12359,7 +13090,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "0805X106K250CT"
+		(property "Part" "CL10A105KB8NNNC"
 			(at 66.04 33.02 0)
 			(effects
 				(font
@@ -12377,7 +13108,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "C4")
+					(reference "C1")
 					(unit 1)
 				)
 			)
@@ -12522,7 +13253,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7d9d42cd-4df0-4568-9930-78e90f5864df")
-		(property "Reference" "#PWR015"
+		(property "Reference" "#PWR02"
 			(at 147.32 33.02 0)
 			(effects
 				(font
@@ -12573,7 +13304,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR015")
+					(reference "#PWR02")
 					(unit 1)
 				)
 			)
@@ -12588,7 +13319,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "7ef6e094-ac43-4e07-b667-f092f9a73f5c")
-		(property "Reference" "#PWR021"
+		(property "Reference" "#PWR025"
 			(at 109.22 113.03 0)
 			(effects
 				(font
@@ -12638,7 +13369,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR021")
+					(reference "#PWR025")
 					(unit 1)
 				)
 			)
@@ -12654,7 +13385,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8147c707-d2d3-4cf0-990e-ae8d69fc35ba")
-		(property "Reference" "#PWR036"
+		(property "Reference" "#PWR037"
 			(at 107.95 138.43 0)
 			(effects
 				(font
@@ -12705,7 +13436,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR036")
+					(reference "#PWR037")
 					(unit 1)
 				)
 			)
@@ -12720,7 +13451,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "829e542b-57bd-48a0-a5ef-aef810712975")
-		(property "Reference" "#PWR044"
+		(property "Reference" "#PWR031"
 			(at 139.7 132.08 0)
 			(effects
 				(font
@@ -12770,7 +13501,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR044")
+					(reference "#PWR031")
 					(unit 1)
 				)
 			)
@@ -12891,7 +13622,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "8d93e78a-f567-412b-b621-20f4161d1769")
-		(property "Reference" "#PWR041"
+		(property "Reference" "#PWR020"
 			(at 69.85 92.71 0)
 			(effects
 				(font
@@ -12941,7 +13672,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR041")
+					(reference "#PWR020")
 					(unit 1)
 				)
 			)
@@ -12957,7 +13688,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "8f239c8a-a0ae-499c-b0f5-9144c5883233")
-		(property "Reference" "#PWR040"
+		(property "Reference" "#PWR013"
 			(at 69.85 63.5 0)
 			(effects
 				(font
@@ -13007,95 +13738,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR040")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 69.85 113.03 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "9280472b-712d-44a1-85d7-ee41befbaeeb")
-		(property "Reference" "C3"
-			(at 67.5259 111.8241 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10µF"
-			(at 67.5259 114.2484 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 69.85 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_General_Purpose.pdf"
-			(at 69.85 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "CAP CER 10UF 25V X5R 0805"
-			(at 69.85 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Walsin Technology Corporation"
-			(at 69.85 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "0805X106K250CT"
-			(at 69.85 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "26f83866-5023-46c6-8792-148156c7da19")
-		)
-		(pin "1"
-			(uuid "b5fd2c86-60e9-4cc1-bb6e-0ea655491100")
-		)
-		(instances
-			(project "LED controller"
-				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "C3")
+					(reference "#PWR013")
 					(unit 1)
 				)
 			)
@@ -13111,7 +13754,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "932db257-2fb6-4886-a2fa-f072e4c2ade7")
-		(property "Reference" "#PWR034"
+		(property "Reference" "#PWR035"
 			(at 138.43 130.81 0)
 			(effects
 				(font
@@ -13162,7 +13805,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR034")
+					(reference "#PWR035")
 					(unit 1)
 				)
 			)
@@ -13283,7 +13926,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "98208021-4ff0-4ad2-9476-9a94724a0d90")
-		(property "Reference" "#PWR030"
+		(property "Reference" "#PWR038"
 			(at 50.8 143.51 0)
 			(effects
 				(font
@@ -13334,7 +13977,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR030")
+					(reference "#PWR038")
 					(unit 1)
 				)
 			)
@@ -13351,7 +13994,7 @@
 		(on_board no)
 		(dnp no)
 		(uuid "9b4488d0-ef7a-4514-9741-c53b7cdc2199")
-		(property "Reference" "J1"
+		(property "Reference" "J3"
 			(at 186.69 39.37 0)
 			(effects
 				(font
@@ -13489,7 +14132,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "J1")
+					(reference "J3")
 					(unit 1)
 				)
 			)
@@ -13505,7 +14148,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9e9605e5-4a86-4340-a524-067d3b508fb0")
-		(property "Reference" "#PWR031"
+		(property "Reference" "#PWR039"
 			(at 50.8 148.59 0)
 			(effects
 				(font
@@ -13556,7 +14199,94 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR031")
+					(reference "#PWR039")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 115.57 34.29 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9f1950e5-2320-45a1-aa78-77a39338228a")
+		(property "Reference" "C4"
+			(at 117.856 32.512 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1µF"
+			(at 117.856 34.544 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 115.57 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL10A105KB8NNNC_Spec.pdf"
+			(at 115.57 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 1UF 50V X5R 0603"
+			(at 115.57 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 115.57 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "CL10A105KB8NNNC"
+			(at 115.57 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "83d7e688-887e-42df-aae0-dc0d96b5de86")
+		)
+		(pin "1"
+			(uuid "cdb5c76e-e327-4408-a3a7-6d6aad391536")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "C4")
 					(unit 1)
 				)
 			)
@@ -13663,7 +14393,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a0a3c52d-44ee-4d54-a941-2b3d1d848fe4")
-		(property "Reference" "#PWR016"
+		(property "Reference" "#PWR023"
 			(at 69.85 99.06 0)
 			(effects
 				(font
@@ -13714,183 +14444,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR016")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 69.85 83.82 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "a1417195-fd24-4496-81f9-d47f328987f7")
-		(property "Reference" "C2"
-			(at 67.5259 82.6141 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10µF"
-			(at 67.5259 85.0384 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 69.85 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_General_Purpose.pdf"
-			(at 69.85 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "CAP CER 10UF 25V X5R 0805"
-			(at 69.85 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Walsin Technology Corporation"
-			(at 69.85 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "0805X106K250CT"
-			(at 69.85 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "7d98b679-144d-4f37-ba75-d412ae3dfa19")
-		)
-		(pin "1"
-			(uuid "7c44dbbc-1950-46e0-aab5-8baff3b894a0")
-		)
-		(instances
-			(project "LED controller"
-				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "C2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 106.68 148.59 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "a21f3bf9-891e-4a2e-9e4b-80782536e6a9")
-		(property "Reference" "C8"
-			(at 104.3559 147.3841 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10µF"
-			(at 104.3559 149.8084 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 106.68 148.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_General_Purpose.pdf"
-			(at 106.68 148.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "CAP CER 10UF 25V X5R 0805"
-			(at 106.68 148.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Walsin Technology Corporation"
-			(at 106.68 148.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "0805X106K250CT"
-			(at 106.68 148.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "2f08491d-2491-471d-8790-c26cd9eca81e")
-		)
-		(pin "1"
-			(uuid "c7e32b16-7e6d-4e6c-99e3-280171efd382")
-		)
-		(instances
-			(project "LED controller"
-				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "C8")
+					(reference "#PWR023")
 					(unit 1)
 				)
 			)
@@ -13906,7 +14460,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a8e64c0f-850e-4631-b997-664863171be7")
-		(property "Reference" "#PWR019"
+		(property "Reference" "#PWR017"
 			(at 110.49 72.39 0)
 			(effects
 				(font
@@ -13957,7 +14511,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR019")
+					(reference "#PWR017")
 					(unit 1)
 				)
 			)
@@ -13973,7 +14527,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ae26def5-87c8-469f-be71-155a1922742d")
-		(property "Reference" "#PWR032"
+		(property "Reference" "#PWR030"
 			(at 107.95 123.19 0)
 			(effects
 				(font
@@ -14024,7 +14578,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR032")
+					(reference "#PWR030")
 					(unit 1)
 				)
 			)
@@ -14040,7 +14594,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b4adb356-8a2f-4c0b-a5e9-f13c72c23c92")
-		(property "Reference" "#PWR013"
+		(property "Reference" "#PWR07"
 			(at 149.86 44.45 0)
 			(effects
 				(font
@@ -14090,7 +14644,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR013")
+					(reference "#PWR07")
 					(unit 1)
 				)
 			)
@@ -14105,7 +14659,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b8921e7a-2c21-4d2b-b8b9-b1bb36e39a97")
-		(property "Reference" "#PWR011"
+		(property "Reference" "#PWR043"
 			(at 34.29 167.64 0)
 			(effects
 				(font
@@ -14155,7 +14709,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR011")
+					(reference "#PWR043")
 					(unit 1)
 				)
 			)
@@ -14171,7 +14725,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b9dcf481-7a62-41a6-9867-fc240a26a1c1")
-		(property "Reference" "#PWR020"
+		(property "Reference" "#PWR021"
 			(at 110.49 88.9 0)
 			(effects
 				(font
@@ -14222,7 +14776,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR020")
+					(reference "#PWR021")
 					(unit 1)
 				)
 			)
@@ -14238,7 +14792,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b9e4b589-655d-4e20-bc62-5804a9e64386")
-		(property "Reference" "#PWR014"
+		(property "Reference" "#PWR01"
 			(at 120.65 22.86 0)
 			(effects
 				(font
@@ -14288,7 +14842,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR014")
+					(reference "#PWR01")
 					(unit 1)
 				)
 			)
@@ -14304,7 +14858,7 @@
 		(on_board no)
 		(dnp no)
 		(uuid "bed8144f-6aa8-4809-802e-2a306f7d9343")
-		(property "Reference" "J2"
+		(property "Reference" "J4"
 			(at 267.97 39.37 0)
 			(effects
 				(font
@@ -14442,7 +14996,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "J2")
+					(reference "J4")
 					(unit 1)
 				)
 			)
@@ -14457,7 +15011,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "cefb7d62-fb94-4d12-b6e2-7f588a6b1551")
-		(property "Reference" "#PWR038"
+		(property "Reference" "#PWR047"
 			(at 114.3 184.15 0)
 			(effects
 				(font
@@ -14507,7 +15061,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR038")
+					(reference "#PWR047")
 					(unit 1)
 				)
 			)
@@ -14522,7 +15076,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "d2801f97-1569-41fa-b0fd-fb9442434ec8")
-		(property "Reference" "#PWR09"
+		(property "Reference" "#PWR024"
 			(at 34.29 106.68 0)
 			(effects
 				(font
@@ -14572,7 +15126,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR09")
+					(reference "#PWR024")
 					(unit 1)
 				)
 			)
@@ -14588,7 +15142,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d936d70b-b844-46f1-b81a-0da7ba7b235c")
-		(property "Reference" "J3"
+		(property "Reference" "J2"
 			(at 34.29 134.1699 0)
 			(effects
 				(font
@@ -14651,117 +15205,117 @@
 			)
 		)
 		(pin "SH"
-			(uuid "7fd5a234-e246-4d6d-8ee9-cb5e9368e76f")
+			(uuid "7fd5a234-e246-4d6d-8ee9-cb5e9368e771")
 		)
 		(pin "3"
-			(uuid "a175e584-ecbe-4428-8f70-7a61f7598294")
+			(uuid "a175e584-ecbe-4428-8f70-7a61f7598296")
 		)
 		(pin "10"
-			(uuid "a024470d-61e1-4eb1-bdb3-aebd8b9613a7")
+			(uuid "a024470d-61e1-4eb1-bdb3-aebd8b9613a9")
 		)
 		(pin "28"
-			(uuid "d5a09c17-41d2-4223-baed-ba7284533200")
+			(uuid "d5a09c17-41d2-4223-baed-ba7284533202")
 		)
 		(pin "5"
-			(uuid "c3fc8923-448e-4cc3-8718-1610beb1371d")
+			(uuid "c3fc8923-448e-4cc3-8718-1610beb1371f")
 		)
 		(pin "8"
-			(uuid "45b247be-8510-49c9-bf7e-54d38cb44924")
+			(uuid "45b247be-8510-49c9-bf7e-54d38cb44926")
 		)
 		(pin "32"
-			(uuid "17c43f14-4e16-4c47-af5e-d0a64d736eeb")
+			(uuid "17c43f14-4e16-4c47-af5e-d0a64d736eed")
 		)
 		(pin "SH"
-			(uuid "2a6a76ab-2de9-4625-b07f-827d16c9212c")
+			(uuid "2a6a76ab-2de9-4625-b07f-827d16c9212e")
 		)
 		(pin "6"
-			(uuid "3d40d97e-783c-427c-b390-c7a671c4c72e")
+			(uuid "3d40d97e-783c-427c-b390-c7a671c4c730")
 		)
 		(pin "16"
-			(uuid "8a98adc7-4461-4035-9b39-9a93de0488fc")
+			(uuid "8a98adc7-4461-4035-9b39-9a93de0488fe")
 		)
 		(pin "18"
-			(uuid "a5cc0d32-9915-49fe-9613-2128def4bf89")
+			(uuid "a5cc0d32-9915-49fe-9613-2128def4bf8b")
 		)
 		(pin "21"
-			(uuid "a5255c6c-91c6-4f83-a1a2-f591bd55b7c3")
+			(uuid "a5255c6c-91c6-4f83-a1a2-f591bd55b7c5")
 		)
 		(pin "17"
-			(uuid "676135c3-b729-49cc-a572-93841ae2184d")
+			(uuid "676135c3-b729-49cc-a572-93841ae2184f")
 		)
 		(pin "23"
-			(uuid "ce228bb1-a0ca-4905-8ac4-80963b8c6ded")
+			(uuid "ce228bb1-a0ca-4905-8ac4-80963b8c6def")
 		)
 		(pin "2"
-			(uuid "7a586997-603b-4ade-821a-4b46b5bc8c5a")
+			(uuid "7a586997-603b-4ade-821a-4b46b5bc8c5c")
 		)
 		(pin "22"
-			(uuid "7803671d-7342-4381-baa7-ccf6813d8e7a")
+			(uuid "7803671d-7342-4381-baa7-ccf6813d8e7c")
 		)
 		(pin "25"
-			(uuid "71346fa3-fee4-4b99-92be-b18d88430eb6")
+			(uuid "71346fa3-fee4-4b99-92be-b18d88430eb8")
 		)
 		(pin "14"
-			(uuid "0b38e89f-e79c-4348-9ef8-c03cb8f320b4")
+			(uuid "0b38e89f-e79c-4348-9ef8-c03cb8f320b6")
 		)
 		(pin "29"
-			(uuid "ba89b881-e670-49c3-94b4-b5e1c5935a69")
+			(uuid "ba89b881-e670-49c3-94b4-b5e1c5935a6b")
 		)
 		(pin "SH"
-			(uuid "3c14cb37-e9e2-451d-ac1d-03da0685e203")
+			(uuid "3c14cb37-e9e2-451d-ac1d-03da0685e205")
 		)
 		(pin "13"
-			(uuid "0380e6d1-6fb7-415c-8824-f09e74f20306")
+			(uuid "0380e6d1-6fb7-415c-8824-f09e74f20308")
 		)
 		(pin "15"
-			(uuid "b0402a3f-0b9f-4bb7-af0f-aae9ffb3b920")
+			(uuid "b0402a3f-0b9f-4bb7-af0f-aae9ffb3b922")
 		)
 		(pin "4"
-			(uuid "16a1249e-5830-46d6-bf62-d13257ab818a")
+			(uuid "16a1249e-5830-46d6-bf62-d13257ab818c")
 		)
 		(pin "20"
-			(uuid "7e2548b7-8e02-4c6e-b5f1-558035f97856")
+			(uuid "7e2548b7-8e02-4c6e-b5f1-558035f97858")
 		)
 		(pin "SH"
-			(uuid "0955b334-ef64-490f-a43e-c8e5a9631629")
+			(uuid "0955b334-ef64-490f-a43e-c8e5a963162b")
 		)
 		(pin "30"
-			(uuid "89e1e8ec-e053-4c92-a5e7-58d1ec07cb5c")
+			(uuid "89e1e8ec-e053-4c92-a5e7-58d1ec07cb5e")
 		)
 		(pin "11"
-			(uuid "ef5bbf21-9146-4079-9682-77fd157d23b5")
+			(uuid "ef5bbf21-9146-4079-9682-77fd157d23b7")
 		)
 		(pin "19"
-			(uuid "626b93b7-3838-4a6e-b4a7-77aa817cd8d3")
+			(uuid "626b93b7-3838-4a6e-b4a7-77aa817cd8d5")
 		)
 		(pin "1"
-			(uuid "c8d4f4a3-41d5-44ea-871c-5fc6d73dd7c5")
+			(uuid "c8d4f4a3-41d5-44ea-871c-5fc6d73dd7c7")
 		)
 		(pin "24"
-			(uuid "f916ffbc-38ed-4259-9afe-0ebe1bb26990")
+			(uuid "f916ffbc-38ed-4259-9afe-0ebe1bb26992")
 		)
 		(pin "26"
-			(uuid "07638a8e-e7c5-4161-9fce-3b43e06da0d0")
+			(uuid "07638a8e-e7c5-4161-9fce-3b43e06da0d2")
 		)
 		(pin "12"
-			(uuid "673e3140-1def-494f-b3e2-b11b69a773d5")
+			(uuid "673e3140-1def-494f-b3e2-b11b69a773d7")
 		)
 		(pin "27"
-			(uuid "a537dad6-d50d-402c-909b-cef309f757f5")
+			(uuid "a537dad6-d50d-402c-909b-cef309f757f7")
 		)
 		(pin "31"
-			(uuid "527c49e1-d003-4d73-adf0-48f02c06af05")
+			(uuid "527c49e1-d003-4d73-adf0-48f02c06af07")
 		)
 		(pin "7"
-			(uuid "c2433423-2c16-410c-9d79-529af6a24947")
+			(uuid "c2433423-2c16-410c-9d79-529af6a24949")
 		)
 		(pin "9"
-			(uuid "d455f68c-12c1-497c-94e8-19d84ce3adeb")
+			(uuid "d455f68c-12c1-497c-94e8-19d84ce3aded")
 		)
 		(instances
 			(project ""
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "J3")
+					(reference "J2")
 					(unit 4)
 				)
 			)
@@ -14777,7 +15331,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d9d842e4-d7ba-45a4-a099-e291b3d50d94")
-		(property "Reference" "U1"
+		(property "Reference" "U3"
 			(at 227.33 35.3525 0)
 			(effects
 				(font
@@ -14985,7 +15539,7 @@
 		(instances
 			(project ""
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "U1")
+					(reference "U3")
 					(unit 1)
 				)
 			)
@@ -15122,6 +15676,94 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:Barrel_Jack_Switch")
+		(at 33.02 31.75 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "dd01f94f-cca2-40bf-ab46-7c8982aed582")
+		(property "Reference" "J1"
+			(at 34.4678 23.6982 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Barrel_Jack_Switch"
+			(at 34.4678 26.0096 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Custom Footprints:DC-jack_54-00165"
+			(at 34.29 32.766 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://tensility.s3-us-west-2.amazonaws.com/uploads/product_doc/document/4054/54-00165.pdf"
+			(at 34.29 32.766 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 33.02 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Tensility International Corp"
+			(at 33.02 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part #" "54-00165"
+			(at 33.02 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "d6fea998-ee93-4caa-b004-dd5937f36655")
+		)
+		(pin "3"
+			(uuid "e24eec72-39dc-4685-9d75-01c5af5364e3")
+		)
+		(pin "1"
+			(uuid "c7c6e87e-df2b-4cd6-a6e1-6b0a3449bef2")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "J1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 203.2 40.64 270)
 		(unit 1)
@@ -15131,7 +15773,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e151e193-8e4f-48a1-bf30-e5968ca8b726")
-		(property "Reference" "#PWR03"
+		(property "Reference" "#PWR09"
 			(at 196.85 40.64 0)
 			(effects
 				(font
@@ -15182,7 +15824,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR03")
+					(reference "#PWR09")
 					(unit 1)
 				)
 			)
@@ -15198,7 +15840,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e2f92c28-9315-450d-8402-161323001f78")
-		(property "Reference" "RN2"
+		(property "Reference" "RN3"
 			(at 140.97 61.8955 90)
 			(effects
 				(font
@@ -15286,94 +15928,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "RN2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 149.86 33.02 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "e42c7c75-53f0-47d7-ba3c-586e7371c332")
-		(property "Reference" "C7"
-			(at 151.638 30.734 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10µF"
-			(at 151.892 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 149.86 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_General_Purpose.pdf"
-			(at 149.86 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "CAP CER 10UF 25V X5R 0805"
-			(at 149.86 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Walsin Technology Corporation"
-			(at 149.86 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "0805X106K250CT"
-			(at 149.86 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "5abdfdc6-aeaa-4b7a-ae63-54a290d13da5")
-		)
-		(pin "1"
-			(uuid "5a1f7671-345b-43fb-b62b-650ece7aa37b")
-		)
-		(instances
-			(project "LED controller"
-				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "C7")
+					(reference "RN3")
 					(unit 1)
 				)
 			)
@@ -15388,7 +15943,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e845b906-4c8b-4e76-b2d5-6b1c45f338c3")
-		(property "Reference" "#PWR037"
+		(property "Reference" "#PWR042"
 			(at 133.35 162.56 0)
 			(effects
 				(font
@@ -15438,7 +15993,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR037")
+					(reference "#PWR042")
 					(unit 1)
 				)
 			)
@@ -15454,7 +16009,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e8d83e85-f0b1-45f5-a688-cfb8a96f4b0e")
-		(property "Reference" "RN3"
+		(property "Reference" "RN1"
 			(at 175.26 25.0655 90)
 			(effects
 				(font
@@ -15542,7 +16097,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "RN3")
+					(reference "RN1")
 					(unit 1)
 				)
 			)
@@ -15557,7 +16112,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "ec9c4355-ae57-4619-8f2a-2822d555e4c8")
-		(property "Reference" "#PWR028"
+		(property "Reference" "#PWR026"
 			(at 123.19 113.03 0)
 			(effects
 				(font
@@ -15607,7 +16162,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR028")
+					(reference "#PWR026")
 					(unit 1)
 				)
 			)
@@ -15623,7 +16178,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f06112cc-8327-43d9-91f6-a11f2a8b4c7c")
-		(property "Reference" "#PWR027"
+		(property "Reference" "#PWR05"
 			(at 91.44 38.1 0)
 			(effects
 				(font
@@ -15674,7 +16229,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR027")
+					(reference "#PWR05")
 					(unit 1)
 				)
 			)
@@ -15690,7 +16245,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f088adc8-2e60-4937-965a-f772df4998f2")
-		(property "Reference" "J3"
+		(property "Reference" "J2"
 			(at 34.29 73.2099 0)
 			(effects
 				(font
@@ -15753,118 +16308,289 @@
 			)
 		)
 		(pin "SH"
-			(uuid "7fd5a234-e246-4d6d-8ee9-cb5e9368e76f")
+			(uuid "7fd5a234-e246-4d6d-8ee9-cb5e9368e772")
 		)
 		(pin "3"
-			(uuid "a175e584-ecbe-4428-8f70-7a61f7598294")
+			(uuid "a175e584-ecbe-4428-8f70-7a61f7598297")
 		)
 		(pin "10"
-			(uuid "a024470d-61e1-4eb1-bdb3-aebd8b9613a7")
+			(uuid "a024470d-61e1-4eb1-bdb3-aebd8b9613aa")
 		)
 		(pin "28"
-			(uuid "d5a09c17-41d2-4223-baed-ba7284533200")
+			(uuid "d5a09c17-41d2-4223-baed-ba7284533203")
 		)
 		(pin "5"
-			(uuid "c3fc8923-448e-4cc3-8718-1610beb1371d")
+			(uuid "c3fc8923-448e-4cc3-8718-1610beb13720")
 		)
 		(pin "8"
-			(uuid "45b247be-8510-49c9-bf7e-54d38cb44924")
+			(uuid "45b247be-8510-49c9-bf7e-54d38cb44927")
 		)
 		(pin "32"
-			(uuid "17c43f14-4e16-4c47-af5e-d0a64d736eeb")
+			(uuid "17c43f14-4e16-4c47-af5e-d0a64d736eee")
 		)
 		(pin "SH"
-			(uuid "2a6a76ab-2de9-4625-b07f-827d16c9212c")
+			(uuid "2a6a76ab-2de9-4625-b07f-827d16c9212f")
 		)
 		(pin "6"
-			(uuid "3d40d97e-783c-427c-b390-c7a671c4c72e")
+			(uuid "3d40d97e-783c-427c-b390-c7a671c4c731")
 		)
 		(pin "16"
-			(uuid "8a98adc7-4461-4035-9b39-9a93de0488fc")
+			(uuid "8a98adc7-4461-4035-9b39-9a93de0488ff")
 		)
 		(pin "18"
-			(uuid "a5cc0d32-9915-49fe-9613-2128def4bf89")
+			(uuid "a5cc0d32-9915-49fe-9613-2128def4bf8c")
 		)
 		(pin "21"
-			(uuid "a5255c6c-91c6-4f83-a1a2-f591bd55b7c3")
+			(uuid "a5255c6c-91c6-4f83-a1a2-f591bd55b7c6")
 		)
 		(pin "17"
-			(uuid "676135c3-b729-49cc-a572-93841ae2184d")
+			(uuid "676135c3-b729-49cc-a572-93841ae21850")
 		)
 		(pin "23"
-			(uuid "ce228bb1-a0ca-4905-8ac4-80963b8c6ded")
+			(uuid "ce228bb1-a0ca-4905-8ac4-80963b8c6df0")
 		)
 		(pin "2"
-			(uuid "7a586997-603b-4ade-821a-4b46b5bc8c5a")
+			(uuid "7a586997-603b-4ade-821a-4b46b5bc8c5d")
 		)
 		(pin "22"
-			(uuid "7803671d-7342-4381-baa7-ccf6813d8e7a")
+			(uuid "7803671d-7342-4381-baa7-ccf6813d8e7d")
 		)
 		(pin "25"
-			(uuid "71346fa3-fee4-4b99-92be-b18d88430eb6")
+			(uuid "71346fa3-fee4-4b99-92be-b18d88430eb9")
 		)
 		(pin "14"
-			(uuid "0b38e89f-e79c-4348-9ef8-c03cb8f320b4")
+			(uuid "0b38e89f-e79c-4348-9ef8-c03cb8f320b7")
 		)
 		(pin "29"
-			(uuid "ba89b881-e670-49c3-94b4-b5e1c5935a69")
+			(uuid "ba89b881-e670-49c3-94b4-b5e1c5935a6c")
 		)
 		(pin "SH"
-			(uuid "3c14cb37-e9e2-451d-ac1d-03da0685e203")
+			(uuid "3c14cb37-e9e2-451d-ac1d-03da0685e206")
 		)
 		(pin "13"
-			(uuid "0380e6d1-6fb7-415c-8824-f09e74f20306")
+			(uuid "0380e6d1-6fb7-415c-8824-f09e74f20309")
 		)
 		(pin "15"
-			(uuid "b0402a3f-0b9f-4bb7-af0f-aae9ffb3b920")
+			(uuid "b0402a3f-0b9f-4bb7-af0f-aae9ffb3b923")
 		)
 		(pin "4"
-			(uuid "16a1249e-5830-46d6-bf62-d13257ab818a")
+			(uuid "16a1249e-5830-46d6-bf62-d13257ab818d")
 		)
 		(pin "20"
-			(uuid "7e2548b7-8e02-4c6e-b5f1-558035f97856")
+			(uuid "7e2548b7-8e02-4c6e-b5f1-558035f97859")
 		)
 		(pin "SH"
-			(uuid "0955b334-ef64-490f-a43e-c8e5a9631629")
+			(uuid "0955b334-ef64-490f-a43e-c8e5a963162c")
 		)
 		(pin "30"
-			(uuid "89e1e8ec-e053-4c92-a5e7-58d1ec07cb5c")
+			(uuid "89e1e8ec-e053-4c92-a5e7-58d1ec07cb5f")
 		)
 		(pin "11"
-			(uuid "ef5bbf21-9146-4079-9682-77fd157d23b5")
+			(uuid "ef5bbf21-9146-4079-9682-77fd157d23b8")
 		)
 		(pin "19"
-			(uuid "626b93b7-3838-4a6e-b4a7-77aa817cd8d3")
+			(uuid "626b93b7-3838-4a6e-b4a7-77aa817cd8d6")
 		)
 		(pin "1"
-			(uuid "c8d4f4a3-41d5-44ea-871c-5fc6d73dd7c5")
+			(uuid "c8d4f4a3-41d5-44ea-871c-5fc6d73dd7c8")
 		)
 		(pin "24"
-			(uuid "f916ffbc-38ed-4259-9afe-0ebe1bb26990")
+			(uuid "f916ffbc-38ed-4259-9afe-0ebe1bb26993")
 		)
 		(pin "26"
-			(uuid "07638a8e-e7c5-4161-9fce-3b43e06da0d0")
+			(uuid "07638a8e-e7c5-4161-9fce-3b43e06da0d3")
 		)
 		(pin "12"
-			(uuid "673e3140-1def-494f-b3e2-b11b69a773d5")
+			(uuid "673e3140-1def-494f-b3e2-b11b69a773d8")
 		)
 		(pin "27"
-			(uuid "a537dad6-d50d-402c-909b-cef309f757f5")
+			(uuid "a537dad6-d50d-402c-909b-cef309f757f8")
 		)
 		(pin "31"
-			(uuid "527c49e1-d003-4d73-adf0-48f02c06af05")
+			(uuid "527c49e1-d003-4d73-adf0-48f02c06af08")
 		)
 		(pin "7"
-			(uuid "c2433423-2c16-410c-9d79-529af6a24947")
+			(uuid "c2433423-2c16-410c-9d79-529af6a2494a")
 		)
 		(pin "9"
-			(uuid "d455f68c-12c1-497c-94e8-19d84ce3adeb")
+			(uuid "d455f68c-12c1-497c-94e8-19d84ce3adee")
 		)
 		(instances
 			(project ""
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "J3")
+					(reference "J2")
 					(unit 2)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 97.79 165.1 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f12b1bb4-4acb-40ab-8807-7d054a32b7c8")
+		(property "Reference" "C10"
+			(at 95.4659 163.8941 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1µF"
+			(at 95.4659 166.3184 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 97.79 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL10A105KB8NNNC_Spec.pdf"
+			(at 97.79 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 1UF 50V X5R 0603"
+			(at 97.79 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 97.79 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "CL10A105KB8NNNC"
+			(at 97.79 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "67c92a2d-5bdd-48b8-bd2c-f88ca1ea05bd")
+		)
+		(pin "1"
+			(uuid "77145b14-dd90-4a7a-b677-fdf1df689d9d")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "C10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 177.8 137.16 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f2eac7b2-97a8-46db-a017-98a424c89d51")
+		(property "Reference" "H3"
+			(at 180.34 135.9478 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 180.34 138.3721 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Custom Footprints:1-4_20 standoff"
+			(at 177.8 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://media.digikey.com/pdf/Data%20Sheets/Richco%20Inc%20PDFs/TN4_thru_10_Dwg.pdf"
+			(at 177.8 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RND STNDFF 1/4\"-20 NYLON 2-1/2\""
+			(at 177.8 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Essentra Components"
+			(at 177.8 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "TN10-40-1/420-2"
+			(at 177.8 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "H3")
+					(unit 1)
 				)
 			)
 		)
@@ -15879,7 +16605,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f50b144a-c4aa-4c96-8787-97976e827c5a")
-		(property "Reference" "#PWR07"
+		(property "Reference" "#PWR014"
 			(at 50.8 62.23 0)
 			(effects
 				(font
@@ -15930,7 +16656,7 @@
 		(instances
 			(project ""
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR07")
+					(reference "#PWR014")
 					(unit 1)
 				)
 			)
@@ -15945,7 +16671,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "f87fc513-ec51-409c-aeb6-3633b4b11c36")
-		(property "Reference" "#PWR08"
+		(property "Reference" "#PWR015"
 			(at 34.29 76.2 0)
 			(effects
 				(font
@@ -15995,7 +16721,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR08")
+					(reference "#PWR015")
 					(unit 1)
 				)
 			)
@@ -16011,7 +16737,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f8a8104e-1094-4a83-a5e4-b81b6437dd88")
-		(property "Reference" "#PWR033"
+		(property "Reference" "#PWR034"
 			(at 107.95 130.81 0)
 			(effects
 				(font
@@ -16062,7 +16788,95 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR033")
+					(reference "#PWR034")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 69.85 113.03 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f96cd572-3000-4a31-b461-594c8624cd8f")
+		(property "Reference" "C7"
+			(at 67.5259 111.8241 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1µF"
+			(at 67.5259 114.2484 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 69.85 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL10A105KB8NNNC_Spec.pdf"
+			(at 69.85 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 1UF 50V X5R 0603"
+			(at 69.85 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 69.85 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "CL10A105KB8NNNC"
+			(at 69.85 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "618e3683-be92-4107-8d59-cbaefdda9558")
+		)
+		(pin "1"
+			(uuid "b5428a98-3330-408f-9fc2-d847d1e8f8d1")
+		)
+		(instances
+			(project "LED controller"
+				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
+					(reference "C7")
 					(unit 1)
 				)
 			)
@@ -16078,7 +16892,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "fee2acb1-fab9-49e7-9c48-2271388c99c0")
-		(property "Reference" "#PWR046"
+		(property "Reference" "#PWR044"
 			(at 97.79 173.99 0)
 			(effects
 				(font
@@ -16128,7 +16942,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "#PWR046")
+					(reference "#PWR044")
 					(unit 1)
 				)
 			)

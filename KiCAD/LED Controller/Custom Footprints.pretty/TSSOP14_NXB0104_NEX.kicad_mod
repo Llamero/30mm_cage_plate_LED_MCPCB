@@ -987,4 +987,15 @@
 		(layers "F.Cu" "F.Paste" "F.Mask")
 		(uuid "2f7c4e21-8534-43ab-9908-269ca7c483c3")
 	)
+	(model "${KIPRJMOD}/CAD models/TSSOP14_NXB0104_NEX.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
 )
