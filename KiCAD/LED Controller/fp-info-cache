@@ -1,4 +1,4 @@
-24208364913321435
+24210097228958328
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -54788,6 +54788,13 @@ Custom Footprints
 0
 0
 0
+Custom Footprints
+1x RJ45
+
+
+0
+12
+8
 Custom Footprints
 AMPHENOL_RJE3A2886102N
 
