@@ -474,7 +474,7 @@
 				)
 			)
 		)
-		(property "Value" "SN75374D"
+		(property "Value" "4x Gate Driver"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -2579,7 +2579,7 @@
 				)
 			)
 		)
-		(property "Value" "NXB0104PWJ"
+		(property "Value" "3x Level Shifter"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -3721,7 +3721,7 @@
 				)
 			)
 		)
-		(path "/f088adc8-2e60-4937-965a-f772df4998f2")
+		(path "/d936d70b-b844-46f1-b81a-0da7ba7b235c")
 		(sheetname "Root")
 		(sheetfile "LED controller.kicad_sch")
 		(attr smd)
@@ -4966,7 +4966,7 @@
 				)
 			)
 		)
-		(property "Value" "SN75374D"
+		(property "Value" "4x Gate Driver"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6573,7 +6573,7 @@
 				)
 			)
 		)
-		(property "Part" "P160KN2-4QC20B10K"
+		(property "Part" "P160KN2-0QA25B10K"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6906,7 +6906,7 @@
 				)
 			)
 		)
-		(property "Value" "DAC084S085CIMMX/NOPB"
+		(property "Value" "3x 10-Bit DAC"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6930,7 +6930,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fdac084s085"
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/dac104s085-q1.pdf"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -6942,7 +6942,7 @@
 				)
 			)
 		)
-		(property "Description" "IC DAC 8BIT V-OUT 10VSSOP"
+		(property "Description" "IC DAC 10BIT V-OUT 10VSSOP"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -6967,7 +6967,7 @@
 				)
 			)
 		)
-		(property "Part" "DAC084S085CIMMX/NOPB"
+		(property "Part" "DAC104S085QIMMX/NOPB"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7662,7 +7662,7 @@
 				)
 			)
 		)
-		(property "Value" "SN74LV4053ADR"
+		(property "Value" "3x Analog Switch"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -8774,7 +8774,7 @@
 				)
 			)
 		)
-		(property "Part" "P160KN2-4QC20B10K"
+		(property "Part" "P160KN2-0QA25B10K"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -9380,7 +9380,7 @@
 				)
 			)
 		)
-		(property "Value" "SN75374D"
+		(property "Value" "4x Gate Driver"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -18313,7 +18313,7 @@
 				)
 			)
 		)
-		(property "Part" "P160KN2-4QC20B10K"
+		(property "Part" "P160KN2-0QA25B10K"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -22416,7 +22416,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://app.adam-tech.com/products/download/data_sheet/203013/rs1-xx-g-data-sheet.pdf"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -22429,7 +22429,7 @@
 				)
 			)
 		)
-		(property "Description" "Generic connector, single row, 01x02, script generated"
+		(property "Description" "RECEPTACLE STRIP 2P 2.54MM PITCH"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -22442,7 +22442,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Adam Tech"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -22455,7 +22455,7 @@
 				)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "RS1-02-G"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")

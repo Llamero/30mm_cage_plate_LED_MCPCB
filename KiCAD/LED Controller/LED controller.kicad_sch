@@ -7819,7 +7819,7 @@
 		(uuid "12f78fa4-ecb0-4d63-aa6d-2f2531a5803a")
 	)
 	(junction
-		(at 114.3 133.35)
+		(at 114.3 129.54)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "31441669-3a1a-4c84-b3d7-2373adddc72a")
@@ -7879,7 +7879,7 @@
 		(uuid "90f4c19e-3ca3-4a20-a93f-374317478630")
 	)
 	(junction
-		(at 114.3 138.43)
+		(at 114.3 134.62)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9537bcb8-0b7e-4c25-8eae-340fed60eeee")
@@ -7897,7 +7897,7 @@
 		(uuid "c36439a7-c93a-423f-a428-a689159f105b")
 	)
 	(junction
-		(at 114.3 135.89)
+		(at 114.3 132.08)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f0fdf890-9cc6-4a03-ac9d-52253f0cb7f3")
@@ -7913,7 +7913,7 @@
 		(uuid "50c5be43-826b-4727-bcb1-81c85790f4f1")
 	)
 	(no_connect
-		(at 114.3 156.21)
+		(at 114.3 153.67)
 		(uuid "5a7f8eac-22d3-459b-978d-2b5535b6113e")
 	)
 	(no_connect
@@ -8008,7 +8008,7 @@
 	)
 	(wire
 		(pts
-			(xy 106.68 146.05) (xy 114.3 146.05)
+			(xy 106.68 143.51) (xy 114.3 143.51)
 		)
 		(stroke
 			(width 0)
@@ -8178,7 +8178,7 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 133.35) (xy 114.3 135.89)
+			(xy 114.3 129.54) (xy 114.3 132.08)
 		)
 		(stroke
 			(width 0)
@@ -8408,7 +8408,7 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 135.89) (xy 114.3 138.43)
+			(xy 114.3 132.08) (xy 114.3 134.62)
 		)
 		(stroke
 			(width 0)
@@ -8818,7 +8818,7 @@
 	)
 	(wire
 		(pts
-			(xy 132.08 120.65) (xy 139.7 120.65)
+			(xy 132.08 116.84) (xy 139.7 116.84)
 		)
 		(stroke
 			(width 0)
@@ -8918,7 +8918,7 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 130.81) (xy 114.3 133.35)
+			(xy 114.3 127) (xy 114.3 129.54)
 		)
 		(stroke
 			(width 0)
@@ -9108,7 +9108,7 @@
 		(uuid "02e6310c-2ddf-4bc5-bc81-2b41c992e42a")
 	)
 	(label "LED_PWM3"
-		(at 132.08 138.43 0)
+		(at 132.08 134.62 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9141,7 +9141,7 @@
 		(uuid "0629bd1f-8a7c-4d2c-a3ed-d708fac51d54")
 	)
 	(label "3v3"
-		(at 132.08 120.65 0)
+		(at 132.08 116.84 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9152,7 +9152,7 @@
 		(uuid "0662c3b7-bd61-4b31-bd7d-f95d2206b166")
 	)
 	(label "3v3"
-		(at 133.35 153.67 0)
+		(at 133.35 151.13 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9240,7 +9240,7 @@
 		(uuid "0f97065a-f7e2-4e5b-8bfa-528a8b778a7a")
 	)
 	(label "Ana1"
-		(at 114.3 148.59 180)
+		(at 114.3 146.05 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9295,7 +9295,7 @@
 		(uuid "16527e46-219d-41b0-ae42-edf9c09a10b4")
 	)
 	(label "LED_PWM2"
-		(at 132.08 135.89 0)
+		(at 132.08 132.08 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9372,7 +9372,7 @@
 		(uuid "1da39c66-b091-44ad-9382-95ce6cd14bbc")
 	)
 	(label "Ctrl2"
-		(at 132.08 123.19 0)
+		(at 132.08 119.38 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9493,7 +9493,7 @@
 		(uuid "2a9cef08-7478-4c48-a8bf-021e2c506c95")
 	)
 	(label "MOSI"
-		(at 133.35 151.13 0)
+		(at 133.35 148.59 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9680,7 +9680,7 @@
 		(uuid "412f68d5-febc-4451-ac9b-66e60b423544")
 	)
 	(label "Ana3"
-		(at 114.3 125.73 180)
+		(at 114.3 121.92 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9735,7 +9735,7 @@
 		(uuid "491463c1-2b73-4596-bfb1-e4a0c16279cb")
 	)
 	(label "SCK"
-		(at 133.35 146.05 0)
+		(at 133.35 143.51 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9845,7 +9845,7 @@
 		(uuid "593db032-b339-42d2-bd7f-f0b393653fa8")
 	)
 	(label "Ctrl3"
-		(at 114.3 128.27 180)
+		(at 114.3 124.46 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9933,7 +9933,7 @@
 		(uuid "64c90da9-965b-4044-87c0-2de051450568")
 	)
 	(label "3v3"
-		(at 114.3 146.05 180)
+		(at 114.3 143.51 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10043,7 +10043,7 @@
 		(uuid "6b34b40f-e4f6-4639-b007-49f25dd02aa1")
 	)
 	(label "Ana3"
-		(at 114.3 153.67 180)
+		(at 114.3 151.13 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10087,7 +10087,7 @@
 		(uuid "715c951d-340c-425d-9eb0-6fb5e3d0430c")
 	)
 	(label "Ana2"
-		(at 114.3 151.13 180)
+		(at 114.3 148.59 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10120,7 +10120,7 @@
 		(uuid "75de7ae8-f22c-4b29-9de5-7027ca93ad05")
 	)
 	(label "CS"
-		(at 133.35 148.59 0)
+		(at 133.35 146.05 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10417,7 +10417,7 @@
 		(uuid "9549237d-ae78-4e4e-8b41-e1fbc725dd59")
 	)
 	(label "Ana2"
-		(at 114.3 120.65 180)
+		(at 114.3 116.84 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10472,7 +10472,7 @@
 		(uuid "9f51f2c4-4332-4cf5-8983-7803f6ed4a1d")
 	)
 	(label "Ana1"
-		(at 132.08 128.27 0)
+		(at 132.08 124.46 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10615,7 +10615,7 @@
 		(uuid "b35a86b9-b8ea-41d0-b11a-e40f40ca355b")
 	)
 	(label "Ctrl1"
-		(at 132.08 125.73 0)
+		(at 132.08 121.92 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10692,7 +10692,7 @@
 		(uuid "b8ac7426-1bd6-4a8e-8ea3-ecc0ef3b36f9")
 	)
 	(label "LED_PWM1"
-		(at 132.08 133.35 0)
+		(at 132.08 129.54 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11407,7 +11407,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 114.3 138.43 0)
+		(at 114.3 134.62 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11415,7 +11415,7 @@
 		(dnp no)
 		(uuid "05557886-b37a-47c5-8420-d7ef5113ea4a")
 		(property "Reference" "#PWR034"
-			(at 114.3 144.78 0)
+			(at 114.3 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11424,7 +11424,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 111.252 140.716 0)
+			(at 111.252 136.906 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11432,7 +11432,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 114.3 138.43 0)
+			(at 114.3 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11441,7 +11441,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 114.3 138.43 0)
+			(at 114.3 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11450,7 +11450,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 114.3 138.43 0)
+			(at 114.3 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11926,18 +11926,17 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "20f9edf6-748e-4bc6-9158-268cd64d63a7")
 		(property "Reference" "U1"
-			(at 84.455 43.7454 0)
+			(at 84.582 45.9351 0)
 			(effects
 				(font
 					(size 1.524 1.524)
 				)
 			)
 		)
-		(property "Value" "SN75374D"
-			(at 84.455 46.5783 0)
+		(property "Value" "4x Gate Driver"
+			(at 84.582 48.768 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -11988,6 +11987,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "13"
@@ -12473,7 +12473,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 106.68 148.59 0)
+		(at 106.68 146.05 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -12482,7 +12482,7 @@
 		(dnp no)
 		(uuid "2b690010-7543-46e7-a814-01807ce1f2be")
 		(property "Reference" "C9"
-			(at 104.3559 147.3841 0)
+			(at 104.3559 144.8441 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12491,7 +12491,7 @@
 			)
 		)
 		(property "Value" "1µF"
-			(at 104.3559 149.8084 0)
+			(at 104.3559 147.2684 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12500,7 +12500,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 106.68 148.59 0)
+			(at 106.68 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12509,7 +12509,7 @@
 			)
 		)
 		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL10A105KB8NNNC_Spec.pdf"
-			(at 106.68 148.59 0)
+			(at 106.68 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12518,7 +12518,7 @@
 			)
 		)
 		(property "Description" "CAP CER 1UF 50V X5R 0603"
-			(at 106.68 148.59 0)
+			(at 106.68 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12527,7 +12527,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 106.68 148.59 0)
+			(at 106.68 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12536,7 +12536,7 @@
 			)
 		)
 		(property "Part" "CL10A105KB8NNNC"
-			(at 106.68 148.59 0)
+			(at 106.68 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12904,7 +12904,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 106.68 151.13 0)
+		(at 106.68 148.59 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -12913,7 +12913,7 @@
 		(dnp no)
 		(uuid "3d046e15-bafd-42b3-8083-317e54a78864")
 		(property "Reference" "#PWR040"
-			(at 106.68 157.48 0)
+			(at 106.68 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12922,7 +12922,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 103.124 153.162 0)
+			(at 103.124 150.622 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12930,7 +12930,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 106.68 151.13 0)
+			(at 106.68 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12939,7 +12939,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 106.68 151.13 0)
+			(at 106.68 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12948,7 +12948,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 106.68 151.13 0)
+			(at 106.68 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13428,20 +13428,19 @@
 		(dnp no)
 		(uuid "49baf2fc-da18-4b79-a714-112dc62c06cc")
 		(property "Reference" "U7"
-			(at 123.444 159.512 0)
+			(at 123.952 157.48 0)
 			(effects
 				(font
 					(size 1.524 1.524)
 				)
 			)
 		)
-		(property "Value" "NXB0104PWJ"
-			(at 123.825 154.6439 0)
+		(property "Value" "3x Level Shifter"
+			(at 123.19 159.766 0)
 			(effects
 				(font
 					(size 1.524 1.524)
 				)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "Custom Footprints:TSSOP14_NXB0104_NEX"
@@ -13684,18 +13683,17 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "4f0aa5a3-f911-4731-9865-4ab78343bbcd")
 		(property "Reference" "U2"
-			(at 84.455 72.9554 0)
+			(at 84.328 75.3991 0)
 			(effects
 				(font
 					(size 1.524 1.524)
 				)
 			)
 		)
-		(property "Value" "SN75374D"
-			(at 84.455 75.7883 0)
+		(property "Value" "4x Gate Driver"
+			(at 84.328 78.232 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -13746,6 +13744,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "13"
@@ -13869,7 +13868,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "P160KN2-4QC20B10K"
+		(property "Part" "P160KN2-0QA25B10K"
 			(at 123.19 102.87 0)
 			(effects
 				(font
@@ -14397,7 +14396,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "P160KN2-4QC20B10K"
+		(property "Part" "P160KN2-0QA25B10K"
 			(at 109.22 102.87 0)
 			(effects
 				(font
@@ -14493,33 +14492,31 @@
 	)
 	(symbol
 		(lib_id "Custom:DAC084S085CIMMX_NOPB")
-		(at 109.22 146.05 0)
+		(at 109.22 143.51 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "60e98029-c0a9-4f08-8726-4b6a2eada768")
 		(property "Reference" "U6"
-			(at 123.825 142.9826 0)
+			(at 124.206 138.43 0)
 			(effects
 				(font
 					(size 1.524 1.524)
 				)
 			)
 		)
-		(property "Value" "DAC084S085CIMMX/NOPB"
-			(at 142.24 138.43 0)
+		(property "Value" "3x 10-Bit DAC"
+			(at 123.698 140.716 0)
 			(effects
 				(font
 					(size 1.524 1.524)
 				)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "Custom Footprints:DAC084S085CIMMXNOPB"
-			(at 91.948 137.414 0)
+			(at 91.948 134.874 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14528,8 +14525,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fdac084s085"
-			(at 92.202 135.128 0)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/dac104s085-q1.pdf"
+			(at 92.202 132.588 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14538,8 +14535,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "IC DAC 8BIT V-OUT 10VSSOP"
-			(at 109.22 146.05 0)
+		(property "Description" "IC DAC 10BIT V-OUT 10VSSOP"
+			(at 109.22 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14548,7 +14545,7 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
-			(at 109.22 146.05 0)
+			(at 109.22 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14556,8 +14553,8 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "DAC084S085CIMMX/NOPB"
-			(at 109.22 146.05 0)
+		(property "Part" "DAC104S085QIMMX/NOPB"
+			(at 109.22 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14606,7 +14603,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 139.7 123.19 0)
+		(at 139.7 119.38 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -14614,7 +14611,7 @@
 		(dnp no)
 		(uuid "62e701ad-4e09-495c-9788-6d013396cb83")
 		(property "Reference" "C8"
-			(at 142.0241 121.9841 0)
+			(at 142.0241 118.1741 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14623,7 +14620,7 @@
 			)
 		)
 		(property "Value" "1µF"
-			(at 142.0241 124.4084 0)
+			(at 142.0241 120.5984 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14632,7 +14629,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 139.7 123.19 0)
+			(at 139.7 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14641,7 +14638,7 @@
 			)
 		)
 		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL10A105KB8NNNC_Spec.pdf"
-			(at 139.7 123.19 0)
+			(at 139.7 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14650,7 +14647,7 @@
 			)
 		)
 		(property "Description" "CAP CER 1UF 50V X5R 0603"
-			(at 139.7 123.19 0)
+			(at 139.7 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14659,7 +14656,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 139.7 123.19 0)
+			(at 139.7 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14668,7 +14665,7 @@
 			)
 		)
 		(property "Part" "CL10A105KB8NNNC"
-			(at 139.7 123.19 0)
+			(at 139.7 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15525,18 +15522,17 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "7c3448dc-9ea6-44b1-95d6-a2b5573a806a")
 		(property "Reference" "U3"
-			(at 84.455 102.1654 0)
+			(at 84.582 105.156 0)
 			(effects
 				(font
 					(size 1.524 1.524)
 				)
 			)
 		)
-		(property "Value" "SN75374D"
-			(at 84.455 104.9983 0)
+		(property "Value" "4x Gate Driver"
+			(at 83.82 107.442 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -15587,6 +15583,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "13"
@@ -15780,7 +15777,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 139.7 125.73 0)
+		(at 139.7 121.92 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -15788,7 +15785,7 @@
 		(dnp no)
 		(uuid "829e542b-57bd-48a0-a5ef-aef810712975")
 		(property "Reference" "#PWR031"
-			(at 139.7 132.08 0)
+			(at 139.7 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15797,7 +15794,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 143.256 127.762 0)
+			(at 143.256 123.952 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15805,7 +15802,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 139.7 125.73 0)
+			(at 139.7 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15814,7 +15811,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 139.7 125.73 0)
+			(at 139.7 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15823,7 +15820,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 139.7 125.73 0)
+			(at 139.7 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16248,7 +16245,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 132.08 130.81 90)
+		(at 132.08 127 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -16257,7 +16254,7 @@
 		(fields_autoplaced yes)
 		(uuid "932db257-2fb6-4886-a2fa-f072e4c2ade7")
 		(property "Reference" "#PWR035"
-			(at 138.43 130.81 0)
+			(at 138.43 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16266,7 +16263,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 135.255 130.81 90)
+			(at 135.255 127 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16275,7 +16272,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 132.08 130.81 0)
+			(at 132.08 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16284,7 +16281,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 132.08 130.81 0)
+			(at 132.08 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16293,7 +16290,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 132.08 130.81 0)
+			(at 132.08 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17012,7 +17009,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "P160KN2-4QC20B10K"
+		(property "Part" "P160KN2-0QA25B10K"
 			(at 137.16 102.87 0)
 			(effects
 				(font
@@ -17241,7 +17238,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 114.3 123.19 270)
+		(at 114.3 119.38 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -17250,7 +17247,7 @@
 		(fields_autoplaced yes)
 		(uuid "ae26def5-87c8-469f-be71-155a1922742d")
 		(property "Reference" "#PWR030"
-			(at 107.95 123.19 0)
+			(at 107.95 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17259,7 +17256,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 111.1251 123.19 90)
+			(at 111.1251 119.38 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17268,7 +17265,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 114.3 123.19 0)
+			(at 114.3 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17277,7 +17274,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 114.3 123.19 0)
+			(at 114.3 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17286,7 +17283,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 114.3 123.19 0)
+			(at 114.3 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18627,7 +18624,7 @@
 	)
 	(symbol
 		(lib_id "Custom:SN74LV4053ADR")
-		(at 109.22 120.65 0)
+		(at 109.22 116.84 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -18635,24 +18632,23 @@
 		(dnp no)
 		(uuid "da4c410e-8b1c-4830-93f1-74e79611be7e")
 		(property "Reference" "U5"
-			(at 123.698 117.856 0)
+			(at 123.698 111.76 0)
 			(effects
 				(font
 					(size 1.524 1.524)
 				)
 			)
 		)
-		(property "Value" "SN74LV4053ADR"
-			(at 121.92 117.602 0)
+		(property "Value" "3x Analog Switch"
+			(at 121.92 113.792 0)
 			(effects
 				(font
 					(size 1.524 1.524)
 				)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "Custom Footprints:SN74LV4053ADR"
-			(at 109.22 120.65 0)
+			(at 109.22 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18662,7 +18658,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.ti.com/lit/ds/scls430k/scls430k.pdf"
-			(at 90.17 109.22 0)
+			(at 90.17 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18672,7 +18668,7 @@
 			)
 		)
 		(property "Description" "IC SWITCH SPDT X 3 75OHM 16SOIC"
-			(at 109.22 120.65 0)
+			(at 109.22 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18681,7 +18677,7 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
-			(at 123.19 115.3626 0)
+			(at 123.19 111.5526 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18690,7 +18686,7 @@
 			)
 		)
 		(property "Part" "SN74LV4053ADR"
-			(at 123.19 117.7869 0)
+			(at 123.19 113.9769 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19120,7 +19116,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 133.35 156.21 0)
+		(at 133.35 153.67 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -19128,7 +19124,7 @@
 		(dnp no)
 		(uuid "e845b906-4c8b-4e76-b2d5-6b1c45f338c3")
 		(property "Reference" "#PWR042"
-			(at 133.35 162.56 0)
+			(at 133.35 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19137,7 +19133,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 136.906 158.242 0)
+			(at 136.906 155.702 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19145,7 +19141,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 133.35 156.21 0)
+			(at 133.35 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19154,7 +19150,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 133.35 156.21 0)
+			(at 133.35 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19163,7 +19159,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 133.35 156.21 0)
+			(at 133.35 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
