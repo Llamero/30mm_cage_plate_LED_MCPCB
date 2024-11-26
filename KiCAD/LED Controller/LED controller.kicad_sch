@@ -7838,16 +7838,6 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 35.56) (xy 66.04 38.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "887d1ec5-a278-4c65-9d34-5b2e6e8aa001")
-	)
-	(wire
-		(pts
 			(xy 53.34 147.32) (xy 54.61 147.32)
 		)
 		(stroke
@@ -7945,6 +7935,16 @@
 			(type default)
 		)
 		(uuid "a02a6a69-8af8-48a2-b6a6-a7a08e78df6d")
+	)
+	(wire
+		(pts
+			(xy 66.04 35.56) (xy 66.04 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a1768b40-d83c-4d6e-9b1c-493a8305c1da")
 	)
 	(wire
 		(pts
@@ -14628,7 +14628,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7c3448dc-9ea6-44b1-95d6-a2b5573a806a")
-		(property "Reference" "U4"
+		(property "Reference" "U3"
 			(at 84.455 102.1654 0)
 			(effects
 				(font
@@ -14741,7 +14741,7 @@
 		(instances
 			(project "LED controller"
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "U4")
+					(reference "U3")
 					(unit 1)
 				)
 			)
@@ -17164,7 +17164,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d9d842e4-d7ba-45a4-a099-e291b3d50d94")
-		(property "Reference" "U3"
+		(property "Reference" "U4"
 			(at 227.33 35.3525 0)
 			(effects
 				(font
@@ -17372,7 +17372,7 @@
 		(instances
 			(project ""
 				(path "/7e3ae51b-fd56-44ae-a416-05dd2481d5ac"
-					(reference "U3")
+					(reference "U4")
 					(unit 1)
 				)
 			)
