@@ -17506,7 +17506,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://app.adam-tech.com/products/download/data_sheet/203013/rs1-xx-g-data-sheet.pdf"
 			(at 161.29 133.35 0)
 			(effects
 				(font
@@ -17515,7 +17515,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Generic connector, single row, 01x02, script generated"
+		(property "Description" "RECEPTACLE STRIP 2P 2.54MM PITCH"
 			(at 161.29 133.35 0)
 			(effects
 				(font
@@ -17524,7 +17524,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Adam Tech"
 			(at 161.29 133.35 0)
 			(effects
 				(font
@@ -17533,7 +17533,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "RS1-02-G"
 			(at 161.29 133.35 0)
 			(effects
 				(font
