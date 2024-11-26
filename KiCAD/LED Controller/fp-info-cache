@@ -1,4 +1,4 @@
-24210097230797700
+24213531134739848
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -54803,6 +54803,13 @@ AMPHENOL_RJE3A2886102N
 20
 17
 Custom Footprints
+CC-BY-SA Symbol
+Symbol, Creative Commons Public Domain, SilkScreenTop, Small,
+Symbol, Creative Commons Public Domain, SilkScreen Top, Small,
+0
+0
+0
+Custom Footprints
 D16-4x gate driver
 
 SN75374D 
@@ -54837,6 +54844,13 @@ P160KN2-4QC20B10K
 0
 3
 3
+Custom Footprints
+Polarity
+
+
+0
+0
+0
 Custom Footprints
 RJ45_x4-RJSSE-5380-04
 
