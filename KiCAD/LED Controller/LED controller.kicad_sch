@@ -13822,7 +13822,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/NXB0104.pdf"
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/txu0104.pdf"
 			(at 97.282 150.368 0)
 			(effects
 				(font
@@ -13832,7 +13832,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "IC TRANSLATOR BIDIR 14TSSOP"
+		(property "Description" "IC TRANSLATOR UNIDIR 14TSSOP"
 			(at 109.22 162.56 0)
 			(effects
 				(font
@@ -13841,7 +13841,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Nexperia USA Inc."
+		(property "Manufacturer" "Texas Instruments"
 			(at 123.825 157.2725 0)
 			(effects
 				(font
@@ -13850,17 +13850,8 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "NXB0104PWJ"
+		(property "Part" "TXU0104PWR"
 			(at 123.825 159.6968 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part #" ""
-			(at 109.22 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17093,7 +17084,6 @@
 		)
 	)
 	(symbol
-		(lib_name "Custom_parts:Conn_01x24_Female")
 		(lib_id "Custom_parts:Conn_01x24_Female")
 		(at 182.88 68.58 0)
 		(mirror y)
@@ -18321,7 +18311,6 @@
 		)
 	)
 	(symbol
-		(lib_name "Custom_parts:Conn_01x24_Female")
 		(lib_id "Custom_parts:Conn_01x24_Female")
 		(at 271.78 68.58 0)
 		(unit 1)
