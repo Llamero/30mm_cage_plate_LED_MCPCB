@@ -49,9 +49,9 @@ class pinSetup
     const static int adc_averaging = 1; //Number of times to average adc recording before returning value
     const static int adc_resolution = 16; //Number of significant bits to return per adc recording
     
-    const static int SERIES_RESISTOR = 4700; //Value of series resistor to the thermistor on the PCB
+    const static int SERIES_RESISTOR = 3600; //Value of series resistor to the thermistor on the PCB
     const static int PCB_THERMISTOR_NOMINAL = 4700; //Value of thermistor resistor on PCB at nominal temp (25°C)
-    const static int PCB_B_COEFFICIENT = 3545; //Beta value for the PCB thermistor
+    const static int PCB_B_COEFFICIENT = 3500; //Beta value for the PCB thermistor
 
     static uint16_t buffer_size; //Variable for storing the size of the calibration stream packet to be sent back to GUI
 };
