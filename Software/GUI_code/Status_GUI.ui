@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>412</width>
+    <height>525</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Status</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QTabWidget" name="main_tab">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="text_tab">
+      <attribute name="title">
+       <string>Text</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_6">
+       <item row="0" column="0">
+        <widget class="QFrame" name="frame">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_12">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item row="3" column="0">
+           <widget class="QGroupBox" name="text_sync_box">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+              <underline>false</underline>
+             </font>
+            </property>
+            <property name="title">
+             <string>Sync</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_11">
+             <item row="0" column="0">
+              <widget class="QLabel" name="text_mode_label">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                 <underline>false</underline>
+                </font>
+               </property>
+               <property name="toolTip">
+                <string>The type of sync currently selected.</string>
+               </property>
+               <property name="text">
+                <string>Mode: </string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLabel" name="text_state_label">
+               <property name="toolTip">
+                <string>The state of the sync (Digital: HIGH or LOW, Confocal: Scanning or Standby, etc.)</string>
+               </property>
+               <property name="text">
+                <string>State:</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QGroupBox" name="text_led_box">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+              <underline>false</underline>
+             </font>
+            </property>
+            <property name="title">
+             <string>LED</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_10">
+             <item row="1" column="2">
+              <widget class="QLabel" name="text_pwm_label">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                 <underline>false</underline>
+                </font>
+               </property>
+               <property name="toolTip">
+                <string>The percent PWM modulation of the LED (0% = always off, 100% = always on)</string>
+               </property>
+               <property name="text">
+                <string>PWM: </string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLabel" name="text_current_label">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                 <underline>false</underline>
+                </font>
+               </property>
+               <property name="toolTip">
+                <string>The current output of the LED as a percent of the current limit for the LED.</string>
+               </property>
+               <property name="text">
+                <string>Current: </string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QLabel" name="text_channel_label">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                 <underline>false</underline>
+                </font>
+               </property>
+               <property name="toolTip">
+                <string>The number of active LED channel (1-4)</string>
+               </property>
+               <property name="text">
+                <string>Channel:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLabel" name="text_channel_name_label">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                 <underline>false</underline>
+                </font>
+               </property>
+               <property name="toolTip">
+                <string>The name of active LED channel</string>
+               </property>
+               <property name="text">
+                <string>Channel Name:</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QGroupBox" name="text_temperature_box">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+              <underline>false</underline>
+             </font>
+            </property>
+            <property name="title">
+             <string>Temperature</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_8">
+             <item row="0" column="0">
+              <widget class="QLabel" name="text_transistor_label">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                 <underline>false</underline>
+                </font>
+               </property>
+               <property name="toolTip">
+                <string>Temperature of transistor used to regulate the LED current.</string>
+               </property>
+               <property name="text">
+                <string>Transistor: </string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLabel" name="text_driver_fan_label">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                 <underline>false</underline>
+                </font>
+               </property>
+               <property name="toolTip">
+                <string>Speed of the internal fan (0% = off, 100% = full speed)</string>
+               </property>
+               <property name="text">
+                <string>Driver Fan: </string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="text_resistor_label">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                 <underline>false</underline>
+                </font>
+               </property>
+               <property name="toolTip">
+                <string>Temperature of the current sense resistors.</string>
+               </property>
+               <property name="text">
+                <string>Resistor: </string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="text_external_label">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                 <underline>false</underline>
+                </font>
+               </property>
+               <property name="toolTip">
+                <string>Temperature of the externally connected thermistor.</string>
+               </property>
+               <property name="text">
+                <string>External: </string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLabel" name="text_external_fan_label">
+               <property name="toolTip">
+                <string>Speed of the external fan (0% = off, 100% = full speed)</string>
+               </property>
+               <property name="text">
+                <string>External Fan: </string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QGroupBox" name="text_connection_box">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+              <underline>false</underline>
+              <strikeout>false</strikeout>
+             </font>
+            </property>
+            <property name="title">
+             <string>Connection</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_9">
+             <item row="0" column="1">
+              <widget class="QLabel" name="text_serial_label">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                 <weight>50</weight>
+                 <italic>false</italic>
+                 <bold>false</bold>
+                 <underline>false</underline>
+                 <strikeout>false</strikeout>
+                </font>
+               </property>
+               <property name="toolTip">
+                <string>Serial number of the selected LED driver</string>
+               </property>
+               <property name="text">
+                <string>Serial: </string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="text_name_label">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                 <weight>50</weight>
+                 <italic>false</italic>
+                 <bold>false</bold>
+                 <underline>false</underline>
+                 <strikeout>false</strikeout>
+                </font>
+               </property>
+               <property name="toolTip">
+                <string>Name of the selected LED driver</string>
+               </property>
+               <property name="text">
+                <string>Name: </string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="text_com_port_label">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                 <weight>50</weight>
+                 <italic>false</italic>
+                 <bold>false</bold>
+                 <underline>false</underline>
+                 <strikeout>false</strikeout>
+                </font>
+               </property>
+               <property name="toolTip">
+                <string>COM port the selected LED driver is using.</string>
+               </property>
+               <property name="text">
+                <string>COM Port: </string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLabel" name="text_control_label">
+               <property name="toolTip">
+                <string>Whether the driver is being controlled mechnically or via software.</string>
+               </property>
+               <property name="text">
+                <string>Control:</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="intensity_tab">
+      <property name="contextMenuPolicy">
+       <enum>Qt::CustomContextMenu</enum>
+      </property>
+      <attribute name="title">
+       <string>Intensity Plots</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_4">
+       <item row="0" column="0">
+        <widget class="QGroupBox" name="graph_intensity_pwm_box">
+         <property name="toolTip">
+          <string>Plot of driver LED PWM as a % of total PWM (0% = always off, 100% = always on)</string>
+         </property>
+         <property name="title">
+          <string>LED Intensity: PWM</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <property name="leftMargin">
+           <number>9</number>
+          </property>
+          <property name="topMargin">
+           <number>9</number>
+          </property>
+          <property name="rightMargin">
+           <number>9</number>
+          </property>
+          <property name="bottomMargin">
+           <number>9</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="PlotWidget" name="graph_intensity_pwm">
+            <property name="toolTip">
+             <string>Plot of driver LED PWM as a % of total PWM (0% = always off, 100% = always on)</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QGroupBox" name="graph_intensity_current_box">
+         <property name="toolTip">
+          <string>Plot of current output of the LED as a percent of the current limit for the LED.</string>
+         </property>
+         <property name="title">
+          <string>LED Intensity: Current</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_5">
+          <property name="leftMargin">
+           <number>9</number>
+          </property>
+          <property name="rightMargin">
+           <number>9</number>
+          </property>
+          <property name="bottomMargin">
+           <number>9</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="PlotWidget" name="graph_intensity_current">
+            <property name="toolTip">
+             <string>Plot of current output of the LED as a percent of the current limit for the LED.</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="temperature_tab">
+      <attribute name="title">
+       <string>Temperature Plots</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="1" column="0">
+        <widget class="QGroupBox" name="temperature_resistor_box">
+         <property name="toolTip">
+          <string>Plot of temperature of the current sense resistors.</string>
+         </property>
+         <property name="title">
+          <string>Temperature: Driver Resistor</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_14">
+          <item row="0" column="0">
+           <widget class="PlotWidget" name="graph_temperature_resistor">
+            <property name="toolTip">
+             <string>Plot of temperature of the current sense resistors.</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QGroupBox" name="temperature_external_box">
+         <property name="toolTip">
+          <string>Plot of temperature of external thermistor.</string>
+         </property>
+         <property name="title">
+          <string>Temperature: External Thermistor</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_16">
+          <item row="0" column="0">
+           <widget class="PlotWidget" name="graph_temperature_external">
+            <property name="toolTip">
+             <string>Plot of temperature of external thermistor.</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QGroupBox" name="temperature_transistor_box">
+         <property name="toolTip">
+          <string>Plot of temperature of transistor used to regulate the LED current.</string>
+         </property>
+         <property name="title">
+          <string>Temperature: Driver Transistor</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_13">
+          <item row="0" column="0">
+           <widget class="PlotWidget" name="graph_temperature_transistor">
+            <property name="toolTip">
+             <string>Plot of temperature of transistor used to regulate the LED current.</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QGroupBox" name="graph_update_box_0">
+     <property name="toolTip">
+      <string>Set the refresh rate of the status window.  Slower refresh rates will have greater precision.</string>
+     </property>
+     <property name="title">
+      <string>Update Speed</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_17" columnstretch="20,20,20,0,0,0">
+      <item row="0" column="5">
+       <widget class="QLabel" name="graph_custom_update_label">
+        <property name="text">
+         <string>Hz</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="4">
+       <widget class="QDoubleSpinBox" name="graph_custom_update_spinbox">
+        <property name="toolTip">
+         <string>Set the custom status window update rate (0.01 to 10 Hz)</string>
+        </property>
+        <property name="minimum">
+         <double>0.010000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>20.000000000000000</double>
+        </property>
+        <property name="value">
+         <double>20.000000000000000</double>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QRadioButton" name="graph_slow_update_button">
+        <property name="toolTip">
+         <string>Update the status window at 0.2 Hz</string>
+        </property>
+        <property name="text">
+         <string>0.2 Hz</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QRadioButton" name="graph_fast_update_button">
+        <property name="toolTip">
+         <string>Update the status window at 5 Hz</string>
+        </property>
+        <property name="text">
+         <string>5 Hz</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QRadioButton" name="graph_normal_update_button">
+        <property name="toolTip">
+         <string>Update the status window at 1 Hz</string>
+        </property>
+        <property name="text">
+         <string>1 Hz</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QRadioButton" name="graph_custom_update_button">
+        <property name="toolTip">
+         <string>Update the status window at a custom rate (0.01 - 10 Hz)</string>
+        </property>
+        <property name="text">
+         <string>Custom:</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PlotWidget</class>
+   <extends>QGraphicsView</extends>
+   <header>pyqtgraph</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

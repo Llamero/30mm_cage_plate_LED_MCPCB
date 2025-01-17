@@ -1,0 +1,119 @@
+void customSync(){ //Two channel interline sequence, with external trigger between steps
+  elapsedMicros custom_seq_duration[] = {0,0}; //Duration timer for sequence steps for both trigger states
+  elapsedMicros timeout_timer = 0; //Timer for tracking whether input has timed out waiting for next trigger
+  uint16_t sync_step[] = {0,0}; //sequence step counter
+  uint32_t trigger_timeout = 1e6; //Timeout to stop looking for mirror sync (in µs) - LED turns off and sync resets.
+  uint8_t timeout = 0; //Flag for whether the line sync has timed out waiting for trigger - 0: no timeout, 1: new timeout - report error, 2: on going timeout - error already reported.  Flag resets when shutter closes.
+  boolean temp_state = false; //Temporarily store state to allow channel swapping over-ride by toggling the state
+  boolean sync_start = true;
+  
+  analogWriteFrequency(pin.INTERLINE, 14648); //Set interline PWM freq to match mirror freq, also sets analog_select PWM freq (on same timer): https://www.pjrc.com/teensy/td_pulse.html
+  pinMode(pin.INTERLINE, OUTPUT); //Set interline pin as output to decouple from PWM
+  digitalWriteFast(pin.INTERLINE, OUTPUT); //Turn off LED
+  noInterrupts(); //Turn off interrupts for exact interline timing
+
+  //Lamda trigger sync funtions ---------------------------------------------------------------------------------------------------------------
+  auto updateChannel = [&] (){ //Switch the DMD channel  
+    getSeqStep(sync_step[current_status.s.state]); //Get next sequence step
+
+    if(conf.c.led_active[current_status.s.led_channel]){ //Check if the channel is active
+      for(int a=0; a<4; a++){ //Toggle channel relays
+        if(conf.c.led_channel[a] == current_status.s.led_channel) digitalWriteFast(pin.RELAY[a], pin.RELAY_CLOSE);
+        else digitalWriteFast(pin.RELAY[a], !pin.RELAY_CLOSE);
+      }
+      analogWrite(pin.DAC0, current_status.s.led_current);
+    }
+    if(timeout) analogWrite(pin.INTERLINE, 0); //Turn off LED if timed out
+    else analogWrite(pin.INTERLINE, current_status.s.led_pwm);
+  };
+
+  //-----------------------------------------------------------------------------------------------------------------------------------------------------
+  
+  pinMode(pin.INPUTS[sync.s.digital_channel], INPUT); //Set sync input pin to input
+  while(!current_status.s.mode && sync.s.mode == 4){ //This loop is maintained as long as in custom sync mode - checked each time the status state changes (imaging/standby)
+    timeout = 2; //Initialize as timed out to keep LED until first trigger is received
+    current_status.s.state = digitalReadFast(pin.INPUTS[sync.s.digital_channel]);
+    active_channel = current_status.s.led_channel;
+    
+    //load the appropriate sequence tables
+    sync.s.mode = 0; //Load the digital sync sequence tables
+    initializeSeq();
+    sync.s.mode = 4;
+    
+    //Initialize duration clocks and PWM timers
+    for(int a=0; a<2; a++) sync_step[a] = 0;
+    current_status.s.state = temp_state;
+
+    getSeqStep(sync_step[sync_start]); //Get first sequence step
+    
+    while(current_status.s.state == sync_start){ //Wait for the sync trigger to reset
+       current_status.s.state = digitalReadFast(pin.INPUTS[sync.s.digital_channel]);
+       checkStatus();
+       if(update_flag) goto quit;
+    }
+    while(current_status.s.state != sync_start){ //Wait for the sync trigger to reset
+       current_status.s.state = digitalReadFast(pin.INPUTS[sync.s.digital_channel]);
+       checkStatus();
+       if(update_flag) goto quit;
+    }
+    
+    timeout = 0; //Reset timeout flag so LED can turn on
+    temp_state = true;
+    custom_seq_duration[0] = 0; //Reset seq timers
+    custom_seq_duration[1] = 0;
+    
+    while(!update_flag && !timeout){ //While there isn't an update nor timed out
+      timeout_timer = 0; //Reset timeout timer
+      
+      if(sync_step[current_status.s.state] < seq_steps[current_status.s.state]){ //If the end of the sequence list has not been reached
+        updateChannel();
+        temp_state = true;
+        while(temp_state){ //Loop until input changes seq duration times out (0 = hold - no timeout) - Interline loop
+          checkStatus(); //Check status at least once
+          if(update_flag) goto quit;
+          if(!timeout && timeout_timer > trigger_timeout){ //Check if input has timed out
+            timeout = 1;
+            if(seq.s.led_duration != 0){ 
+              temp_size = sprintf(temp_buffer, "-Error: Custom Sync timed out waiting for line trigger. Check connection and re-measure mirror period.");
+              temp_buffer[0] = prefix.message;
+              usb.send((const unsigned char*) temp_buffer, temp_size);
+              updateChannel(); //Turn off LED
+            }
+            playStatusTone();
+          }
+          if(custom_seq_duration[current_status.s.state] >= seq.s.led_duration && seq.s.led_duration != 0){ //If sequence has timed out
+            custom_seq_duration[current_status.s.state] -= seq.s.led_duration; //Reset duration timer 
+            sync_step[current_status.s.state]++; //Increment the sync step counter
+            getSeqStep(sync_step[current_status.s.state]); //Get next sequence step
+            temp_state = false;
+          }
+          if(current_status.s.state != digitalReadFast(pin.INPUTS[sync.s.digital_channel])){ //if trigger changed, change state
+            current_status.s.state = !current_status.s.state; //Flip status state
+            getSeqStep(sync_step[current_status.s.state]); //Get next sequence step
+            temp_state = false;
+          }
+        }
+            //playStatusTone();        
+      }
+      else{ //Report error if driver ran off the end of the sequence list (i.e. never encountered a hold)
+        temp_size = sprintf(temp_buffer, "-Error: Custom Sync - %s reached the end of the sequence without encountering a hold.", current_status.s.state ? "STANDBY":"SCANNING");
+        temp_buffer[0] = prefix.message;
+        usb.send((const unsigned char*) temp_buffer, temp_size);
+        custom_seq_duration[0] = 0;
+        while(custom_seq_duration[0] < 200000){
+          checkStatus(); //This can happen if there was rapid bounce in the trigger, so pause to avoid spamming this error for every bounce
+          if(update_flag) goto quit; //Exit on update
+        }
+        goto quit;
+      }
+    }
+  }
+  quit:
+    analogWriteFrequency(pin.INTERLINE, pin.LED_FREQ); //Restore the interline timer to its defaul value: https://www.pjrc.com/teensy/td_pulse.html
+    interrupts();
+    pinMode(pin.ANALOG_SELECT, OUTPUT);
+    digitalWriteFast(pin.ANALOG_SELECT, LOW);
+    pinMode(pin.INTERLINE, OUTPUT);
+    digitalWriteFast(pin.INTERLINE, LOW);
+    external_analog = false;
+}

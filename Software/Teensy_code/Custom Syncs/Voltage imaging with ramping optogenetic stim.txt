@@ -1,0 +1,136 @@
+void customSync(){ //Two channel interline sequence, with external trigger between steps
+  uint16_t sync_step = 0; //Sync step counter for high state
+  const uint32_t SYNC_RESET_TIME = 180e6; //Time, in clock_cycles, for trigger to not change for sync to reset
+  uint32_t cpu_cycles; //Tracks amount of time elapsed since previous trigger change
+  uint32_t n_frames = 0; //Counter for number of exposures that have been taken
+  const uint32_t STATUS_CYCLES = 1800; //Number of cycles needed to check status
+  uint32_t pwm_clock_cycles; //Number of clock cycles for stim strobe
+  float frame_cycles; //Number of cpu cycles per frame
+
+  //Turn off LED and load sequence
+  pinMode(pin.INPUTS[sync.s.digital_channel], INPUT); //Set sync input pin to input
+  sync.s.mode = 0; //Get digital sequence
+  initializeSeq();
+  sync.s.mode = 4;
+  pinMode(pin.INTERLINE, OUTPUT); //Disconnect pin from PWM bus
+  digitalWriteFast(pin.INTERLINE, LOW); //Turn off LED
+  analogWrite(pin.DAC0, 65535); //Set LED to full current
+
+  //Get current status
+  current_status.s.state = digitalReadFast(pin.INPUTS[sync.s.digital_channel]); //Get state of sync input
+  if(sync.s.sync_output_channel) digitalWriteFast(pin.OUTPUTS[sync.s.sync_output_channel-1], current_status.s.state); //Drive output sync signal
+
+  while(current_status.s.state){ //Wait for trigger to reset if high
+    playAlarmTone();
+    checkStatus(); 
+    if(update_flag) return; //Exit on update
+  }
+
+  while(sync.s.mode == 4 && !update_flag){ //While in custom sync - reached at end of each exposure sequence
+    //Load first seq step
+    active_channel = current_status.s.led_channel;
+    current_status.s.state = 1;
+    sync_step = 0;
+    getSeqStep(sync_step); //Get first sequence step
+    for(int a=0; a<4; a++){ //Switch to next channel
+      if(conf.c.led_channel[a] == current_status.s.led_channel) digitalWriteFast(pin.RELAY[a], pin.RELAY_CLOSE);
+      else digitalWriteFast(pin.RELAY[a], !pin.RELAY_CLOSE);
+    }
+
+    //Calculate PWM clock cucles
+    frame_cycles = (float) seq.s.led_duration * 180;
+    pwm_clock_cycles = round(((float) current_status.s.led_pwm * frame_cycles / 65535)); //Calculate the number of clock cycles to leave the LED on during delay #2 to match the needed % PWM
+
+    //Wait for trigger to go high marking start of exposure sequence
+    current_status.s.state = digitalReadFast(pin.INPUTS[sync.s.digital_channel]); //Update status state of trigger
+    while(!current_status.s.state){
+      current_status.s.state = digitalReadFast(pin.INPUTS[sync.s.digital_channel]); //Update status state of trigger
+      checkStatus();
+      if(update_flag) return; //Exit on update
+    }
+
+    //Hits top of loop each time trigger transitions high
+    for(sync_step = 1; sync_step < seq_steps[1]; sync_step++){
+      //Reset frame timer
+      cpu_cycles = ARM_DWT_CYCCNT;
+      
+      //Check if the frame is a stim frame
+      if(seq.s.led_duration == 0){
+          //Turn on LED
+          digitalWriteFast(pin.INTERLINE, HIGH);
+          while(ARM_DWT_CYCCNT - cpu_cycles < pwm_clock_cycles); //Wait for PWM delay
+          digitalWriteFast(pin.INTERLINE, LOW);
+          
+          //Turn excitation LED back on for remainder of the frame
+          if(sync_step < seq_steps[1]){
+            getSeqStep(sync_step);
+            for(int a=0; a<4; a++){ //Switch to next channel
+              if(conf.c.led_channel[a] == current_status.s.led_channel) digitalWriteFast(pin.RELAY[a], pin.RELAY_CLOSE);
+              else digitalWriteFast(pin.RELAY[a], !pin.RELAY_CLOSE);
+            }
+            analogWrite(pin.INTERLINE, current_status.s.led_pwm);
+          }
+      }
+      //If excitation frame, turn on LED
+      else{
+        analogWrite(pin.INTERLINE, current_status.s.led_pwm);
+        
+        //Load next step
+        getSeqStep(sync_step);
+      }
+      
+      //Calculate PWM clock cucles if next frame is stim
+      if(seq.s.led_duration == 0) pwm_clock_cycles = round(((float) current_status.s.led_pwm * frame_cycles / 65535)); //Calculate the number of clock cycles to leave the LED on during delay #2 to match the needed % PWM
+
+      while(current_status.s.state){
+        current_status.s.state = digitalReadFast(pin.INPUTS[sync.s.digital_channel]); //Update status state of trigger
+        checkStatus();
+        if(update_flag) return; //Exit on update
+      }
+
+      //Turn LED off
+      analogWrite(pin.INTERLINE, 0);
+
+      //Switch to next channel
+      for(int a=0; a<4; a++){ 
+        if(conf.c.led_channel[a] == current_status.s.led_channel) digitalWriteFast(pin.RELAY[a], pin.RELAY_CLOSE);
+        else digitalWriteFast(pin.RELAY[a], !pin.RELAY_CLOSE);
+      }
+
+      //Wait for trigger to go back high
+      while(!current_status.s.state){
+        current_status.s.state = digitalReadFast(pin.INPUTS[sync.s.digital_channel]); //Update status state of trigger
+        
+        //Check if trigger times out
+        if(ARM_DWT_CYCCNT-cpu_cycles > SYNC_RESET_TIME){   
+          //If timeout happens before end of seq, send error
+          playAlarmTone();
+          temp_size = sprintf(temp_buffer, "-Error: Custom sync was expecting %d frames, but timed out at %d.", seq_steps[1], sync_step + 1);
+          temp_buffer[0] = prefix.message;
+          usb.send((const unsigned char*) temp_buffer, temp_size);
+          return; 
+        } 
+      }
+    }
+    //Wait for camera to stop exposing
+    while(ARM_DWT_CYCCNT-cpu_cycles > SYNC_RESET_TIME){
+      current_status.s.state = digitalReadFast(pin.INPUTS[sync.s.digital_channel]); //Update status state of trigger
+      if(!current_status.s.state){
+        cpu_cycles = ARM_DWT_CYCCNT; //Reset timer each time trigger goes low
+        sync_step++;
+      }
+      while(current_status.s.state){
+        current_status.s.state = digitalReadFast(pin.INPUTS[sync.s.digital_channel]); //Update status state of trigger
+        checkStatus();
+        if(update_flag) return; //Exit on update
+      }
+    }
+    playAlarmTone();
+    if(sync_step != seq_steps[1]){
+      temp_size = sprintf(temp_buffer, "-Error: Custom sync was expecting %d frames, but timed out at %d.", seq_steps[1], sync_step);
+      temp_buffer[0] = prefix.message;
+      usb.send((const unsigned char*) temp_buffer, temp_size);
+      return; 
+    }
+  }
+}
