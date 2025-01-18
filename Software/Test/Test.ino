@@ -300,8 +300,7 @@ void loop() {
         color_index[a] = 0;
       } 
     }
-    c=0;
-    for(b=0; b<16; b++) c+=pin.potValue(a);
+    c = pin.potValue(a);
     analogWrite(pin.INTERLINE[a], c);
   }
 

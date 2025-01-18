@@ -60,16 +60,16 @@ void pinSetup::configurePins(){
   // see the documentation for more information
   // additionally the conversion speed can also be ADACK_2_4, ADACK_4_0, ADACK_5_2 and ADACK_6_2,
   // where the numbers are the frequency of the ADC clock in MHz and are independent on the bus speed.
-  adc->adc0->setConversionSpeed(ADC_CONVERSION_SPEED::HIGH_SPEED); // change the conversion speed
+  adc->adc0->setConversionSpeed(ADC_CONVERSION_SPEED::LOW_SPEED); // change the conversion speed
   // it can be any of the ADC_MED_SPEED enum: VERY_LOW_SPEED, LOW_SPEED, MED_SPEED, HIGH_SPEED or VERY_HIGH_SPEED
-  adc->adc0->setSamplingSpeed(ADC_SAMPLING_SPEED::HIGH_SPEED); // change the sampling speed
+  adc->adc0->setSamplingSpeed(ADC_SAMPLING_SPEED::LOW_SPEED); // change the sampling speed
 
   ////// ADC1 /////
   adc->adc1->setReference(ADC_REFERENCE::REF_3V3);
   adc->adc1->setAveraging(adc_averaging); // set number of averages
   adc->adc1->setResolution(adc_resolution); // set bits of resolution
-  adc->adc1->setConversionSpeed(ADC_CONVERSION_SPEED::HIGH_SPEED); // change the conversion speed
-  adc->adc1->setSamplingSpeed(ADC_SAMPLING_SPEED::HIGH_SPEED); // change the sampling speed
+  adc->adc1->setConversionSpeed(ADC_CONVERSION_SPEED::LOW_SPEED); // change the conversion speed
+  adc->adc1->setSamplingSpeed(ADC_SAMPLING_SPEED::LOW_SPEED); // change the sampling speed
   
   ////// INPUT /////
   for(a=0; a<sizeof(PUSHBUTTON)/sizeof(PUSHBUTTON[0]); a++) pinMode(PUSHBUTTON[a], INPUT_PULLUP);
@@ -174,7 +174,12 @@ uint16_t pinSetup::boardTemp(uint8_t a){
 }
 
 uint16_t pinSetup::potValue(uint8_t a){
-  return adcMax()-adc->adc0->analogRead(POT[a]);
+  uint16_t pot = 0;
+  uint8_t index = 16;
+  while(index--) pot += adcMax()-adc->adc0->analogRead(POT[a]);
+  if(pot < POT_OFFSET) pot = 0;
+  else pot -= POT_OFFSET;
+  return pot;
 }
 
 //Requires 14 µs to complete calculation

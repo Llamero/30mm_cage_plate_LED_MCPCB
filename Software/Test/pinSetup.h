@@ -48,8 +48,9 @@ class pinSetup
     static void convertToAdc(); //Convert reference temperatures to ADC values
    
     //ADC setup
-    const static int adc_averaging = 4; //Number of times to average adc recording before returning value
+    const static int adc_averaging = 255; //Number of times to average adc recording before returning value
     const static int adc_resolution = 16; //Number of significant bits to return per adc recording
+    const static uint16_t POT_OFFSET = 100;
     
     //Termistor setup
     const static int SERIES_RESISTOR = 3600; //Value of series resistor to the thermistor on the PCB
