@@ -5,7 +5,6 @@
 #define pinSetup_h
 
 #include "Arduino.h"
-#include "AnalogBufferDMA.h"
 
 //NOTE: It seems that in this compiler lists longer than 4 need to be built in CPP while shorter lists need to be built in header with constexpr
 
@@ -15,11 +14,14 @@ class pinSetup
     pinSetup();
     static void configurePins();
     static int adcMax(); //Returns the maximum value for the ADC
-    static uint16_t boardTemp(int a); //Returns the current temperature of the specified board thermistor
-    static float adcToTemp(int adc); //Convert raw ADC value to temperature in °C
-    static float adcToTemp(int adc, int therm_nominal, int b_coefficient); //Convert raw ADC value to temperature in °C
-    static int tempToAdc(float temperature, int therm_nominal, int b_coefficient); //Convert temperature in °C to equivalent ADC value
-    
+    static uint16_t boardTemp(uint8_t a); //Returns the current temperature of the specified board thermistor
+    static uint16_t potValue(uint8_t a); //Returns the current temperature of the specified board thermistor
+    static float adcToTemp(uint16_t adc); //Convert raw ADC value to temperature in °C
+    static float adcToTemp(uint16_t adc, int therm_nominal, int b_coefficient); //Convert raw ADC value to temperature in °C
+    static uint16_t tempToAdc(float temperature, int therm_nominal, int b_coefficient); //Convert temperature in °C to equivalent ADC value
+    static void setButtonColor(uint8_t id, uint8_t intensity); //Set color of pushbutton LED - 0 = red, 100 = green
+    static void toggleButtonLED(uint8_t id, bool state); //Set intensity of pushbutton LED - 0 = off, 255 = full
+
     const static int RELAY[][4]; //SSR relays for changing LED channel
     const static int INTERLINE[3]; //Switch between analog input and gnd to turn off LED
     const static int ALARM[2]; //Audible alarm
@@ -46,12 +48,17 @@ class pinSetup
     static void convertToAdc(); //Convert reference temperatures to ADC values
    
     //ADC setup
-    const static int adc_averaging = 1; //Number of times to average adc recording before returning value
+    const static int adc_averaging = 4; //Number of times to average adc recording before returning value
     const static int adc_resolution = 16; //Number of significant bits to return per adc recording
     
+    //Termistor setup
     const static int SERIES_RESISTOR = 3600; //Value of series resistor to the thermistor on the PCB
     const static int PCB_THERMISTOR_NOMINAL = 4700; //Value of thermistor resistor on PCB at nominal temp (25°C)
     const static int PCB_B_COEFFICIENT = 3500; //Beta value for the PCB thermistor
+
+    //eFlexPWM setup
+    const static uint32_t BUTTON_LED_FREQ = 18000;
+    const static uint8_t color_list[4];
 
     static uint16_t buffer_size; //Variable for storing the size of the calibration stream packet to be sent back to GUI
 };

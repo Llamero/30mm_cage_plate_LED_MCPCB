@@ -4,6 +4,7 @@
 #include "SDcard.h"
 #include <EEPROM.h>
 #include <TimeLib.h> //Set RTC time and get time strings
+#include <eFlexPwm.h>
 
 //////////////STRUCT//////////////STRUCT//////////////STRUCT//////////////STRUCT//////////////STRUCT//////////////STRUCT//////////////STRUCT//////////////STRUCT//////////////STRUCT//////////////STRUCT//////////////STRUCT//////////////STRUCT
 
@@ -241,11 +242,11 @@ GenericFP function_router[256]; //create an array of 'GenericFP' function pointe
 
 //////////////VARIABLE//////////////VARIABLE//////////////VARIABLE//////////////VARIABLE//////////////VARIABLE//////////////VARIABLE//////////////VARIABLE//////////////VARIABLE//////////////VARIABLE//////////////VARIABLE//////////////VARIABLE
 
-int a;
+uint32_t a;
 int b;
 int c;
-int intensity = 16;
-
+int intensity = 60;
+uint8_t color_index[3];
 pinSetup pin;
 
 void setup() {
@@ -276,33 +277,63 @@ void setup() {
 }
 
 void loop() {
-  for(c=0; c<3; c++){
-    for(a=0; a<4; a++){
-      if(a==b) digitalWriteFast(pin.RELAY[c][a], HIGH);
-      else digitalWriteFast(pin.RELAY[c][a], LOW);
+  // for(a = 0; a < 3; a++){
+  //   pot[a] = pin.potValue(a);
+  //   pot[a] /= (float) pin.adcMax()/100;
+  //   Serial.print(pot[a]);
+  //   Serial.print(" ");
+  //   pin.setButtonColor(a, (uint8_t) pot[a]);
+  // }
+  for(a=0; a<3; a++){
+    if(!digitalReadFast(pin.PUSHBUTTON[a])){
+      pin.setButtonColor(a, color_index[a]);
+      for(c=0; c<4; c++){
+        if(c==color_index[a]) digitalWriteFast(pin.RELAY[a][c], HIGH);
+        else digitalWriteFast(pin.RELAY[a][c], LOW);
+      }
+      delay(50);  
+      while(!digitalReadFast(pin.PUSHBUTTON[a]));
+      delay(50);
+      color_index[a]++;
+      if(color_index[a] > 4){
+        for(c=0; c<4; c++) digitalWriteFast(pin.RELAY[a][c], LOW);
+        color_index[a] = 0;
+      } 
     }
-    delay(100);
-    if(digitalReadFast(pin.PUSHBUTTON[0])){
-      for(a=0; a<3; a++) analogWrite(pin.INTERLINE[a], intensity);
-    }
-    else{
-      for(a=0; a<3; a++) analogWrite(pin.INTERLINE[a], 65535);
-    }
-    
-    for(a=0; a<3; a++) digitalWrite(pin.FAN_PWM[a], LOW);
-    if(!digitalReadFast(pin.PUSHBUTTON[1]) && digitalReadFast(pin.PUSHBUTTON[2])){
-      digitalWrite(pin.FAN_PWM[0], HIGH);
-    }
-    else if(digitalReadFast(pin.PUSHBUTTON[1]) && !digitalReadFast(pin.PUSHBUTTON[2])){
-      digitalWrite(pin.FAN_PWM[1], HIGH);
-    }
-    else if(!digitalReadFast(pin.PUSHBUTTON[1]) && !digitalReadFast(pin.PUSHBUTTON[2])){
-      digitalWrite(pin.FAN_PWM[2], HIGH);
-    }
-    else for(a=0; a<3; a++) digitalWrite(pin.FAN_PWM[a], LOW);
-    b++;
-    if(b>3) b = 0;
+    c=0;
+    for(b=0; b<16; b++) c+=pin.potValue(a);
+    analogWrite(pin.INTERLINE[a], c);
   }
+
+//delay(50);
+
+
+  // for(c=0; c<3; c++){
+  //   for(a=0; a<4; a++){
+
+  //   }
+  //   delay(100);
+  //   if(digitalReadFast(pin.PUSHBUTTON[0])){
+  //     for(a=0; a<3; a++) analogWrite(pin.INTERLINE[a], intensity);
+  //   }
+  //   else{
+  //     for(a=0; a<3; a++) analogWrite(pin.INTERLINE[a], 65535);
+  //   }
+    
+  //   for(a=0; a<3; a++) digitalWrite(pin.FAN_PWM[a], LOW);
+  //   if(!digitalReadFast(pin.PUSHBUTTON[1]) && digitalReadFast(pin.PUSHBUTTON[2])){
+  //     digitalWrite(pin.FAN_PWM[0], HIGH);
+  //   }
+  //   else if(digitalReadFast(pin.PUSHBUTTON[1]) && !digitalReadFast(pin.PUSHBUTTON[2])){
+  //     digitalWrite(pin.FAN_PWM[1], HIGH);
+  //   }
+  //   else if(!digitalReadFast(pin.PUSHBUTTON[1]) && !digitalReadFast(pin.PUSHBUTTON[2])){
+  //     digitalWrite(pin.FAN_PWM[2], HIGH);
+  //   }
+  //   else for(a=0; a<3; a++) digitalWrite(pin.FAN_PWM[a], LOW);
+  //   b++;
+  //   if(b>3) b = 0;
+  // }
   // int adc_temp;
   // float float_temp;
   // for(a=0; a<3; a++){
