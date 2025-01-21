@@ -256,7 +256,7 @@ void setup() {
   SPI1.begin();
   delay(1);
 
-  SPI1.beginTransaction(SPISettings(4000000, MSBFIRST, SPI_MODE0));
+  SPI1.beginTransaction(SPISettings(24000000, MSBFIRST, SPI_MODE0));
   digitalWrite(pin.CS,LOW);
   SPI1.transfer(47);
   SPI1.transfer(255);
@@ -270,10 +270,13 @@ void setup() {
 
 
   uint8_t sum = 0;
-  uint8_t *buffer_ptr = (uint8_t *)&defaultConfig;
-  for(a=0; a<sizeof(conf.byte_buffer); a++) sum += *buffer_ptr++;
+  uint8_t *buffer_ptr = (uint8_t *)&defaultSync;
+  for(a=0; a<sizeof(sync.byte_buffer); a++) sum += *buffer_ptr++;
   while(!Serial);
-  Serial.println(sizeof(conf.byte_buffer));
+  Serial.print("Sum: ");
+  Serial.print(sum);
+  Serial.print(", size: ");
+  Serial.println(sizeof(sync.byte_buffer));
 }
 
 void loop() {
