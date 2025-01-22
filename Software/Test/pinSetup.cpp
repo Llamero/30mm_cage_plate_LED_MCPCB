@@ -160,6 +160,7 @@ void pinSetup::configurePins(){
     Serial.println ("Failed to start module 4");
     exit (EXIT_FAILURE);
   }
+  for(a=0; a<3; a++) setButtonColor(a, 10); //Turn off button LEDs
 }
 
 //////////////ADC//////////////ADC//////////////ADC//////////////ADC//////////////ADC//////////////ADC//////////////ADC//////////////ADC//////////////ADC//////////////ADC//////////////ADC//////////////ADC//////////////ADC//////////////ADC//////////////ADC//////////////ADC
@@ -251,7 +252,6 @@ void pinSetup::toggleButtonLED(uint8_t id, bool state){
   if(id == 0) Sm42.enable(state);
   else if(id == 1) Sm22.enable(state);
   else Sm13.enable(state);
-  if(!state) Serial.println(id);
 }
   
   

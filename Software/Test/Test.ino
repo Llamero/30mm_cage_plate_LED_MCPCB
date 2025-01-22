@@ -1,5 +1,6 @@
 #include <SPI.h>
 #include "pinSetup.h"
+#include "DAC.h"
 #include "PacketSerial.h"
 #include "SDcard.h"
 #include <EEPROM.h>
@@ -248,26 +249,13 @@ int c;
 int intensity = 60;
 uint8_t color_index[3];
 pinSetup pin;
+DAC dac;
 
 void setup() {
   //Set pin configurations
   pin.configurePins();
+  dac.initiazize();
   Serial.begin(9500);
-  SPI1.begin();
-  delay(1);
-
-  SPI1.beginTransaction(SPISettings(24000000, MSBFIRST, SPI_MODE0));
-  digitalWrite(pin.CS,LOW);
-  SPI1.transfer(47);
-  SPI1.transfer(255);
-  digitalWrite(pin.CS,HIGH);
-  // release control of the SPI port
-  SPI1.endTransaction();
-  pinMode(pin.FAN_PWM[1], OUTPUT); //Reset pin 1 to output, since it is also MISO1 pin*************************************
-
-  // b=0;
-  for(a=0; a<3; a++) analogWrite(pin.INTERLINE[a], intensity);
-
 
   uint8_t sum = 0;
   uint8_t *buffer_ptr = (uint8_t *)&defaultSync;
@@ -280,13 +268,6 @@ void setup() {
 }
 
 void loop() {
-  // for(a = 0; a < 3; a++){
-  //   pot[a] = pin.potValue(a);
-  //   pot[a] /= (float) pin.adcMax()/100;
-  //   Serial.print(pot[a]);
-  //   Serial.print(" ");
-  //   pin.setButtonColor(a, (uint8_t) pot[a]);
-  // }
   for(a=0; a<3; a++){
     if(!digitalReadFast(pin.PUSHBUTTON[a])){
       pin.setButtonColor(a, color_index[a]);
@@ -304,7 +285,10 @@ void loop() {
       } 
     }
     c = pin.potValue(a);
-    analogWrite(pin.INTERLINE[a], c);
+    uint16_t current = 65535 - (analogRead(pin.POT[0])<<4);
+    uint16_t pwm = 65535 - (analogRead(pin.POT[1])<<4);
+    dac.setAllCurrent(current);
+    dac.setAllPWM(pwm);
   }
 
 //delay(50);
