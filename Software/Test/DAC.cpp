@@ -77,11 +77,21 @@ void DAC::setExternalImpedance(uint8_t impedance){
 }
 
 void DAC::setSinglePWM(uint8_t board_id, uint16_t intensity){
-  analogWrite(pins.INTERLINE[board_id], intensity);
+  if(intensity) analogWrite(pins.INTERLINE[board_id], intensity);
+  else{
+    pinMode(pins.INTERLINE[board_id], OUTPUT);
+    digitalWriteFast(pins.INTERLINE[board_id], LOW); 
+  }
 }
 
 void DAC::setAllPWM(uint16_t intensity){
-  for(uint8_t i = 0; i<3; i++)analogWrite(pins.INTERLINE[i], intensity);
+  for(uint8_t i = 0; i<3; i++){
+    if(intensity) analogWrite(pins.INTERLINE[i], intensity);
+    else{
+      pinMode(pins.INTERLINE[i], OUTPUT);
+      digitalWriteFast(pins.INTERLINE[i], LOW); 
+    }
+  }
 }
 
 void DAC::sendCommand(){

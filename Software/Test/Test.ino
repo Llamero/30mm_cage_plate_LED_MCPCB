@@ -265,6 +265,16 @@ void setup() {
   Serial.print(sum);
   Serial.print(", size: ");
   Serial.println(sizeof(sync.byte_buffer));
+
+  c=2;
+  for(a=0; a<400; a++){
+    digitalWriteFast(pin.ALARM[0], HIGH);
+    digitalWriteFast(pin.ALARM[1], LOW);
+    delayMicroseconds(256-c);
+    digitalWriteFast(pin.ALARM[1], HIGH);
+    digitalWriteFast(pin.ALARM[0], LOW);
+    delayMicroseconds(c);
+  }
 }
 
 void loop() {
@@ -287,8 +297,13 @@ void loop() {
     c = pin.potValue(a);
     uint16_t current = 65535 - (analogRead(pin.POT[0])<<4);
     uint16_t pwm = 65535 - (analogRead(pin.POT[1])<<4);
+    uint16_t fan = 65535 - (analogRead(pin.POT[2])<<4);
+    if(pwm >> 8) pwm -= 256;
+    else pwm = 0;
     dac.setAllCurrent(current);
     dac.setAllPWM(pwm);
+    analogWrite(pin.FAN_PWM[a], fan);
+    delay(10);
   }
 
 //delay(50);

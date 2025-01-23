@@ -9220,6 +9220,17 @@
 		)
 		(uuid "fe93fd2a-eddb-4334-ac89-8653bb1c5459")
 	)
+	(text "Get fan PWM off of MISO\nHave 4 pins for ext - including gnd\nmake ext through-hole"
+		(exclude_from_sim no)
+		(at 298.958 33.02 0)
+		(effects
+			(font
+				(size 5.08 5.08)
+			)
+			(justify left)
+		)
+		(uuid "83e1f5cc-660c-462e-9278-1cbe231ba7c7")
+	)
 	(label "SDA"
 		(at 157.48 128.27 180)
 		(fields_autoplaced yes)
@@ -9353,7 +9364,7 @@
 		(uuid "0f862f11-9bb3-4a9f-b6de-709ba691d8ba")
 	)
 	(label "Fan_PWM3_low"
-		(at 203.2 53.34 180)
+		(at 203.2 55.88 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10970,7 +10981,7 @@
 		(uuid "c56dc4e6-183b-49c7-8259-ddfa8b876746")
 	)
 	(label "Fan_PWM2_low"
-		(at 203.2 45.72 180)
+		(at 203.2 53.34 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11157,7 +11168,7 @@
 		(uuid "e3397c7b-22da-4542-8414-51a64b9b7dfe")
 	)
 	(label "SW1"
-		(at 203.2 55.88 180)
+		(at 203.2 45.72 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -12717,7 +12728,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://mspindy.com/technical-guides/transducers-external-drive-piezo/"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/252/PT_2745WQ-3220810.pdf"
 			(at 158.496 135.89 0)
 			(effects
 				(font
