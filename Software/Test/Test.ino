@@ -331,27 +331,7 @@ void setup() {
   initializeConfigurations(); //Initialize configurations only after initializing SD card, as SD card is needed to load seqences
   status_index = 0;
   dac.allOff(); //For safety, boot to LED off
-  // for(size_t a=0; a==status_index; a++) checkStatus(); //Perform full round of status checks to get starting status of driver
-  
-  // digitalWriteFast(pin.INTERLINE, LOW);
-  // digitalWriteFast(pin.ANALOG_SELECT, LOW);
-  // digitalWriteFast(pin.FAN_PWM, LOW);
-  // analogWrite(pin.DAC0, 0);
-
-
-
-  //Set pin configurations
-
-  Serial.begin(9500);
-
-  uint8_t sum = 0;
-  uint8_t *buffer_ptr = (uint8_t *)&defaultSync;
-  for(a=0; a<sizeof(sync.byte_buffer); a++) sum += *buffer_ptr++;
-  while(!Serial);
-  Serial.print("Sum: ");
-  Serial.print(sum);
-  Serial.print(", size: ");
-  Serial.println(sizeof(sync.byte_buffer));
+//  for(size_t a=0; a==status_index; a++) checkStatus(); //Perform full round of status checks to get starting status of driver
 }
 
 void loop() {
@@ -372,17 +352,158 @@ void loop() {
       } 
     }
     c = pin.potValue(a);
-    uint16_t current = 65535 - (analogRead(pin.POT[0])<<4);
-    uint16_t pwm = 65535 - (analogRead(pin.POT[1])<<4);
+    current_status.s.led_current[a] = 65535 - (analogRead(pin.POT[0])<<4);
+    current_status.s.led_pwm[a] = 65535 - (analogRead(pin.POT[1])<<4);
     uint16_t fan = 65535 - (analogRead(pin.POT[2])<<4);
-    if(pwm >> 8) pwm -= 256;
-    else pwm = 0;
-    dac.setAllCurrent(current);
-    dac.setAllPWM(pwm);
+    if(current_status.s.led_pwm[a] >> 8) current_status.s.led_pwm[a] -= 256;
+    else current_status.s.led_pwm[a] = 0;
+    updateIntensity(a);
     analogWrite(pin.FAN_PWM[a], fan);
     delay(10);
   }
 }
+
+
+
+
+
+
+// void checkStatus(){
+//   interrupts(); //Activate interrupts to allow serial to be monitored and sent
+//   switch(status_index){
+//     case 0: //Check driver temperatures - 3.68 µs
+//       status_index++;
+//       pin.boardTempFast(pin.BOARD_TEMP[0]);
+//       current_status.s.temp[0] = current_status.s.temp[0] * ;
+//       break;
+//     case 1:
+//       status_index++;
+//       analogRead(pin.RESISTOR_TEMP);
+//       current_status.s.temp[1] = analogRead(pin.RESISTOR_TEMP);
+//       break;
+//     case 2: //Check external thermistor with rolling average - 3.1 µs to 4.5 µs max
+//       status_index++;
+//       analogRead(pin.EXTERNAL_TEMP);
+//       current_status.s.temp[2] = analogRead(pin.EXTERNAL_TEMP);
+//       break;
+//     case 3:
+//       status_index++;
+//       ext_avg = (ext_avg*(ext_avg_samples-1) + current_status.s.temp[2])/ext_avg_samples;
+//       current_status.s.temp[2] = ext_avg;
+//       break;
+//     case 4: //Check if any of the temperatures is past the fault temperature - 0.59 µs
+//       status_index++;
+//       if(!fault_active) thermalFault();
+//       break;
+//     case 5: //Update internal fan speed - 0.85 µs
+//       status_index++;
+//       if(current_status.s.temp[0] < current_status.s.temp[1]) setFan(current_status.s.temp[0], 0); //Update fan based on highest internal temperature (lowest ADC value)
+//       else setFan(current_status.s.temp[1], 0);
+//       break;
+//     case 6: //Update external fan speed - 0.85 µs
+//       status_index++;
+//       setFan(current_status.s.temp[2], 1); //Update external fan
+//       break;
+//     case 7: //Check toggle switch - 0.28 µs
+//       status_index++;
+//       if(current_status.s.driver_control && !fault_active){ //Only check toggle if driver control
+//         if(digitalReadFast(pin.TOGGLE) == !current_status.s.mode){ //Check if toggle state has changed - xor comparison by boolean inference (!) of mode
+//           analogWrite(pin.DAC0, 0);
+//           pinMode(pin.INTERLINE, OUTPUT);
+//           digitalWriteFast(pin.INTERLINE, LOW); //Turn of LED while driver transitions between sync and manual modes
+//           delay(pin.DEBOUNCE);
+//           if(digitalReadFast(pin.TOGGLE)) current_status.s.mode = manual_mode;
+//           else current_status.s.mode = 0;
+//           update_flag = true; //Toggle update flag
+//         }
+//       }
+//       break;
+//     case 8: //Check pot value - 3.74 µs
+//       status_index++;
+//       if(current_status.s.driver_control && !fault_active && current_status.s.mode){ //Only check pot if driver control and in manual mode
+//         if(current_status.s.mode == 1){
+//           analogRead(pin.POT);
+//           current_status.s.led_pwm = 65535-analogRead(pin.POT);
+//           current_status.s.led_current = conf.c.current_limit[current_status.s.led_channel]; //Set current to LED current limit
+//         }
+//         else if(current_status.s.mode == 3){
+//           ledOff();
+//         }
+//         else return; //If sync - do no update intensity
+//         updateIntensity(); //Update the LED intensity with the new values
+//       }
+//       break;
+//     case 9: //Check pushbuttons and update LEDs - 1.05 µs
+//       status_index++;
+//       if(!fault_active){
+//         if(current_status.s.mode && current_status.s.driver_control){ //If in manual mode and driver control, check for button presses
+//           for(int a=0; a<4; a++){
+//             if(digitalReadFast(pin.PUSHBUTTON[a])){
+//               delay(pin.DEBOUNCE);
+//               if(conf.c.led_active[a]){ //confirm that channel can be selected 
+//                 if(current_status.s.led_channel == a && manual_mode == 1){
+//                   ledOff();
+//                   manual_mode = 3;
+//                 }
+//                 else{
+//                   current_status.s.led_channel = a; //Update channel status
+//                   manual_mode = 1; 
+//                 }
+//                 current_status.s.mode = manual_mode; //Update mode
+//               }
+//               while(digitalReadFast(pin.PUSHBUTTON[a])) delay(10); //Wait for button release
+//               delay(pin.DEBOUNCE);
+//               updateIntensity(); //Update the LED intensity with the new values
+//               break; //Only process one pushbutton if several are pressed        
+//             }
+//           }
+//         }
+//         for(int a=0; a<4; a++){ //Update indicator LEDs
+//           if(current_status.s.led_channel == a && current_status.s.mode < 3 && conf.c.pushbutton_intensity) digitalWriteFast(pin.LED[a], HIGH);
+//           else digitalWriteFast(pin.LED[a], LOW);
+//         }
+//       }
+//       break;
+//     case 10: //Send current status to led driver - 4.76 µs
+//       status_index++;
+//       if(status_update_timer >= status_update_interval){ //Status timer to track when to transmit the next update
+//         status_update_timer = 0; //Reset the status update timer
+//         if(heartbeat >= HEARTBEAT_TIMEOUT && serial_connection_active){ //Default to LED off if connection is lost
+//           ledOff();
+//           updateIntensity();
+//           manual_mode = 3;
+//           serial_connection_active = false; //Timeout update transmissions if serial is no longer received
+//         }
+//         if(serial_connection_active){ //If connection is active, send status update
+//           temp_buffer[0] = prefix.status_update;
+//           memcpy(temp_buffer+1, current_status.byte_buffer, sizeof(current_status.byte_buffer));
+//           usb.send((const unsigned char*) temp_buffer, sizeof(current_status.byte_buffer)+1);
+//         }
+//       }
+//       if(!serial_connection_active) current_status.s.driver_control = true;
+//       break;
+//     case 11: //Set ananlog_select pin based on driver configuration
+//       status_index++;
+//       if(current_status.s.mode){ //If in manual mode, use internal analog
+//         external_analog = false;
+//         digitalWriteFast(pin.ANALOG_SELECT, LOW); //Set external analog input
+//       }
+//       else{ //If in sync mode
+//         if((sync.s.mode == 0 && sync.s.digital_mode[current_status.s.state] == 3) || (sync.s.mode == 2 && sync.s.confocal_mode[current_status.s.state] == 3) || (sync.s.mode == 1 && sync.s.analog_mode == 2)){ //If state requires ext. analog
+//           external_analog = true;
+//           pinMode(pin.ANALOG_SELECT, OUTPUT);
+//           digitalWriteFast(pin.ANALOG_SELECT, HIGH); //Set external analog input
+//         }
+//       }
+//       break;
+//     default: //Check if a serial packet has been received - 0.37 µs
+//       usb.update();
+//       status_index = 0; //Reset status index if no cases match
+//       break;
+//   }
+
+//   if((sync.s.mode==1 || sync.s.mode==2) && !current_status.s.mode) noInterrupts(); //Disable interrupts if in confocal mode, as the scan mirror is used as the interrupt clock
+// }
 
 void updateIntensity(){
   for(uint8_t a = 0; a<N_BOARDS; a++){
@@ -390,6 +511,12 @@ void updateIntensity(){
     dac.setSinglePWM(a, current_status.s.led_pwm[a]);
     if(pin.FAN_PWM[a] == 1) analogWrite(pin.FAN_PWM[a], current_status.s.fan_speed[a]); //_________________________________________________________________________________________________________________________________
   }
+}
+
+void updateIntensity(uint8_t board_id){
+  dac.setSingleCurrent(board_id, current_status.s.led_current[board_id]);
+  dac.setSinglePWM(board_id, current_status.s.led_pwm[board_id]);
+  if(pin.FAN_PWM[board_id] == 1) analogWrite(pin.FAN_PWM[board_id], current_status.s.fan_speed[board_id]); //_________________________________________________________________________________________________________________________________
 }
 
 void initializeSeq(){ //Setup seq

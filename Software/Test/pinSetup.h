@@ -15,6 +15,7 @@ class pinSetup
     static void configurePins();
     static int adcMax(); //Returns the maximum value for the ADC
     static uint16_t boardTemp(uint8_t a); //Returns the current temperature of the specified board thermistor
+    static uint16_t boardTempFast(uint8_t a); //Read board temp on fast DAC
     static uint16_t potValue(uint8_t a); //Returns the current temperature of the specified board thermistor
     static float adcToTemp(uint16_t adc); //Convert raw ADC value to temperature in °C
     static float adcToTemp(uint16_t adc, int therm_nominal, int b_coefficient); //Convert raw ADC value to temperature in °C

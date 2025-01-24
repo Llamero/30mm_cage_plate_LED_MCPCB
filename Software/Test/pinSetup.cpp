@@ -66,10 +66,10 @@ void pinSetup::configurePins(){
 
   ////// ADC1 /////
   adc->adc1->setReference(ADC_REFERENCE::REF_3V3);
-  adc->adc1->setAveraging(adc_averaging); // set number of averages
+  adc->adc1->setAveraging(1); // set number of averages
   adc->adc1->setResolution(adc_resolution); // set bits of resolution
-  adc->adc1->setConversionSpeed(ADC_CONVERSION_SPEED::LOW_SPEED); // change the conversion speed
-  adc->adc1->setSamplingSpeed(ADC_SAMPLING_SPEED::LOW_SPEED); // change the sampling speed
+  adc->adc1->setConversionSpeed(ADC_CONVERSION_SPEED::VERY_HIGH_SPEED); // change the conversion speed
+  adc->adc1->setSamplingSpeed(ADC_SAMPLING_SPEED::VERY_HIGH_SPEED); // change the sampling speed
   
   ////// INPUT /////
   for(a=0; a<sizeof(PUSHBUTTON)/sizeof(PUSHBUTTON[0]); a++) pinMode(PUSHBUTTON[a], INPUT_PULLUP);
@@ -172,6 +172,10 @@ int pinSetup::adcMax(){
 //Pins 24, 25 go to ADC0 only, pins 26, 27, 38, 39 go to ADC1 only, and 14-23, 40, 41 can go to either channel - https://forum.pjrc.com/index.php?threads/teensy-4-1-adc-channels.72373/post-322241
 uint16_t pinSetup::boardTemp(uint8_t a){
   return adc->adc0->analogRead(BOARD_TEMP[a]);
+}
+
+uint16_t pinSetup::boardTempFast(uint8_t a){
+  return adc->adc1->analogRead(BOARD_TEMP[a]);
 }
 
 uint16_t pinSetup::potValue(uint8_t a){
