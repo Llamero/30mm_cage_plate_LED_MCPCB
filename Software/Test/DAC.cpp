@@ -38,7 +38,7 @@ void DAC::setSingleCurrent(uint8_t board_id, uint16_t intensity){
 }
 
 void DAC::setSyncedCurrent(uint16_t *intensity){
-  for(uint8_t i = 0; i<3; i++){
+  for(uint8_t i = 0; i<sizeof(pins.INTERLINE)/sizeof(pins.INTERLINE[0]); i++){
     command.bytes_var = 0;
     if(i == 2) command.bytes[1] = SET_WITH_UPDATE;
     else command.bytes[1] = SET_NO_UPDATE;
@@ -53,13 +53,12 @@ void DAC::setAllCurrent(uint16_t intensity){
   command.bytes[1] = SET_ALL_WITH_UPDATE;
   intensity >>= 4;
   command.bytes_var += intensity;
-  Serial.println(command.bytes_var);
   sendCommand();
 }
 
 void DAC::allOff(){
   setAllCurrent(0);
-  for(uint8_t i = 0; i<3; i++){
+  for(uint8_t i = 0; i<sizeof(pins.INTERLINE)/sizeof(pins.INTERLINE[0]); i++){
     pinMode(pins.INTERLINE[i], OUTPUT);
     digitalWriteFast(pins.INTERLINE[i], LOW);
   }
@@ -85,7 +84,7 @@ void DAC::setSinglePWM(uint8_t board_id, uint16_t intensity){
 }
 
 void DAC::setAllPWM(uint16_t intensity){
-  for(uint8_t i = 0; i<3; i++){
+  for(uint8_t i = 0; i<sizeof(pins.INTERLINE)/sizeof(pins.INTERLINE[0]); i++){
     if(intensity) analogWrite(pins.INTERLINE[i], intensity);
     else{
       pinMode(pins.INTERLINE[i], OUTPUT);
