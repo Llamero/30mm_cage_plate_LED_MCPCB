@@ -20,6 +20,7 @@ class pinSetup
     static float adcToTemp(uint16_t adc); //Convert raw ADC value to temperature in °C
     static float adcToTemp(uint16_t adc, int therm_nominal, int b_coefficient); //Convert raw ADC value to temperature in °C
     static uint16_t tempToAdc(float temperature, int therm_nominal, int b_coefficient); //Convert temperature in °C to equivalent ADC value
+    static uint16_t tempToAdc(float temperature); //Convert temperature in °C to equivalent ADC value
     static void setButtonColor(uint8_t id, uint8_t intensity); //Set color of pushbutton LED - 0 = red, 100 = green
     static void toggleButtonLED(uint8_t id, bool state); //Set intensity of pushbutton LED - 0 = off, 255 = full
 
@@ -34,7 +35,7 @@ class pinSetup
     const static int CS = 28;
     const static int FAN_PWM[3]; //5V PWM to control internal fan speed
     
-    const static int PUSHBUTTON[4]; //Four pushbutton inputs 
+    const static int PUSHBUTTON[3]; //Three pushbutton inputs 
     const static int LED[][2]; //Indicator LEDs on pushbuttons
     
     const static int POT[3]; //Input voltage from potentiometer
@@ -49,9 +50,9 @@ class pinSetup
     static void convertToAdc(); //Convert reference temperatures to ADC values
    
     //ADC setup
-    const static int adc_averaging = 255; //Number of times to average adc recording before returning value
+    const static int adc_averaging = 16; //Number of times to average adc recording before returning value
     const static int adc_resolution = 16; //Number of significant bits to return per adc recording
-    const static uint16_t POT_OFFSET = 100;
+    const static uint16_t POT_OFFSET = 150;
     
     //Termistor setup
     const static int SERIES_RESISTOR = 3600; //Value of series resistor to the thermistor on the PCB

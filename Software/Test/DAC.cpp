@@ -57,11 +57,24 @@ void DAC::setAllCurrent(uint16_t intensity){
 }
 
 void DAC::allOff(){
-  setAllCurrent(0);
+  setAllCurrent(0); //Turn off DAC voltage
   for(uint8_t i = 0; i<sizeof(pins.INTERLINE)/sizeof(pins.INTERLINE[0]); i++){
     pinMode(pins.INTERLINE[i], OUTPUT);
-    digitalWriteFast(pins.INTERLINE[i], LOW);
+    digitalWriteFast(pins.INTERLINE[i], LOW); //Set switch to 0V ref
+    for(uint8_t j = 0; j<sizeof(pins.RELAY[0])/sizeof(pins.RELAY[0][0]); j++){
+      digitalWriteFast(pins.RELAY[i][j], !pins.RELAY_CLOSE); //open all mux fets
+    }
   }
+}
+
+void DAC::singleOff(uint8_t board_id){
+  setSingleCurrent(board_id, 0); //Turn off DAC voltage
+  pinMode(pins.INTERLINE[board_id], OUTPUT);
+  digitalWriteFast(pins.INTERLINE[board_id], LOW); //Set switch to 0V ref
+  for(uint8_t j = 0; j<sizeof(pins.RELAY[0])/sizeof(pins.RELAY[0][0]); j++){
+    digitalWriteFast(pins.RELAY[board_id][j], !pins.RELAY_CLOSE); //open all mux fets
+  }
+  
 }
 
 void DAC::externalSignal(){

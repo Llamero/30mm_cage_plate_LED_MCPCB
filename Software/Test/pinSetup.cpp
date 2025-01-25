@@ -68,8 +68,8 @@ void pinSetup::configurePins(){
   adc->adc1->setReference(ADC_REFERENCE::REF_3V3);
   adc->adc1->setAveraging(1); // set number of averages
   adc->adc1->setResolution(adc_resolution); // set bits of resolution
-  adc->adc1->setConversionSpeed(ADC_CONVERSION_SPEED::VERY_HIGH_SPEED); // change the conversion speed
-  adc->adc1->setSamplingSpeed(ADC_SAMPLING_SPEED::VERY_HIGH_SPEED); // change the sampling speed
+  adc->adc1->setConversionSpeed(ADC_CONVERSION_SPEED::HIGH_SPEED); // change the conversion speed
+  adc->adc1->setSamplingSpeed(ADC_SAMPLING_SPEED::HIGH_SPEED); // change the sampling speed
   
   ////// INPUT /////
   for(a=0; a<sizeof(PUSHBUTTON)/sizeof(PUSHBUTTON[0]); a++) pinMode(PUSHBUTTON[a], INPUT_PULLUP);
@@ -191,7 +191,7 @@ uint16_t pinSetup::potValue(uint8_t a){
 float pinSetup::adcToTemp(uint16_t adc){
   float steinhart;
   float raw = (float) adc;
-  raw = adcMax() / raw - 1;
+  raw = 65535 / raw - 1;
   raw = SERIES_RESISTOR / raw;
   steinhart = raw / PCB_THERMISTOR_NOMINAL;     // (R/Ro)
   steinhart = log(steinhart);                  // ln(R/Ro)
@@ -206,7 +206,7 @@ float pinSetup::adcToTemp(uint16_t adc){
 float pinSetup::adcToTemp(uint16_t adc, int therm_nominal, int b_coefficient){
   float steinhart;
   float raw = (float) adc;
-  raw = adcMax() / raw - 1;
+  raw = 65535 / raw - 1;
   raw = SERIES_RESISTOR / raw;
   steinhart = raw / therm_nominal;     // (R/Ro)
   steinhart = log(steinhart);                  // ln(R/Ro)
@@ -217,7 +217,7 @@ float pinSetup::adcToTemp(uint16_t adc, int therm_nominal, int b_coefficient){
   return steinhart;
 }
 
-uint16_t pinSetup::tempToAdc(float temperature, int therm_nominal = PCB_THERMISTOR_NOMINAL, int b_coefficient = PCB_B_COEFFICIENT){
+uint16_t pinSetup::tempToAdc(float temperature, int therm_nominal, int b_coefficient){
   float steinhart = temperature;
   float raw;
   steinhart += 273.15;  
@@ -227,26 +227,40 @@ uint16_t pinSetup::tempToAdc(float temperature, int therm_nominal = PCB_THERMIST
   steinhart = exp(steinhart);
   raw = steinhart * therm_nominal; 
   raw = SERIES_RESISTOR/raw;
-  raw = adcMax()/(raw+1); 
+  raw = 65535/(raw+1); 
+  return (uint16_t) round(raw);
+}
+
+uint16_t pinSetup::tempToAdc(float temperature){
+  float steinhart = temperature;
+  float raw;
+  steinhart += 273.15;  
+  steinhart = 1.0 / steinhart;  
+  steinhart -= 1.0 / (25 + 273.15); // + (1/To); 
+  steinhart *= PCB_B_COEFFICIENT;
+  steinhart = exp(steinhart);
+  raw = steinhart *  PCB_THERMISTOR_NOMINAL; 
+  raw = SERIES_RESISTOR/raw;
+  raw = 65535/(raw+1); 
   return (uint16_t) round(raw);
 }
 
 //////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM
 
 void pinSetup::setButtonColor(uint8_t id, uint8_t color_index){
-  if(color_index >= sizeof(color_list)) toggleButtonLED(id, false); //Turn LED off if invalid index
+  if(!color_index) toggleButtonLED(id, false); //Turn LED off if index = 0;
   else{
-    toggleButtonLED(id, true); //Turn LED off if invalid index
+    toggleButtonLED(id, true); //Turn on LED
     if(id == 0){
-      Sm42.updateDutyCyclePercent (color_list[color_index], ChanA);
+      Sm42.updateDutyCyclePercent (color_list[color_index-1], ChanA);
       Tm4.setPwmLdok();
     }
     else if(id == 1){
-      Sm22.updateDutyCyclePercent (color_list[color_index], ChanA);
+      Sm22.updateDutyCyclePercent (color_list[color_index-1], ChanA);
       Tm2.setPwmLdok();
     }
     else{
-      Sm13.updateDutyCyclePercent (color_list[color_index], ChanA);
+      Sm13.updateDutyCyclePercent (color_list[color_index-1], ChanA);
       Tm1.setPwmLdok();
     }
   }
