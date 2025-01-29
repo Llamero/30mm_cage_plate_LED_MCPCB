@@ -397,61 +397,27 @@ void checkStatus(){
       status_index++;
       for(a=0; a<N_BOARDS; a++) setFan(a); //Update fan based on highest internal temperature (lowest ADC value)
       break;
-    case 5: //Check pot 0 position if in manual mode - 1,300 µs
+    case 5: //Check pot positions if in manual mode - 1,300 µs per pot - upto 4 ms if all channels simultaneously active
       status_index++;
       if(current_status.s.driver_control && !fault_active && current_status.s.mode){ //Only check pot if driver control and in manual mode
-        if(current_status.s.led_channel[0]){
-          if(current_status.s.mode == 1){
-            current_status.s.led_pwm[0] = pin.potValue(0);
-            updateIntensity(0); //Update the LED intensity with the new values
-          }
-          else if(current_status.s.mode == 2){
-            current_status.s.led_current[0] = pin.potValue(0);
-            updateIntensity(0); //Update the LED intensity with the new values
-          }
-          else{
-            ledOff();
-          }          
-        }
-      }
-      break;
-    case 6: //Check pot 1 position if in manual mode - 1,300 µs
-      status_index++;
-      if(current_status.s.driver_control && !fault_active && current_status.s.mode){ //Only check pot if driver control and in manual mode
-        if(current_status.s.led_channel[1]){
-          if(current_status.s.mode == 1){
-            current_status.s.led_pwm[1] = pin.potValue(1);
-            updateIntensity(1); //Update the LED intensity with the new values
-          }
-          else if(current_status.s.mode == 2){
-            current_status.s.led_current[1] = pin.potValue(1);
-            updateIntensity(1); //Update the LED intensity with the new values
-          }
-          else{
-            ledOff();
+        for(a=0; a<N_BOARDS; a++){
+          if(current_status.s.led_channel[a]){
+            if(current_status.s.mode == 1){
+              current_status.s.led_pwm[a] = pin.potValue(a);
+              updateIntensity(a); //Update the LED intensity with the new values
+            }
+            else if(current_status.s.mode == 2){
+              current_status.s.led_current[a] = pin.potValue(a);
+              updateIntensity(a); //Update the LED intensity with the new values
+            }
+            else{
+              ledOff();
+            }          
           }
         }
       }
       break;
-    case 7: //Check pot 2 position if in manual mode - 1,300 µs
-      status_index++;
-      if(current_status.s.driver_control && !fault_active && current_status.s.mode){ //Only check pot if driver control and in manual mode
-        if(current_status.s.led_channel[2]){
-          if(current_status.s.mode == 1){
-            current_status.s.led_pwm[2] = pin.potValue(2);
-            updateIntensity(2); //Update the LED intensity with the new values
-          }
-          else if(current_status.s.mode == 2){
-            current_status.s.led_current[2] = pin.potValue(2);
-            updateIntensity(2); //Update the LED intensity with the new values
-          }
-          else{
-            ledOff();
-          }
-        }
-      }
-      break;
-    case 8: //Check pushbuttons and update LEDs - 1.05 µs
+    case 6: //Check pushbuttons and update LEDs - 1.05 µs
       status_index++; 
       if(!fault_active){ 
         if(current_status.s.driver_control){ //If in manual mode and driver control, check for button presses
@@ -518,38 +484,36 @@ void checkStatus(){
         }
       }
       break;
-    // case 10: //Send current status to led driver - 4.76 µs
-    //   status_index++;
-    //   if(status_update_timer >= status_update_interval){ //Status timer to track when to transmit the next update
-    //     status_update_timer = 0; //Reset the status update timer
-    //     if(heartbeat >= HEARTBEAT_TIMEOUT && serial_connection_active){ //Default to LED off if connection is lost
-    //       ledOff();
-    //       updateIntensity();
-    //       manual_mode = 3;
-    //       serial_connection_active = false; //Timeout update transmissions if serial is no longer received
-    //     }
-    //     if(serial_connection_active){ //If connection is active, send status update
-    //       temp_buffer[0] = prefix.status_update;
-    //       memcpy(temp_buffer+1, current_status.byte_buffer, sizeof(current_status.byte_buffer));
-    //       usb.send((const unsigned char*) temp_buffer, sizeof(current_status.byte_buffer)+1);
-    //     }
-    //   }
-    //   if(!serial_connection_active) current_status.s.driver_control = true;
-    //   break;
-    // case 11: //Set ananlog_select pin based on driver configuration
-    //   status_index++;
-    //   if(current_status.s.mode){ //If in manual mode, use internal analog
-    //     external_analog = false;
-    //     digitalWriteFast(pin.ANALOG_SELECT, LOW); //Set external analog input
-    //   }
-    //   else{ //If in sync mode
-    //     if((sync.s.mode == 0 && sync.s.digital_mode[current_status.s.state] == 3) || (sync.s.mode == 2 && sync.s.confocal_mode[current_status.s.state] == 3) || (sync.s.mode == 1 && sync.s.analog_mode == 2)){ //If state requires ext. analog
-    //       external_analog = true;
-    //       pinMode(pin.ANALOG_SELECT, OUTPUT);
-    //       digitalWriteFast(pin.ANALOG_SELECT, HIGH); //Set external analog input
-    //     }
-    //   }
-    //   break;
+    case 7: //Send current status to led driver - 4.76 µs
+      status_index++;
+      if(status_update_timer >= status_update_interval){ //Status timer to track when to transmit the next update
+        status_update_timer = 0; //Reset the status update timer
+        if(heartbeat >= HEARTBEAT_TIMEOUT && serial_connection_active){ //Default to LED off if connection is lost
+          ledOff();
+          manual_mode = 3;
+          serial_connection_active = false; //Timeout update transmissions if serial is no longer received
+        }
+        if(serial_connection_active){ //If connection is active, send status update
+          temp_buffer[0] = prefix.status_update;
+          memcpy(temp_buffer+1, current_status.byte_buffer, sizeof(current_status.byte_buffer));
+          usb.send((const unsigned char*) temp_buffer, sizeof(current_status.byte_buffer)+1);
+        }
+      }
+      if(!serial_connection_active) current_status.s.driver_control = true;
+      break;
+    case 11: //Set ananlog_select pin based on driver configuration
+      status_index++;
+      if(current_status.s.mode && external_analog){ //If in manual mode, use internal analog
+        external_analog = false;
+        dac.allOff(); //Set external analog input
+      }
+      else{ //If in sync mode
+        if(((sync.s.mode == 0 && sync.s.digital_mode[current_status.s.state] == 3) || (sync.s.mode == 2 && sync.s.confocal_mode[current_status.s.state] == 3) || (sync.s.mode == 1 && sync.s.analog_mode == 2)) && !external_analog){ //If state requires ext. analog
+          external_analog = true;
+          dac.externalSignal();
+        }
+      }
+      break;
     default: //Check if a serial packet has been received - 0.37 µs
       usb.update();
       memcpy(prev_status.byte_buffer, current_status.byte_buffer, sizeof(current_status.byte_buffer)); 
@@ -918,28 +882,390 @@ static void onPacketReceived(const uint8_t* buffer, size_t size){
       digitalWriteFast(pin.INTERLINE[a], 0); //Turn of LED while driver transitions between sync and manual modes
     }
   }
-  // if(buffer_prefix == prefix.message) serial_connection_active = true; //Start/continue sending status packets; 
-  // else if(buffer_prefix == prefix.connection) magicExchange(buffer, size);
-  // else if(buffer_prefix == prefix.send_config) usb.send((const unsigned char*) conf.byte_buffer, sizeof(conf.byte_buffer));
-  // else if(buffer_prefix == prefix.recv_config) recvConfig(buffer, size);
-  // else if(buffer_prefix == prefix.send_sync) usb.send((const unsigned char*) sync.byte_buffer, sizeof(sync.byte_buffer));
-  // else if(buffer_prefix == prefix.recv_sync) recvSync(buffer, size);
-  // else if(buffer_prefix == prefix.send_seq) sendSeq(buffer, size);
-  // else if(buffer_prefix == prefix.recv_seq) recvSeq(buffer, size, true); //If serial notification of upload, it will be a single file
-  // else if(buffer_prefix == prefix.send_id) sendDriverId();
-  // else if(buffer_prefix == prefix.recv_time) syncRtcTime(buffer, size);
-  // else if(buffer_prefix == prefix.recv_stream);
-  // else if(buffer_prefix == prefix.send_stream);
-  // else if(buffer_prefix == prefix.status_update) updateStatus(buffer, size);
-  // else if(buffer_prefix == prefix.calibration) driverCalibration(buffer, size);
-  // else if(buffer_prefix == prefix.gui_disconnect) disconnectSerial();
-  // else if(buffer_prefix == prefix.measure_period) measurePeriod(buffer, size);
-  // else if(buffer_prefix == prefix.test_current) testCurrent(buffer, size);
-  // else if(buffer_prefix == prefix.test_volume) testVolume(buffer, size);
-  // else if(buffer_prefix == prefix.long_off);
-  // else{
-  //   temp_size = sprintf(temp_buffer, "-Error: USB packet had invalid prefix: %d", buffer_prefix);  
-  //   temp_buffer[0] = prefix.message;
-  //   usb.send((const unsigned char*) temp_buffer, temp_size);
-  // }
+  if(buffer_prefix == prefix.message) serial_connection_active = true; //Start/continue sending status packets; 
+  else if(buffer_prefix == prefix.connection) magicExchange(buffer, size);
+  else if(buffer_prefix == prefix.send_config) usb.send((const unsigned char*) conf.byte_buffer, sizeof(conf.byte_buffer));
+  else if(buffer_prefix == prefix.recv_config) recvConfig(buffer, size);
+  else if(buffer_prefix == prefix.send_sync) usb.send((const unsigned char*) sync.byte_buffer, sizeof(sync.byte_buffer));
+  else if(buffer_prefix == prefix.recv_sync) recvSync(buffer, size);
+  else if(buffer_prefix == prefix.send_seq) sendSeq(buffer, size);
+  else if(buffer_prefix == prefix.recv_seq) recvSeq(buffer, size, true); //If serial notification of upload, it will be a single file
+  else if(buffer_prefix == prefix.send_id) sendDriverId();
+  else if(buffer_prefix == prefix.recv_time) syncRtcTime(buffer, size);
+  else if(buffer_prefix == prefix.recv_stream);
+  else if(buffer_prefix == prefix.send_stream);
+  else if(buffer_prefix == prefix.status_update) updateStatus(buffer, size);
+  //else if(buffer_prefix == prefix.calibration) driverCalibration(buffer, size);
+  else if(buffer_prefix == prefix.gui_disconnect) disconnectSerial();
+  else if(buffer_prefix == prefix.measure_period) measurePeriod(buffer, size);
+  //else if(buffer_prefix == prefix.test_current) testCurrent(buffer, size);
+  else if(buffer_prefix == prefix.test_volume) testVolume(buffer, size);
+  else if(buffer_prefix == prefix.long_off);
+  else{
+    temp_size = sprintf(temp_buffer, "-Error: USB packet had invalid prefix: %d", buffer_prefix);  
+    temp_buffer[0] = prefix.message;
+    usb.send((const unsigned char*) temp_buffer, temp_size);
+  }
+}
+
+static void magicExchange(const uint8_t* buffer, size_t size){
+  uint32_t a;
+  if(size == sizeof(MAGIC_RECEIVE)){
+    for(a=0; a<size; a++){
+      if(buffer[a+1] != MAGIC_RECEIVE[a]){
+        break;
+      }
+    }
+    if(a==size-1){
+      MAGIC_SEND[0] = prefix.connection;
+      usb.send((const unsigned char*) MAGIC_SEND, size);
+    }
+  }
+}
+
+static void sendDriverId(){
+  char driver_id[sizeof(conf.c.driver_name)+1];
+  for(uint32_t a=0; a<sizeof(conf.c.driver_name); a++){
+    driver_id[a+1] = conf.c.driver_name[a];
+  }
+  driver_id[0] = prefix.send_id;
+  usb.send((const unsigned char*) driver_id, sizeof(driver_id));
+}
+
+static void recvConfig(const uint8_t* buffer, size_t size){
+  uint8_t checksum = 0;
+  temp_size = 0;
+  if(size == sizeof(conf.byte_buffer)){
+    for(int a = 0; a<(int) size; a++) checksum += buffer[a];
+    if(!checksum){
+      memcpy(conf.byte_buffer, buffer, sizeof(conf.byte_buffer));
+      conf.byte_buffer[0] = prefix.send_config; //Switch prefix to sending prefix
+      conf.byte_buffer[size-1] += (prefix.recv_config - prefix.send_config); //Fix corresponding checksum
+      for(int a = 0; a<(int) size; a++) EEPROM.update(a + sizeof(MAGIC_RECEIVE), conf.byte_buffer[a]); //Copy configuration to EEPROM
+      initializeConfigurations(); //Re-run the setup routine to update driver state
+      temp_size = sprintf(temp_buffer, "-Configuration file was successfully uploaded.\nAlso upload \"Sync\" settings to apply changes.");
+    }
+    else temp_size = sprintf(temp_buffer, "-Error: Check sum is non-zero: %d", checksum); 
+  }
+  else temp_size = sprintf(temp_buffer, "-Error: Config packet is wrong size. Expected %d, got %d.", sizeof(conf.byte_buffer), size);
+    
+  if(temp_size){
+    temp_buffer[0] = prefix.message;
+    usb.send((const unsigned char*) temp_buffer, temp_size);
+  }
+}
+
+static void recvSync(const uint8_t* buffer, size_t size){
+  uint8_t checksum = 0;
+  temp_size = 0;
+  uint16_t expected_size = sizeof(sync.byte_buffer);// - sizeof(sync.s.digital_sequence) - sizeof(sync.s.confocal_sequence);
+  if(size == expected_size){
+    for(int a = 0; a<(int) size; a++) checksum += buffer[a];
+    if(!checksum){
+      memcpy(sync.byte_buffer, buffer, sizeof(sync.byte_buffer));
+      sync.byte_buffer[0] = prefix.send_sync; //Switch prefix to sending prefix
+      sync.byte_buffer[size-1] += (prefix.recv_sync - prefix.send_sync); //Fix corresponding checksum
+      for(int a = 0; a<(int) size; a++) EEPROM.update(a + sizeof(MAGIC_RECEIVE) + sizeof(conf.byte_buffer), sync.byte_buffer[a]); //Copy sync to EEPROM
+      if(recvSeq(buffer, size, false)){
+        initializeConfigurations(); //Re-run the setup routine to update driver state
+        temp_size = sprintf(temp_buffer, "-Sync and sequence files were successfully uploaded.");
+      }
+      else{
+        initializeConfigurations(); //Re-run the setup routine to update driver state
+        temp_size = sprintf(temp_buffer, "-Only sync file was successfully uploaded.");
+      }
+    }
+    else temp_size = sprintf(temp_buffer, "-Error: Check sum is non-zero: %d", checksum); 
+  }
+  else temp_size = sprintf(temp_buffer, "-Error: Sync packet is wrong size. Expected %d, got %d.", sizeof(sync.byte_buffer), size);  
+  if(temp_size){
+    temp_buffer[0] = prefix.message;
+    usb.send((const unsigned char*) temp_buffer, temp_size);
+  }
+}
+
+static void syncRtcTime(const uint8_t* buffer, size_t size) {
+  const unsigned long DEFAULT_TIME = 1609459200; // Jan 1 2021
+  memcpy(uint32Union.bytes, buffer+1, sizeof(uint32Union.bytes));
+  if(uint32Union.bytes_var >= DEFAULT_TIME) { // check the integer is a valid time (greater than Jan 1 2013)
+    setTime(uint32Union.bytes_var); // Sync Arduino clock to the time received on the serial port
+  }
+  else{
+    temp_size = sprintf(temp_buffer, "-Warning: Epoch time %lu sync is invalid. Defaulting to January, 1 2021.", uint32Union.bytes_var);  
+    temp_buffer[0] = prefix.message;
+    usb.send((const unsigned char*) temp_buffer, temp_size);
+  }
+}
+
+static void sendSeq(const uint8_t* buffer, size_t size){
+  uint8_t file_id; //Index of sequence file requested
+
+  if(size == 2){ //Load file to stream buffer if command requesting file is sent from GUI
+    if(buffer[1] <= 0 && buffer[1] >= sd.N_SEQ_FILES){
+      temp_size = sprintf(temp_buffer, "-Error: Stream #%d is not a valid file identifier byte.", buffer[1]);  
+      goto sendMessage;
+    }
+    else{
+      file_id = buffer[1];
+      if(!sd.readFromSD((char*) sequence_buffer[0]+2, 0, 0, sd.seq_files[file_id])){ //Offset 
+        temp_size = sprintf(temp_buffer, "%s", sd.message_buffer);  
+        goto sendMessage;
+      }
+      else{   
+        //Initialize sequence file stream to GUI with callback prefix byte - tells GUI where to route the packet to once stream is complete
+        temp_buffer[0] = prefix.send_seq;
+        uint32Union.bytes_var = sd.file_size+2; //+2 byte for the callback routing byte and file ID prefix byte at the start of the packet
+        memcpy(temp_buffer+1, uint32Union.bytes, sizeof(uint32Union.bytes));
+        usb.send((const unsigned char*) temp_buffer, sizeof(prefix.send_seq) + sizeof(uint32Union.bytes));
+      }
+    }
+    Serial.setTimeout(DEFUALT_TIMEOUT); //Set timeout for waiting for packet blocks
+    temp_size = Serial.readBytes(temp_buffer, 3); //Wait for reply from GUI indicating ready for stream to be sent
+    if(temp_size < 3){
+      temp_size = sprintf(temp_buffer, "-Error: Driver timed out waiting for GUI to reply ready for stream, %d bytes received of 3.", temp_size);  
+      goto sendMessage;
+    }
+    else if(temp_buffer[0] == 2 && temp_buffer[1] == prefix.send_seq && temp_buffer[2] == 0){ //If valid "ready for stream" requenst is received then send data stream
+      sequence_buffer[0][0] = prefix.send_seq; //Send sequence prefix for callback routing of streamed packet
+      sequence_buffer[0][1] = file_id; //Send ID of sequence file being streamed
+      Serial.write(sequence_buffer[0], uint32Union.bytes_var); //Stream sequence file 
+      if(file_id == 3) initializeSeq(); //Map active sequence data back onto sequence buffers.
+    }
+    else{
+      temp_size = sprintf(temp_buffer, "-Error: Invalid \"ready for stream\" packet received from GUI. Expected [2, %d, 0] and got [%d, %d, %d].", prefix.send_stream, temp_buffer[0], temp_buffer[1], temp_buffer[2]);  
+      goto sendMessage;
+    }
+  }
+  else{
+    temp_size = sprintf(temp_buffer, "-Error: Expected sendSeq request of 2 bytes and got %d bytes", size);  
+    goto sendMessage;
+  }
+  return;
+  sendMessage:
+    temp_buffer[0] = prefix.message;
+    usb.send((const unsigned char*) temp_buffer, temp_size);
+    initializeSeq(); //Map active sequence data back onto sequence buffers.
+    return;
+}
+
+static bool recvSeq(const uint8_t* buffer, size_t size, bool single_file){
+  uint32_t recv_packet_size = 0;
+  Serial.setTimeout(DEFUALT_TIMEOUT); //Set timeout for waiting for packet blocks
+  if(single_file){
+    if(size == 2){ //Overrwite index counter "a" with requested file index if there is one
+      if(buffer[1] <= 0 && buffer[1] >= sd.N_SEQ_FILES){
+        temp_size = sprintf(temp_buffer, "-Error: Stream #%d is not a valid file identifier byte.", buffer[1]);  
+        goto sendMessage;
+      }
+    }
+    else{
+      temp_size = sprintf(temp_buffer, "-Error: Invalid request size for single stream packet: %d bytes, instead of %d.", size, sizeof(seq_header.byte_buffer));  
+      goto sendMessage;
+    }
+  }
+  while(Serial.available()) Serial.read(); //Clear serial buffer
+  for(int a = 0; a<sd.N_SEQ_FILES; a++){
+    if(single_file) a=buffer[1]; //If a file was specified only recv that file
+    temp_buffer[0] = prefix.recv_seq;
+    temp_buffer[1] = a;
+    usb.send((const unsigned char*) temp_buffer, 2); //send request for sequence file
+    Serial.setTimeout(DEFUALT_TIMEOUT);
+    recv_packet_size = Serial.readBytes((char*) seq_header.byte_buffer, sizeof(seq_header.byte_buffer));
+    if(recv_packet_size < sizeof(seq_header.byte_buffer)){ //Timed out while waiting for header packet
+      temp_size = sprintf(temp_buffer, "-Error: Timed out while waiting for sequence file stream #%d header packet. Only %lu bytes received of %d", a+1, recv_packet_size, sizeof(seq_header.byte_buffer));  
+      goto sendMessage;
+    }
+    if(seq_header.s.prefix == prefix.recv_seq){ //Verify routing prefix
+      if(seq_header.s.file_index == a){ //Correct sequence file is streaming   
+        if(seq_header.s.buffer_size % sizeof(sequenceStruct)){ //Invalid stream length (not an integer multiple of 9 bytes)
+          temp_size = sprintf(temp_buffer, "-Error: Invalid stream length, %lu is not an integer multiple of %d.", seq_header.s.buffer_size, sizeof(sequenceStruct));  
+          goto sendMessage;
+        }
+        else if(seq_header.s.buffer_size > sizeof(sequence_buffer[0])){ //Invalid stream length - stream is longer than buffer
+          temp_size = sprintf(temp_buffer, "-Error: Invalid stream length, %lu is larger than than the buffer size: %d.", seq_header.s.buffer_size, sizeof(sequence_buffer[0]));  
+          goto sendMessage;
+        }
+        recv_packet_size = 0;
+        if(seq_header.s.buffer_size > 0){ //Only request stream if there is a stream to recv
+          Serial.setTimeout(int(seq_header.s.buffer_size >> 3)+DEFUALT_TIMEOUT);
+          temp_buffer[0] = prefix.recv_stream;
+          temp_buffer[1] = a;
+          usb.send((const unsigned char*) temp_buffer, 2); //send request for sequence file 
+          recv_packet_size = Serial.readBytes((char*) sequence_buffer[0], seq_header.s.buffer_size);
+        }
+        
+        if(recv_packet_size == seq_header.s.buffer_size){ //If full packet was received, send it to the SD card
+          if(!sd.saveToSD((char*) sequence_buffer[0], 0, seq_header.s.buffer_size, sd.seq_files[a])){
+            temp_size = sprintf(temp_buffer, "%s", sd.message_buffer);  
+            goto sendMessage;
+          }
+          if(single_file) return true; //If a specific file was requested then exit the loop on completion
+        }
+        else{ //Packet stream timed out
+          temp_size = sprintf(temp_buffer, "-Error: Invalid for sequence file size for stream #%d.  Expected %lu bytes, received %lu", a+1, seq_header.s.buffer_size, recv_packet_size);  
+          goto sendMessage;
+        }
+      }
+      else{ //Wrong sequence file is being streamed
+        temp_size = sprintf(temp_buffer, "-Error: Received sequence file #%d, while waiting for file #%d.", seq_header.s.file_index+1, a+1);  
+        goto sendMessage;
+      }
+    }
+    else{ //Invalid prefix
+      temp_size = sprintf(temp_buffer, "-Error: \"%d\" is not a valid sequence packet prefix, looking for \"%d\".", seq_header.s.prefix, prefix.recv_seq);
+      goto sendMessage;  
+    }
+  }
+  return true;
+  sendMessage:
+    temp_buffer[0] = prefix.message;
+    usb.send((const unsigned char*) temp_buffer, temp_size);
+    return false;
+}
+
+static void updateStatus(const uint8_t* buffer, size_t size){
+  STATUSUNION recv_status;
+  uint8_t a;
+  if(size == sizeof(recv_status.byte_buffer)+1){
+    memcpy(recv_status.byte_buffer, buffer+1, sizeof(recv_status.byte_buffer));
+    for(a=0; a<N_BOARDS; a++) current_status.s.led_channel[a] = recv_status.s.led_channel[a];
+    current_status.s.driver_control = recv_status.s.driver_control;
+    if(current_status.s.mode) manual_mode = recv_status.s.mode; //Set manual mode to recv'd mode if not in sync
+    if(!current_status.s.driver_control){
+      current_status.s.mode = recv_status.s.mode;
+      for(a=0; a<N_BOARDS; a++) current_status.s.led_pwm[a] = recv_status.s.led_pwm[a];
+      for(a=0; a<N_BOARDS; a++) current_status.s.led_current[a] = recv_status.s.led_current[a];
+    }
+    else{
+      if(!manual_mode) manual_mode = 1;
+    }
+    memcpy(stored_status.byte_buffer, current_status.byte_buffer, sizeof(stored_status.byte_buffer)); //Update the stored status
+    updateIntensity();
+    update_flag = true;
+  }
+  else{
+    temp_size = sprintf(temp_buffer, "-Error: LED  driver received an invalid status packet.  Expected %d bytes and received %d bytes.", sizeof(recv_status.byte_buffer)+1, size);
+    temp_buffer[0] = prefix.message;
+    usb.send((const unsigned char*) temp_buffer, temp_size);
+  }
+}
+
+void disconnectSerial(){
+  serial_connection_active = false; //Stop sending status packets
+  ledOff(); //Set LED off on disconnect
+  updateIntensity();
+  manual_mode = 3;
+  update_flag = true;
+}
+
+void measurePeriod(const uint8_t* buffer, size_t size){
+  SYNCUNION temp_sync;
+  float delta_cycles; //Number of cycles between triggers
+  float sum_of_squares = 0; //Used to calcualte variance - https://www.thoughtco.com/sum-of-squares-formula-shortcut-3126266
+  float sum_cycles = 0; //Used to calcualte variance - https://www.thoughtco.com/sum-of-squares-formula-shortcut-3126266
+  uint32_t prev_cycles = 0; //Number of cycles at previous trigger
+  float mean;
+  float stdev;
+  int a; //loop counter
+  elapsedMillis timeout;
+  elapsedMillis measure_duration;
+  elapsedMicros debounce;
+  float n_measurements=0;
+  uint16_t record_timeout = 1000; //Time in ms to wait between line triggers during scan
+  uint16_t measure_timeout = 3000; //Time in ms to measure mirror period
+
+  //Lambda functions in C++11 rock! https://stackoverflow.com/questions/4324763/can-we-have-functions-inside-functions-in-c
+  auto saveCounts = [&] (){
+    checkStatus();
+    if(a > 0){
+      delta_cycles = cpu_cycles - prev_cycles; //Calcualte number of elapsed cycles
+      sum_of_squares += delta_cycles * delta_cycles; //add to sum of squares
+      sum_cycles += delta_cycles; //Used for stdev and mean
+      n_measurements += 1;
+    }
+    prev_cycles = cpu_cycles;
+    noInterrupts();
+  };
+  if(size == sizeof(temp_sync.byte_buffer)){
+    memcpy(temp_sync.byte_buffer, buffer, sizeof(temp_sync.byte_buffer)); //Temporarily store copy of sync
+    pinMode(pin.INPUTS[temp_sync.s.confocal_channel], INPUT); 
+    temp_size = sprintf(temp_buffer, "-Measuring mirror period, please wait....");
+    temp_buffer[0] = prefix.message;
+    usb.send((const unsigned char*) temp_buffer, temp_size);
+    timeout = 0;
+    analogRead(pin.INPUTS[temp_sync.s.confocal_channel]); //Clear ADC before reocording
+    measure_duration = 0;
+    for(a=-1; measure_duration < measure_timeout && n_measurements < 10000; a++){ //Measure period for 1 second
+      if(temp_sync.s.confocal_sync_mode){ //If analog sync
+        while(analogRead(pin.INPUTS[temp_sync.s.confocal_channel]) < temp_sync.s.confocal_threshold && timeout < record_timeout); //Wait for input to rise above threshold
+        cpu_cycles = ARM_DWT_CYCCNT;
+        if(a >= 0 && temp_sync.s.confocal_sync_polarity[1]) saveCounts(); //If rising trigger then save time point
+        while(analogRead(pin.INPUTS[temp_sync.s.confocal_channel]) > temp_sync.s.confocal_threshold && timeout < record_timeout); //Wait for input to rise above threshold
+        cpu_cycles = ARM_DWT_CYCCNT;
+        if(a >= 0 && !temp_sync.s.confocal_sync_polarity[1]) saveCounts(); //If falling trigger then save time point 
+      }
+      else{ //If digital sync
+        while(digitalReadFast(pin.INPUTS[temp_sync.s.confocal_channel]) !=  temp_sync.s.confocal_sync_polarity[0] && timeout < record_timeout); //Wait for trigger to match desired polarity
+        cpu_cycles = ARM_DWT_CYCCNT;
+        saveCounts();
+        debounce = 0;
+        while(debounce < 10) checkStatus();
+        while(digitalReadFast(pin.INPUTS[temp_sync.s.confocal_channel]) ==  temp_sync.s.confocal_sync_polarity[0] && timeout < record_timeout); //Wait for trigger to reset
+        debounce = 0;
+        while(debounce < 10) checkStatus();
+      }
+      if(timeout >= record_timeout){ //If timed out, send error message.
+        temp_size = sprintf(temp_buffer, "-Error: Measurement timed out waiting for line sync trigger.");    
+        temp_buffer[0] = prefix.message;
+        usb.send((const unsigned char*) temp_buffer, temp_size);
+        return;
+      }
+      else{
+        timeout = 0; //reset timeout timer
+      }
+    }
+    mean = (sum_cycles/n_measurements)/180.0;
+    stdev = (sum_cycles*sum_cycles);
+    stdev /= n_measurements;
+    stdev = abs(sum_of_squares-stdev);
+    stdev /= n_measurements;
+    stdev = sqrt(stdev);
+    stdev /= 180.0;
+    temp_size = sprintf(temp_buffer, "-Measurement Successful. Mirror period mean: %.2f µs, standard deviation: %.2f µs.", mean, stdev);
+    temp_buffer[0] = prefix.message;
+    usb.send((const unsigned char*) temp_buffer, temp_size);
+    memcpy(temp_buffer+1, &mean, sizeof(mean));
+    temp_buffer[0] = prefix.measure_period;
+    usb.send((const unsigned char*) temp_buffer, sizeof(mean)+1);
+    updateIntensity(); //Restore led state  
+  }
+  else{
+    temp_size = sprintf(temp_buffer, "-Error: LED  driver received an invalid measure period packet.  Expected %d bytes and received %d bytes.", sizeof(temp_sync.byte_buffer), size);
+    temp_buffer[0] = prefix.message;
+    usb.send((const unsigned char*) temp_buffer, temp_size);
+    return;
+  }
+}
+
+void testVolume(const uint8_t* buffer, size_t size){
+  uint8_t stored_volume;
+  uint8_t stored_mode;
+
+  stored_volume = conf.c.audio_volume[(bool) buffer[1]]; //Temporarily update volume to test volume
+  conf.c.audio_volume[(bool) buffer[1]] = buffer[2];
+  stored_mode = conf.c.pushbutton_mode; //Temporarily update led mode to test mode
+  conf.c.pushbutton_mode = buffer[3];
+   
+  if(buffer[1] == 0){
+    playStatusTone();
+  }
+  else{
+    fault_active=true;
+    playAlarmTone();
+    playAlarmTone();
+    fault_active=false;
+
+  }
+  conf.c.audio_volume[(bool) buffer[1]] = stored_volume; //Restore volume and mode
+  conf.c.pushbutton_mode = stored_mode;
 }
