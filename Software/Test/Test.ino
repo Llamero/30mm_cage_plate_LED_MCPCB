@@ -10,6 +10,9 @@
 //////////////STRUCT//////////////STRUCT//////////////STRUCT//////////////STRUCT//////////////STRUCT//////////////STRUCT//////////////STRUCT//////////////STRUCT//////////////STRUCT//////////////STRUCT//////////////STRUCT//////////////STRUCT
 
 #pragma pack(1) //Remove alignment padding bytes in structs - https://forum.pjrc.com/threads/50536-problem-with-union-in-Teensy-3-5
+const uint8_t N_BOARDS = 3; //Number of boards connected to the LED driver
+const uint8_t N_LEDS = 4; //Number of LEDs per board
+
 struct configurationStruct{ //259 bytes
   uint8_t prefix;
   char driver_name[16]; //Name of LED driver: "default name"
@@ -42,10 +45,10 @@ const struct defaultConfigurationStruct{ //259 bytes
   uint16_t warn_temp = 14604; //Warn at 60°C
   uint16_t fault_temp = 8891; //Fault at 80°C
   uint16_t driver_fan[2] = {33963, 27958}; //Fan on at 30°C, fan max at 40°C
-  uint8_t audio_volume[2] = {10, 100}; //Status and alarm volumes for transducer: {10, 100}
+  uint8_t audio_volume[2] = {2, 100}; //Status and alarm volumes for transducer: {10, 100}
   uint16_t pushbutton_intensity = 65535; //LED intensity at full intensity
   uint8_t pushbutton_mode = 1; //LED illumination mode when alarm is active
-  uint8_t checksum = 222; //Checksum to confirm that configuration is valid
+  uint8_t checksum = 230; //Checksum to confirm that configuration is valid
 } defaultConfig;
 
 struct syncStruct{ //158 bytes
@@ -145,7 +148,7 @@ struct statusStruct{
 };
 
 const struct defaultStatusStruct{
-  uint8_t led_channel[3] = {0, 0, 0}; //Active LED channel
+  uint8_t led_channel[3] = {N_LEDS, N_LEDS, N_LEDS}; //Set active LED channel to off
   uint16_t led_pwm[3] = {0, 0, 0}; //PWM value for internal and external fan respectively
   uint16_t led_current[3] = {0, 0, 0}; //DAC value for active LED
   uint8_t mode = 3; //0=Sync, 1=PWM, 2=Current, 3=Off
@@ -276,8 +279,6 @@ uint8_t active_channel; //Currently active LED channel
 uint8_t update_flag = false; //Whether an update needs to be processed
 uint32_t ext_avg = 65535; //Summing variable for performing rolling average on the external thermistor to denoise it
 const uint16_t ext_avg_samples = 1024; //Size of sliding window for external average
-const uint8_t N_BOARDS = 3; //Number of boards connected to the LED driver
-const uint8_t N_LEDS = 4; //Number of LEDs per board
 bool update_current = false; //Whether the LED current needs to be updated.
 
 //////////////CLASS//////////////CLASS//////////////CLASS//////////////CLASS//////////////CLASS//////////////CLASS//////////////CLASS//////////////CLASS//////////////CLASS//////////////CLASS//////////////CLASS//////////////CLASS//////////////CLASS
@@ -287,7 +288,7 @@ PacketSerial_<COBS, 0, COBS_BUFFER_SIZE> usb; //Sets Encoder, framing character,
 DAC dac;
 
 void setup() {
-  //EEPROM.update(0,0); //Uncomment to reset EEPROM to defaults - re-comment and the upload code again
+  EEPROM.update(0,0); //Uncomment to reset EEPROM to defaults - re-comment and the upload code again
   //sd.formatSdCard(); //Uncomment to format SD card - re-comment and the upload code again
   
   //Count cpu cycles for submircrosecond delay precision - https://forum.pjrc.com/threads/28407-Teensyduino-access-to-counting-cpu-cycles?p=71036&viewfull=1#post71036
@@ -350,6 +351,7 @@ void setup() {
       conf.c.led_active[a][b] = true;
     }
   }
+  conf.c.current_limit[0][3] = 30000;
 }
 
 void loop() {
@@ -401,13 +403,15 @@ void checkStatus(){
       status_index++;
       if(current_status.s.driver_control && !fault_active && current_status.s.mode){ //Only check pot if driver control and in manual mode
         for(a=0; a<N_BOARDS; a++){
-          if(current_status.s.led_channel[a]){
+          if(current_status.s.led_channel[a] < N_LEDS){
             if(current_status.s.mode == 1){
               current_status.s.led_pwm[a] = pin.potValue(a);
+              current_status.s.led_current[a] = conf.c.current_limit[a][current_status.s.led_channel[a]];
               updateIntensity(a); //Update the LED intensity with the new values
             }
             else if(current_status.s.mode == 2){
-              current_status.s.led_current[a] = pin.potValue(a);
+              current_status.s.led_current[a] = ((uint32_t) pin.potValue(a) * (uint32_t) conf.c.current_limit[a][current_status.s.led_channel[a]])>>8;
+              current_status.s.led_pwm[a] = 65535; 
               updateIntensity(a); //Update the LED intensity with the new values
             }
             else{
@@ -457,12 +461,12 @@ void checkStatus(){
                 else{
                   delay(pin.DEBOUNCE);
                   current_status.s.led_channel[a]++;
-                  while(current_status.s.led_channel[a] && current_status.s.led_channel[a] <= N_LEDS){ //Check that LED channel is active
-                    if(conf.c.led_active[a][current_status.s.led_channel[a]-1]) break;
+                  while(current_status.s.led_channel[a] < N_LEDS){ //Check that LED channel is active
+                    if(conf.c.led_active[a][current_status.s.led_channel[a]]) break;
                     else current_status.s.led_channel[a]++; //If not, skip to next channel
                   }
                   if(current_status.s.led_channel[a] > N_LEDS) current_status.s.led_channel[a] = 0; //Roll over to LED off at end of cycle.
-                  if(!current_status.s.led_channel[a]){ //confirm that channel can be selected ){
+                  if(current_status.s.led_channel[a] >= N_LEDS){ //confirm that channel can be selected ){
                     ledOff(a);
                   }
                   else{
@@ -535,9 +539,9 @@ void updateIntensity(){
       prev_status.s.led_current[a] = current_status.s.led_current[a];
     } 
     if(prev_status.s.led_channel[a] != current_status.s.led_channel[a]){
-      for(uint8_t b=1; b<=N_LEDS; b++){
-        if(current_status.s.led_channel[a] == b) digitalWriteFast(pin.RELAY[a][b-1], pin.RELAY_CLOSE);
-        else digitalWriteFast(pin.RELAY[a][b-1], !pin.RELAY_CLOSE);
+      for(uint8_t b=0; b<N_LEDS; b++){
+        if(current_status.s.led_channel[a] == b) digitalWriteFast(pin.RELAY[a][b], pin.RELAY_CLOSE);
+        else digitalWriteFast(pin.RELAY[a][b], !pin.RELAY_CLOSE);
       }
       if(pin.FAN_PWM[a] == 1){
         pinMode(1, OUTPUT);
@@ -558,9 +562,9 @@ void updateIntensity(uint8_t board_id){
     prev_status.s.led_current[board_id] = current_status.s.led_current[board_id];
   } 
   if(prev_status.s.led_channel[board_id] != current_status.s.led_channel[board_id]){
-    for(uint8_t a=1; a<=N_LEDS; a++){
-      if(current_status.s.led_channel[board_id] == a) digitalWriteFast(pin.RELAY[board_id][a-1], pin.RELAY_CLOSE);
-      else digitalWriteFast(pin.RELAY[board_id][a-1], !pin.RELAY_CLOSE);
+    for(uint8_t a=0; a<N_LEDS; a++){
+      if(current_status.s.led_channel[board_id] == a) digitalWriteFast(pin.RELAY[board_id][a], pin.RELAY_CLOSE);
+      else digitalWriteFast(pin.RELAY[board_id][a], !pin.RELAY_CLOSE);
     }
     if(pin.FAN_PWM[board_id] == 1){
       pinMode(1, OUTPUT);
@@ -778,7 +782,7 @@ void ledOff(uint8_t board_id){
     //Turn off LED circuit completely
     dac.singleOff(board_id);
   }
-  current_status.s.led_channel[board_id] = 0;
+  current_status.s.led_channel[board_id] = N_LEDS;
   current_status.s.led_current[board_id] = 0;
   current_status.s.led_pwm[board_id] = 0;
   pin.toggleButtonLED(board_id, false);

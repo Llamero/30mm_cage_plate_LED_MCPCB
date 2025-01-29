@@ -35,7 +35,7 @@ const int pinSetup::LED[][2] = {{2, 3}, {6, 9}, {8, 7}}; //Indicator LEDs on pus
 const int pinSetup::POT[] = {23, 22, 21}; //Input voltage from potentiometer
 const int pinSetup::INPUTS[] = {33, 34, 32, 31}; //4-channel analog/digital inputs
 //const uint8_t pinSetup::color_list[] = {0, 13, 50, 100}; //4 color settings for pushbutton
-const uint8_t pinSetup::color_list[] = {100, 90, 50, 0}; //4 color settings for pushbutton
+const uint8_t pinSetup::color_list[] = {100, 90, 60, 0}; //4 color settings for pushbutton
 
 pinSetup::pinSetup()
 {
@@ -248,19 +248,19 @@ uint16_t pinSetup::tempToAdc(float temperature){
 //////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM
 
 void pinSetup::setButtonColor(uint8_t id, uint8_t color_index){
-  if(!color_index) toggleButtonLED(id, false); //Turn LED off if index = 0;
+  if(color_index >= sizeof(color_list)/sizeof(color_list[0])) toggleButtonLED(id, false); //Turn LED off if index = 0;
   else{
     toggleButtonLED(id, true); //Turn on LED
     if(id == 0){
-      Sm42.updateDutyCyclePercent (color_list[color_index-1], ChanA);
+      Sm42.updateDutyCyclePercent (color_list[color_index], ChanA);
       Tm4.setPwmLdok();
     }
     else if(id == 1){
-      Sm22.updateDutyCyclePercent (color_list[color_index-1], ChanA);
+      Sm22.updateDutyCyclePercent (color_list[color_index], ChanA);
       Tm2.setPwmLdok();
     }
     else{
-      Sm13.updateDutyCyclePercent (color_list[color_index-1], ChanA);
+      Sm13.updateDutyCyclePercent (color_list[color_index], ChanA);
       Tm1.setPwmLdok();
     }
   }
