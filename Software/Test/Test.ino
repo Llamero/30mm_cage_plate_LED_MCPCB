@@ -702,6 +702,7 @@ void setFan(uint8_t fan_index){
 void thermalFault(){
   uint8_t a = 0;
   const uint16_t DISCONNECT_TEMP = 63000;
+  uint8_t disconnect_channel = N_BOARDS;
   if(!fault_active){ //If fault is not active, check if any temp is above the fault temperature
     for(a=0; a<N_BOARDS; a++){
       if(current_status.s.temp[a] <= conf.c.fault_temp){
@@ -712,6 +713,7 @@ void thermalFault(){
         for(uint8_t b=0; b<N_LEDS; b++){
           if(conf.c.led_active[a][b]){
             fault_active = true;
+            disconnect_channel = a;
             break;
           }
         }
@@ -734,7 +736,8 @@ void thermalFault(){
     while(fault_active){
       playAlarmTone();
       fault_active = false; //If all temps are below warn temp, clear the fault
-      for(int a=0; a<N_BOARDS; a++) if(current_status.s.temp[a] <= conf.c.warn_temp || current_status.s.temp[a] >= DISCONNECT_TEMP) fault_active = true; //If any temp is above warn temp, maintain fault      
+      for(int a=0; a<N_BOARDS; a++) if(current_status.s.temp[a] <= conf.c.warn_temp) fault_active = true; //If any temp is above warn temp, maintain fault
+      if(disconnect_channel < N_BOARDS && current_status.s.temp[disconnect_channel] >= DISCONNECT_TEMP) fault_active = true;      
     }
     
     //Restore driver to previous state
