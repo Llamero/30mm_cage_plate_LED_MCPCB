@@ -16,6 +16,7 @@ struct configurationStruct{ //259 bytes
   char led_names[3][4][16]; //Name of each LED channel
   boolean led_active[3][4]; //Whether LED channel is in use: {false, false, false, false}
   uint16_t current_limit[3][4]; //Current limit for each channel on DAC values: {0,0,0,0}
+  boolean simul_led; //Whether LED boards can be turned on simultaneously
   uint16_t warn_temp; //Warn temp for three LED boards respectively in ADC units: {0,0,0}
   uint16_t fault_temp; //Fault temp for transistor, resistor, and external respectively in ADC units: {0,0,0}
   uint16_t driver_fan[2]; //Driver fan min and max temperatures in ADC units: {65535, 65535}
@@ -37,13 +38,14 @@ const struct defaultConfigurationStruct{ //259 bytes
   uint16_t current_limit[3][4] = {{65535,65535,65535,65535}, //Current limit for each channel on DAC values: {0,0,0,0}
                                   {65535,65535,65535,65535},
                                   {65535,65535,65535,65535}};
+  boolean simul_led = false; //Whether LED boards can be turned on simultaneously
   uint16_t warn_temp = 14604; //Warn at 60°C
   uint16_t fault_temp = 8891; //Fault at 80°C
   uint16_t driver_fan[2] = {33963, 27958}; //Fan on at 30°C, fan max at 40°C
   uint8_t audio_volume[2] = {10, 100}; //Status and alarm volumes for transducer: {10, 100}
   uint16_t pushbutton_intensity = 65535; //LED intensity at full intensity
-  uint8_t pushbutton_mode = 0; //LED illumination mode when alarm is active
-  uint8_t checksum = 223; //Checksum to confirm that configuration is valid
+  uint8_t pushbutton_mode = 1; //LED illumination mode when alarm is active
+  uint8_t checksum = 222; //Checksum to confirm that configuration is valid
 } defaultConfig;
 
 struct syncStruct{ //158 bytes
@@ -149,7 +151,7 @@ const struct defaultStatusStruct{
   uint8_t mode = 3; //0=Sync, 1=PWM, 2=Current, 3=Off
   boolean state = 0; //0=Standby (confocal), LOW (digital), etc. 1 = Scanning (confocal), HIGH (digital), etc.
   boolean driver_control = true; //True = driver controls itself, False = GUI controls driver
-  uint16_t temp[3] = {65535, 65535, 65535}; //ADC temp reading of mosfet, resistor, and external respectively
+  uint16_t temp[3] = {defaultConfig.driver_fan[0], defaultConfig.driver_fan[0], defaultConfig.driver_fan[0]}; //ADC temp reading of mosfet, resistor, and external respectively
   uint16_t fan_speed[3] = {0, 0, 0}; //PWM value for internal and external fan respectively
 } defaultStatus;
 
@@ -265,6 +267,7 @@ boolean serial_connection_active = false; //Whether to send updates over serial 
 uint8_t manual_mode = 1; //Store value of manual mode when status goes to sync (mode = 0)
 boolean fault_active = false; //Whether the led driver is currently in a fault state (such as over-heated).
 STATUSUNION stored_status; //Temporarily store operating status when status is over-ridden, such as during a thermal fault
+STATUSUNION prev_status; //Tracks previous status state - allowing driver to disinguish if changes to status have happened
 elapsedMicros audio; //Timer controlling audio volume and frequency ###########################################################################
 elapsedMillis pulse; //Timer controlling tone pule interval ###################################################################################
 boolean external_analog = false; //Whether to use the DAC or external analog input
@@ -275,6 +278,7 @@ uint32_t ext_avg = 65535; //Summing variable for performing rolling average on t
 const uint16_t ext_avg_samples = 1024; //Size of sliding window for external average
 const uint8_t N_BOARDS = 3; //Number of boards connected to the LED driver
 const uint8_t N_LEDS = 4; //Number of LEDs per board
+bool update_current = false; //Whether the LED current needs to be updated.
 
 //////////////CLASS//////////////CLASS//////////////CLASS//////////////CLASS//////////////CLASS//////////////CLASS//////////////CLASS//////////////CLASS//////////////CLASS//////////////CLASS//////////////CLASS//////////////CLASS//////////////CLASS
 pinSetup pin;
@@ -282,16 +286,9 @@ SDcard sd;
 PacketSerial_<COBS, 0, COBS_BUFFER_SIZE> usb; //Sets Encoder, framing character, buffer size
 DAC dac;
 
-uint32_t a;
-int b;
-int c;
-int intensity = 60;
-uint8_t color_index[3];
-
-
 void setup() {
-  //  EEPROM.update(0,0); //Uncomment to reset EEPROM to defaults - re-comment and the upload code again
-  //  sd.formatSdCard(); //Uncomment to format SD card - re-comment and the upload code again
+  //EEPROM.update(0,0); //Uncomment to reset EEPROM to defaults - re-comment and the upload code again
+  //sd.formatSdCard(); //Uncomment to format SD card - re-comment and the upload code again
   
   //Count cpu cycles for submircrosecond delay precision - https://forum.pjrc.com/threads/28407-Teensyduino-access-to-counting-cpu-cycles?p=71036&viewfull=1#post71036
   ARM_DEMCR |= ARM_DEMCR_TRCENA;
@@ -346,11 +343,13 @@ void setup() {
   for(uint8_t a=0; a==status_index; a++) checkStatus(); //Perform full round of status checks to get starting status of driver
 
 
-for(uint8_t a=0; a<N_BOARDS; a++){
-  for(uint8_t b=0; b<N_LEDS; b++){
-    conf.c.led_active[a][b] = true;
+
+
+  for(uint8_t a=0; a<N_BOARDS-1; a++){
+    for(uint8_t b=0; b<N_LEDS; b++){
+      conf.c.led_active[a][b] = true;
+    }
   }
-} 
 }
 
 void loop() {
@@ -363,10 +362,6 @@ void loop() {
         Serial.print(current_status.s.fan_speed[a]);
         Serial.print(" ");
       }
-      Serial.print(ARM_DWT_CYCCNT);
-      Serial.print(" ");
-      Serial.print(cpu_cycles);
-      Serial.print(" ");
       Serial.println();
     }
 }
@@ -402,22 +397,61 @@ void checkStatus(){
       status_index++;
       for(a=0; a<N_BOARDS; a++) setFan(a); //Update fan based on highest internal temperature (lowest ADC value)
       break;
-    case 5: //Check pot positions if in manual mode - 4,500 µs
+    case 5: //Check pot 0 position if in manual mode - 1,300 µs
       status_index++;
       if(current_status.s.driver_control && !fault_active && current_status.s.mode){ //Only check pot if driver control and in manual mode
-        if(current_status.s.mode == 1){
-          for(a=0; a<N_BOARDS; a++){
-            current_status.s.led_pwm[a] = pin.potValue(a);
-            updateIntensity(a); //Update the LED intensity with the new values
+        if(current_status.s.led_channel[0]){
+          if(current_status.s.mode == 1){
+            current_status.s.led_pwm[0] = pin.potValue(0);
+            updateIntensity(0); //Update the LED intensity with the new values
           }
-        }
-        else if(current_status.s.mode == 3){
-          ledOff();
+          else if(current_status.s.mode == 2){
+            current_status.s.led_current[0] = pin.potValue(0);
+            updateIntensity(0); //Update the LED intensity with the new values
+          }
+          else{
+            ledOff();
+          }          
         }
       }
       break;
-
-    case 6: //Check pushbuttons and update LEDs - 1.05 µs
+    case 6: //Check pot 1 position if in manual mode - 1,300 µs
+      status_index++;
+      if(current_status.s.driver_control && !fault_active && current_status.s.mode){ //Only check pot if driver control and in manual mode
+        if(current_status.s.led_channel[1]){
+          if(current_status.s.mode == 1){
+            current_status.s.led_pwm[1] = pin.potValue(1);
+            updateIntensity(1); //Update the LED intensity with the new values
+          }
+          else if(current_status.s.mode == 2){
+            current_status.s.led_current[1] = pin.potValue(1);
+            updateIntensity(1); //Update the LED intensity with the new values
+          }
+          else{
+            ledOff();
+          }
+        }
+      }
+      break;
+    case 7: //Check pot 2 position if in manual mode - 1,300 µs
+      status_index++;
+      if(current_status.s.driver_control && !fault_active && current_status.s.mode){ //Only check pot if driver control and in manual mode
+        if(current_status.s.led_channel[2]){
+          if(current_status.s.mode == 1){
+            current_status.s.led_pwm[2] = pin.potValue(2);
+            updateIntensity(2); //Update the LED intensity with the new values
+          }
+          else if(current_status.s.mode == 2){
+            current_status.s.led_current[2] = pin.potValue(2);
+            updateIntensity(2); //Update the LED intensity with the new values
+          }
+          else{
+            ledOff();
+          }
+        }
+      }
+      break;
+    case 8: //Check pushbuttons and update LEDs - 1.05 µs
       status_index++; 
       if(!fault_active){ 
         if(current_status.s.driver_control){ //If in manual mode and driver control, check for button presses
@@ -429,11 +463,12 @@ void checkStatus(){
                 for(c=0; c<N_BOARDS; c++){ //Check if another button is also pressed
                     if(!digitalReadFast(pin.PUSHBUTTON[c]) && c != a){ //If two buttons are pressed simultaneously - switch to sync mode
                       playStatusTone();
+                      ledOff(); //Turn off LEDs
                       if(current_status.s.mode){
                         manual_mode = 0;
                         current_status.s.mode = manual_mode;
                       } 
-                      else{ //Play second tone to indicate sync mode
+                      else{ //Play second tone to indicate manual mode
                         manual_mode = 1;
                         current_status.s.mode = manual_mode;
                         delay(100);
@@ -449,7 +484,7 @@ void checkStatus(){
               if(current_status.s.mode){ //If not in sync mode, update LED intensity
                 if(b >= 1000){ //If button was held for 1 second, turn off LED
                   playStatusTone();
-                  ledOff();
+                  ledOff(a);
                   while(!digitalReadFast(pin.PUSHBUTTON[a])) delay(10);
                   delay(pin.DEBOUNCE);
                 }
@@ -467,8 +502,13 @@ void checkStatus(){
                   else{
                     manual_mode = 1;
                     current_status.s.mode = manual_mode; //Update mode
-                    current_status.s.led_current[a] = 65535;
+                    current_status.s.led_current[a] = conf.c.current_limit[a][current_status.s.led_channel[a]];
                     updateIntensity(a); //Update the LED intensity with the new values 
+                    if(!conf.c.simul_led){ //If LEDs cannot be turned on simultaneously, turn off other LED boards.
+                      for(c=0; c<N_BOARDS; c++){
+                        if(c != a) ledOff(c);
+                      }
+                    } 
                   }         
                   pin.setButtonColor(a, current_status.s.led_channel[a]);       
                 }
@@ -512,6 +552,7 @@ void checkStatus(){
     //   break;
     default: //Check if a serial packet has been received - 0.37 µs
       usb.update();
+      memcpy(prev_status.byte_buffer, current_status.byte_buffer, sizeof(current_status.byte_buffer)); 
       status_index = 0; //Reset status index if no cases match
       break;
   }
@@ -521,29 +562,47 @@ void checkStatus(){
 
 void updateIntensity(){
   for(uint8_t a = 0; a<N_BOARDS; a++){
-    dac.setSingleCurrent(a, current_status.s.led_current[a]);
-    dac.setSinglePWM(a, current_status.s.led_pwm[a]);
-    for(uint8_t b=1; b<=N_LEDS; b++){
-      if(current_status.s.led_channel[a] == b) digitalWriteFast(pin.RELAY[a][b-1], pin.RELAY_CLOSE);
-      else digitalWriteFast(pin.RELAY[a][b-1], !pin.RELAY_CLOSE);
-    }
-    if(pin.FAN_PWM[a] == 1){
-      pinMode(1, OUTPUT);
-      analogWrite(pin.FAN_PWM[a], current_status.s.fan_speed[a]); //_________________________________________________________________________________________________________________________________
+    if(prev_status.s.led_current[a] != current_status.s.led_current[a]){
+      dac.setSingleCurrent(a, current_status.s.led_current[a]);
+      prev_status.s.led_current[a] = current_status.s.led_current[a];
+    } 
+    if(prev_status.s.led_pwm[a] != current_status.s.led_pwm[a]){
+      dac.setSinglePWM(a, current_status.s.led_pwm[a]);
+      prev_status.s.led_current[a] = current_status.s.led_current[a];
+    } 
+    if(prev_status.s.led_channel[a] != current_status.s.led_channel[a]){
+      for(uint8_t b=1; b<=N_LEDS; b++){
+        if(current_status.s.led_channel[a] == b) digitalWriteFast(pin.RELAY[a][b-1], pin.RELAY_CLOSE);
+        else digitalWriteFast(pin.RELAY[a][b-1], !pin.RELAY_CLOSE);
+      }
+      if(pin.FAN_PWM[a] == 1){
+        pinMode(1, OUTPUT);
+        analogWrite(pin.FAN_PWM[a], current_status.s.fan_speed[a]); //_________________________________________________________________________________________________________________________________
+      }
+      prev_status.s.led_channel[a] = current_status.s.led_channel[a];
     }
   }
 }
 
 void updateIntensity(uint8_t board_id){
-  dac.setSingleCurrent(board_id, current_status.s.led_current[board_id]);
-  dac.setSinglePWM(board_id, current_status.s.led_pwm[board_id]);
-  for(uint8_t a=1; a<=N_LEDS; a++){
-    if(current_status.s.led_channel[board_id] == a) digitalWriteFast(pin.RELAY[board_id][a-1], pin.RELAY_CLOSE);
-    else digitalWriteFast(pin.RELAY[board_id][a-1], !pin.RELAY_CLOSE);
-  }
-  if(pin.FAN_PWM[a] == 1){
-    pinMode(1, OUTPUT);
-    analogWrite(pin.FAN_PWM[a], current_status.s.fan_speed[a]); //_________________________________________________________________________________________________________________________________
+  if(prev_status.s.led_current[board_id] != current_status.s.led_current[board_id]){
+    dac.setSingleCurrent(board_id, current_status.s.led_current[board_id]);
+    prev_status.s.led_current[board_id] = current_status.s.led_current[board_id];
+  } 
+  if(prev_status.s.led_pwm[board_id] != current_status.s.led_pwm[board_id]){
+    dac.setSinglePWM(board_id, current_status.s.led_pwm[board_id]);
+    prev_status.s.led_current[board_id] = current_status.s.led_current[board_id];
+  } 
+  if(prev_status.s.led_channel[board_id] != current_status.s.led_channel[board_id]){
+    for(uint8_t a=1; a<=N_LEDS; a++){
+      if(current_status.s.led_channel[board_id] == a) digitalWriteFast(pin.RELAY[board_id][a-1], pin.RELAY_CLOSE);
+      else digitalWriteFast(pin.RELAY[board_id][a-1], !pin.RELAY_CLOSE);
+    }
+    if(pin.FAN_PWM[board_id] == 1){
+      pinMode(1, OUTPUT);
+      analogWrite(pin.FAN_PWM[board_id], current_status.s.fan_speed[board_id]); //_________________________________________________________________________________________________________________________________
+    }
+    prev_status.s.led_channel[board_id] = current_status.s.led_channel[board_id];
   }
 }
 
@@ -630,8 +689,8 @@ void playAlarmTone(){
   audio = 0;
   pulse = 0;
   for(int led=0; led<N_BOARDS; led++){
-    if(conf.c.pushbutton_mode == 1 || conf.c.pushbutton_mode == 3 || (conf.c.pushbutton_mode == 2 && led == led_index)) pin.setButtonColor(a, 0);
-    else pin.setButtonColor(a, N_BOARDS);
+    if(conf.c.pushbutton_mode == 1 || conf.c.pushbutton_mode == 3 || (conf.c.pushbutton_mode == 2 && led == led_index)) pin.setButtonColor(led, 1);
+    else pin.setButtonColor(led, 0);
   }
   if(++led_index >= N_BOARDS) led_index = 0;
   while(pulse < 512){ //Play tone for 0.5 seconds
@@ -646,9 +705,9 @@ void playAlarmTone(){
     }
     else audio = 0; //Reset audio cycle timer
   }
-  for(int led=0; led<4; led++){
-    if(conf.c.pushbutton_mode == 3 || (conf.c.pushbutton_mode == 2 && led == led_index)) pin.setButtonColor(a, 0);
-    else pin.setButtonColor(a, N_BOARDS);
+  for(int led=0; led<N_BOARDS; led++){
+    if(conf.c.pushbutton_mode == 3 || (conf.c.pushbutton_mode == 2 && led == led_index)) pin.setButtonColor(led, 1);
+    else pin.setButtonColor(led, 0);
   }
   if(++led_index >= N_BOARDS) led_index = 0;
   while(pulse < 1024){
@@ -677,11 +736,22 @@ void setFan(uint8_t fan_index){
 }
 
 void thermalFault(){
+  uint8_t a = 0;
+  const uint16_t DISCONNECT_TEMP = 63000;
   if(!fault_active){ //If fault is not active, check if any temp is above the fault temperature
-    for(int a=0; a<N_BOARDS; a++){
+    for(a=0; a<N_BOARDS; a++){
       if(current_status.s.temp[a] <= conf.c.fault_temp){
         fault_active = true;
         break;   
+      }
+      else if(current_status.s.temp[a] >= DISCONNECT_TEMP){
+        for(uint8_t b=0; b<N_LEDS; b++){
+          if(conf.c.led_active[a][b]){
+            fault_active = true;
+            break;
+          }
+        }
+        break;
       }  
     }
   }
@@ -689,7 +759,8 @@ void thermalFault(){
     memcpy(stored_status.byte_buffer, current_status.byte_buffer, sizeof(stored_status.byte_buffer)); //Save current status to restore state after fault.
 
     //Send fault warning to GUI
-    temp_size = sprintf(temp_buffer, "-Warning: Fault temperature has been exceeded.  The driver will turn off LED until below warning temperature.");
+    if(current_status.s.temp[a] <= conf.c.fault_temp) temp_size = sprintf(temp_buffer, "-Warning: Fault temperature has been exceeded on LED board #%d.  The driver will turn off LED until below warning temperature.", a+1);
+    else temp_size = sprintf(temp_buffer, "-Warning: No thermistor reading found on LED board #%d.  Please check board connection.", a+1);
     temp_buffer[0] = prefix.message;
     usb.send((const unsigned char*) temp_buffer, temp_size);
 
@@ -699,7 +770,7 @@ void thermalFault(){
     while(fault_active){
       playAlarmTone();
       fault_active = false; //If all temps are below warn temp, clear the fault
-      for(int a=0; a<N_BOARDS; a++) if(current_status.s.temp[a] <= conf.c.warn_temp) fault_active = true; //If any temp is above warn temp, maintain fault      
+      for(int a=0; a<N_BOARDS; a++) if(current_status.s.temp[a] <= conf.c.warn_temp || current_status.s.temp[a] >= DISCONNECT_TEMP) fault_active = true; //If any temp is above warn temp, maintain fault      
     }
     
     //Restore driver to previous state
@@ -718,9 +789,13 @@ void thermalFault(){
 }
 
 void ledOff(){
-  //Turn off LED circuit completely
-  dac.allOff();
+  bool turned_off = false;
   for(uint8_t a=0; a<N_BOARDS; a++){
+    if((current_status.s.led_current[a] || current_status.s.led_pwm[a]) && !turned_off){ //If LEDs are on
+      //Turn off LED circuit completely
+      dac.allOff();
+      turned_off = true;
+    }
     current_status.s.led_channel[a] = 0;
     current_status.s.led_current[a] = 0;
     current_status.s.led_pwm[a] = 0;
@@ -728,15 +803,19 @@ void ledOff(){
   }
   manual_mode = 3;
   current_status.s.mode = manual_mode;
+  memcpy(prev_status.byte_buffer, current_status.byte_buffer, sizeof(current_status.byte_buffer)); //Update prev status
 }
 
 void ledOff(uint8_t board_id){
-  //Turn off LED circuit completely
-  dac.singleOff(board_id);
+  if(current_status.s.led_current[board_id] || current_status.s.led_pwm[board_id]){ //If LEDs are on
+    //Turn off LED circuit completely
+    dac.singleOff(board_id);
+  }
   current_status.s.led_channel[board_id] = 0;
   current_status.s.led_current[board_id] = 0;
   current_status.s.led_pwm[board_id] = 0;
   pin.toggleButtonLED(board_id, false);
+  memcpy(prev_status.byte_buffer, current_status.byte_buffer, sizeof(current_status.byte_buffer)); //Update prev status
 }
 //////////////EEPROM//////////////EEPROM//////////////EEPROM//////////////EEPROM//////////////EEPROM//////////////EEPROM//////////////EEPROM//////////////EEPROM//////////////EEPROM//////////////EEPROM//////////////EEPROM//////////////EEPROM
 
