@@ -8,7 +8,7 @@ import struct
 from collections import OrderedDict
 import os
 
-maximum_rows = 10000 # Maximum number or rows allowed
+maximum_rows = 28000 # Maximum number or rows allowed
 row_subsample = maximum_rows  #Only load the last segment of the table for very large tables to prevent lag
 n_sequence_files = 4 #Total number of sequence tables in Sync configuration
 

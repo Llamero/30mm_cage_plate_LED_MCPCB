@@ -17,6 +17,8 @@ from timeit import default_timer as timer
 import pickle
 import syncPlotWindow
 
+N_BOARDS = 3
+N_LEDS = 4
 DIAL_UPDATE_RATE = 0.05 #Time in s between updates from dial when in manual control - prevents dial from locking GUI with continuous updates when dial is swept
 ANALOG_SYNC_SAMPLE_RATE = 10 #Time interval in microseconds for the analog sync to take a single sample
 if hasattr(QtCore.Qt, 'AA_EnableHighDpiScaling'):
@@ -32,6 +34,8 @@ class Ui(QtWidgets.QMainWindow):
     def __init__(self, app):
         self.app = app
         super(Ui, self).__init__()
+        self.N_BOARDS = N_BOARDS
+        self.N_LEDS = N_LEDS
 
         #Initialize splash screen to show on load
         self.splash_dict = {"main": self.resourcePath("Four Channel MHz LED Driver-main.png"),
@@ -480,3 +484,9 @@ class Ui(QtWidgets.QMainWindow):
             base_path = os.path.abspath(".")
 
         return os.path.join(base_path, relative_path)
+
+    def nBoards(self):
+        return self.N_BOARDS
+
+    def nLeds(self):
+        return self.N_LEDS

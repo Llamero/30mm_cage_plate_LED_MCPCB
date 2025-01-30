@@ -14,7 +14,10 @@ PCB_B_COEFFICIENT = 3545 #Beta value for the PCB thermistor
 EXT_THERMISTOR_NOMINAL = 4700 #Value of external thermistor at nominal temp (25°C)
 EXT_B_COEFFICIENT = 3545 #Beta value for the PCB thermistor
 SERIES_RESISTOR = 4700 #Resistor value in series with thermistor on PCB board
-DEFAULT_CLOCK_SPEED = 180 #Clock speed of the Teensy in MHz - used to convert confocal delay times to clock cycles for sub-microsecond precision
+DEFAULT_CLOCK_SPEED = 600 #Clock speed of the Teensy in MHz - used to convert confocal delay times to clock cycles for sub-microsecond precision
+N_BOARDS = 3 #Number of boards connected to the driver
+N_LEDS = 4 #Number of LEDs on each boards
+
 
 def saveConfiguration(gui, model, file=None):
     def writeLines(prefix, dictionary):
@@ -126,17 +129,19 @@ def bytesToConfig(byte_array, gui, prefix):
 
     #Verify checksum of config file
     checksum = (sum(byte_array) + prefix) & 0xFF #https://stackoverflow.com/questions/44611057/checksum-generation-from-sum-of-bits-in-python
+    print(checksum)
     if checksum == 0:
         while int(byte_array[index]) != 0:
             index += 1
         gui.setValue(gui.config_model["Driver name"], byte_array[start_index:index].decode().rstrip())
 
-        for led_number in range (1,5):
-            index += 1
-            start_index = index
-            while int(byte_array[index]) != 0:
+        for board_number in range (1, gui.nBoards()+1):
+            for led_number in range (1, gui.nLeds()+1):
                 index += 1
-            gui.setValue(gui.config_model["LED" + str(led_number)]["ID"], byte_array[start_index:index].decode().rstrip())
+                start_index = index
+                while int(byte_array[index]) != 0:
+                    index += 1
+                gui.setValue(gui.config_model["LED" + str(led_number)]["ID"], byte_array[start_index:index].decode().rstrip())
         index += 1
         config_values = struct.unpack("<????HHHHBBBBffff????HHHHHHHHHHBiiBB?BB", byte_array[index:]) #Parse byte array values: https://docs.python.org/3/library/struct.html#struct-alignment
 

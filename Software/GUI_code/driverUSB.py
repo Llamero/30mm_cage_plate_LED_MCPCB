@@ -20,9 +20,11 @@ import pyautogui
 # Teensy USB serial microcontroller program id data:
 VENDOR_ID = 0x16C0
 PRODUCT_ID = 0x0483
-SERIAL_NUMBER = "MHZ_LED"
+SERIAL_NUMBER = "30MMLED"
 MAGIC_SEND = "kc1oISEIZ60AYJqH4J1P" #Magic number sent to Teensy to verify that they are an LED driver
 MAGIC_RECEIVE = "kvlWfsBplgasrsh3un5K" #Magic number received from Teensy verifying it is an LED driver
+MAGIC_SEND = "51ERrUAT6ZWlThiltxJK" #Magic number sent to Teensy to verify that they are an LED driver
+MAGIC_RECEIVE = "A5DihJ3v5bbXKmAmmhQl" #Magic number received from Teensy verifying it is an LED driver
 HEARTBEAT_INTERVAL = 5 #Send a heartbeat signal every 5 seconds after the last packet was transmitted
 debug = True #Show all serial debug messages excluding status updates
 debug_status = False #Also show status messages

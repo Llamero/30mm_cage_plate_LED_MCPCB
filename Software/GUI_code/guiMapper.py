@@ -8,44 +8,23 @@ def initializeConfigModel(gui):
     config_model = OrderedDict()
     config_model["Driver name"] = gui.configure_name_driver_line_edit
     # LEDs
-    for led_number in range(1, 5):
-        config_model["LED" + str(led_number)] = OrderedDict(
-            [("ID", eval("gui.configure_name_LED" + str(led_number) + "_line_edit")),
-             ("Active", eval("gui.configure_name_LED" + str(led_number) + "_box")),
-             ("Current Limit", eval("gui.configure_current_limit_LED" + str(led_number) + "_spin_box"))])
+    for board_number in range(1, gui.nBoards() + 1):
+        for led_number in range(1, gui.nLeds() + 1):
+            config_model["LED" + str(board_number) + str(led_number)] = OrderedDict(
+                [("ID", eval("gui.configure_name_LED" + str(board_number) + str(led_number) + "_line_edit")),
+                 ("Active", eval("gui.configure_name_LED" + str(board_number) + str(led_number) + "_box")),
+                 ("Current Limit", eval("gui.configure_current_limit_LED" + str(board_number) + str(led_number) + "_spin_box"))])
 
-    #Channels
-    for channel in range(1,5):
-        config_model["Channel" + str(channel)] = []
-        for led_number in range(1,5):
-            config_model["Channel" + str(channel)].append(eval("gui.configure_LED_merge_channel" + str(channel) + "_button" + str(led_number)))
-
-    # Current sense resistors
-    for resistor in range(1, 5):
-        config_model["Resistor" + str(resistor)] = OrderedDict(
-            [("Value", eval("gui.configure_resistor" + str(resistor) + "_spin_box")),
-             ("Active", eval("gui.configure_resistor" + str(resistor) + "_box"))])
+    #Simultaneous LED operation
+    config_model["Simultaneous LED"] = [gui.configure_pushbutton_simul_off_button, gui.configure_pushbutton_simul_on_button]
 
     # Temperature cutoffs
-    config_model["Temperature"] = OrderedDict()
-    for source in ["Transistor", "Resistor", "External"]:
-        config_model["Temperature"][source] = OrderedDict(
-            [("Warn", eval("gui.configure_temperature_" + source.lower() + "_warn_box")),
-             ("Fault", eval("gui.configure_temperature_" + source.lower() + "_fault_box"))])
+    config_model["Temperature"] = OrderedDict([("Warn", eval("gui.configure_temperature_warn_box")),
+             ("Fault", eval("gui.configure_temperature_fault_box"))])
 
     # Fan settings
-    config_model["Fan"] = OrderedDict()
-    for source in ["Driver", "External"]:
-        config_model["Fan"][source] = OrderedDict(
-            [("Min", eval("gui.configure_fan_" + source.lower() + "_min_box")),
-             ("Max", eval("gui.configure_fan_" + source.lower() + "_max_box"))])
-    config_model["Fan"]["Channel"] = []
-    for channel in range(4):
-        config_model["Fan"]["Channel"].append(eval("gui.configure_fan_external_output" + str(channel) + "_box"))
-
-    # External Thermistor
-    config_model["Thermistor"] = OrderedDict(
-        [("Resistance", gui.configure_thermistor_resistance_box), ("Beta", gui.configure_thermistor_beta_box)])
+    config_model["Fan"] = OrderedDict([("Min", eval("gui.configure_fan_min_box")),
+             ("Max", eval("gui.configure_fan_max_box"))])
 
     # Audio settings
     config_model["Audio"] = OrderedDict(
@@ -71,25 +50,13 @@ def initializeSyncModel(gui):
             sync_model["Digital"][trigger] = OrderedDict()
             sync_model["Digital"][trigger]["Mode"] = eval("gui.sync_digital_trigger_" + trigger.lower() + "_tab")
             sync_model["Digital"][trigger]["LED"] = []
-            for led_number in range(5):
-                sync_model["Digital"][trigger]["LED"].append(eval("gui.sync_digital_trigger_" + trigger.lower() + "_constant_LED" + str(led_number) + "_button"))
+            for board_number in range(1, gui.nBoards() + 1):
+                for led_number in range(gui.nLeds() + 1):
+                    sync_model["Digital"][trigger]["LED"].append(eval("gui.sync_digital_trigger_" + trigger.lower() + "_constant_LED" + str(board_number) + str(led_number) + "_button"))
             sync_model["Digital"][trigger]["PWM"] = eval("gui.sync_digital_trigger_" + trigger.lower() + "_constant_config_PWM_box")
             sync_model["Digital"][trigger]["Current"] = eval("gui.sync_digital_trigger_" + trigger.lower() + "_constant_config_current_box")
             sync_model["Digital"][trigger]["Duration"] = eval("gui.sync_digital_trigger_" + trigger.lower() + "_constant_config_duration_box")
             sync_model["Digital"][trigger]["Sequence"] = ""
-
-    def initializeAnalog():
-        nonlocal gui
-        sync_model["Analog"] = OrderedDict()
-        sync_model["Analog"]["LED"] = []
-        for led_number in range(5):
-            sync_model["Analog"]["LED"].append(eval("gui.sync_analog_LED" + str(led_number) + "_button"))
-        sync_model["Analog"]["Channel"] = []
-        for channel_number in range(1, 5):
-            sync_model["Analog"]["Channel"].append(eval("gui.sync_analog_input" + str(channel_number) + "_button"))
-        sync_model["Analog"]["Mode"] = gui.sync_analog_output_tab
-        sync_model["Analog"]["PWM"] = gui.sync_analog_output_PWM_avg_slider
-        sync_model["Analog"]["Current"] = gui.sync_analog_output_current_avg_slider
 
     def initializeConfocal():
         nonlocal gui
@@ -121,11 +88,7 @@ def initializeSyncModel(gui):
     sync_model = OrderedDict()
     sync_model["Mode"] = gui.sync_toolbox
     initializeDigital()
-    initializeAnalog()
     initializeConfocal()
-    sync_model["Output"] = []
-    for output in range(4):
-        sync_model["Output"].append(eval("gui.sync_output" + str(output) + "_button"))
 
     return sync_model
 
@@ -151,10 +114,10 @@ def initializeMainModel(gui):
     main_model = OrderedDict()
     main_model["Name"] = gui.main_driver_name_label2
     main_model["Serial"] = gui.main_driver_serial_label2
-    main_model["Channel"] = [gui.main_channel_LED1_button,
-                             gui.main_channel_LED2_button,
-                             gui.main_channel_LED3_button,
-                             gui.main_channel_LED4_button]
+    main_model["Channel"] = []
+    for board_number in range(1, gui.nBoards() + 1):
+        for led_number in range(1, gui.nLeds() + 1):
+            main_model["Channel"].append(eval("gui.main_channel_LED" + str(board_number) + str(led_number) + "_button"))
     main_model["Intensity"] = gui.main_intensity_dial
     main_model["Mode"] = [gui.main_toggle_slider, gui.main_intensity_PWM_button, gui.main_intensity_current_button, gui.main_intensity_off_button]
     main_model["Control"] = [gui.main_control_software_button, gui.main_control_physical_button]
@@ -191,15 +154,9 @@ def initializeEvents(gui):
         gui.main_control_software_button.toggled.connect(lambda: gui.toggleSoftwareControl(gui.getValue(gui.main_control_software_button)))
 
         #Update configure plot current limits when active LED is changed
-        gui.main_channel_LED1_button.clicked.connect(lambda: gui.ser.updateStatus())
-        gui.main_channel_LED2_button.clicked.connect(lambda: gui.ser.updateStatus())
-        gui.main_channel_LED3_button.clicked.connect(lambda: gui.ser.updateStatus())
-        gui.main_channel_LED4_button.clicked.connect(lambda: gui.ser.updateStatus())
-
-        gui.main_channel_LED1_button.clicked.connect(lambda: plot.setCalibrationScale(gui))
-        gui.main_channel_LED2_button.clicked.connect(lambda: plot.setCalibrationScale(gui))
-        gui.main_channel_LED3_button.clicked.connect(lambda: plot.setCalibrationScale(gui))
-        gui.main_channel_LED4_button.clicked.connect(lambda: plot.setCalibrationScale(gui))
+        for board_number in range(1, gui.nBoards() + 1):
+            for led_number in range(1, gui.nLeds() + 1):
+                eval("gui.main_channel_LED" + str(board_number) + str(led_number) + "_button.clicked.connect(lambda: gui.ser.updateStatus())")
 
         #Update status if mode or control change
         gui.main_intensity_PWM_button.clicked.connect(lambda: gui.ser.updateStatus())
@@ -219,57 +176,28 @@ def initializeEvents(gui):
         def ledCheckBoxEvents():
             nonlocal gui
             # Changes to LED check boxes - toggle whether LED is active
-            gui.config_model["LED1"]["Active"].stateChanged.connect(lambda: gui.toggleLedActive(1))
-            gui.config_model["LED2"]["Active"].stateChanged.connect(lambda: gui.toggleLedActive(2))
-            gui.config_model["LED3"]["Active"].stateChanged.connect(lambda: gui.toggleLedActive(3))
-            gui.config_model["LED4"]["Active"].stateChanged.connect(lambda: gui.toggleLedActive(4))
+            for board_number in range(1, gui.nBoards() + 1):
+                for led_number in range(1, gui.nLeds() + 1):
+                    eval("gui.config_model[\"LED\"" + str(board_number) + str(led_number) + "\"][\"Active\"].stateChanged.connect(lambda: gui.toggleLedActive(" + str(board_number) + str(led_number) + ")")
 
         def ledNameEvents():
             nonlocal gui
             # Changes to LED names - updates GUI LED references with new name
-            gui.config_model["LED1"]["ID"].textChanged.connect(lambda: gui.changeLedName(1, gui.config_model["LED1"]["ID"]))
-            gui.config_model["LED2"]["ID"].textChanged.connect(lambda: gui.changeLedName(2, gui.config_model["LED2"]["ID"]))
-            gui.config_model["LED3"]["ID"].textChanged.connect(lambda: gui.changeLedName(3, gui.config_model["LED3"]["ID"]))
-            gui.config_model["LED4"]["ID"].textChanged.connect(lambda: gui.changeLedName(4, gui.config_model["LED4"]["ID"]))
-
-        def resistorCheckBoxEvents():
-            nonlocal gui
-            # Changes to resistor check boxes - toggle whether resistor is active
-            gui.config_model["Resistor2"]["Active"].stateChanged.connect(lambda: gui.toggleResistorActive(2))
-            gui.config_model["Resistor3"]["Active"].stateChanged.connect(lambda: gui.toggleResistorActive(3))
-            gui.config_model["Resistor4"]["Active"].stateChanged.connect(lambda: gui.toggleResistorActive(4))
-
-        def resistorValueEvents():
-            for resistor_number in range(1,5):
-                gui.config_model["Resistor" + str(resistor_number)]["Value"].valueChanged.connect(lambda: fileIO.checkCurrentLimits(gui))
-
+            for board_number in range(1, gui.nBoards() + 1):
+                for led_number in range(1, gui.nLeds() + 1):
+                    eval("gui.config_model[\"LED\"" + str(board_number) + str(led_number) + "\"][\"ID\"].textChanged.connect(lambda: gui.changeLedName(" + str(board_number) + str(led_number) + ", gui.config_model[\"LED\"" + str(board_number) + str(led_number) + "][\"ID\"]))")
 
         def temperatureValueEvents():
-            gui.config_model["Temperature"]["Transistor"]["Warn"].valueChanged.connect(lambda: fileIO.checkTemperatures(gui, ["Temperature", "Transistor", "Warn"]))
-            gui.config_model["Temperature"]["Transistor"]["Fault"].valueChanged.connect(lambda: fileIO.checkTemperatures(gui, ["Temperature", "Transistor", "Fault"]))
-            gui.config_model["Temperature"]["Resistor"]["Warn"].valueChanged.connect(lambda: fileIO.checkTemperatures(gui, ["Temperature", "Resistor", "Warn"]))
-            gui.config_model["Temperature"]["Resistor"]["Fault"].valueChanged.connect(lambda: fileIO.checkTemperatures(gui, ["Temperature", "Resistor", "Fault"]))
-            gui.config_model["Temperature"]["External"]["Warn"].valueChanged.connect(lambda: fileIO.checkTemperatures(gui, ["Temperature", "External", "Warn"]))
-            gui.config_model["Temperature"]["External"]["Fault"].valueChanged.connect(lambda: fileIO.checkTemperatures(gui, ["Temperature", "External", "Fault"]))
+            gui.config_model["Temperature"]["Warn"].valueChanged.connect(lambda: fileIO.checkTemperatures(gui, ["Temperature", "Warn"]))
+            gui.config_model["Temperature"]["Fault"].valueChanged.connect(lambda: fileIO.checkTemperatures(gui, ["Temperature", "Fault"]))
 
-            gui.config_model["Fan"]["Driver"]["Min"].valueChanged.connect(lambda: fileIO.checkTemperatures(gui, ["Fan", "Driver", "Min"]))
-            gui.config_model["Fan"]["Driver"]["Max"].valueChanged.connect(lambda: fileIO.checkTemperatures(gui, ["Fan", "Driver", "Max"]))
-            gui.config_model["Fan"]["External"]["Min"].valueChanged.connect(lambda: fileIO.checkTemperatures(gui, ["Fan", "External", "Min"]))
-            gui.config_model["Fan"]["External"]["Max"].valueChanged.connect(lambda: fileIO.checkTemperatures(gui, ["Fan", "External", "Max"]))
-
-        def fanChannelEvents():
-            gui.config_model["Fan"]["Channel"][0].clicked.connect(lambda: gui.disableUsedOutputs(0, "config"))
-            gui.config_model["Fan"]["Channel"][1].clicked.connect(lambda: gui.disableUsedOutputs(1, "config"))
-            gui.config_model["Fan"]["Channel"][2].clicked.connect(lambda: gui.disableUsedOutputs(2, "config"))
-            gui.config_model["Fan"]["Channel"][3].clicked.connect(lambda: gui.disableUsedOutputs(3, "config"))
+            gui.config_model["Fan"]["Min"].valueChanged.connect(lambda: fileIO.checkTemperatures(gui, ["Fan", "Min"]))
+            gui.config_model["Fan"]["Max"].valueChanged.connect(lambda: fileIO.checkTemperatures(gui, ["Fan", "Max"]))
 
         driverNameEvents()
         ledCheckBoxEvents()
         ledNameEvents()
-        resistorCheckBoxEvents()
-        resistorValueEvents()
         temperatureValueEvents()
-        fanChannelEvents()
 
         gui.configure_audio_status_button.clicked.connect(lambda: gui.ser.testVolume(None, 0))
         gui.configure_audio_alarm_button.clicked.connect(lambda: gui.ser.testVolume(None, 1))
@@ -310,12 +238,6 @@ def initializeEvents(gui):
             gui.sync_confocal_scanning_sequence_table.itemChanged.connect(gui.verifyCell)
             gui.sync_confocal_standby_sequence_table.itemChanged.connect(gui.verifyCell)
 
-        def outputChannelEvents():
-            gui.sync_model["Output"][0].clicked.connect(lambda: gui.disableUsedOutputs(0, "sync"))
-            gui.sync_model["Output"][1].clicked.connect(lambda: gui.disableUsedOutputs(1, "sync"))
-            gui.sync_model["Output"][2].clicked.connect(lambda: gui.disableUsedOutputs(2, "sync"))
-            gui.sync_model["Output"][3].clicked.connect(lambda: gui.disableUsedOutputs(3, "sync"))
-
         gui.sync_analog_output_tab.currentChanged.connect(lambda: gui.toggleAnalogChannel(gui.sync_analog_output_tab))
         gui.sync_confocal_scan_unidirectional_button.toggled.connect(lambda: gui.toggleScanMode())
         gui.sync_confocal_scan_period_button.clicked.connect(lambda: gui.ser.measurePeriod())
@@ -329,20 +251,11 @@ def initializeEvents(gui):
         gui.sync_analog_output_current_avg_slider.valueChanged.connect(lambda: gui.updateAnalogSync("current"))
 
         sequenceEvents()
-        outputChannelEvents()
-
-    def calibrationEvents():
-        nonlocal gui
-        gui.calibration_current_box.valueChanged.connect(lambda: plot.setCalibrationScale(gui))
-
-        gui.calibration_run_button.clicked.connect(lambda: plot.startAnimation(gui, TimeLine(loopCount=0, interval=50)))
-
 
     menuEvents()
     mainEvents()
     syncEvents()
     configureEvents()
-    calibrationEvents()
 
 #Timer class for animating widgets such as the PyQtgraph
 class TimeLine(QtCore.QObject):

@@ -24,7 +24,7 @@ struct configurationStruct{ //259 bytes
   uint16_t fault_temp; //Fault temp for transistor, resistor, and external respectively in ADC units: {0,0,0}
   uint16_t driver_fan[2]; //Driver fan min and max temperatures in ADC units: {65535, 65535}
   uint8_t audio_volume[2]; //Status and alarm volumes for transducer: {10, 100}
-  uint16_t pushbutton_intensity; //LED intensity - on/off
+  bool pushbutton_intensity; //LED intensity - on/off
   uint8_t pushbutton_mode; //LED illumination mode when alarm is active
   uint8_t checksum; //Checksum to confirm that configuration is valid
 };
@@ -46,7 +46,7 @@ const struct defaultConfigurationStruct{ //259 bytes
   uint16_t fault_temp = 8891; //Fault at 80°C
   uint16_t driver_fan[2] = {33963, 27958}; //Fan on at 30°C, fan max at 40°C
   uint8_t audio_volume[2] = {2, 100}; //Status and alarm volumes for transducer: {10, 100}
-  uint16_t pushbutton_intensity = 65535; //LED intensity at full intensity
+  bool pushbutton_intensity = true; //LED intensity at full intensity
   uint8_t pushbutton_mode = 1; //LED illumination mode when alarm is active
   uint8_t checksum = 230; //Checksum to confirm that configuration is valid
 } defaultConfig;
@@ -54,7 +54,6 @@ const struct defaultConfigurationStruct{ //259 bytes
 struct syncStruct{ //158 bytes
   uint8_t prefix;
   uint8_t mode; //Type of sync - digital, analog, confocal, etc.
-  uint8_t sync_output_channel; //Channel to output sync signal
   
   uint8_t digital_channel; //The input channel for the sync signal
   uint8_t digital_mode[2]; //The digital sync mode  in the LOW and HIGH trigger states respectively
@@ -90,7 +89,6 @@ struct syncStruct{ //158 bytes
 const struct defaultSyncStruct{ //158 bytes
   uint8_t prefix = 4;
   uint8_t mode = 0; //Type of sync - digital, analog, confocal, etc.
-  uint8_t sync_output_channel = 0; //Channel to output sync signal
   
   uint8_t digital_channel = 0; //The input channel for the sync signal
   uint8_t digital_mode[2] = {0,0}; //The digital sync mode  in the LOW and HIGH trigger states respectively
@@ -249,11 +247,11 @@ GenericFP function_router[256]; //create an array of 'GenericFP' function pointe
 //////////////VARIABLE//////////////VARIABLE//////////////VARIABLE//////////////VARIABLE//////////////VARIABLE//////////////VARIABLE//////////////VARIABLE//////////////VARIABLE//////////////VARIABLE//////////////VARIABLE//////////////VARIABLE
 
 const static uint32_t COBS_BUFFER_SIZE = 4096; //Size of the COBS buffer
-char MAGIC_SEND[] = "-kvlWfsBplgasrsh3un5K"; //Magic number reply from Teensy verifying it is an LED driver "-" is for providing byte prefix in serial message
-const static char MAGIC_RECEIVE[] = "kc1oISEIZ60AYJqH4J1P"; //Magic number received from GUI to verify this is an LED driver
+char MAGIC_SEND[] = "-A5DihJ3v5bbXKmAmmhQl"; //Magic number reply from Teensy verifying it is an LED driver "-" is for providing byte prefix in serial message
+const static char MAGIC_RECEIVE[] = "51ERrUAT6ZWlThiltxJK"; //Magic number received from GUI to verify this is an LED driver
 char temp_buffer[COBS_BUFFER_SIZE]; //Temporary buffer for preparing packets immediately before transmission
 int temp_size; //Size of temporary packet to transmit
-byte sequence_buffer[2][10001*sizeof(sequenceStruct)+10]; //Add buffer padding for prefix info on transmission
+DMAMEM byte sequence_buffer[2][28001*sizeof(sequenceStruct)+10]; //Add buffer padding for prefix info on transmission
 uint32_t send_stream_index = 0; //Current index position of stream that is being sent
 uint32_t send_stream_size = 0; //Total size of file to be streamed
 const static uint16_t DEFUALT_TIMEOUT = 500; //Default timeout for serial communication in ms
@@ -288,7 +286,7 @@ PacketSerial_<COBS, 0, COBS_BUFFER_SIZE> usb; //Sets Encoder, framing character,
 DAC dac;
 
 void setup() {
-  EEPROM.update(0,0); //Uncomment to reset EEPROM to defaults - re-comment and the upload code again
+  //EEPROM.update(0,0); //Uncomment to reset EEPROM to defaults - re-comment and the upload code again
   //sd.formatSdCard(); //Uncomment to format SD card - re-comment and the upload code again
   
   //Count cpu cycles for submircrosecond delay precision - https://forum.pjrc.com/threads/28407-Teensyduino-access-to-counting-cpu-cycles?p=71036&viewfull=1#post71036
@@ -352,19 +350,20 @@ void setup() {
     }
   }
   conf.c.current_limit[0][3] = 30000;
+  conf.c.checksum = 55;
 }
 
 void loop() {
     checkStatus();
     if(ARM_DWT_CYCCNT-cpu_cycles > 60000000){
       cpu_cycles += 60000000ul;
-      for(uint8_t a=0; a<N_BOARDS; a++){
-        Serial.print(pin.adcToTemp(current_status.s.temp[a]));
-        Serial.print(" ");
-        Serial.print(current_status.s.fan_speed[a]);
-        Serial.print(" ");
-      }
-      Serial.println();
+      // for(uint8_t a=0; a<N_BOARDS; a++){
+      //   Serial.print(pin.adcToTemp(current_status.s.temp[a]));
+      //   Serial.print(" ");
+      //   Serial.print(current_status.s.fan_speed[a]);
+      //   Serial.print(" ");
+      // }
+      // Serial.println();
     }
 }
 
@@ -480,7 +479,8 @@ void checkStatus(){
                       }
                     } 
                   }         
-                  pin.setButtonColor(a, current_status.s.led_channel[a]);       
+                  if(conf.c.pushbutton_intensity) pin.setButtonColor(a, current_status.s.led_channel[a]);
+                  else pin.toggleButtonLED(a, false);       
                 }
               }
             }

@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>Four Channel MHz LED Driver-download.png</file>
+    <file>Four Channel MHz LED Driver-main.png</file>
+    <file>Four Channel MHz LED Driver-upload.png</file>
+  </qresource>
+</RCC>
