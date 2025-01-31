@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>380</width>
-    <height>500</height>
+    <width>469</width>
+    <height>811</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -59,6 +59,9 @@
         </property>
         <item row="0" column="0" colspan="2" alignment="Qt::AlignTop">
          <widget class="QGroupBox" name="main_driver_ID_box">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
           <property name="maximumSize">
            <size>
             <width>16777215</width>
@@ -206,7 +209,74 @@
           <property name="title">
            <string>Intensity</string>
           </property>
-          <layout class="QGridLayout" name="gridLayout_4" columnstretch="9,10,10,0">
+          <layout class="QGridLayout" name="gridLayout_4" columnstretch="10,10,10,0">
+           <item row="1" column="1">
+            <widget class="QRadioButton" name="main_intensity_current_button">
+             <property name="toolTip">
+              <string>Adjust the LED intensity via current</string>
+             </property>
+             <property name="text">
+              <string>LED Current</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">main_intensity_button_group</string>
+             </attribute>
+            </widget>
+           </item>
+           <item row="3" column="0" colspan="3">
+            <widget class="QDoubleSpinBox" name="main_intensity_spinbox">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="toolTip">
+              <string>Shows/sets the LED intensity </string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <property name="readOnly">
+              <bool>false</bool>
+             </property>
+             <property name="decimals">
+              <number>3</number>
+             </property>
+             <property name="maximum">
+              <double>100.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>0.001000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QRadioButton" name="main_intensity_off_button">
+             <property name="toolTip">
+              <string>Turn LED off</string>
+             </property>
+             <property name="text">
+              <string>LED Off</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">main_intensity_button_group</string>
+             </attribute>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QRadioButton" name="main_intensity_PWM_button">
+             <property name="toolTip">
+              <string>Adjust the LED intensity via PWM</string>
+             </property>
+             <property name="text">
+              <string>LED PWM</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">main_intensity_button_group</string>
+             </attribute>
+            </widget>
+           </item>
            <item row="0" column="0" colspan="3">
             <widget class="QDial" name="main_intensity_dial">
              <property name="enabled">
@@ -241,48 +311,6 @@
              </property>
             </widget>
            </item>
-           <item row="1" column="1">
-            <widget class="QRadioButton" name="main_intensity_current_button">
-             <property name="toolTip">
-              <string>Adjust the LED intensity via current</string>
-             </property>
-             <property name="text">
-              <string>LED Current</string>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">main_intensity_button_group</string>
-             </attribute>
-            </widget>
-           </item>
-           <item row="1" column="2">
-            <widget class="QRadioButton" name="main_intensity_off_button">
-             <property name="toolTip">
-              <string>Turn LED off</string>
-             </property>
-             <property name="text">
-              <string>LED Off</string>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">main_intensity_button_group</string>
-             </attribute>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QRadioButton" name="main_intensity_PWM_button">
-             <property name="toolTip">
-              <string>Adjust the LED intensity via PWM</string>
-             </property>
-             <property name="text">
-              <string>LED PWM</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">main_intensity_button_group</string>
-             </attribute>
-            </widget>
-           </item>
            <item row="3" column="3">
             <widget class="QLabel" name="main_intensity_percent_label">
              <property name="text">
@@ -290,35 +318,10 @@
              </property>
             </widget>
            </item>
-           <item row="3" column="0" colspan="3">
-            <widget class="QDoubleSpinBox" name="main_intensity_spinbox">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-             <property name="toolTip">
-              <string>Shows/sets the LED intensity </string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-             <property name="readOnly">
-              <bool>false</bool>
-             </property>
-             <property name="decimals">
-              <number>3</number>
-             </property>
-             <property name="maximum">
-              <double>100.000000000000000</double>
-             </property>
-             <property name="singleStep">
-              <double>0.001000000000000</double>
-             </property>
-            </widget>
-           </item>
           </layout>
          </widget>
         </item>
-        <item row="1" column="0" colspan="2" alignment="Qt::AlignTop">
+        <item row="1" column="0" colspan="2">
          <widget class="QGroupBox" name="main_channel_box">
           <property name="toolTip">
            <string>Select active LED channel on driver</string>
@@ -327,59 +330,142 @@
            <string>Channel</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_6">
-           <item row="0" column="2">
-            <widget class="QRadioButton" name="main_channel_LED3_button">
-             <property name="toolTip">
-              <string>Set LED #3 as the active LED</string>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <item row="0" column="0" colspan="2">
+            <widget class="QGroupBox" name="groupBox_2">
+             <property name="title">
+              <string>Board #1</string>
              </property>
-             <property name="text">
-              <string>LED #3</string>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">main_channel_button_group</string>
-             </attribute>
+             <layout class="QGridLayout" name="gridLayout_7">
+              <property name="leftMargin">
+               <number>9</number>
+              </property>
+              <property name="rightMargin">
+               <number>9</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QRadioButton" name="main_channel_LED11_button">
+                <property name="toolTip">
+                 <string>Set LED #1 as the active LED</string>
+                </property>
+                <property name="text">
+                 <string>LED #1</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QRadioButton" name="main_channel_LED12_button">
+                <property name="toolTip">
+                 <string>Set LED #2 as the active LED</string>
+                </property>
+                <property name="text">
+                 <string>LED #2</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QRadioButton" name="main_channel_LED13_button">
+                <property name="toolTip">
+                 <string>Set LED #3 as the active LED</string>
+                </property>
+                <property name="text">
+                 <string>LED #3</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="3">
+               <widget class="QRadioButton" name="main_channel_LED14_button">
+                <property name="toolTip">
+                 <string>Set LED #4 as the active LED</string>
+                </property>
+                <property name="text">
+                 <string>LED #4</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
-           <item row="0" column="0">
-            <widget class="QRadioButton" name="main_channel_LED1_button">
-             <property name="toolTip">
-              <string>Set LED #1 as the active LED</string>
+           <item row="1" column="0" colspan="2">
+            <widget class="QGroupBox" name="groupBox_3">
+             <property name="title">
+              <string>Board #2</string>
              </property>
-             <property name="text">
-              <string>LED #1</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">main_channel_button_group</string>
-             </attribute>
+             <layout class="QGridLayout" name="gridLayout_13">
+              <item row="0" column="0">
+               <widget class="QRadioButton" name="main_channel_LED21_button">
+                <property name="text">
+                 <string>LED #5</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QRadioButton" name="main_channel_LED22_button">
+                <property name="text">
+                 <string>LED #6</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QRadioButton" name="main_channel_LED23_button">
+                <property name="text">
+                 <string>LED #7</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="3">
+               <widget class="QRadioButton" name="main_channel_LED24_button">
+                <property name="text">
+                 <string>LED #8</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
-           <item row="0" column="1">
-            <widget class="QRadioButton" name="main_channel_LED2_button">
-             <property name="toolTip">
-              <string>Set LED #2 as the active LED</string>
+           <item row="2" column="0" colspan="2">
+            <widget class="QGroupBox" name="groupBox_4">
+             <property name="title">
+              <string>Board #3</string>
              </property>
-             <property name="text">
-              <string>LED #2</string>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">main_channel_button_group</string>
-             </attribute>
-            </widget>
-           </item>
-           <item row="0" column="3">
-            <widget class="QRadioButton" name="main_channel_LED4_button">
-             <property name="toolTip">
-              <string>Set LED #4 as the active LED</string>
-             </property>
-             <property name="text">
-              <string>LED #4</string>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">main_channel_button_group</string>
-             </attribute>
+             <layout class="QGridLayout" name="gridLayout_22">
+              <item row="0" column="0">
+               <widget class="QRadioButton" name="main_channel_LED31_button">
+                <property name="text">
+                 <string>LED #9</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QRadioButton" name="main_channel_LED32_button">
+                <property name="text">
+                 <string>LED #10</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QRadioButton" name="main_channel_LED33_button">
+                <property name="text">
+                 <string>LED #11</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="3">
+               <widget class="QRadioButton" name="main_channel_LED34_button">
+                <property name="text">
+                 <string>LED #12</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
           </layout>
@@ -392,17 +478,24 @@
         <string>Sync</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_9">
-        <item row="2" column="1">
-         <widget class="QPushButton" name="sync_download_button">
-          <property name="toolTip">
-           <string>Update sync window with the current driver sync settings.</string>
-          </property>
-          <property name="text">
-           <string>Download from Driver</string>
+        <item row="1" column="3">
+         <widget class="Line" name="sync_button_line">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
           </property>
          </widget>
         </item>
-        <item row="2" column="5">
+        <item row="1" column="2">
+         <widget class="QPushButton" name="sync_upload_button">
+          <property name="toolTip">
+           <string>Upload the new sync settings to the LED driver.</string>
+          </property>
+          <property name="text">
+           <string>Upload to Driver</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="5">
          <widget class="QPushButton" name="sync_load_button">
           <property name="toolTip">
            <string>Load a sync settings text file (*.txt)</string>
@@ -412,10 +505,23 @@
           </property>
          </widget>
         </item>
-        <item row="2" column="3">
-         <widget class="Line" name="sync_button_line">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
+        <item row="1" column="4">
+         <widget class="QPushButton" name="sync_save_button">
+          <property name="toolTip">
+           <string>Save sync settings as a text file (*.txt)</string>
+          </property>
+          <property name="text">
+           <string>Save Settings</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="sync_download_button">
+          <property name="toolTip">
+           <string>Update sync window with the current driver sync settings.</string>
+          </property>
+          <property name="text">
+           <string>Download from Driver</string>
           </property>
          </widget>
         </item>
@@ -429,8 +535,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>320</width>
-             <height>297</height>
+             <width>425</width>
+             <height>671</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_23">
@@ -447,8 +553,8 @@
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>568</width>
-                 <height>772</height>
+                 <width>454</width>
+                 <height>596</height>
                 </rect>
                </property>
                <property name="toolTip">
@@ -1191,10 +1297,10 @@
                          <property name="columnCount">
                           <number>4</number>
                          </property>
-                         <attribute name="verticalHeaderDefaultSectionSize">
-                          <number>25</number>
-                         </attribute>
                          <attribute name="verticalHeaderMinimumSectionSize">
+                          <number>36</number>
+                         </attribute>
+                         <attribute name="verticalHeaderDefaultSectionSize">
                           <number>36</number>
                          </attribute>
                          <row/>
@@ -1292,8 +1398,8 @@
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>688</width>
-                 <height>528</height>
+                 <width>594</width>
+                 <height>827</height>
                 </rect>
                </property>
                <property name="toolTip">
@@ -1303,329 +1409,6 @@
                 <string>Analog</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_25">
-                <item row="3" column="1">
-                 <widget class="QTabWidget" name="sync_analog_output_tab">
-                  <property name="toolTip">
-                   <string>Configure how the analog input will be converted to LED output.</string>
-                  </property>
-                  <property name="currentIndex">
-                   <number>2</number>
-                  </property>
-                  <widget class="QWidget" name="sync_analog_output_PWM_tab">
-                   <property name="toolTip">
-                    <string>Convert analog input voltage to LED PWM output</string>
-                   </property>
-                   <attribute name="title">
-                    <string>Buffered - PWM</string>
-                   </attribute>
-                   <layout class="QGridLayout" name="gridLayout_32" rowstretch="0,0,10">
-                    <item row="1" column="0">
-                     <widget class="QLabel" name="sync_analog_output_PWM_avg_slider_label">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Preferred" vsizetype="Ignored">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="toolTip">
-                       <string>Set the number of individual reads to average to filter the input ADC.  Speed &lt;--&gt; Accuracy</string>
-                      </property>
-                      <property name="text">
-                       <string># of ADC samples per step:</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="2" column="0" colspan="2" alignment="Qt::AlignTop">
-                     <widget class="QFrame" name="sync_analog_output_PWM_avg_frame">
-                      <property name="toolTip">
-                       <string>Current number of ADC samples per step</string>
-                      </property>
-                      <property name="frameShape">
-                       <enum>QFrame::StyledPanel</enum>
-                      </property>
-                      <property name="frameShadow">
-                       <enum>QFrame::Raised</enum>
-                      </property>
-                      <layout class="QGridLayout" name="gridLayout_34" columnstretch="10,10">
-                       <property name="leftMargin">
-                        <number>0</number>
-                       </property>
-                       <property name="rightMargin">
-                        <number>0</number>
-                       </property>
-                       <item row="0" column="0">
-                        <widget class="QLabel" name="sync_analog_output_PWM_avg_num_label">
-                         <property name="toolTip">
-                          <string>The number of ADC samples averaged per LED update.</string>
-                         </property>
-                         <property name="text">
-                          <string># of samples per update: 1</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item row="0" column="1">
-                        <widget class="QLabel" name="sync_analog_output_PWM_avg_bandwidth_label">
-                         <property name="toolTip">
-                          <string>The frequency at which the LED intensity is updated.  The update frequency or 912 Hz will also be the PWM frequency, which ever is greater.</string>
-                         </property>
-                         <property name="text">
-                          <string>LED update frequency: x Hz</string>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
-                     </widget>
-                    </item>
-                    <item row="0" column="0" colspan="2">
-                     <widget class="QLabel" name="sync_analog_output_PWM_label">
-                      <property name="toolTip">
-                       <string>LED current will be set to the configured current limit for the LED.</string>
-                      </property>
-                      <property name="text">
-                       <string>Control LED intensity by converting a 0 - 3.3V analog input to LED PWM</string>
-                      </property>
-                      <property name="wordWrap">
-                       <bool>false</bool>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="1" column="1">
-                     <widget class="QSlider" name="sync_analog_output_PWM_avg_slider">
-                      <property name="toolTip">
-                       <string>Set the number of individual reads to average to filter the input ADC.  Speed &lt;--&gt; Accuracy</string>
-                      </property>
-                      <property name="minimum">
-                       <number>1</number>
-                      </property>
-                      <property name="maximum">
-                       <number>15</number>
-                      </property>
-                      <property name="singleStep">
-                       <number>0</number>
-                      </property>
-                      <property name="pageStep">
-                       <number>1</number>
-                      </property>
-                      <property name="value">
-                       <number>1</number>
-                      </property>
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                      <property name="tickPosition">
-                       <enum>QSlider::TicksBothSides</enum>
-                      </property>
-                      <property name="tickInterval">
-                       <number>1</number>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                  <widget class="QWidget" name="sync_analog_output_current_tab">
-                   <property name="toolTip">
-                    <string>Convert analog input voltage to LED current output</string>
-                   </property>
-                   <attribute name="title">
-                    <string>Buffered - Current</string>
-                   </attribute>
-                   <layout class="QGridLayout" name="gridLayout_30" rowstretch="0,0,10">
-                    <item row="2" column="0" colspan="2" alignment="Qt::AlignTop">
-                     <widget class="QFrame" name="sync_analog_output_current_avg_frame">
-                      <property name="toolTip">
-                       <string>Current number of ADC samples per step</string>
-                      </property>
-                      <property name="frameShape">
-                       <enum>QFrame::StyledPanel</enum>
-                      </property>
-                      <property name="frameShadow">
-                       <enum>QFrame::Raised</enum>
-                      </property>
-                      <layout class="QGridLayout" name="gridLayout_47" columnstretch="10,10">
-                       <property name="leftMargin">
-                        <number>0</number>
-                       </property>
-                       <property name="rightMargin">
-                        <number>0</number>
-                       </property>
-                       <item row="0" column="0">
-                        <widget class="QLabel" name="sync_analog_output_current_avg_num_label">
-                         <property name="toolTip">
-                          <string>The number of ADC samples averaged per LED update.</string>
-                         </property>
-                         <property name="text">
-                          <string># of samples per update: 1</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item row="0" column="1">
-                        <widget class="QLabel" name="sync_analog_output_current_avg_bandwidth_label">
-                         <property name="toolTip">
-                          <string>The frequency at which the LED intensity is updated.</string>
-                         </property>
-                         <property name="text">
-                          <string>LED update frequency: x Hz</string>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
-                     </widget>
-                    </item>
-                    <item row="1" column="1">
-                     <widget class="QSlider" name="sync_analog_output_current_avg_slider">
-                      <property name="toolTip">
-                       <string>Set the number of individual reads to average to filter the input ADC.  Speed &lt;--&gt; Accuracy</string>
-                      </property>
-                      <property name="minimum">
-                       <number>1</number>
-                      </property>
-                      <property name="maximum">
-                       <number>15</number>
-                      </property>
-                      <property name="singleStep">
-                       <number>0</number>
-                      </property>
-                      <property name="pageStep">
-                       <number>1</number>
-                      </property>
-                      <property name="value">
-                       <number>1</number>
-                      </property>
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                      <property name="tickPosition">
-                       <enum>QSlider::TicksBothSides</enum>
-                      </property>
-                      <property name="tickInterval">
-                       <number>1</number>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="1" column="0">
-                     <widget class="QLabel" name="sync_analog_output_current_avg_slider_label">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Preferred" vsizetype="Ignored">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="toolTip">
-                       <string>Set the number of individual reads to average to filter the input ADC.  Speed &lt;--&gt; Accuracy</string>
-                      </property>
-                      <property name="text">
-                       <string># of ADC samples per step:</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="0" column="0" colspan="2">
-                     <widget class="QLabel" name="sync_analog_output_current_label">
-                      <property name="toolTip">
-                       <string>The LED current will be adjusted so the voltage across the current sense resistor matches the input voltage.</string>
-                      </property>
-                      <property name="text">
-                       <string>Control LED intensity by converting analog input voltage to LED current</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                  <widget class="QWidget" name="sync_analog_output_unbuffered_tab">
-                   <property name="toolTip">
-                    <string>Directly drive the op-amp non-inverting input with an external analog voltage</string>
-                   </property>
-                   <attribute name="title">
-                    <string>Unbuffered - Current</string>
-                   </attribute>
-                   <layout class="QGridLayout" name="gridLayout_33" rowstretch="0">
-                    <item row="0" column="0" alignment="Qt::AlignTop">
-                     <widget class="QLabel" name="sync_analog_output_unbuffered_label">
-                      <property name="toolTip">
-                       <string>Use at your own risk...</string>
-                      </property>
-                      <property name="text">
-                       <string>Warning: This mode bypasses any programmed current limits and uses the dedicated &quot;External Analog&quot; channel to directly connect the input analog voltage to the non-inverting input of the driver's op-amp.  Supplying excessive voltage to this input can damage the LED, Teensy, and driver circuit.  This mode should be used only when very low-latency and/or high-bandwidth is required. Use this mode at your own risk.
-
-This input is clamped to 0-3.3V, and is rated for -3V to +6V max.  The input has a very high impedance in the 0-3.3V range, and a low 200 ohm impedance outside the 0-3.3V range.
-
-Due to the input offset voltage on the op-amp, a small negative voltage (around -50mV) will need to be input to fully turn off the LED.    </string>
-                      </property>
-                      <property name="wordWrap">
-                       <bool>true</bool>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QGroupBox" name="sync_analog_input_channel_box">
-                  <property name="toolTip">
-                   <string>Select the input channel the external analog signal is connected to.</string>
-                  </property>
-                  <property name="title">
-                   <string>Input Channel</string>
-                  </property>
-                  <layout class="QGridLayout" name="gridLayout_31">
-                   <item row="0" column="0">
-                    <widget class="QRadioButton" name="sync_analog_input1_button">
-                     <property name="toolTip">
-                      <string>Analog signal on input channel #1</string>
-                     </property>
-                     <property name="text">
-                      <string>Channel #1</string>
-                     </property>
-                     <property name="checked">
-                      <bool>true</bool>
-                     </property>
-                     <attribute name="buttonGroup">
-                      <string notr="true">sync_analog_input_channel_button_group</string>
-                     </attribute>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="QRadioButton" name="sync_analog_input2_button">
-                     <property name="toolTip">
-                      <string>Analog signal on input channel #2</string>
-                     </property>
-                     <property name="text">
-                      <string>Channel #2</string>
-                     </property>
-                     <attribute name="buttonGroup">
-                      <string notr="true">sync_analog_input_channel_button_group</string>
-                     </attribute>
-                    </widget>
-                   </item>
-                   <item row="0" column="2">
-                    <widget class="QRadioButton" name="sync_analog_input3_button">
-                     <property name="toolTip">
-                      <string>Analog signal on input channel #3</string>
-                     </property>
-                     <property name="text">
-                      <string>Channel #3</string>
-                     </property>
-                     <attribute name="buttonGroup">
-                      <string notr="true">sync_analog_input_channel_button_group</string>
-                     </attribute>
-                    </widget>
-                   </item>
-                   <item row="0" column="3">
-                    <widget class="QRadioButton" name="sync_analog_input4_button">
-                     <property name="toolTip">
-                      <string>Analog signal on input channel #4</string>
-                     </property>
-                     <property name="text">
-                      <string>Channel #4</string>
-                     </property>
-                     <attribute name="buttonGroup">
-                      <string notr="true">sync_analog_input_channel_button_group</string>
-                     </attribute>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
                 <item row="0" column="1">
                  <widget class="QGroupBox" name="sync_analog_LED_box">
                   <property name="toolTip">
@@ -1712,9 +1495,9 @@ Due to the input offset voltage on the op-amp, a small negative voltage (around 
                <property name="geometry">
                 <rect>
                  <x>0</x>
-                 <y>-691</y>
-                 <width>956</width>
-                 <height>1374</height>
+                 <y>-217</y>
+                 <width>577</width>
+                 <height>1044</height>
                 </rect>
                </property>
                <property name="toolTip">
@@ -3104,8 +2887,8 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>386</width>
-                 <height>52</height>
+                 <width>594</width>
+                 <height>827</height>
                 </rect>
                </property>
                <property name="toolTip">
@@ -3132,8 +2915,8 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>973</width>
-                 <height>683</height>
+                 <width>594</width>
+                 <height>827</height>
                 </rect>
                </property>
                <property name="toolTip">
@@ -3159,93 +2942,6 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
             </item>
            </layout>
           </widget>
-         </widget>
-        </item>
-        <item row="2" column="4">
-         <widget class="QPushButton" name="sync_save_button">
-          <property name="toolTip">
-           <string>Save sync settings as a text file (*.txt)</string>
-          </property>
-          <property name="text">
-           <string>Save Settings</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="2">
-         <widget class="QPushButton" name="sync_upload_button">
-          <property name="toolTip">
-           <string>Upload the new sync settings to the LED driver.</string>
-          </property>
-          <property name="text">
-           <string>Upload to Driver</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1" colspan="5">
-         <widget class="QGroupBox" name="sync_output_box">
-          <property name="toolTip">
-           <string>Select a sync output channel.  This channel will output 5V when the LED is on, and 0V when the LED is off.</string>
-          </property>
-          <property name="title">
-           <string>Sync Output</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_40">
-           <item row="0" column="0">
-            <widget class="QRadioButton" name="sync_output1_button">
-             <property name="toolTip">
-              <string>Sync output #1 to the LED on/off state (5V out = LED on, 0V out = LED off)</string>
-             </property>
-             <property name="text">
-              <string>Output #1</string>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">sync_output_button_group</string>
-             </attribute>
-            </widget>
-           </item>
-           <item row="0" column="2">
-            <widget class="QRadioButton" name="sync_output3_button">
-             <property name="toolTip">
-              <string>Sync output #3 to the LED on/off state (5V out = LED on, 0V out = LED off)</string>
-             </property>
-             <property name="text">
-              <string>Output #3</string>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">sync_output_button_group</string>
-             </attribute>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QRadioButton" name="sync_output2_button">
-             <property name="toolTip">
-              <string>Sync output #2 to the LED on/off state (5V out = LED on, 0V out = LED off)</string>
-             </property>
-             <property name="text">
-              <string>Output #2</string>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">sync_output_button_group</string>
-             </attribute>
-            </widget>
-           </item>
-           <item row="0" column="3">
-            <widget class="QRadioButton" name="sync_output0_button">
-             <property name="toolTip">
-              <string>Deactivate sync output.</string>
-             </property>
-             <property name="text">
-              <string>None</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">sync_output_button_group</string>
-             </attribute>
-            </widget>
-           </item>
-          </layout>
          </widget>
         </item>
        </layout>
@@ -3280,1200 +2976,125 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
-             <width>974</width>
-             <height>1384</height>
+             <y>-11</y>
+             <width>436</width>
+             <height>1011</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_16">
-            <item row="1" column="0">
-             <widget class="QGroupBox" name="configure_current_limit_box">
-              <property name="toolTip">
-               <string>Set the current limit for each LED channel.</string>
-              </property>
-              <property name="title">
-               <string>LED Current Limit (A)</string>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_17" columnstretch="0,0,10,0,0,10">
-               <item row="0" column="1">
-                <widget class="QLabel" name="configure_current_limit_LED1_label">
-                 <property name="text">
-                  <string>LED #1</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="5">
-                <widget class="QDoubleSpinBox" name="configure_current_limit_LED3_spin_box">
-                 <property name="toolTip">
-                  <string>Set the current limit (in amps) for LED channel #3</string>
-                 </property>
-                 <property name="specialValueText">
-                  <string/>
-                 </property>
-                 <property name="minimum">
-                  <double>0.010000000000000</double>
-                 </property>
-                 <property name="value">
-                  <double>1.000000000000000</double>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="2">
-                <widget class="QDoubleSpinBox" name="configure_current_limit_LED2_spin_box">
-                 <property name="toolTip">
-                  <string>Set the current limit (in amps) for LED channel #2</string>
-                 </property>
-                 <property name="specialValueText">
-                  <string/>
-                 </property>
-                 <property name="minimum">
-                  <double>0.010000000000000</double>
-                 </property>
-                 <property name="value">
-                  <double>1.000000000000000</double>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="0" colspan="6">
-                <widget class="QPushButton" name="configure_current_limit_test_button">
-                 <property name="toolTip">
-                  <string>This will briefly drive each active LED channel at the maximum current.  Any LED channels that failed to reach the set current (such as a disconnected channel) will be deactivated.</string>
-                 </property>
-                 <property name="text">
-                  <string>Test LED Current</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="2">
-                <widget class="QDoubleSpinBox" name="configure_current_limit_LED1_spin_box">
-                 <property name="toolTip">
-                  <string>Set the current limit (in amps) for LED channel #1</string>
-                 </property>
-                 <property name="specialValueText">
-                  <string/>
-                 </property>
-                 <property name="minimum">
-                  <double>0.010000000000000</double>
-                 </property>
-                 <property name="value">
-                  <double>1.000000000000000</double>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QLabel" name="configure_current_limit_LED2_label">
-                 <property name="text">
-                  <string>LED #2</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="5">
-                <widget class="QDoubleSpinBox" name="configure_current_limit_LED4_spin_box">
-                 <property name="toolTip">
-                  <string>Set the current limit (in amps) for LED channel #4</string>
-                 </property>
-                 <property name="specialValueText">
-                  <string/>
-                 </property>
-                 <property name="minimum">
-                  <double>0.010000000000000</double>
-                 </property>
-                 <property name="value">
-                  <double>1.000000000000000</double>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="3">
-                <widget class="QLabel" name="configure_current_limit_LED3_label">
-                 <property name="text">
-                  <string>LED #3</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="3">
-                <widget class="QLabel" name="configure_current_limit_LED4_label">
-                 <property name="text">
-                  <string>LED #4</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
             <item row="6" column="0">
-             <widget class="QGroupBox" name="configure_fan_box">
+             <widget class="QGroupBox" name="configure_audio_box">
               <property name="toolTip">
-               <string>Configure the fan speed as a function of temperature</string>
+               <string>Configure audio settings</string>
               </property>
               <property name="title">
-               <string>Fan</string>
+               <string>Audio</string>
               </property>
-              <layout class="QGridLayout" name="gridLayout_13" columnstretch="0,10,0,10,0,0">
+              <layout class="QGridLayout" name="gridLayout_11">
                <item row="1" column="1">
-                <widget class="QSpinBox" name="configure_fan_driver_max_box">
+                <widget class="QSlider" name="configure_audio_alarm_slider">
                  <property name="toolTip">
-                  <string>Internal fan speed will linearly increase with temperature, reaching full speed at this temperature.</string>
-                 </property>
-                 <property name="specialValueText">
-                  <string/>
-                 </property>
-                 <property name="keyboardTracking">
-                  <bool>false</bool>
+                  <string>Set the tone volume for critical faults such as an over-temperature fault.</string>
                  </property>
                  <property name="maximum">
-                  <number>150</number>
+                  <number>127</number>
+                 </property>
+                 <property name="pageStep">
+                  <number>16</number>
                  </property>
                  <property name="value">
-                  <number>60</number>
+                  <number>127</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="tickPosition">
+                  <enum>QSlider::TicksAbove</enum>
+                 </property>
+                 <property name="tickInterval">
+                  <number>16</number>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="2">
-                <widget class="QLabel" name="configure_fan_external_min_label">
+               <item row="1" column="0">
+                <widget class="QLabel" name="configure_audio_alarm_label">
                  <property name="toolTip">
-                  <string>External fan will turn off below this temperature.</string>
+                  <string>Set the tone volume for critical faults such as an over-temperature fault.</string>
                  </property>
                  <property name="text">
-                  <string>External Fan Min (°C):</string>
+                  <string>Alarm Volume</string>
                  </property>
                 </widget>
                </item>
                <item row="0" column="0">
-                <widget class="QLabel" name="configure_fan_driver_min_label">
+                <widget class="QLabel" name="configure_audio_status_label">
                  <property name="toolTip">
-                  <string>Internal fan will turn off below this temperature.</string>
+                  <string>Set the tone volume for notifications such as verifying successful boot and successful upload.</string>
                  </property>
                  <property name="text">
-                  <string>Driver Fan Min (°C):</string>
+                  <string>Status Volume</string>
                  </property>
                 </widget>
                </item>
                <item row="0" column="1">
-                <widget class="QSpinBox" name="configure_fan_driver_min_box">
+                <widget class="QSlider" name="configure_audio_status_slider">
                  <property name="toolTip">
-                  <string>Internal fan will turn off below this temperature.</string>
-                 </property>
-                 <property name="specialValueText">
-                  <string/>
-                 </property>
-                 <property name="keyboardTracking">
-                  <bool>false</bool>
+                  <string>Set the tone volume for notifications such as verifying successful boot and successful upload.</string>
                  </property>
                  <property name="maximum">
-                  <number>150</number>
+                  <number>127</number>
+                 </property>
+                 <property name="pageStep">
+                  <number>16</number>
                  </property>
                  <property name="value">
-                  <number>30</number>
+                  <number>32</number>
+                 </property>
+                 <property name="sliderPosition">
+                  <number>32</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="tickPosition">
+                  <enum>QSlider::TicksAbove</enum>
+                 </property>
+                 <property name="tickInterval">
+                  <number>16</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QPushButton" name="configure_audio_status_button">
+                 <property name="toolTip">
+                  <string>Test status tone volume.</string>
+                 </property>
+                 <property name="text">
+                  <string>Test</string>
                  </property>
                 </widget>
                </item>
                <item row="1" column="2">
-                <widget class="QLabel" name="configure_fan_external_max_label">
+                <widget class="QPushButton" name="configure_audio_alarm_button">
                  <property name="toolTip">
-                  <string>External fan speed will linearly increase with temperature, reaching full speed at this temperature.</string>
+                  <string>Test alarm tone volume.</string>
                  </property>
                  <property name="text">
-                  <string>External Fan Max (°C):</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="0" colspan="6">
-                <widget class="QFrame" name="configure_fan_external_output_frame">
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QGridLayout" name="gridLayout_22" columnstretch="1,1,1,1,1">
-                  <property name="leftMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>0</number>
-                  </property>
-                  <item row="0" column="1">
-                   <widget class="QRadioButton" name="configure_fan_external_output1_box">
-                    <property name="toolTip">
-                     <string>Use ouput #1 for the 5V PWM that will control the external fan speed.</string>
-                    </property>
-                    <property name="text">
-                     <string>Output #1</string>
-                    </property>
-                    <attribute name="buttonGroup">
-                     <string notr="true">configure_ext_fan_button_group</string>
-                    </attribute>
-                   </widget>
-                  </item>
-                  <item row="0" column="2">
-                   <widget class="QRadioButton" name="configure_fan_external_output2_box">
-                    <property name="toolTip">
-                     <string>Use ouput #2 for the 5V PWM that will control the external fan speed.</string>
-                    </property>
-                    <property name="text">
-                     <string>Output #2</string>
-                    </property>
-                    <attribute name="buttonGroup">
-                     <string notr="true">configure_ext_fan_button_group</string>
-                    </attribute>
-                   </widget>
-                  </item>
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="configure_fan_external_output_label">
-                    <property name="toolTip">
-                     <string>Select the ouput for the 5V PWM that will control the external fan speed.</string>
-                    </property>
-                    <property name="text">
-                     <string>External Fan PWM Output:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="3">
-                   <widget class="QRadioButton" name="configure_fan_external_output3_box">
-                    <property name="toolTip">
-                     <string>Use ouput #3 for the 5V PWM that will control the external fan speed.</string>
-                    </property>
-                    <property name="text">
-                     <string>Output #3</string>
-                    </property>
-                    <attribute name="buttonGroup">
-                     <string notr="true">configure_ext_fan_button_group</string>
-                    </attribute>
-                   </widget>
-                  </item>
-                  <item row="0" column="4">
-                   <widget class="QRadioButton" name="configure_fan_external_output0_box">
-                    <property name="toolTip">
-                     <string>Deactivate external fan speed control</string>
-                    </property>
-                    <property name="text">
-                     <string>None</string>
-                    </property>
-                    <property name="checked">
-                     <bool>true</bool>
-                    </property>
-                    <attribute name="buttonGroup">
-                     <string notr="true">configure_ext_fan_button_group</string>
-                    </attribute>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="configure_fan_driver_max_label">
-                 <property name="toolTip">
-                  <string>Internal fan speed will linearly increase with temperature, reaching full speed at this temperature.</string>
-                 </property>
-                 <property name="text">
-                  <string>Driver Fan Max (°C):</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="3" colspan="3">
-                <widget class="QSpinBox" name="configure_fan_external_max_box">
-                 <property name="toolTip">
-                  <string>External fan speed will linearly increase with temperature, reaching full speed at this temperature.</string>
-                 </property>
-                 <property name="specialValueText">
-                  <string/>
-                 </property>
-                 <property name="keyboardTracking">
-                  <bool>false</bool>
-                 </property>
-                 <property name="maximum">
-                  <number>150</number>
-                 </property>
-                 <property name="value">
-                  <number>60</number>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="3" colspan="3">
-                <widget class="QSpinBox" name="configure_fan_external_min_box">
-                 <property name="toolTip">
-                  <string>External fan will turn off below this temperature.</string>
-                 </property>
-                 <property name="specialValueText">
-                  <string/>
-                 </property>
-                 <property name="keyboardTracking">
-                  <bool>false</bool>
-                 </property>
-                 <property name="maximum">
-                  <number>150</number>
-                 </property>
-                 <property name="value">
-                  <number>30</number>
+                  <string>Test</string>
                  </property>
                 </widget>
                </item>
               </layout>
              </widget>
             </item>
-            <item row="5" column="0">
-             <widget class="QGroupBox" name="configure_temperature_box">
-              <property name="toolTip">
-               <string>Configure the temperature limits for the LED driver</string>
-              </property>
-              <property name="title">
-               <string>Temperature</string>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_12" columnstretch="0,10,0,10">
-               <item row="1" column="1">
-                <widget class="QSpinBox" name="configure_temperature_transistor_fault_box">
-                 <property name="toolTip">
-                  <string>If the transistor exceeds this temperature the driver will automatically turn off until it cools back down.</string>
-                 </property>
-                 <property name="specialValueText">
-                  <string/>
-                 </property>
-                 <property name="keyboardTracking">
-                  <bool>false</bool>
-                 </property>
-                 <property name="maximum">
-                  <number>150</number>
-                 </property>
-                 <property name="value">
-                  <number>80</number>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="3">
-                <widget class="QSpinBox" name="configure_temperature_resistor_warn_box">
-                 <property name="toolTip">
-                  <string>This is the temperature the resistor(s) must cool back down to before the driver turns back on after a thermal fault.</string>
-                 </property>
-                 <property name="specialValueText">
-                  <string/>
-                 </property>
-                 <property name="keyboardTracking">
-                  <bool>false</bool>
-                 </property>
-                 <property name="maximum">
-                  <number>180</number>
-                 </property>
-                 <property name="value">
-                  <number>60</number>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QSpinBox" name="configure_temperature_transistor_warn_box">
-                 <property name="toolTip">
-                  <string>This is the temperature the transistor must cool back down to before the driver turns back on after a thermal fault.</string>
-                 </property>
-                 <property name="specialValueText">
-                  <string/>
-                 </property>
-                 <property name="keyboardTracking">
-                  <bool>false</bool>
-                 </property>
-                 <property name="maximum">
-                  <number>150</number>
-                 </property>
-                 <property name="value">
-                  <number>60</number>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="2">
-                <widget class="QLabel" name="configure_temperature_resistor_fault_label">
-                 <property name="toolTip">
-                  <string>If the resistor(s) exceed this temperature the driver will automatically turn off until they cool back down.</string>
-                 </property>
-                 <property name="text">
-                  <string>Resistor Fault (°C):</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="3">
-                <widget class="QSpinBox" name="configure_temperature_resistor_fault_box">
-                 <property name="toolTip">
-                  <string>If the resistor(s) exceed this temperature the driver will automatically turn off until they cool back down.</string>
-                 </property>
-                 <property name="specialValueText">
-                  <string/>
-                 </property>
-                 <property name="keyboardTracking">
-                  <bool>false</bool>
-                 </property>
-                 <property name="maximum">
-                  <number>180</number>
-                 </property>
-                 <property name="value">
-                  <number>80</number>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="configure_temperature_transistor_warn_label">
-                 <property name="toolTip">
-                  <string>This is the temperature the transistor must cool back down to before the driver turns back on after a thermal fault.</string>
-                 </property>
-                 <property name="text">
-                  <string>Transistor Warn (°C):</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="configure_temperature_transistor_fault_label">
-                 <property name="toolTip">
-                  <string>If the transistor exceeds this temperature the driver will automatically turn off until it cools back down.</string>
-                 </property>
-                 <property name="text">
-                  <string>Transistor Fault (°C):</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="2">
-                <widget class="QLabel" name="configure_temperature_resistor_warn_label">
-                 <property name="toolTip">
-                  <string>This is the temperature the resistor(s) must cool back down to before the driver turns back on after a thermal fault.</string>
-                 </property>
-                 <property name="text">
-                  <string>Resistor Warn (°C):</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item row="8" column="0">
-             <widget class="Line" name="configure_line2">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="0" alignment="Qt::AlignTop">
-             <widget class="QGroupBox" name="configure_LED_merge_box">
-              <property name="enabled">
-               <bool>true</bool>
-              </property>
-              <property name="toolTip">
-               <string>Combine individual LED channels to drive LEDs at up to 4 amps (1 amp per channel).</string>
-              </property>
-              <property name="title">
-               <string>Merge Channels</string>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_19" rowstretch="0,0,0,0,0" columnstretch="0,0,0,0,0,0,0,0">
-               <item row="2" column="5" rowspan="2">
-                <widget class="QRadioButton" name="configure_LED_merge_channel3_button3">
-                 <property name="toolTip">
-                  <string>Connect LED #3 to channel #3</string>
-                 </property>
-                 <property name="text">
-                  <string>LED #3</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                 <attribute name="buttonGroup">
-                  <string notr="true">configure_ch_merge_3_button_group</string>
-                 </attribute>
-                </widget>
-               </item>
-               <item row="0" column="3">
-                <widget class="QRadioButton" name="configure_LED_merge_channel1_button2">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="text">
-                  <string>LED #2</string>
-                 </property>
-                 <property name="checkable">
-                  <bool>false</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QRadioButton" name="configure_LED_merge_channel2_button1">
-                 <property name="toolTip">
-                  <string>Connect LED #1 to channel #2</string>
-                 </property>
-                 <property name="text">
-                  <string>LED #1</string>
-                 </property>
-                 <attribute name="buttonGroup">
-                  <string notr="true">configure_ch_merge_2_button_group</string>
-                 </attribute>
-                </widget>
-               </item>
-               <item row="2" column="3" rowspan="2">
-                <widget class="QRadioButton" name="configure_LED_merge_channel3_button2">
-                 <property name="toolTip">
-                  <string>Connect LED #2 to channel #3</string>
-                 </property>
-                 <property name="text">
-                  <string>LED #2</string>
-                 </property>
-                 <attribute name="buttonGroup">
-                  <string notr="true">configure_ch_merge_3_button_group</string>
-                 </attribute>
-                </widget>
-               </item>
-               <item row="4" column="7">
-                <widget class="QRadioButton" name="configure_LED_merge_channel4_button4">
-                 <property name="text">
-                  <string>LED #4</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                 <attribute name="buttonGroup">
-                  <string notr="true">configure_ch_merge_4_button_group</string>
-                 </attribute>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="configure_LED_merge_channel2_label">
-                 <property name="toolTip">
-                  <string>Select the LED # connected to channel #2</string>
-                 </property>
-                 <property name="text">
-                  <string>Channel #2:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="5">
-                <widget class="QRadioButton" name="configure_LED_merge_channel4_button3">
-                 <property name="toolTip">
-                  <string>Connect LED #3 to channel #4</string>
-                 </property>
-                 <property name="text">
-                  <string>LED #3</string>
-                 </property>
-                 <attribute name="buttonGroup">
-                  <string notr="true">configure_ch_merge_4_button_group</string>
-                 </attribute>
-                </widget>
-               </item>
-               <item row="2" column="0">
-                <widget class="QLabel" name="configure_LED_merge_channel3_label">
-                 <property name="toolTip">
-                  <string>Select the LED # connected to channel #3</string>
-                 </property>
-                 <property name="text">
-                  <string>Channel #3:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="configure_LED_merge_channel1_label">
-                 <property name="toolTip">
-                  <string>LED #1 is always connected to channel #1</string>
-                 </property>
-                 <property name="text">
-                  <string>Channel #1:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QRadioButton" name="configure_LED_merge_channel1_button1">
-                 <property name="enabled">
-                  <bool>true</bool>
-                 </property>
-                 <property name="toolTip">
-                  <string>LED #1 is always connected to channel #1</string>
-                 </property>
-                 <property name="text">
-                  <string>LED #1</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                 <attribute name="buttonGroup">
-                  <string notr="true">configure_ch_merge_1_button_group</string>
-                 </attribute>
-                </widget>
-               </item>
-               <item row="1" column="3">
-                <widget class="QRadioButton" name="configure_LED_merge_channel2_button2">
-                 <property name="toolTip">
-                  <string>Connect LED #2 to channel #2</string>
-                 </property>
-                 <property name="text">
-                  <string>LED #2</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                 <attribute name="buttonGroup">
-                  <string notr="true">configure_ch_merge_2_button_group</string>
-                 </attribute>
-                </widget>
-               </item>
-               <item row="4" column="1">
-                <widget class="QRadioButton" name="configure_LED_merge_channel4_button1">
-                 <property name="toolTip">
-                  <string>Connect LED #1 to channel #4</string>
-                 </property>
-                 <property name="text">
-                  <string>LED #1</string>
-                 </property>
-                 <attribute name="buttonGroup">
-                  <string notr="true">configure_ch_merge_4_button_group</string>
-                 </attribute>
-                </widget>
-               </item>
-               <item row="4" column="0">
-                <widget class="QLabel" name="configure_LED_merge_channel4_label">
-                 <property name="toolTip">
-                  <string>Select the LED # connected to channel #4</string>
-                 </property>
-                 <property name="text">
-                  <string>Channel #4:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="1" rowspan="2">
-                <widget class="QRadioButton" name="configure_LED_merge_channel3_button1">
-                 <property name="toolTip">
-                  <string>Connect LED #1 to channel #3</string>
-                 </property>
-                 <property name="text">
-                  <string>LED #1</string>
-                 </property>
-                 <attribute name="buttonGroup">
-                  <string notr="true">configure_ch_merge_3_button_group</string>
-                 </attribute>
-                </widget>
-               </item>
-               <item row="4" column="3">
-                <widget class="QRadioButton" name="configure_LED_merge_channel4_button2">
-                 <property name="toolTip">
-                  <string>Connect LED #2 to channel #4</string>
-                 </property>
-                 <property name="text">
-                  <string>LED #2</string>
-                 </property>
-                 <attribute name="buttonGroup">
-                  <string notr="true">configure_ch_merge_4_button_group</string>
-                 </attribute>
-                </widget>
-               </item>
-               <item row="0" column="5">
-                <widget class="QRadioButton" name="configure_LED_merge_channel1_button3">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="text">
-                  <string>LED #3</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="5">
-                <widget class="QRadioButton" name="configure_LED_merge_channel2_button3">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="text">
-                  <string>LED #3</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="7">
-                <widget class="QRadioButton" name="configure_LED_merge_channel1_button4">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="text">
-                  <string>LED #4</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="7">
-                <widget class="QRadioButton" name="configure_LED_merge_channel2_button4">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="text">
-                  <string>LED #4</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="7">
-                <widget class="QRadioButton" name="configure_LED_merge_channel3_button4">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="text">
-                  <string>LED #4</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item row="0" column="0">
-             <widget class="QGroupBox" name="configure_name_box">
-              <property name="toolTip">
-               <string>Set a unique name for the LED driver and each connected LED</string>
-              </property>
-              <property name="title">
-               <string>Name</string>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_20" columnstretch="0,10,0,10">
-               <item row="0" column="1">
-                <widget class="QLineEdit" name="configure_name_driver_line_edit">
-                 <property name="toolTip">
-                  <string>Enter a unique name for the LED driver (optional)</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="maxLength">
-                  <number>15</number>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="configure_name_driver_label">
-                 <property name="toolTip">
-                  <string>Enter a unique name for the LED driver (optional)</string>
-                 </property>
-                 <property name="text">
-                  <string>Driver Name:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="2">
-                <widget class="QLabel" name="configure_name_driver_serial_label1">
-                 <property name="toolTip">
-                  <string>Serial number for selected LED driver.  This can be editted in the driver code - see manual for details.</string>
-                 </property>
-                 <property name="lineWidth">
-                  <number>10</number>
-                 </property>
-                 <property name="text">
-                  <string>Serial #:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0" colspan="4">
-                <widget class="QFrame" name="configure_name_LED_frame">
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QGridLayout" name="gridLayout_21" columnstretch="0,10,0,0,10">
-                  <property name="leftMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>0</number>
-                  </property>
-                  <item row="0" column="0">
-                   <widget class="QCheckBox" name="configure_name_LED1_box">
-                    <property name="enabled">
-                     <bool>true</bool>
-                    </property>
-                    <property name="toolTip">
-                     <string>Check this box to activate LED channel #1</string>
-                    </property>
-                    <property name="text">
-                     <string>LED #1</string>
-                    </property>
-                    <property name="checkable">
-                     <bool>true</bool>
-                    </property>
-                    <property name="checked">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1" colspan="2">
-                   <widget class="QLineEdit" name="configure_name_LED2_line_edit">
-                    <property name="toolTip">
-                     <string>Enter a unique name for LED channel #2 (optional)</string>
-                    </property>
-                    <property name="text">
-                     <string>LED #2</string>
-                    </property>
-                    <property name="maxLength">
-                     <number>15</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1" colspan="2">
-                   <widget class="QLineEdit" name="configure_name_LED1_line_edit">
-                    <property name="toolTip">
-                     <string>Enter a unique name for LED channel #1 (optional)</string>
-                    </property>
-                    <property name="text">
-                     <string>LED #1</string>
-                    </property>
-                    <property name="maxLength">
-                     <number>15</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="3">
-                   <widget class="QCheckBox" name="configure_name_LED4_box">
-                    <property name="toolTip">
-                     <string>Check this box to activate LED channel #4</string>
-                    </property>
-                    <property name="text">
-                     <string>LED #4</string>
-                    </property>
-                    <property name="checked">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QCheckBox" name="configure_name_LED2_box">
-                    <property name="toolTip">
-                     <string>Check this box to activate LED channel #2</string>
-                    </property>
-                    <property name="text">
-                     <string>LED #2</string>
-                    </property>
-                    <property name="checked">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="3">
-                   <widget class="QCheckBox" name="configure_name_LED3_box">
-                    <property name="toolTip">
-                     <string>Check this box to activate LED channel #3</string>
-                    </property>
-                    <property name="text">
-                     <string>LED #3</string>
-                    </property>
-                    <property name="checked">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="4">
-                   <widget class="QLineEdit" name="configure_name_LED3_line_edit">
-                    <property name="toolTip">
-                     <string>Enter a unique name for LED channel #3 (optional)</string>
-                    </property>
-                    <property name="text">
-                     <string>LED #3</string>
-                    </property>
-                    <property name="maxLength">
-                     <number>15</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="4">
-                   <widget class="QLineEdit" name="configure_name_LED4_line_edit">
-                    <property name="toolTip">
-                     <string>Enter a unique name for LED channel #4 (optional)</string>
-                    </property>
-                    <property name="text">
-                     <string>LED #4</string>
-                    </property>
-                    <property name="maxLength">
-                     <number>15</number>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item row="0" column="3">
-                <widget class="QLabel" name="configure_name_driver_serial_label2">
-                 <property name="text">
-                  <string>Disconnected</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item row="4" column="0" colspan="2">
+            <item row="3" column="0" colspan="2">
              <widget class="Line" name="configure_line1">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
              </widget>
             </item>
-            <item row="2" column="0">
-             <widget class="QGroupBox" name="configure_resistor_box">
-              <property name="toolTip">
-               <string>List the current sense resistor values used on the driver.  It is critical these values are correct for proper driver function.</string>
-              </property>
-              <property name="title">
-               <string>Current Sense Resistors (Ω) </string>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_15" columnstretch="0,10,0,10,0,10,0,10">
-               <item row="0" column="0">
-                <widget class="QCheckBox" name="configure_resistor1_box">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="toolTip">
-                  <string>This cannot be inactivated.  There must be at least one listed current sense resistor.</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="checkable">
-                  <bool>true</bool>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="2">
-                <widget class="QCheckBox" name="configure_resistor2_box">
-                 <property name="toolTip">
-                  <string>Check if there is a second current sense resistor on the driver.</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="checked">
-                  <bool>false</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="4">
-                <widget class="QCheckBox" name="configure_resistor3_box">
-                 <property name="toolTip">
-                  <string>Check if there is a third current sense resistor on the driver.</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="6">
-                <widget class="QCheckBox" name="configure_resistor4_box">
-                 <property name="toolTip">
-                  <string>Check if there is a fourth current sense resistor on the driver.</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QDoubleSpinBox" name="configure_resistor1_spin_box">
-                 <property name="toolTip">
-                  <string>Value of the first current sense resistor (in ohms).</string>
-                 </property>
-                 <property name="specialValueText">
-                  <string/>
-                 </property>
-                 <property name="keyboardTracking">
-                  <bool>true</bool>
-                 </property>
-                 <property name="minimum">
-                  <double>0.010000000000000</double>
-                 </property>
-                 <property name="maximum">
-                  <double>1000.000000000000000</double>
-                 </property>
-                 <property name="value">
-                  <double>5.000000000000000</double>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="3">
-                <widget class="QDoubleSpinBox" name="configure_resistor2_spin_box">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="toolTip">
-                  <string>Value of the second current sense resistor (in ohms)</string>
-                 </property>
-                 <property name="specialValueText">
-                  <string/>
-                 </property>
-                 <property name="keyboardTracking">
-                  <bool>true</bool>
-                 </property>
-                 <property name="minimum">
-                  <double>0.010000000000000</double>
-                 </property>
-                 <property name="maximum">
-                  <double>1000.000000000000000</double>
-                 </property>
-                 <property name="value">
-                  <double>1000.000000000000000</double>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="5">
-                <widget class="QDoubleSpinBox" name="configure_resistor3_spin_box">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="toolTip">
-                  <string>Value of the third current sense resistor (in ohms).</string>
-                 </property>
-                 <property name="minimum">
-                  <double>0.010000000000000</double>
-                 </property>
-                 <property name="maximum">
-                  <double>1000.000000000000000</double>
-                 </property>
-                 <property name="value">
-                  <double>1000.000000000000000</double>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="7">
-                <widget class="QDoubleSpinBox" name="configure_resistor4_spin_box">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="toolTip">
-                  <string>Value of the fourth current sense resistor (in ohms).</string>
-                 </property>
-                 <property name="minimum">
-                  <double>0.010000000000000</double>
-                 </property>
-                 <property name="maximum">
-                  <double>1000.000000000000000</double>
-                 </property>
-                 <property name="value">
-                  <double>1000.000000000000000</double>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
             <item row="7" column="0">
-             <widget class="QGroupBox" name="configure_thermistor_box">
-              <property name="toolTip">
-               <string>Configure the properties and temperature limits for an external thermistor, such as on a high current COB LED (optional)</string>
-              </property>
-              <property name="title">
-               <string>External Thermistor</string>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_14" columnstretch="0,10,0,10">
-               <item row="1" column="0">
-                <widget class="QLabel" name="configure_thermistor_beta_label">
-                 <property name="toolTip">
-                  <string>Beta (K) of the thermistor - see data sheet of external device for details.</string>
-                 </property>
-                 <property name="text">
-                  <string>Beta (K):</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QSpinBox" name="configure_thermistor_resistance_box">
-                 <property name="toolTip">
-                  <string>Nominal resistance of the thermistor at 25°C - see data sheet of external device for details.</string>
-                 </property>
-                 <property name="specialValueText">
-                  <string/>
-                 </property>
-                 <property name="keyboardTracking">
-                  <bool>false</bool>
-                 </property>
-                 <property name="minimum">
-                  <number>1</number>
-                 </property>
-                 <property name="maximum">
-                  <number>100000</number>
-                 </property>
-                 <property name="value">
-                  <number>4700</number>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QSpinBox" name="configure_thermistor_beta_box">
-                 <property name="toolTip">
-                  <string>Beta (K) of the thermistor - see data sheet of external device for details.</string>
-                 </property>
-                 <property name="specialValueText">
-                  <string/>
-                 </property>
-                 <property name="keyboardTracking">
-                  <bool>false</bool>
-                 </property>
-                 <property name="minimum">
-                  <number>1</number>
-                 </property>
-                 <property name="maximum">
-                  <number>9999</number>
-                 </property>
-                 <property name="value">
-                  <number>3560</number>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="configure_thermistor_resistance_label">
-                 <property name="toolTip">
-                  <string>Nominal resistance of the thermistor at 25°C - see data sheet of external device for details.</string>
-                 </property>
-                 <property name="text">
-                  <string>Resistance at 25°C (Ω):</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="2">
-                <widget class="QLabel" name="configure_temperature_external_warn_label">
-                 <property name="toolTip">
-                  <string>This is the temperature the external component must cool back down to before the driver turns back on after a thermal fault.</string>
-                 </property>
-                 <property name="text">
-                  <string>External Warn (°C):</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="3">
-                <widget class="QSpinBox" name="configure_temperature_external_warn_box">
-                 <property name="toolTip">
-                  <string>This is the temperature the external component must cool back down to before the driver turns back on after a thermal fault.</string>
-                 </property>
-                 <property name="keyboardTracking">
-                  <bool>false</bool>
-                 </property>
-                 <property name="maximum">
-                  <number>150</number>
-                 </property>
-                 <property name="value">
-                  <number>60</number>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="2">
-                <widget class="QLabel" name="configure_temperature_external_fault_label">
-                 <property name="toolTip">
-                  <string>If the external device exceeds this temperature the driver will automatically turn off until it cools back down.</string>
-                 </property>
-                 <property name="text">
-                  <string>External Fault (°C):</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="3">
-                <widget class="QSpinBox" name="configure_temperature_external_fault_box">
-                 <property name="toolTip">
-                  <string>If the external device exceeds this temperature the driver will automatically turn off until it cools back down.</string>
-                 </property>
-                 <property name="keyboardTracking">
-                  <bool>false</bool>
-                 </property>
-                 <property name="maximum">
-                  <number>150</number>
-                 </property>
-                 <property name="value">
-                  <number>80</number>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item row="10" column="0">
              <widget class="QGroupBox" name="configure_pushbutton_box">
               <property name="toolTip">
                <string>Congifure the built-in LEDs on the four pushbuttons.</string>
@@ -4629,109 +3250,978 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
               </layout>
              </widget>
             </item>
-            <item row="9" column="0">
-             <widget class="QGroupBox" name="configure_audio_box">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="configure_name_box">
               <property name="toolTip">
-               <string>Configure audio settings</string>
+               <string>Set a unique name for the LED driver and each connected LED</string>
               </property>
               <property name="title">
-               <string>Audio</string>
+               <string>Name</string>
               </property>
-              <layout class="QGridLayout" name="gridLayout_11">
-               <item row="1" column="1">
-                <widget class="QSlider" name="configure_audio_alarm_slider">
+              <layout class="QGridLayout" name="gridLayout_40">
+               <item row="3" column="3">
+                <widget class="QLabel" name="configure_name_driver_serial_label1">
                  <property name="toolTip">
-                  <string>Set the tone volume for critical faults such as an over-temperature fault.</string>
+                  <string>Serial number for selected LED driver.  This can be editted in the driver code - see manual for details.</string>
                  </property>
-                 <property name="maximum">
-                  <number>127</number>
+                 <property name="lineWidth">
+                  <number>10</number>
                  </property>
-                 <property name="pageStep">
-                  <number>16</number>
-                 </property>
-                 <property name="value">
-                  <number>127</number>
-                 </property>
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="tickPosition">
-                  <enum>QSlider::TicksAbove</enum>
-                 </property>
-                 <property name="tickInterval">
-                  <number>16</number>
+                 <property name="text">
+                  <string>Serial #:</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="configure_audio_alarm_label">
+               <item row="6" column="0" colspan="5">
+                <widget class="QGroupBox" name="configure_name_board3_box">
+                 <property name="title">
+                  <string>Board #3</string>
+                 </property>
+                 <property name="checkable">
+                  <bool>true</bool>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_20">
+                  <item row="0" column="3">
+                   <widget class="QLineEdit" name="configure_name_LED2_line_edit_3">
+                    <property name="toolTip">
+                     <string>Enter a unique name for LED channel #2 (optional)</string>
+                    </property>
+                    <property name="text">
+                     <string>LED #10</string>
+                    </property>
+                    <property name="maxLength">
+                     <number>15</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QCheckBox" name="configure_name_LED4_box_3">
+                    <property name="toolTip">
+                     <string>Check this box to activate LED channel #4</string>
+                    </property>
+                    <property name="text">
+                     <string>LED #12</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QCheckBox" name="configure_name_LED1_box_3">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
+                    <property name="toolTip">
+                     <string>Check this box to activate LED channel #1</string>
+                    </property>
+                    <property name="text">
+                     <string>LED #9</string>
+                    </property>
+                    <property name="checkable">
+                     <bool>true</bool>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QCheckBox" name="configure_name_LED3_box_3">
+                    <property name="toolTip">
+                     <string>Check this box to activate LED channel #3</string>
+                    </property>
+                    <property name="text">
+                     <string>LED #11</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QCheckBox" name="configure_name_LED2_box_3">
+                    <property name="toolTip">
+                     <string>Check this box to activate LED channel #2</string>
+                    </property>
+                    <property name="text">
+                     <string>LED #10</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="3">
+                   <widget class="QLineEdit" name="configure_name_LED4_line_edit_3">
+                    <property name="toolTip">
+                     <string>Enter a unique name for LED channel #4 (optional)</string>
+                    </property>
+                    <property name="text">
+                     <string>LED #12</string>
+                    </property>
+                    <property name="maxLength">
+                     <number>15</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="configure_name_LED1_line_edit_3">
+                    <property name="toolTip">
+                     <string>Enter a unique name for LED channel #1 (optional)</string>
+                    </property>
+                    <property name="text">
+                     <string>LED #9</string>
+                    </property>
+                    <property name="maxLength">
+                     <number>15</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLineEdit" name="configure_name_LED3_line_edit_3">
+                    <property name="toolTip">
+                     <string>Enter a unique name for LED channel #3 (optional)</string>
+                    </property>
+                    <property name="text">
+                     <string>LED #11</string>
+                    </property>
+                    <property name="maxLength">
+                     <number>15</number>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="configure_name_driver_label">
                  <property name="toolTip">
-                  <string>Set the tone volume for critical faults such as an over-temperature fault.</string>
+                  <string>Enter a unique name for the LED driver (optional)</string>
                  </property>
                  <property name="text">
-                  <string>Alarm Volume</string>
+                  <string>Driver Name:</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="configure_audio_status_label">
+               <item row="3" column="1">
+                <widget class="QLineEdit" name="configure_name_driver_line_edit">
                  <property name="toolTip">
-                  <string>Set the tone volume for notifications such as verifying successful boot and successful upload.</string>
+                  <string>Enter a unique name for the LED driver (optional)</string>
                  </property>
                  <property name="text">
-                  <string>Status Volume</string>
+                  <string/>
+                 </property>
+                 <property name="maxLength">
+                  <number>15</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="4">
+                <widget class="QLabel" name="configure_name_driver_serial_label2">
+                 <property name="text">
+                  <string>Disconnected</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0" colspan="5">
+                <widget class="QGroupBox" name="configure_name_board11_box">
+                 <property name="title">
+                  <string>Board #1</string>
+                 </property>
+                 <property name="checkable">
+                  <bool>true</bool>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_21">
+                  <property name="leftMargin">
+                   <number>9</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>9</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QCheckBox" name="configure_name_LED11_box_4">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
+                    <property name="toolTip">
+                     <string>Check this box to activate LED channel #1</string>
+                    </property>
+                    <property name="text">
+                     <string>LED #1</string>
+                    </property>
+                    <property name="checkable">
+                     <bool>true</bool>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="configure_name_LED11_line_edit_4">
+                    <property name="toolTip">
+                     <string>Enter a unique name for LED channel #1 (optional)</string>
+                    </property>
+                    <property name="text">
+                     <string>LED #1</string>
+                    </property>
+                    <property name="maxLength">
+                     <number>15</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QCheckBox" name="configure_name_LED12_box_4">
+                    <property name="toolTip">
+                     <string>Check this box to activate LED channel #2</string>
+                    </property>
+                    <property name="text">
+                     <string>LED #2</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3">
+                   <widget class="QLineEdit" name="configure_name_LED12_line_edit_4">
+                    <property name="toolTip">
+                     <string>Enter a unique name for LED channel #2 (optional)</string>
+                    </property>
+                    <property name="text">
+                     <string>LED #2</string>
+                    </property>
+                    <property name="maxLength">
+                     <number>15</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QCheckBox" name="configure_name_LED13_box_4">
+                    <property name="toolTip">
+                     <string>Check this box to activate LED channel #3</string>
+                    </property>
+                    <property name="text">
+                     <string>LED #3</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLineEdit" name="configure_name_LED13_line_edit_4">
+                    <property name="toolTip">
+                     <string>Enter a unique name for LED channel #3 (optional)</string>
+                    </property>
+                    <property name="text">
+                     <string>LED #3</string>
+                    </property>
+                    <property name="maxLength">
+                     <number>15</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QCheckBox" name="configure_name_LED14_box_4">
+                    <property name="toolTip">
+                     <string>Check this box to activate LED channel #4</string>
+                    </property>
+                    <property name="text">
+                     <string>LED #4</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="3">
+                   <widget class="QLineEdit" name="configure_name_LED14_line_edit_4">
+                    <property name="toolTip">
+                     <string>Enter a unique name for LED channel #4 (optional)</string>
+                    </property>
+                    <property name="text">
+                     <string>LED #4</string>
+                    </property>
+                    <property name="maxLength">
+                     <number>15</number>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="5" column="0" colspan="5">
+                <widget class="QGroupBox" name="configure_name_board2_box">
+                 <property name="title">
+                  <string>Board #2</string>
+                 </property>
+                 <property name="checkable">
+                  <bool>true</bool>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_15">
+                  <property name="leftMargin">
+                   <number>9</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>9</number>
+                  </property>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="configure_name_LED1_line_edit">
+                    <property name="toolTip">
+                     <string>Enter a unique name for LED channel #1 (optional)</string>
+                    </property>
+                    <property name="text">
+                     <string>LED #5</string>
+                    </property>
+                    <property name="maxLength">
+                     <number>15</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3">
+                   <widget class="QLineEdit" name="configure_name_LED2_line_edit">
+                    <property name="toolTip">
+                     <string>Enter a unique name for LED channel #2 (optional)</string>
+                    </property>
+                    <property name="text">
+                     <string>LED #6</string>
+                    </property>
+                    <property name="maxLength">
+                     <number>15</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QCheckBox" name="configure_name_LED2_box">
+                    <property name="toolTip">
+                     <string>Check this box to activate LED channel #2</string>
+                    </property>
+                    <property name="text">
+                     <string>LED #6</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QCheckBox" name="configure_name_LED1_box">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
+                    <property name="toolTip">
+                     <string>Check this box to activate LED channel #1</string>
+                    </property>
+                    <property name="text">
+                     <string>LED #5</string>
+                    </property>
+                    <property name="checkable">
+                     <bool>true</bool>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QCheckBox" name="configure_name_LED3_box">
+                    <property name="toolTip">
+                     <string>Check this box to activate LED channel #3</string>
+                    </property>
+                    <property name="text">
+                     <string>LED #7</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QCheckBox" name="configure_name_LED4_box">
+                    <property name="toolTip">
+                     <string>Check this box to activate LED channel #4</string>
+                    </property>
+                    <property name="text">
+                     <string>LED #8</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLineEdit" name="configure_name_LED3_line_edit">
+                    <property name="toolTip">
+                     <string>Enter a unique name for LED channel #3 (optional)</string>
+                    </property>
+                    <property name="text">
+                     <string>LED #7</string>
+                    </property>
+                    <property name="maxLength">
+                     <number>15</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="3">
+                   <widget class="QLineEdit" name="configure_name_LED4_line_edit">
+                    <property name="toolTip">
+                     <string>Enter a unique name for LED channel #4 (optional)</string>
+                    </property>
+                    <property name="text">
+                     <string>LED #8</string>
+                    </property>
+                    <property name="maxLength">
+                     <number>15</number>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QGroupBox" name="configure_current_limit_box">
+              <property name="toolTip">
+               <string>Set the current limit for each LED channel.</string>
+              </property>
+              <property name="title">
+               <string>LED Current Limit (%)</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_57">
+               <item row="2" column="0" rowspan="2" colspan="2">
+                <widget class="QGroupBox" name="configure_current_limit_board3_box">
+                 <property name="title">
+                  <string>Board #3</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_14" columnstretch="0,9,0,9">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="configure_current_limit_LED31_label">
+                    <property name="text">
+                     <string>LED #9</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED31_spin_box">
+                    <property name="toolTip">
+                     <string>Set the current limit (in amps) for LED channel #1</string>
+                    </property>
+                    <property name="specialValueText">
+                     <string/>
+                    </property>
+                    <property name="decimals">
+                     <number>0</number>
+                    </property>
+                    <property name="minimum">
+                     <double>0.000000000000000</double>
+                    </property>
+                    <property name="maximum">
+                     <double>100.000000000000000</double>
+                    </property>
+                    <property name="value">
+                     <double>100.000000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="configure_current_limit_LED33_label">
+                    <property name="text">
+                     <string>LED #10</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED33_spin_box">
+                    <property name="toolTip">
+                     <string>Set the current limit (in amps) for LED channel #3</string>
+                    </property>
+                    <property name="specialValueText">
+                     <string/>
+                    </property>
+                    <property name="decimals">
+                     <number>0</number>
+                    </property>
+                    <property name="minimum">
+                     <double>0.000000000000000</double>
+                    </property>
+                    <property name="maximum">
+                     <double>100.000000000000000</double>
+                    </property>
+                    <property name="value">
+                     <double>100.000000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="configure_current_limit_LED32_label">
+                    <property name="text">
+                     <string>LED #11</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED32_spin_box">
+                    <property name="toolTip">
+                     <string>Set the current limit (in amps) for LED channel #2</string>
+                    </property>
+                    <property name="specialValueText">
+                     <string/>
+                    </property>
+                    <property name="decimals">
+                     <number>0</number>
+                    </property>
+                    <property name="minimum">
+                     <double>0.000000000000000</double>
+                    </property>
+                    <property name="maximum">
+                     <double>100.000000000000000</double>
+                    </property>
+                    <property name="value">
+                     <double>100.000000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QLabel" name="configure_current_limit_LED34_label">
+                    <property name="text">
+                     <string>LED #12</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="3">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED34_spin_box">
+                    <property name="toolTip">
+                     <string>Set the current limit (in amps) for LED channel #4</string>
+                    </property>
+                    <property name="specialValueText">
+                     <string/>
+                    </property>
+                    <property name="decimals">
+                     <number>0</number>
+                    </property>
+                    <property name="minimum">
+                     <double>0.000000000000000</double>
+                    </property>
+                    <property name="maximum">
+                     <double>100.000000000000000</double>
+                    </property>
+                    <property name="value">
+                     <double>100.000000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="0" column="0" colspan="2">
+                <widget class="QGroupBox" name="configure_current_limit_board1_box_2">
+                 <property name="title">
+                  <string>Board #1</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_17" columnstretch="0,9,0,9">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="configure_current_limit_LED11_label_2">
+                    <property name="text">
+                     <string>LED #1</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED11_spin_box_2">
+                    <property name="toolTip">
+                     <string>Set the current limit (in amps) for LED channel #1</string>
+                    </property>
+                    <property name="specialValueText">
+                     <string/>
+                    </property>
+                    <property name="decimals">
+                     <number>0</number>
+                    </property>
+                    <property name="minimum">
+                     <double>0.000000000000000</double>
+                    </property>
+                    <property name="maximum">
+                     <double>100.000000000000000</double>
+                    </property>
+                    <property name="value">
+                     <double>100.000000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="configure_current_limit_LED13_label_2">
+                    <property name="text">
+                     <string>LED #3</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED13_spin_box_2">
+                    <property name="toolTip">
+                     <string>Set the current limit (in amps) for LED channel #3</string>
+                    </property>
+                    <property name="specialValueText">
+                     <string/>
+                    </property>
+                    <property name="decimals">
+                     <number>0</number>
+                    </property>
+                    <property name="minimum">
+                     <double>0.000000000000000</double>
+                    </property>
+                    <property name="maximum">
+                     <double>100.000000000000000</double>
+                    </property>
+                    <property name="value">
+                     <double>100.000000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="configure_current_limit_LED12_label_2">
+                    <property name="text">
+                     <string>LED #2</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED12_spin_box_2">
+                    <property name="toolTip">
+                     <string>Set the current limit (in amps) for LED channel #2</string>
+                    </property>
+                    <property name="specialValueText">
+                     <string/>
+                    </property>
+                    <property name="decimals">
+                     <number>0</number>
+                    </property>
+                    <property name="minimum">
+                     <double>0.000000000000000</double>
+                    </property>
+                    <property name="maximum">
+                     <double>100.000000000000000</double>
+                    </property>
+                    <property name="value">
+                     <double>100.000000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QLabel" name="configure_current_limit_LED14_label_2">
+                    <property name="text">
+                     <string>LED #4</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="3">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED14_spin_box_2">
+                    <property name="toolTip">
+                     <string>Set the current limit (in amps) for LED channel #4</string>
+                    </property>
+                    <property name="specialValueText">
+                     <string/>
+                    </property>
+                    <property name="decimals">
+                     <number>0</number>
+                    </property>
+                    <property name="minimum">
+                     <double>0.000000000000000</double>
+                    </property>
+                    <property name="maximum">
+                     <double>100.000000000000000</double>
+                    </property>
+                    <property name="value">
+                     <double>100.000000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="1" column="0" colspan="2">
+                <widget class="QGroupBox" name="configure_current_limit_board2_box_3">
+                 <property name="title">
+                  <string>Board #2</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_56" columnstretch="0,9,0,9">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="configure_current_limit_LED21_label_3">
+                    <property name="text">
+                     <string>LED #5</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED21_spin_box_3">
+                    <property name="toolTip">
+                     <string>Set the current limit (in amps) for LED channel #1</string>
+                    </property>
+                    <property name="specialValueText">
+                     <string/>
+                    </property>
+                    <property name="decimals">
+                     <number>0</number>
+                    </property>
+                    <property name="minimum">
+                     <double>0.000000000000000</double>
+                    </property>
+                    <property name="maximum">
+                     <double>100.000000000000000</double>
+                    </property>
+                    <property name="value">
+                     <double>100.000000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="configure_current_limit_LED23_label_3">
+                    <property name="text">
+                     <string>LED #6</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED23_spin_box_3">
+                    <property name="toolTip">
+                     <string>Set the current limit (in amps) for LED channel #3</string>
+                    </property>
+                    <property name="specialValueText">
+                     <string/>
+                    </property>
+                    <property name="decimals">
+                     <number>0</number>
+                    </property>
+                    <property name="minimum">
+                     <double>0.000000000000000</double>
+                    </property>
+                    <property name="maximum">
+                     <double>100.000000000000000</double>
+                    </property>
+                    <property name="value">
+                     <double>100.000000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="configure_current_limit_LED22_label_3">
+                    <property name="text">
+                     <string>LED #7</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED22_spin_box_3">
+                    <property name="toolTip">
+                     <string>Set the current limit (in amps) for LED channel #2</string>
+                    </property>
+                    <property name="specialValueText">
+                     <string/>
+                    </property>
+                    <property name="decimals">
+                     <number>0</number>
+                    </property>
+                    <property name="minimum">
+                     <double>0.000000000000000</double>
+                    </property>
+                    <property name="maximum">
+                     <double>100.000000000000000</double>
+                    </property>
+                    <property name="value">
+                     <double>100.000000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QLabel" name="configure_current_limit_LED24_label_3">
+                    <property name="text">
+                     <string>LED #8</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="3">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED24_spin_box_3">
+                    <property name="toolTip">
+                     <string>Set the current limit (in amps) for LED channel #4</string>
+                    </property>
+                    <property name="specialValueText">
+                     <string/>
+                    </property>
+                    <property name="decimals">
+                     <number>0</number>
+                    </property>
+                    <property name="minimum">
+                     <double>0.000000000000000</double>
+                    </property>
+                    <property name="maximum">
+                     <double>100.000000000000000</double>
+                    </property>
+                    <property name="value">
+                     <double>100.000000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QGroupBox" name="configure_temperature_box">
+              <property name="toolTip">
+               <string>Configure the temperature limits for the LED driver</string>
+              </property>
+              <property name="title">
+               <string>Temperature</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_12" columnstretch="0,1,0,1">
+               <item row="0" column="2">
+                <widget class="QLabel" name="configure_temperature_resistor_warn_label">
+                 <property name="toolTip">
+                  <string>This is the temperature the resistor(s) must cool back down to before the driver turns back on after a thermal fault.</string>
+                 </property>
+                 <property name="text">
+                  <string>Fault Cutoff  (°C):</string>
                  </property>
                 </widget>
                </item>
                <item row="0" column="1">
-                <widget class="QSlider" name="configure_audio_status_slider">
+                <widget class="QSpinBox" name="configure_temperature_transistor_warn_box">
                  <property name="toolTip">
-                  <string>Set the tone volume for notifications such as verifying successful boot and successful upload.</string>
+                  <string>This is the temperature the transistor must cool back down to before the driver turns back on after a thermal fault.</string>
+                 </property>
+                 <property name="specialValueText">
+                  <string/>
+                 </property>
+                 <property name="keyboardTracking">
+                  <bool>false</bool>
                  </property>
                  <property name="maximum">
-                  <number>127</number>
-                 </property>
-                 <property name="pageStep">
-                  <number>16</number>
+                  <number>150</number>
                  </property>
                  <property name="value">
-                  <number>32</number>
-                 </property>
-                 <property name="sliderPosition">
-                  <number>32</number>
-                 </property>
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="tickPosition">
-                  <enum>QSlider::TicksAbove</enum>
-                 </property>
-                 <property name="tickInterval">
-                  <number>16</number>
+                  <number>50</number>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="2">
-                <widget class="QPushButton" name="configure_audio_status_button">
+               <item row="0" column="3">
+                <widget class="QSpinBox" name="configure_temperature_resistor_warn_box">
                  <property name="toolTip">
-                  <string>Test status tone volume.</string>
+                  <string>This is the temperature the resistor(s) must cool back down to before the driver turns back on after a thermal fault.</string>
+                 </property>
+                 <property name="specialValueText">
+                  <string/>
+                 </property>
+                 <property name="keyboardTracking">
+                  <bool>false</bool>
+                 </property>
+                 <property name="maximum">
+                  <number>180</number>
+                 </property>
+                 <property name="value">
+                  <number>60</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="configure_temperature_transistor_warn_label">
+                 <property name="toolTip">
+                  <string>This is the temperature the transistor must cool back down to before the driver turns back on after a thermal fault.</string>
                  </property>
                  <property name="text">
-                  <string>Test</string>
+                  <string>Warn Cutoff (°C):</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="configure_fan_driver_min_label">
+                 <property name="toolTip">
+                  <string>Internal fan will turn off below this temperature.</string>
+                 </property>
+                 <property name="text">
+                  <string>LED Fan Min (°C):</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QSpinBox" name="configure_fan_driver_min_box">
+                 <property name="toolTip">
+                  <string>Internal fan will turn off below this temperature.</string>
+                 </property>
+                 <property name="specialValueText">
+                  <string/>
+                 </property>
+                 <property name="keyboardTracking">
+                  <bool>false</bool>
+                 </property>
+                 <property name="minimum">
+                  <number>-30</number>
+                 </property>
+                 <property name="maximum">
+                  <number>70</number>
+                 </property>
+                 <property name="value">
+                  <number>30</number>
                  </property>
                 </widget>
                </item>
                <item row="1" column="2">
-                <widget class="QPushButton" name="configure_audio_alarm_button">
+                <widget class="QLabel" name="configure_fan_driver_max_label">
                  <property name="toolTip">
-                  <string>Test alarm tone volume.</string>
+                  <string>Internal fan speed will linearly increase with temperature, reaching full speed at this temperature.</string>
+                 </property>
+                 <property name="layoutDirection">
+                  <enum>Qt::LeftToRight</enum>
                  </property>
                  <property name="text">
-                  <string>Test</string>
+                  <string>LED Fan Max (°C):</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="3">
+                <widget class="QSpinBox" name="configure_fan_driver_max_box">
+                 <property name="toolTip">
+                  <string>Internal fan speed will linearly increase with temperature, reaching full speed at this temperature.</string>
+                 </property>
+                 <property name="specialValueText">
+                  <string/>
+                 </property>
+                 <property name="keyboardTracking">
+                  <bool>false</bool>
+                 </property>
+                 <property name="minimum">
+                  <number>-30</number>
+                 </property>
+                 <property name="maximum">
+                  <number>70</number>
+                 </property>
+                 <property name="value">
+                  <number>40</number>
                  </property>
                 </widget>
                </item>
               </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="Line" name="line">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0">
+             <widget class="Line" name="configure_line2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
              </widget>
             </item>
            </layout>
@@ -4777,83 +4267,6 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="calibration_tab">
-       <attribute name="title">
-        <string>Calibration</string>
-       </attribute>
-       <layout class="QGridLayout" name="gridLayout_7" columnstretch="10,0,0,0">
-        <item row="2" column="0">
-         <widget class="QPushButton" name="calibration_run_button">
-          <property name="toolTip">
-           <string>Press to start/stop LED driver and plot of resulting LED current.</string>
-          </property>
-          <property name="text">
-           <string>Run</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="3">
-         <widget class="QLabel" name="calibration_current_label2">
-          <property name="toolTip">
-           <string>Active LED current as a percent of the set current limit.</string>
-          </property>
-          <property name="text">
-           <string>%</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="2">
-         <widget class="QDoubleSpinBox" name="calibration_current_box">
-          <property name="enabled">
-           <bool>true</bool>
-          </property>
-          <property name="toolTip">
-           <string>Active LED current as a percent of the set current limit.</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-          <property name="decimals">
-           <number>1</number>
-          </property>
-          <property name="minimum">
-           <double>0.000000000000000</double>
-          </property>
-          <property name="value">
-           <double>100.000000000000000</double>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0" colspan="4">
-         <widget class="PlotWidget" name="calibration_plot_window">
-          <property name="toolTip">
-           <string>Plot of LED current response to two 300 µs square-wave pulses, sampled at 1.1 MHz.</string>
-          </property>
-          <property name="sceneRect">
-           <rectf>
-            <x>0.000000000000000</x>
-            <y>0.000000000000000</y>
-            <width>0.000000000000000</width>
-            <height>0.000000000000000</height>
-           </rectf>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QLabel" name="calibration_current_label1">
-          <property name="toolTip">
-           <string>Active LED current as a percent of the set current limit.</string>
-          </property>
-          <property name="text">
-           <string>LED Current:</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
       <widget class="QWidget" name="about_tab">
        <attribute name="title">
         <string>About</string>
@@ -4877,8 +4290,8 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>380</width>
-     <height>34</height>
+     <width>469</width>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_connection">
@@ -5059,13 +4472,6 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
    </property>
   </action>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>PlotWidget</class>
-   <extends>QGraphicsView</extends>
-   <header>pyqtgraph</header>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="resources.qrc"/>
  </resources>
@@ -5088,28 +4494,28 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
   </property>
  </designerdata>
  <buttongroups>
-  <buttongroup name="configure_ch_merge_1_button_group"/>
-  <buttongroup name="sync_analog_input_channel_button_group"/>
   <buttongroup name="sync_confocal_scan_mode_button_group"/>
-  <buttongroup name="sync_digital_trigger_high_channel_button_group"/>
-  <buttongroup name="sync_digital_trigger_button_group"/>
-  <buttongroup name="configure_indication_group"/>
-  <buttongroup name="configure_ch_merge_2_button_group"/>
-  <buttongroup name="main_intensity_button_group"/>
-  <buttongroup name="sync_confocal_shutter_polarity_button_group"/>
-  <buttongroup name="configure_ch_merge_4_button_group"/>
-  <buttongroup name="main_toggle_control_group"/>
-  <buttongroup name="sync_output_button_group"/>
-  <buttongroup name="sync_digital_trigger_low_channel_button_group"/>
-  <buttongroup name="sync_confocal_line_digital_polarity_button_group"/>
-  <buttongroup name="main_channel_button_group"/>
-  <buttongroup name="configure_pushbutton_LED_button_group"/>
-  <buttongroup name="configure_ext_fan_button_group"/>
-  <buttongroup name="sync_confocal_flyback_LED_channel_button_group"/>
-  <buttongroup name="sync_confocal_image_LED_channel_button_group"/>
-  <buttongroup name="sync_confocal_line_input_button_group"/>
-  <buttongroup name="sync_analog_led_channel_button_group"/>
   <buttongroup name="configure_ch_merge_3_button_group"/>
+  <buttongroup name="main_intensity_button_group"/>
+  <buttongroup name="main_toggle_control_group"/>
   <buttongroup name="sync_confocal_line_analog_polarity_button_group"/>
+  <buttongroup name="configure_indication_group"/>
+  <buttongroup name="sync_confocal_shutter_polarity_button_group"/>
+  <buttongroup name="configure_ch_merge_1_button_group"/>
+  <buttongroup name="sync_digital_trigger_button_group"/>
+  <buttongroup name="sync_digital_trigger_low_channel_button_group"/>
+  <buttongroup name="sync_output_button_group"/>
+  <buttongroup name="sync_confocal_line_input_button_group"/>
+  <buttongroup name="sync_confocal_flyback_LED_channel_button_group"/>
+  <buttongroup name="sync_analog_input_channel_button_group"/>
+  <buttongroup name="sync_confocal_line_digital_polarity_button_group"/>
+  <buttongroup name="configure_ch_merge_4_button_group"/>
+  <buttongroup name="sync_digital_trigger_high_channel_button_group"/>
+  <buttongroup name="configure_pushbutton_LED_button_group"/>
+  <buttongroup name="configure_ch_merge_2_button_group"/>
+  <buttongroup name="sync_confocal_image_LED_channel_button_group"/>
+  <buttongroup name="sync_analog_led_channel_button_group"/>
+  <buttongroup name="configure_ext_fan_button_group"/>
+  <buttongroup name="main_channel_button_group"/>
  </buttongroups>
 </ui>
