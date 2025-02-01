@@ -9,7 +9,6 @@ import pyqtgraph as pg
 import guiMapper
 import guiSequence as seq
 import guiConfigIO as fileIO
-import calibrationPlot as plot
 import driverUSB
 import statusWindow
 import sys
@@ -91,26 +90,14 @@ class Ui(QtWidgets.QMainWindow):
         self.seq_dict = guiMapper.initializeSeqDictionary(self)
         self.sync_window_list = []
 
-        # Hide dummy widgets
-        for channel in range(1, 5):
-            for button in range(4):
-                if channel <= button:
-                    self.config_model["Channel" + str(channel)][button].setVisible(False)
-
         # Assign events to widgets
         self.ser = driverUSB.usbSerial(self)
         guiMapper.initializeEvents(self)
-        fileIO.checkCurrentLimits(self)
-        plot.initializeCalibrationPlot(self)
         self.splash.showMessage("Searching for connected drivers...", alignment=QtCore.Qt.AlignBottom, color=QtCore.Qt.white)
         self.ser.getDriverPort(True)
         if self.splash.isVisible():
             self.splash.finish(self)
         self.startup = False #Set flag to exiting startup
-
-        #Initialize the analog sync labels
-        self.updateAnalogSync("current")
-        self.updateAnalogSync("PWM")
 
         #Restore look and feel to previous session state
         self.initializeLookAndFeel()
@@ -242,30 +229,6 @@ class Ui(QtWidgets.QMainWindow):
             else:
                 self.setValue(self.main_model["Mode"][0], 1) #Set slider to Sync
 
-    def updateAnalogSync(self, sync_type):
-        avg_label = eval("self.sync_analog_output_" + sync_type + "_avg_num_label")
-        freq_label = eval("self.sync_analog_output_" + sync_type + "_avg_bandwidth_label")
-
-        if sync_type == "current":
-            key = sync_type.capitalize()
-        else:
-            key = sync_type
-        slider_value = self.getValue(self.sync_model["Analog"][key])
-
-        n_avg = 2**slider_value;
-        freq = 1/(n_avg * ANALOG_SYNC_SAMPLE_RATE * 1e-6)
-
-        round_to_n = lambda x, n: x if x == 0 else round(x, -int(math.floor(math.log10(abs(x)))) + (n - 1))
-        round_to_n(freq, 3)
-
-        freq_units = " Hz"
-        if freq >= 100:
-            freq /= 1000
-            freq_units = " kHz"
-
-        avg_label.setText("# of samples per update: " + str(n_avg))
-        freq_label.setText("LED update frequency: " + f"{freq:.3}" + freq_units)
-
     def syncDisableMain(self, sync_active): #Disable manual control widgets if the sync is active
         self.main_model["Intensity"].setEnabled(not sync_active)
         self.main_intensity_spinbox.setReadOnly(sync_active)
@@ -310,7 +273,7 @@ class Ui(QtWidgets.QMainWindow):
             widget_list = [self.gui_master_tab]
             index = 0
         elif key == "sync":
-            widget_list = [self.sync_scroll_area, self.sync_output_box]
+            widget_list = [self.sync_scroll_area]
             index = 1
         else:
             widget_list = [self.configure_scroll_area]

@@ -1,7 +1,6 @@
 from collections import OrderedDict
 import guiSequence as seq
 import guiConfigIO as fileIO
-import calibrationPlot as plot
 from PyQt5 import QtGui, QtCore
 
 def initializeConfigModel(gui):
@@ -16,7 +15,7 @@ def initializeConfigModel(gui):
                  ("Current Limit", eval("gui.configure_current_limit_LED" + str(board_number) + str(led_number) + "_spin_box"))])
 
     #Simultaneous LED operation
-    config_model["Simultaneous LED"] = [gui.configure_pushbutton_simul_off_button, gui.configure_pushbutton_simul_on_button]
+#    config_model["Simultaneous LED"] = [gui.configure_pushbutton_simul_off_button, gui.configure_pushbutton_simul_on_button]
 
     # Temperature cutoffs
     config_model["Temperature"] = OrderedDict([("Warn", eval("gui.configure_temperature_warn_box")),
@@ -49,14 +48,22 @@ def initializeSyncModel(gui):
         for trigger in ["Low", "High"]:
             sync_model["Digital"][trigger] = OrderedDict()
             sync_model["Digital"][trigger]["Mode"] = eval("gui.sync_digital_trigger_" + trigger.lower() + "_tab")
-            sync_model["Digital"][trigger]["LED"] = []
+            sync_model["Digital"][trigger]["LED"] = OrderedDict()
             for board_number in range(1, gui.nBoards() + 1):
-                for led_number in range(gui.nLeds() + 1):
-                    sync_model["Digital"][trigger]["LED"].append(eval("gui.sync_digital_trigger_" + trigger.lower() + "_constant_LED" + str(board_number) + str(led_number) + "_button"))
+                sync_model["Digital"][trigger]["LED"]["Board" + str(board_number)] = []
+                for led_number in range(1, gui.nLeds() + 1):
+                    sync_model["Digital"][trigger]["LED"]["Board" + str(board_number)].append(eval("gui.sync_digital_trigger_" + trigger.lower() + "_constant_LED" + str(board_number) + str(led_number) + "_button"))
             sync_model["Digital"][trigger]["PWM"] = eval("gui.sync_digital_trigger_" + trigger.lower() + "_constant_config_PWM_box")
             sync_model["Digital"][trigger]["Current"] = eval("gui.sync_digital_trigger_" + trigger.lower() + "_constant_config_current_box")
             sync_model["Digital"][trigger]["Duration"] = eval("gui.sync_digital_trigger_" + trigger.lower() + "_constant_config_duration_box")
             sync_model["Digital"][trigger]["Sequence"] = ""
+
+    def initializeAnalog():
+        sync_model["Analog"] = OrderedDict()
+        for board_number in range(1, gui.nBoards() + 1):
+            sync_model["Analog"]["Board" + str(board_number)] = []
+            for led_number in range(1, gui.nLeds() + 2): #+2 to include "None" radio button
+                sync_model["Analog"]["Board" + str(board_number)].append(eval("gui.sync_analog_LED" + str(board_number) + str(led_number) + "_button"))
 
     def initializeConfocal():
         nonlocal gui
@@ -88,6 +95,7 @@ def initializeSyncModel(gui):
     sync_model = OrderedDict()
     sync_model["Mode"] = gui.sync_toolbox
     initializeDigital()
+    initializeAnalog()
     initializeConfocal()
 
     return sync_model
@@ -114,10 +122,11 @@ def initializeMainModel(gui):
     main_model = OrderedDict()
     main_model["Name"] = gui.main_driver_name_label2
     main_model["Serial"] = gui.main_driver_serial_label2
-    main_model["Channel"] = []
+    main_model["Channel"] = OrderedDict()
     for board_number in range(1, gui.nBoards() + 1):
+        main_model["Channel"]["Board" + str(board_number)] = []
         for led_number in range(1, gui.nLeds() + 1):
-            main_model["Channel"].append(eval("gui.main_channel_LED" + str(board_number) + str(led_number) + "_button"))
+            main_model["Channel"]["Board" + str(board_number)].append(eval("gui.main_channel_LED" + str(board_number) + str(led_number) + "_button"))
     main_model["Intensity"] = gui.main_intensity_dial
     main_model["Mode"] = [gui.main_toggle_slider, gui.main_intensity_PWM_button, gui.main_intensity_current_button, gui.main_intensity_off_button]
     main_model["Control"] = [gui.main_control_software_button, gui.main_control_physical_button]
@@ -178,14 +187,14 @@ def initializeEvents(gui):
             # Changes to LED check boxes - toggle whether LED is active
             for board_number in range(1, gui.nBoards() + 1):
                 for led_number in range(1, gui.nLeds() + 1):
-                    eval("gui.config_model[\"LED\"" + str(board_number) + str(led_number) + "\"][\"Active\"].stateChanged.connect(lambda: gui.toggleLedActive(" + str(board_number) + str(led_number) + ")")
+                    eval("gui.config_model[\"LED" + str(board_number) + str(led_number) + "\"][\"Active\"].stateChanged.connect(lambda: gui.toggleLedActive(" + str(board_number) + str(led_number) + "))")
 
         def ledNameEvents():
             nonlocal gui
             # Changes to LED names - updates GUI LED references with new name
             for board_number in range(1, gui.nBoards() + 1):
                 for led_number in range(1, gui.nLeds() + 1):
-                    eval("gui.config_model[\"LED\"" + str(board_number) + str(led_number) + "\"][\"ID\"].textChanged.connect(lambda: gui.changeLedName(" + str(board_number) + str(led_number) + ", gui.config_model[\"LED\"" + str(board_number) + str(led_number) + "][\"ID\"]))")
+                    eval("gui.config_model[\"LED" + str(board_number) + str(led_number) + "\"][\"ID\"].textChanged.connect(lambda: gui.changeLedName(" + str(board_number) + str(led_number) + ", gui.config_model[\"LED" + str(board_number) + str(led_number) + "\"][\"ID\"]))")
 
         def temperatureValueEvents():
             gui.config_model["Temperature"]["Warn"].valueChanged.connect(lambda: fileIO.checkTemperatures(gui, ["Temperature", "Warn"]))
@@ -202,7 +211,6 @@ def initializeEvents(gui):
         gui.configure_audio_status_button.clicked.connect(lambda: gui.ser.testVolume(None, 0))
         gui.configure_audio_alarm_button.clicked.connect(lambda: gui.ser.testVolume(None, 1))
         gui.configure_pushbutton_alarm_test_button.clicked.connect(lambda: gui.ser.testVolume(None, 2))
-        gui.configure_current_limit_test_button.clicked.connect(lambda: gui.ser.testCurrent())
 
         gui.configure_save_button.clicked.connect(lambda: fileIO.saveConfiguration(gui, gui.config_model))
         gui.configure_load_button.clicked.connect(lambda: fileIO.loadConfiguration(gui, gui.config_model))
@@ -238,7 +246,7 @@ def initializeEvents(gui):
             gui.sync_confocal_scanning_sequence_table.itemChanged.connect(gui.verifyCell)
             gui.sync_confocal_standby_sequence_table.itemChanged.connect(gui.verifyCell)
 
-        gui.sync_analog_output_tab.currentChanged.connect(lambda: gui.toggleAnalogChannel(gui.sync_analog_output_tab))
+
         gui.sync_confocal_scan_unidirectional_button.toggled.connect(lambda: gui.toggleScanMode())
         gui.sync_confocal_scan_period_button.clicked.connect(lambda: gui.ser.measurePeriod())
 
@@ -246,9 +254,6 @@ def initializeEvents(gui):
         gui.sync_upload_button.clicked.connect(lambda: gui.ser.uploadSyncConfiguration())
         gui.sync_save_button.clicked.connect(lambda: seq.findUnsavedSeqThenSave(gui, gui.sync_model))
         gui.sync_load_button.clicked.connect(lambda: fileIO.loadConfiguration(gui, gui.sync_model))
-
-        gui.sync_analog_output_PWM_avg_slider.valueChanged.connect(lambda: gui.updateAnalogSync("PWM"))
-        gui.sync_analog_output_current_avg_slider.valueChanged.connect(lambda: gui.updateAnalogSync("current"))
 
         sequenceEvents()
 

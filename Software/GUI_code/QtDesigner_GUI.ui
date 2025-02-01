@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>469</width>
+    <width>675</width>
     <height>811</height>
    </rect>
   </property>
@@ -44,7 +44,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="main_tab">
        <property name="toolTip">
@@ -336,136 +336,139 @@
            <property name="rightMargin">
             <number>0</number>
            </property>
-           <item row="0" column="0" colspan="2">
-            <widget class="QGroupBox" name="groupBox_2">
-             <property name="title">
-              <string>Board #1</string>
+           <item row="0" column="4">
+            <widget class="QRadioButton" name="main_channel_LED13_button">
+             <property name="toolTip">
+              <string>Set LED #3 as the active LED</string>
              </property>
-             <layout class="QGridLayout" name="gridLayout_7">
-              <property name="leftMargin">
-               <number>9</number>
-              </property>
-              <property name="rightMargin">
-               <number>9</number>
-              </property>
-              <item row="0" column="0">
-               <widget class="QRadioButton" name="main_channel_LED11_button">
-                <property name="toolTip">
-                 <string>Set LED #1 as the active LED</string>
-                </property>
-                <property name="text">
-                 <string>LED #1</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
-               <widget class="QRadioButton" name="main_channel_LED12_button">
-                <property name="toolTip">
-                 <string>Set LED #2 as the active LED</string>
-                </property>
-                <property name="text">
-                 <string>LED #2</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="2">
-               <widget class="QRadioButton" name="main_channel_LED13_button">
-                <property name="toolTip">
-                 <string>Set LED #3 as the active LED</string>
-                </property>
-                <property name="text">
-                 <string>LED #3</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="3">
-               <widget class="QRadioButton" name="main_channel_LED14_button">
-                <property name="toolTip">
-                 <string>Set LED #4 as the active LED</string>
-                </property>
-                <property name="text">
-                 <string>LED #4</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
+             <property name="text">
+              <string>LED #3</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">main_channel_button_group</string>
+             </attribute>
             </widget>
            </item>
-           <item row="1" column="0" colspan="2">
-            <widget class="QGroupBox" name="groupBox_3">
-             <property name="title">
-              <string>Board #2</string>
+           <item row="0" column="2">
+            <widget class="QRadioButton" name="main_channel_LED11_button">
+             <property name="toolTip">
+              <string>Set LED #1 as the active LED</string>
              </property>
-             <layout class="QGridLayout" name="gridLayout_13">
-              <item row="0" column="0">
-               <widget class="QRadioButton" name="main_channel_LED21_button">
-                <property name="text">
-                 <string>LED #5</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
-               <widget class="QRadioButton" name="main_channel_LED22_button">
-                <property name="text">
-                 <string>LED #6</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="2">
-               <widget class="QRadioButton" name="main_channel_LED23_button">
-                <property name="text">
-                 <string>LED #7</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="3">
-               <widget class="QRadioButton" name="main_channel_LED24_button">
-                <property name="text">
-                 <string>LED #8</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
+             <property name="text">
+              <string>LED #1</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">main_channel_button_group</string>
+             </attribute>
             </widget>
            </item>
-           <item row="2" column="0" colspan="2">
-            <widget class="QGroupBox" name="groupBox_4">
-             <property name="title">
-              <string>Board #3</string>
+           <item row="0" column="5">
+            <widget class="QRadioButton" name="main_channel_LED14_button">
+             <property name="toolTip">
+              <string>Set LED #4 as the active LED</string>
              </property>
-             <layout class="QGridLayout" name="gridLayout_22">
-              <item row="0" column="0">
-               <widget class="QRadioButton" name="main_channel_LED31_button">
-                <property name="text">
-                 <string>LED #9</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
-               <widget class="QRadioButton" name="main_channel_LED32_button">
-                <property name="text">
-                 <string>LED #10</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="2">
-               <widget class="QRadioButton" name="main_channel_LED33_button">
-                <property name="text">
-                 <string>LED #11</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="3">
-               <widget class="QRadioButton" name="main_channel_LED34_button">
-                <property name="text">
-                 <string>LED #12</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
+             <property name="text">
+              <string>LED #4</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">main_channel_button_group</string>
+             </attribute>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QRadioButton" name="main_channel_LED12_button">
+             <property name="toolTip">
+              <string>Set LED #2 as the active LED</string>
+             </property>
+             <property name="text">
+              <string>LED #2</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">main_channel_button_group</string>
+             </attribute>
+            </widget>
+           </item>
+           <item row="1" column="5">
+            <widget class="QRadioButton" name="main_channel_LED24_button">
+             <property name="text">
+              <string>LED #8</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">main_channel_button_group</string>
+             </attribute>
+            </widget>
+           </item>
+           <item row="1" column="4">
+            <widget class="QRadioButton" name="main_channel_LED23_button">
+             <property name="text">
+              <string>LED #7</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">main_channel_button_group</string>
+             </attribute>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QRadioButton" name="main_channel_LED22_button">
+             <property name="text">
+              <string>LED #6</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">main_channel_button_group</string>
+             </attribute>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QRadioButton" name="main_channel_LED21_button">
+             <property name="text">
+              <string>LED #5</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">main_channel_button_group</string>
+             </attribute>
+            </widget>
+           </item>
+           <item row="2" column="3">
+            <widget class="QRadioButton" name="main_channel_LED32_button">
+             <property name="text">
+              <string>LED #10</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">main_channel_button_group</string>
+             </attribute>
+            </widget>
+           </item>
+           <item row="2" column="4">
+            <widget class="QRadioButton" name="main_channel_LED33_button">
+             <property name="text">
+              <string>LED #11</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">main_channel_button_group</string>
+             </attribute>
+            </widget>
+           </item>
+           <item row="2" column="5">
+            <widget class="QRadioButton" name="main_channel_LED34_button">
+             <property name="text">
+              <string>LED #12</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">main_channel_button_group</string>
+             </attribute>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QRadioButton" name="main_channel_LED31_button">
+             <property name="text">
+              <string>LED #9</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">main_channel_button_group</string>
+             </attribute>
             </widget>
            </item>
           </layout>
@@ -478,23 +481,6 @@
         <string>Sync</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_9">
-        <item row="1" column="3">
-         <widget class="Line" name="sync_button_line">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="2">
-         <widget class="QPushButton" name="sync_upload_button">
-          <property name="toolTip">
-           <string>Upload the new sync settings to the LED driver.</string>
-          </property>
-          <property name="text">
-           <string>Upload to Driver</string>
-          </property>
-         </widget>
-        </item>
         <item row="1" column="5">
          <widget class="QPushButton" name="sync_load_button">
           <property name="toolTip">
@@ -502,16 +488,6 @@
           </property>
           <property name="text">
            <string>Load Settings</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="4">
-         <widget class="QPushButton" name="sync_save_button">
-          <property name="toolTip">
-           <string>Save sync settings as a text file (*.txt)</string>
-          </property>
-          <property name="text">
-           <string>Save Settings</string>
           </property>
          </widget>
         </item>
@@ -525,6 +501,33 @@
           </property>
          </widget>
         </item>
+        <item row="1" column="3">
+         <widget class="Line" name="sync_button_line">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="4">
+         <widget class="QPushButton" name="sync_save_button">
+          <property name="toolTip">
+           <string>Save sync settings as a text file (*.txt)</string>
+          </property>
+          <property name="text">
+           <string>Save Settings</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QPushButton" name="sync_upload_button">
+          <property name="toolTip">
+           <string>Upload the new sync settings to the LED driver.</string>
+          </property>
+          <property name="text">
+           <string>Upload to Driver</string>
+          </property>
+         </widget>
+        </item>
         <item row="0" column="1" colspan="5">
          <widget class="QScrollArea" name="sync_scroll_area">
           <property name="widgetResizable">
@@ -535,8 +538,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>425</width>
-             <height>671</height>
+             <width>633</width>
+             <height>667</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_23">
@@ -546,15 +549,15 @@
                <string>Select the active sync mode to configure</string>
               </property>
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="sync_digital_page">
                <property name="geometry">
                 <rect>
                  <x>0</x>
-                 <y>0</y>
-                 <width>454</width>
-                 <height>596</height>
+                 <y>-254</y>
+                 <width>601</width>
+                 <height>775</height>
                 </rect>
                </property>
                <property name="toolTip">
@@ -563,74 +566,7 @@
                <attribute name="label">
                 <string>Digital</string>
                </attribute>
-               <layout class="QGridLayout" name="gridLayout_24" rowstretch="0,1,1,10" rowminimumheight="0,0,0,0">
-                <item row="0" column="0">
-                 <widget class="QGroupBox" name="sync_digital_trigger_channel_box">
-                  <property name="toolTip">
-                   <string>Select the input channel the trigger is connected to.</string>
-                  </property>
-                  <property name="title">
-                   <string>Trigger Channel</string>
-                  </property>
-                  <layout class="QGridLayout" name="gridLayout_28">
-                   <item row="0" column="0">
-                    <widget class="QRadioButton" name="sync_digital_input1_button">
-                     <property name="toolTip">
-                      <string>Trigger on input channel #1</string>
-                     </property>
-                     <property name="text">
-                      <string>Channel #1</string>
-                     </property>
-                     <property name="checked">
-                      <bool>true</bool>
-                     </property>
-                     <attribute name="buttonGroup">
-                      <string notr="true">sync_digital_trigger_button_group</string>
-                     </attribute>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="QRadioButton" name="sync_digital_input2_button">
-                     <property name="toolTip">
-                      <string>Trigger on input channel #2</string>
-                     </property>
-                     <property name="text">
-                      <string>Channel #2</string>
-                     </property>
-                     <attribute name="buttonGroup">
-                      <string notr="true">sync_digital_trigger_button_group</string>
-                     </attribute>
-                    </widget>
-                   </item>
-                   <item row="0" column="2">
-                    <widget class="QRadioButton" name="sync_digital_input3_button">
-                     <property name="toolTip">
-                      <string>Trigger on input channel #3</string>
-                     </property>
-                     <property name="text">
-                      <string>Channel #3</string>
-                     </property>
-                     <attribute name="buttonGroup">
-                      <string notr="true">sync_digital_trigger_button_group</string>
-                     </attribute>
-                    </widget>
-                   </item>
-                   <item row="0" column="3">
-                    <widget class="QRadioButton" name="sync_digital_input4_button">
-                     <property name="toolTip">
-                      <string>Trigger on input channel #4</string>
-                     </property>
-                     <property name="text">
-                      <string>Channel #4</string>
-                     </property>
-                     <attribute name="buttonGroup">
-                      <string notr="true">sync_digital_trigger_button_group</string>
-                     </attribute>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
+               <layout class="QGridLayout" name="gridLayout_24" rowstretch="0,1,1,10">
                 <item row="1" column="0" alignment="Qt::AlignTop">
                  <widget class="QGroupBox" name="sync_digital_trigger_low_box">
                   <property name="toolTip">
@@ -649,7 +585,7 @@
                       <string>Select event type for when trigger goes LOW (&lt;1.0V)</string>
                      </property>
                      <property name="currentIndex">
-                      <number>2</number>
+                      <number>1</number>
                      </property>
                      <widget class="QWidget" name="sync_digital_trigger_low_off_tab">
                       <property name="toolTip">
@@ -678,20 +614,26 @@
                       <attribute name="title">
                        <string>Constant Value</string>
                       </attribute>
-                      <layout class="QGridLayout" name="gridLayout_44">
-                       <item row="0" column="0" alignment="Qt::AlignTop">
+                      <layout class="QGridLayout" name="gridLayout_19">
+                       <item row="0" column="0">
                         <widget class="QGroupBox" name="sync_digital_trigger_low_constant_LED_box">
                          <property name="toolTip">
-                          <string>Select the active LED channel when trigger is LOW (&lt;1.0V)</string>
+                          <string>Select active LED channel on driver</string>
                          </property>
                          <property name="title">
-                          <string>LED Channel</string>
+                          <string>Channel</string>
                          </property>
-                         <layout class="QGridLayout" name="gridLayout_42">
-                          <item row="0" column="2">
-                           <widget class="QRadioButton" name="sync_digital_trigger_low_constant_LED3_button">
+                         <layout class="QGridLayout" name="gridLayout_13">
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>0</number>
+                          </property>
+                          <item row="0" column="4">
+                           <widget class="QRadioButton" name="sync_digital_trigger_low_constant_LED13_button">
                             <property name="toolTip">
-                             <string>Set LED #3 active when trigger goes LOW (&lt;1.0V)</string>
+                             <string>Set LED #3 as the active LED</string>
                             </property>
                             <property name="text">
                              <string>LED #3</string>
@@ -701,39 +643,13 @@
                             </attribute>
                            </widget>
                           </item>
-                          <item row="0" column="0">
-                           <widget class="QRadioButton" name="sync_digital_trigger_low_constant_LED1_button">
+                          <item row="0" column="2">
+                           <widget class="QRadioButton" name="sync_digital_trigger_low_constant_LED11_button">
                             <property name="toolTip">
-                             <string>Set LED #1 active when trigger goes LOW (&lt;1.0V)</string>
+                             <string>Set LED #1 as the active LED</string>
                             </property>
                             <property name="text">
                              <string>LED #1</string>
-                            </property>
-                            <attribute name="buttonGroup">
-                             <string notr="true">sync_digital_trigger_low_channel_button_group</string>
-                            </attribute>
-                           </widget>
-                          </item>
-                          <item row="0" column="1">
-                           <widget class="QRadioButton" name="sync_digital_trigger_low_constant_LED2_button">
-                            <property name="toolTip">
-                             <string>Set LED #2 active when trigger goes LOW (&lt;1.0V)</string>
-                            </property>
-                            <property name="text">
-                             <string>LED #2</string>
-                            </property>
-                            <attribute name="buttonGroup">
-                             <string notr="true">sync_digital_trigger_low_channel_button_group</string>
-                            </attribute>
-                           </widget>
-                          </item>
-                          <item row="0" column="4">
-                           <widget class="QRadioButton" name="sync_digital_trigger_low_constant_LED0_button">
-                            <property name="toolTip">
-                             <string>Do not change active LED when trigger goes LOW (&lt;1.0V)</string>
-                            </property>
-                            <property name="text">
-                             <string>Current LED</string>
                             </property>
                             <property name="checked">
                              <bool>true</bool>
@@ -743,10 +659,10 @@
                             </attribute>
                            </widget>
                           </item>
-                          <item row="0" column="3">
-                           <widget class="QRadioButton" name="sync_digital_trigger_low_constant_LED4_button">
+                          <item row="0" column="5">
+                           <widget class="QRadioButton" name="sync_digital_trigger_low_constant_LED14_button">
                             <property name="toolTip">
-                             <string>Set LED #4 active when trigger goes LOW (&lt;1.0V)</string>
+                             <string>Set LED #4 as the active LED</string>
                             </property>
                             <property name="text">
                              <string>LED #4</string>
@@ -756,10 +672,103 @@
                             </attribute>
                            </widget>
                           </item>
+                          <item row="0" column="3">
+                           <widget class="QRadioButton" name="sync_digital_trigger_low_constant_LED12_button">
+                            <property name="toolTip">
+                             <string>Set LED #2 as the active LED</string>
+                            </property>
+                            <property name="text">
+                             <string>LED #2</string>
+                            </property>
+                            <attribute name="buttonGroup">
+                             <string notr="true">sync_digital_trigger_low_channel_button_group</string>
+                            </attribute>
+                           </widget>
+                          </item>
+                          <item row="1" column="5">
+                           <widget class="QRadioButton" name="sync_digital_trigger_low_constant_LED24_button">
+                            <property name="text">
+                             <string>LED #8</string>
+                            </property>
+                            <attribute name="buttonGroup">
+                             <string notr="true">sync_digital_trigger_low_channel_button_group</string>
+                            </attribute>
+                           </widget>
+                          </item>
+                          <item row="1" column="4">
+                           <widget class="QRadioButton" name="sync_digital_trigger_low_constant_LED23_button">
+                            <property name="text">
+                             <string>LED #7</string>
+                            </property>
+                            <attribute name="buttonGroup">
+                             <string notr="true">sync_digital_trigger_low_channel_button_group</string>
+                            </attribute>
+                           </widget>
+                          </item>
+                          <item row="1" column="3">
+                           <widget class="QRadioButton" name="sync_digital_trigger_low_constant_LED22_button">
+                            <property name="text">
+                             <string>LED #6</string>
+                            </property>
+                            <attribute name="buttonGroup">
+                             <string notr="true">sync_digital_trigger_low_channel_button_group</string>
+                            </attribute>
+                           </widget>
+                          </item>
+                          <item row="1" column="2">
+                           <widget class="QRadioButton" name="sync_digital_trigger_low_constant_LED21_button">
+                            <property name="text">
+                             <string>LED #5</string>
+                            </property>
+                            <attribute name="buttonGroup">
+                             <string notr="true">sync_digital_trigger_low_channel_button_group</string>
+                            </attribute>
+                           </widget>
+                          </item>
+                          <item row="2" column="3">
+                           <widget class="QRadioButton" name="sync_digital_trigger_low_constant_LED32_button">
+                            <property name="text">
+                             <string>LED #10</string>
+                            </property>
+                            <attribute name="buttonGroup">
+                             <string notr="true">sync_digital_trigger_low_channel_button_group</string>
+                            </attribute>
+                           </widget>
+                          </item>
+                          <item row="2" column="4">
+                           <widget class="QRadioButton" name="sync_digital_trigger_low_constant_LED33_button">
+                            <property name="text">
+                             <string>LED #11</string>
+                            </property>
+                            <attribute name="buttonGroup">
+                             <string notr="true">sync_digital_trigger_low_channel_button_group</string>
+                            </attribute>
+                           </widget>
+                          </item>
+                          <item row="2" column="5">
+                           <widget class="QRadioButton" name="sync_digital_trigger_low_constant_LED34_button">
+                            <property name="text">
+                             <string>LED #12</string>
+                            </property>
+                            <attribute name="buttonGroup">
+                             <string notr="true">sync_digital_trigger_low_channel_button_group</string>
+                            </attribute>
+                           </widget>
+                          </item>
+                          <item row="2" column="2">
+                           <widget class="QRadioButton" name="sync_digital_trigger_low_constant_LED31_button">
+                            <property name="text">
+                             <string>LED #9</string>
+                            </property>
+                            <attribute name="buttonGroup">
+                             <string notr="true">sync_digital_trigger_low_channel_button_group</string>
+                            </attribute>
+                           </widget>
+                          </item>
                          </layout>
                         </widget>
                        </item>
-                       <item row="1" column="0">
+                       <item row="2" column="0">
                         <widget class="QFrame" name="sync_digital_trigger_low_constant_config_frame">
                          <property name="toolTip">
                           <string>Set the LED intensity and duration when the digital trigger goes LOW (&lt;1.0V)</string>
@@ -1009,6 +1018,86 @@
                   </layout>
                  </widget>
                 </item>
+                <item row="3" column="0">
+                 <spacer name="sync_digital_spacer">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QGroupBox" name="sync_digital_trigger_channel_box">
+                  <property name="toolTip">
+                   <string>Select the input channel the trigger is connected to.</string>
+                  </property>
+                  <property name="title">
+                   <string>Trigger Channel</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_28">
+                   <item row="0" column="0">
+                    <widget class="QRadioButton" name="sync_digital_input1_button">
+                     <property name="toolTip">
+                      <string>Trigger on input channel #1</string>
+                     </property>
+                     <property name="text">
+                      <string>Channel #1</string>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
+                     <attribute name="buttonGroup">
+                      <string notr="true">sync_digital_trigger_button_group</string>
+                     </attribute>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QRadioButton" name="sync_digital_input2_button">
+                     <property name="toolTip">
+                      <string>Trigger on input channel #2</string>
+                     </property>
+                     <property name="text">
+                      <string>Channel #2</string>
+                     </property>
+                     <attribute name="buttonGroup">
+                      <string notr="true">sync_digital_trigger_button_group</string>
+                     </attribute>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QRadioButton" name="sync_digital_input3_button">
+                     <property name="toolTip">
+                      <string>Trigger on input channel #3</string>
+                     </property>
+                     <property name="text">
+                      <string>Channel #3</string>
+                     </property>
+                     <attribute name="buttonGroup">
+                      <string notr="true">sync_digital_trigger_button_group</string>
+                     </attribute>
+                    </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <widget class="QRadioButton" name="sync_digital_input4_button">
+                     <property name="toolTip">
+                      <string>Trigger on input channel #4</string>
+                     </property>
+                     <property name="text">
+                      <string>Channel #4</string>
+                     </property>
+                     <attribute name="buttonGroup">
+                      <string notr="true">sync_digital_trigger_button_group</string>
+                     </attribute>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
                 <item row="2" column="0" alignment="Qt::AlignTop">
                  <widget class="QGroupBox" name="sync_digital_trigger_high_box">
                   <property name="toolTip">
@@ -1027,7 +1116,7 @@
                       <string>Select event type for when trigger goes HIGH (&gt;2.5V)</string>
                      </property>
                      <property name="currentIndex">
-                      <number>2</number>
+                      <number>1</number>
                      </property>
                      <widget class="QWidget" name="sync_digital_trigger_high_off_tab">
                       <property name="toolTip">
@@ -1056,20 +1145,26 @@
                       <attribute name="title">
                        <string>Constant Value</string>
                       </attribute>
-                      <layout class="QGridLayout" name="gridLayout_72">
-                       <item row="0" column="0" alignment="Qt::AlignTop">
+                      <layout class="QGridLayout" name="gridLayout_30">
+                       <item row="0" column="0">
                         <widget class="QGroupBox" name="sync_digital_trigger_high_constant_LED_box">
                          <property name="toolTip">
-                          <string>Select the active LED channel when trigger is HIGH (&gt;2.5V)</string>
+                          <string>Select active LED channel on driver</string>
                          </property>
                          <property name="title">
-                          <string>LED Channel</string>
+                          <string>Channel</string>
                          </property>
-                         <layout class="QGridLayout" name="gridLayout_73">
-                          <item row="0" column="2">
-                           <widget class="QRadioButton" name="sync_digital_trigger_high_constant_LED3_button">
+                         <layout class="QGridLayout" name="gridLayout_22">
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>0</number>
+                          </property>
+                          <item row="0" column="4">
+                           <widget class="QRadioButton" name="sync_digital_trigger_high_constant_LED13_button">
                             <property name="toolTip">
-                             <string>Set LED #3 active when trigger goes HIGH (&gt;2.5V)</string>
+                             <string>Set LED #3 as the active LED</string>
                             </property>
                             <property name="text">
                              <string>LED #3</string>
@@ -1079,39 +1174,13 @@
                             </attribute>
                            </widget>
                           </item>
-                          <item row="0" column="0">
-                           <widget class="QRadioButton" name="sync_digital_trigger_high_constant_LED1_button">
+                          <item row="0" column="2">
+                           <widget class="QRadioButton" name="sync_digital_trigger_high_constant_LED11_button">
                             <property name="toolTip">
-                             <string>Set LED #1 active when trigger goes HIGH (&gt;2.5V)</string>
+                             <string>Set LED #1 as the active LED</string>
                             </property>
                             <property name="text">
                              <string>LED #1</string>
-                            </property>
-                            <attribute name="buttonGroup">
-                             <string notr="true">sync_digital_trigger_high_channel_button_group</string>
-                            </attribute>
-                           </widget>
-                          </item>
-                          <item row="0" column="1">
-                           <widget class="QRadioButton" name="sync_digital_trigger_high_constant_LED2_button">
-                            <property name="toolTip">
-                             <string>Set LED #2 active when trigger goes HIGH (&gt;2.5V)</string>
-                            </property>
-                            <property name="text">
-                             <string>LED #2</string>
-                            </property>
-                            <attribute name="buttonGroup">
-                             <string notr="true">sync_digital_trigger_high_channel_button_group</string>
-                            </attribute>
-                           </widget>
-                          </item>
-                          <item row="0" column="4">
-                           <widget class="QRadioButton" name="sync_digital_trigger_high_constant_LED0_button">
-                            <property name="toolTip">
-                             <string>Do not change active LED when trigger goes HIGH (&gt;2.5V)</string>
-                            </property>
-                            <property name="text">
-                             <string>Current LED</string>
                             </property>
                             <property name="checked">
                              <bool>true</bool>
@@ -1121,13 +1190,106 @@
                             </attribute>
                            </widget>
                           </item>
-                          <item row="0" column="3">
-                           <widget class="QRadioButton" name="sync_digital_trigger_high_constant_LED4_button">
+                          <item row="0" column="5">
+                           <widget class="QRadioButton" name="sync_digital_trigger_high_constant_LED14_button">
                             <property name="toolTip">
-                             <string>Set LED #4 active when trigger goes HIGH (&gt;2.5V)</string>
+                             <string>Set LED #4 as the active LED</string>
                             </property>
                             <property name="text">
                              <string>LED #4</string>
+                            </property>
+                            <attribute name="buttonGroup">
+                             <string notr="true">sync_digital_trigger_high_channel_button_group</string>
+                            </attribute>
+                           </widget>
+                          </item>
+                          <item row="0" column="3">
+                           <widget class="QRadioButton" name="sync_digital_trigger_high_constant_LED12_button">
+                            <property name="toolTip">
+                             <string>Set LED #2 as the active LED</string>
+                            </property>
+                            <property name="text">
+                             <string>LED #2</string>
+                            </property>
+                            <attribute name="buttonGroup">
+                             <string notr="true">sync_digital_trigger_high_channel_button_group</string>
+                            </attribute>
+                           </widget>
+                          </item>
+                          <item row="1" column="5">
+                           <widget class="QRadioButton" name="sync_digital_trigger_high_constant_LED24_button">
+                            <property name="text">
+                             <string>LED #8</string>
+                            </property>
+                            <attribute name="buttonGroup">
+                             <string notr="true">sync_digital_trigger_high_channel_button_group</string>
+                            </attribute>
+                           </widget>
+                          </item>
+                          <item row="1" column="4">
+                           <widget class="QRadioButton" name="sync_digital_trigger_high_constant_LED23_button">
+                            <property name="text">
+                             <string>LED #7</string>
+                            </property>
+                            <attribute name="buttonGroup">
+                             <string notr="true">sync_digital_trigger_high_channel_button_group</string>
+                            </attribute>
+                           </widget>
+                          </item>
+                          <item row="1" column="3">
+                           <widget class="QRadioButton" name="sync_digital_trigger_high_constant_LED22_button">
+                            <property name="text">
+                             <string>LED #6</string>
+                            </property>
+                            <attribute name="buttonGroup">
+                             <string notr="true">sync_digital_trigger_high_channel_button_group</string>
+                            </attribute>
+                           </widget>
+                          </item>
+                          <item row="1" column="2">
+                           <widget class="QRadioButton" name="sync_digital_trigger_high_constant_LED21_button">
+                            <property name="text">
+                             <string>LED #5</string>
+                            </property>
+                            <attribute name="buttonGroup">
+                             <string notr="true">sync_digital_trigger_high_channel_button_group</string>
+                            </attribute>
+                           </widget>
+                          </item>
+                          <item row="2" column="3">
+                           <widget class="QRadioButton" name="sync_digital_trigger_high_constant_LED32_button">
+                            <property name="text">
+                             <string>LED #10</string>
+                            </property>
+                            <attribute name="buttonGroup">
+                             <string notr="true">sync_digital_trigger_high_channel_button_group</string>
+                            </attribute>
+                           </widget>
+                          </item>
+                          <item row="2" column="4">
+                           <widget class="QRadioButton" name="sync_digital_trigger_high_constant_LED33_button">
+                            <property name="text">
+                             <string>LED #11</string>
+                            </property>
+                            <attribute name="buttonGroup">
+                             <string notr="true">sync_digital_trigger_high_channel_button_group</string>
+                            </attribute>
+                           </widget>
+                          </item>
+                          <item row="2" column="5">
+                           <widget class="QRadioButton" name="sync_digital_trigger_high_constant_LED34_button">
+                            <property name="text">
+                             <string>LED #12</string>
+                            </property>
+                            <attribute name="buttonGroup">
+                             <string notr="true">sync_digital_trigger_high_channel_button_group</string>
+                            </attribute>
+                           </widget>
+                          </item>
+                          <item row="2" column="2">
+                           <widget class="QRadioButton" name="sync_digital_trigger_high_constant_LED31_button">
+                            <property name="text">
+                             <string>LED #9</string>
                             </property>
                             <attribute name="buttonGroup">
                              <string notr="true">sync_digital_trigger_high_channel_button_group</string>
@@ -1378,19 +1540,6 @@
                   </layout>
                  </widget>
                 </item>
-                <item row="3" column="0">
-                 <spacer name="sync_digital_spacer">
-                  <property name="orientation">
-                   <enum>Qt::Vertical</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>40</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
                </layout>
               </widget>
               <widget class="QWidget" name="sync_analog_page">
@@ -1398,95 +1547,243 @@
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>594</width>
-                 <height>827</height>
+                 <width>615</width>
+                 <height>494</height>
                 </rect>
                </property>
                <property name="toolTip">
                 <string>Control LED intensity remotely with an analog voltage</string>
                </property>
                <attribute name="label">
-                <string>Analog</string>
+                <string>External</string>
                </attribute>
-               <layout class="QGridLayout" name="gridLayout_25">
-                <item row="0" column="1">
-                 <widget class="QGroupBox" name="sync_analog_LED_box">
+               <layout class="QGridLayout" name="gridLayout_31" rowstretch="0,0,0,0,0">
+                <item row="3" column="0">
+                 <widget class="QGroupBox" name="sync_analog_board3_box">
                   <property name="toolTip">
-                   <string>Select the LED channel to be synced </string>
+                   <string>Select active LED channel on driver</string>
                   </property>
                   <property name="title">
-                   <string>LED Channel</string>
+                   <string>Board #3</string>
                   </property>
-                  <layout class="QGridLayout" name="gridLayout_51">
+                  <layout class="QGridLayout" name="gridLayout_25">
                    <item row="0" column="0">
-                    <widget class="QRadioButton" name="sync_analog_LED1_button">
-                     <property name="toolTip">
-                      <string>Sync LED #1 to the analog input</string>
-                     </property>
+                    <widget class="QRadioButton" name="sync_analog_LED31_button">
                      <property name="text">
-                      <string>LED #1</string>
+                      <string>LED #9</string>
                      </property>
                      <attribute name="buttonGroup">
-                      <string notr="true">sync_analog_led_channel_button_group</string>
+                      <string notr="true">sync_analog_board3_channel_button_group</string>
+                     </attribute>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QRadioButton" name="sync_analog_LED32_button">
+                     <property name="text">
+                      <string>LED #10</string>
+                     </property>
+                     <attribute name="buttonGroup">
+                      <string notr="true">sync_analog_board3_channel_button_group</string>
+                     </attribute>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QRadioButton" name="sync_analog_LED33_button">
+                     <property name="text">
+                      <string>LED #11</string>
+                     </property>
+                     <attribute name="buttonGroup">
+                      <string notr="true">sync_analog_board3_channel_button_group</string>
                      </attribute>
                     </widget>
                    </item>
                    <item row="0" column="3">
-                    <widget class="QRadioButton" name="sync_analog_LED4_button">
-                     <property name="toolTip">
-                      <string>Sync LED #4 to the analog input</string>
-                     </property>
+                    <widget class="QRadioButton" name="sync_analog_LED34_button">
                      <property name="text">
-                      <string>LED #4</string>
+                      <string>LED #12</string>
                      </property>
                      <attribute name="buttonGroup">
-                      <string notr="true">sync_analog_led_channel_button_group</string>
+                      <string notr="true">sync_analog_board3_channel_button_group</string>
                      </attribute>
                     </widget>
                    </item>
                    <item row="0" column="4">
-                    <widget class="QRadioButton" name="sync_analog_LED0_button">
-                     <property name="toolTip">
-                      <string>Sync current active LED to the analog input</string>
-                     </property>
+                    <widget class="QRadioButton" name="sync_analog_LED35_button">
                      <property name="text">
-                      <string>Current LED</string>
+                      <string>None</string>
                      </property>
                      <property name="checked">
                       <bool>true</bool>
                      </property>
                      <attribute name="buttonGroup">
-                      <string notr="true">sync_analog_led_channel_button_group</string>
+                      <string notr="true">sync_analog_board3_channel_button_group</string>
+                     </attribute>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="4" column="0">
+                 <spacer name="sync_analog_spacer">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QGroupBox" name="sync_analog_board2_box">
+                  <property name="title">
+                   <string>Board #2</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_33">
+                   <item row="0" column="0">
+                    <widget class="QRadioButton" name="sync_analog_LED21_button">
+                     <property name="text">
+                      <string>LED #5</string>
+                     </property>
+                     <attribute name="buttonGroup">
+                      <string notr="true">sync_analog_board2_channel_button_group</string>
                      </attribute>
                     </widget>
                    </item>
                    <item row="0" column="1">
-                    <widget class="QRadioButton" name="sync_analog_LED2_button">
+                    <widget class="QRadioButton" name="sync_analog_LED22_button">
+                     <property name="text">
+                      <string>LED #6</string>
+                     </property>
+                     <attribute name="buttonGroup">
+                      <string notr="true">sync_analog_board2_channel_button_group</string>
+                     </attribute>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QRadioButton" name="sync_analog_LED23_button">
+                     <property name="text">
+                      <string>LED #7</string>
+                     </property>
+                     <attribute name="buttonGroup">
+                      <string notr="true">sync_analog_board2_channel_button_group</string>
+                     </attribute>
+                    </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <widget class="QRadioButton" name="sync_analog_LED24_button">
+                     <property name="text">
+                      <string>LED #8</string>
+                     </property>
+                     <attribute name="buttonGroup">
+                      <string notr="true">sync_analog_board2_channel_button_group</string>
+                     </attribute>
+                    </widget>
+                   </item>
+                   <item row="0" column="4">
+                    <widget class="QRadioButton" name="sync_analog_LED25_button">
+                     <property name="text">
+                      <string>None</string>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
+                     <attribute name="buttonGroup">
+                      <string notr="true">sync_analog_board2_channel_button_group</string>
+                     </attribute>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QGroupBox" name="sync_analog_board1_box">
+                  <property name="title">
+                   <string>Board #1</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_32">
+                   <item row="0" column="0">
+                    <widget class="QRadioButton" name="sync_analog_LED11_button">
                      <property name="toolTip">
-                      <string>Sync LED #2 to the analog input</string>
+                      <string>Set LED #1 as the active LED</string>
+                     </property>
+                     <property name="text">
+                      <string>LED #1</string>
+                     </property>
+                     <property name="checked">
+                      <bool>false</bool>
+                     </property>
+                     <attribute name="buttonGroup">
+                      <string notr="true">sync_analog_board1_channel_button_group</string>
+                     </attribute>
+                    </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <widget class="QRadioButton" name="sync_analog_LED14_button">
+                     <property name="toolTip">
+                      <string>Set LED #4 as the active LED</string>
+                     </property>
+                     <property name="text">
+                      <string>LED #4</string>
+                     </property>
+                     <attribute name="buttonGroup">
+                      <string notr="true">sync_analog_board1_channel_button_group</string>
+                     </attribute>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QRadioButton" name="sync_analog_LED12_button">
+                     <property name="toolTip">
+                      <string>Set LED #2 as the active LED</string>
                      </property>
                      <property name="text">
                       <string>LED #2</string>
                      </property>
                      <attribute name="buttonGroup">
-                      <string notr="true">sync_analog_led_channel_button_group</string>
+                      <string notr="true">sync_analog_board1_channel_button_group</string>
                      </attribute>
                     </widget>
                    </item>
                    <item row="0" column="2">
-                    <widget class="QRadioButton" name="sync_analog_LED3_button">
+                    <widget class="QRadioButton" name="sync_analog_LED13_button">
                      <property name="toolTip">
-                      <string>Sync LED #3 to the analog input</string>
+                      <string>Set LED #3 as the active LED</string>
                      </property>
                      <property name="text">
                       <string>LED #3</string>
                      </property>
                      <attribute name="buttonGroup">
-                      <string notr="true">sync_analog_led_channel_button_group</string>
+                      <string notr="true">sync_analog_board1_channel_button_group</string>
+                     </attribute>
+                    </widget>
+                   </item>
+                   <item row="0" column="4">
+                    <widget class="QRadioButton" name="sync_analog_LED15_button">
+                     <property name="text">
+                      <string>None</string>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
+                     <attribute name="buttonGroup">
+                      <string notr="true">sync_analog_board1_channel_button_group</string>
                      </attribute>
                     </widget>
                    </item>
                   </layout>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_2">
+                  <property name="text">
+                   <string>This mode allows the LEDs to be controlled using the three external LED channels on the driver board.  This is achieved by setting the internal LED controller circuit into a high impednace state.
+CAUTION: Ensure that the external signal does not exceed 0 V minimum, 3.3 V maximum.</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
                  </widget>
                 </item>
                </layout>
@@ -1495,9 +1792,9 @@
                <property name="geometry">
                 <rect>
                  <x>0</x>
-                 <y>-217</y>
-                 <width>577</width>
-                 <height>1044</height>
+                 <y>0</y>
+                 <width>601</width>
+                 <height>1156</height>
                 </rect>
                </property>
                <property name="toolTip">
@@ -2887,8 +3184,8 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>594</width>
-                 <height>827</height>
+                 <width>287</width>
+                 <height>35</height>
                 </rect>
                </property>
                <property name="toolTip">
@@ -2915,8 +3212,8 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>594</width>
-                 <height>827</height>
+                 <width>258</width>
+                 <height>35</height>
                 </rect>
                </property>
                <property name="toolTip">
@@ -2976,9 +3273,9 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-11</y>
-             <width>436</width>
-             <height>1011</height>
+             <y>-455</y>
+             <width>619</width>
+             <height>1122</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_16">
@@ -3282,7 +3579,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                  </property>
                  <layout class="QGridLayout" name="gridLayout_20">
                   <item row="0" column="3">
-                   <widget class="QLineEdit" name="configure_name_LED2_line_edit_3">
+                   <widget class="QLineEdit" name="configure_name_LED32_line_edit">
                     <property name="toolTip">
                      <string>Enter a unique name for LED channel #2 (optional)</string>
                     </property>
@@ -3295,7 +3592,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="1" column="2">
-                   <widget class="QCheckBox" name="configure_name_LED4_box_3">
+                   <widget class="QCheckBox" name="configure_name_LED34_box">
                     <property name="toolTip">
                      <string>Check this box to activate LED channel #4</string>
                     </property>
@@ -3308,7 +3605,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="0" column="0">
-                   <widget class="QCheckBox" name="configure_name_LED1_box_3">
+                   <widget class="QCheckBox" name="configure_name_LED31_box">
                     <property name="enabled">
                      <bool>true</bool>
                     </property>
@@ -3327,7 +3624,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="1" column="0">
-                   <widget class="QCheckBox" name="configure_name_LED3_box_3">
+                   <widget class="QCheckBox" name="configure_name_LED33_box">
                     <property name="toolTip">
                      <string>Check this box to activate LED channel #3</string>
                     </property>
@@ -3340,7 +3637,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="0" column="2">
-                   <widget class="QCheckBox" name="configure_name_LED2_box_3">
+                   <widget class="QCheckBox" name="configure_name_LED32_box">
                     <property name="toolTip">
                      <string>Check this box to activate LED channel #2</string>
                     </property>
@@ -3353,7 +3650,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="1" column="3">
-                   <widget class="QLineEdit" name="configure_name_LED4_line_edit_3">
+                   <widget class="QLineEdit" name="configure_name_LED34_line_edit">
                     <property name="toolTip">
                      <string>Enter a unique name for LED channel #4 (optional)</string>
                     </property>
@@ -3366,7 +3663,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="0" column="1">
-                   <widget class="QLineEdit" name="configure_name_LED1_line_edit_3">
+                   <widget class="QLineEdit" name="configure_name_LED31_line_edit">
                     <property name="toolTip">
                      <string>Enter a unique name for LED channel #1 (optional)</string>
                     </property>
@@ -3379,7 +3676,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="1" column="1">
-                   <widget class="QLineEdit" name="configure_name_LED3_line_edit_3">
+                   <widget class="QLineEdit" name="configure_name_LED33_line_edit">
                     <property name="toolTip">
                      <string>Enter a unique name for LED channel #3 (optional)</string>
                     </property>
@@ -3440,7 +3737,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    <number>9</number>
                   </property>
                   <item row="0" column="0">
-                   <widget class="QCheckBox" name="configure_name_LED11_box_4">
+                   <widget class="QCheckBox" name="configure_name_LED11_box">
                     <property name="enabled">
                      <bool>true</bool>
                     </property>
@@ -3459,7 +3756,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="0" column="1">
-                   <widget class="QLineEdit" name="configure_name_LED11_line_edit_4">
+                   <widget class="QLineEdit" name="configure_name_LED11_line_edit">
                     <property name="toolTip">
                      <string>Enter a unique name for LED channel #1 (optional)</string>
                     </property>
@@ -3472,7 +3769,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="0" column="2">
-                   <widget class="QCheckBox" name="configure_name_LED12_box_4">
+                   <widget class="QCheckBox" name="configure_name_LED12_box">
                     <property name="toolTip">
                      <string>Check this box to activate LED channel #2</string>
                     </property>
@@ -3485,7 +3782,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="0" column="3">
-                   <widget class="QLineEdit" name="configure_name_LED12_line_edit_4">
+                   <widget class="QLineEdit" name="configure_name_LED12_line_edit">
                     <property name="toolTip">
                      <string>Enter a unique name for LED channel #2 (optional)</string>
                     </property>
@@ -3498,7 +3795,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="1" column="0">
-                   <widget class="QCheckBox" name="configure_name_LED13_box_4">
+                   <widget class="QCheckBox" name="configure_name_LED13_box">
                     <property name="toolTip">
                      <string>Check this box to activate LED channel #3</string>
                     </property>
@@ -3511,7 +3808,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="1" column="1">
-                   <widget class="QLineEdit" name="configure_name_LED13_line_edit_4">
+                   <widget class="QLineEdit" name="configure_name_LED13_line_edit">
                     <property name="toolTip">
                      <string>Enter a unique name for LED channel #3 (optional)</string>
                     </property>
@@ -3524,7 +3821,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="1" column="2">
-                   <widget class="QCheckBox" name="configure_name_LED14_box_4">
+                   <widget class="QCheckBox" name="configure_name_LED14_box">
                     <property name="toolTip">
                      <string>Check this box to activate LED channel #4</string>
                     </property>
@@ -3537,7 +3834,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="1" column="3">
-                   <widget class="QLineEdit" name="configure_name_LED14_line_edit_4">
+                   <widget class="QLineEdit" name="configure_name_LED14_line_edit">
                     <property name="toolTip">
                      <string>Enter a unique name for LED channel #4 (optional)</string>
                     </property>
@@ -3568,7 +3865,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    <number>9</number>
                   </property>
                   <item row="0" column="1">
-                   <widget class="QLineEdit" name="configure_name_LED1_line_edit">
+                   <widget class="QLineEdit" name="configure_name_LED21_line_edit">
                     <property name="toolTip">
                      <string>Enter a unique name for LED channel #1 (optional)</string>
                     </property>
@@ -3581,7 +3878,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="0" column="3">
-                   <widget class="QLineEdit" name="configure_name_LED2_line_edit">
+                   <widget class="QLineEdit" name="configure_name_LED22_line_edit">
                     <property name="toolTip">
                      <string>Enter a unique name for LED channel #2 (optional)</string>
                     </property>
@@ -3594,7 +3891,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="0" column="2">
-                   <widget class="QCheckBox" name="configure_name_LED2_box">
+                   <widget class="QCheckBox" name="configure_name_LED22_box">
                     <property name="toolTip">
                      <string>Check this box to activate LED channel #2</string>
                     </property>
@@ -3607,7 +3904,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="0" column="0">
-                   <widget class="QCheckBox" name="configure_name_LED1_box">
+                   <widget class="QCheckBox" name="configure_name_LED21_box">
                     <property name="enabled">
                      <bool>true</bool>
                     </property>
@@ -3626,7 +3923,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="1" column="0">
-                   <widget class="QCheckBox" name="configure_name_LED3_box">
+                   <widget class="QCheckBox" name="configure_name_LED23_box">
                     <property name="toolTip">
                      <string>Check this box to activate LED channel #3</string>
                     </property>
@@ -3639,7 +3936,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="1" column="2">
-                   <widget class="QCheckBox" name="configure_name_LED4_box">
+                   <widget class="QCheckBox" name="configure_name_LED24_box">
                     <property name="toolTip">
                      <string>Check this box to activate LED channel #4</string>
                     </property>
@@ -3652,7 +3949,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="1" column="1">
-                   <widget class="QLineEdit" name="configure_name_LED3_line_edit">
+                   <widget class="QLineEdit" name="configure_name_LED23_line_edit">
                     <property name="toolTip">
                      <string>Enter a unique name for LED channel #3 (optional)</string>
                     </property>
@@ -3665,7 +3962,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="1" column="3">
-                   <widget class="QLineEdit" name="configure_name_LED4_line_edit">
+                   <widget class="QLineEdit" name="configure_name_LED24_line_edit">
                     <property name="toolTip">
                      <string>Enter a unique name for LED channel #4 (optional)</string>
                     </property>
@@ -3818,20 +4115,20 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                 </widget>
                </item>
                <item row="0" column="0" colspan="2">
-                <widget class="QGroupBox" name="configure_current_limit_board1_box_2">
+                <widget class="QGroupBox" name="configure_current_limit_board1_box">
                  <property name="title">
                   <string>Board #1</string>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_17" columnstretch="0,9,0,9">
                   <item row="0" column="0">
-                   <widget class="QLabel" name="configure_current_limit_LED11_label_2">
+                   <widget class="QLabel" name="configure_current_limit_LED11_label">
                     <property name="text">
                      <string>LED #1</string>
                     </property>
                    </widget>
                   </item>
                   <item row="0" column="1">
-                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED11_spin_box_2">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED11_spin_box">
                     <property name="toolTip">
                      <string>Set the current limit (in amps) for LED channel #1</string>
                     </property>
@@ -3853,14 +4150,14 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="0" column="2">
-                   <widget class="QLabel" name="configure_current_limit_LED13_label_2">
+                   <widget class="QLabel" name="configure_current_limit_LED13_label">
                     <property name="text">
                      <string>LED #3</string>
                     </property>
                    </widget>
                   </item>
                   <item row="0" column="3">
-                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED13_spin_box_2">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED13_spin_box">
                     <property name="toolTip">
                      <string>Set the current limit (in amps) for LED channel #3</string>
                     </property>
@@ -3882,14 +4179,14 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="1" column="0">
-                   <widget class="QLabel" name="configure_current_limit_LED12_label_2">
+                   <widget class="QLabel" name="configure_current_limit_LED12_label">
                     <property name="text">
                      <string>LED #2</string>
                     </property>
                    </widget>
                   </item>
                   <item row="1" column="1">
-                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED12_spin_box_2">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED12_spin_box">
                     <property name="toolTip">
                      <string>Set the current limit (in amps) for LED channel #2</string>
                     </property>
@@ -3911,14 +4208,14 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="1" column="2">
-                   <widget class="QLabel" name="configure_current_limit_LED14_label_2">
+                   <widget class="QLabel" name="configure_current_limit_LED14_label">
                     <property name="text">
                      <string>LED #4</string>
                     </property>
                    </widget>
                   </item>
                   <item row="1" column="3">
-                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED14_spin_box_2">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED14_spin_box">
                     <property name="toolTip">
                      <string>Set the current limit (in amps) for LED channel #4</string>
                     </property>
@@ -3943,20 +4240,20 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                 </widget>
                </item>
                <item row="1" column="0" colspan="2">
-                <widget class="QGroupBox" name="configure_current_limit_board2_box_3">
+                <widget class="QGroupBox" name="configure_current_limit_board2_box">
                  <property name="title">
                   <string>Board #2</string>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_56" columnstretch="0,9,0,9">
                   <item row="0" column="0">
-                   <widget class="QLabel" name="configure_current_limit_LED21_label_3">
+                   <widget class="QLabel" name="configure_current_limit_LED21_label">
                     <property name="text">
                      <string>LED #5</string>
                     </property>
                    </widget>
                   </item>
                   <item row="0" column="1">
-                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED21_spin_box_3">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED21_spin_box">
                     <property name="toolTip">
                      <string>Set the current limit (in amps) for LED channel #1</string>
                     </property>
@@ -3978,14 +4275,14 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="0" column="2">
-                   <widget class="QLabel" name="configure_current_limit_LED23_label_3">
+                   <widget class="QLabel" name="configure_current_limit_LED23_label">
                     <property name="text">
                      <string>LED #6</string>
                     </property>
                    </widget>
                   </item>
                   <item row="0" column="3">
-                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED23_spin_box_3">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED23_spin_box">
                     <property name="toolTip">
                      <string>Set the current limit (in amps) for LED channel #3</string>
                     </property>
@@ -4007,14 +4304,14 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="1" column="0">
-                   <widget class="QLabel" name="configure_current_limit_LED22_label_3">
+                   <widget class="QLabel" name="configure_current_limit_LED22_label">
                     <property name="text">
                      <string>LED #7</string>
                     </property>
                    </widget>
                   </item>
                   <item row="1" column="1">
-                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED22_spin_box_3">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED22_spin_box">
                     <property name="toolTip">
                      <string>Set the current limit (in amps) for LED channel #2</string>
                     </property>
@@ -4036,14 +4333,14 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="1" column="2">
-                   <widget class="QLabel" name="configure_current_limit_LED24_label_3">
+                   <widget class="QLabel" name="configure_current_limit_LED24_label">
                     <property name="text">
                      <string>LED #8</string>
                     </property>
                    </widget>
                   </item>
                   <item row="1" column="3">
-                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED24_spin_box_3">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED24_spin_box">
                     <property name="toolTip">
                      <string>Set the current limit (in amps) for LED channel #4</string>
                     </property>
@@ -4080,7 +4377,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
               </property>
               <layout class="QGridLayout" name="gridLayout_12" columnstretch="0,1,0,1">
                <item row="0" column="2">
-                <widget class="QLabel" name="configure_temperature_resistor_warn_label">
+                <widget class="QLabel" name="configure_temperature_fault_label">
                  <property name="toolTip">
                   <string>This is the temperature the resistor(s) must cool back down to before the driver turns back on after a thermal fault.</string>
                  </property>
@@ -4090,7 +4387,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                 </widget>
                </item>
                <item row="0" column="1">
-                <widget class="QSpinBox" name="configure_temperature_transistor_warn_box">
+                <widget class="QSpinBox" name="configure_temperature_warn_box">
                  <property name="toolTip">
                   <string>This is the temperature the transistor must cool back down to before the driver turns back on after a thermal fault.</string>
                  </property>
@@ -4109,7 +4406,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                 </widget>
                </item>
                <item row="0" column="3">
-                <widget class="QSpinBox" name="configure_temperature_resistor_warn_box">
+                <widget class="QSpinBox" name="configure_temperature_fault_box">
                  <property name="toolTip">
                   <string>This is the temperature the resistor(s) must cool back down to before the driver turns back on after a thermal fault.</string>
                  </property>
@@ -4128,7 +4425,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                 </widget>
                </item>
                <item row="0" column="0">
-                <widget class="QLabel" name="configure_temperature_transistor_warn_label">
+                <widget class="QLabel" name="configure_temperature_warn_label">
                  <property name="toolTip">
                   <string>This is the temperature the transistor must cool back down to before the driver turns back on after a thermal fault.</string>
                  </property>
@@ -4138,7 +4435,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                 </widget>
                </item>
                <item row="1" column="0">
-                <widget class="QLabel" name="configure_fan_driver_min_label">
+                <widget class="QLabel" name="configure_fan_min_label">
                  <property name="toolTip">
                   <string>Internal fan will turn off below this temperature.</string>
                  </property>
@@ -4148,7 +4445,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                 </widget>
                </item>
                <item row="1" column="1">
-                <widget class="QSpinBox" name="configure_fan_driver_min_box">
+                <widget class="QSpinBox" name="configure_fan_min_box">
                  <property name="toolTip">
                   <string>Internal fan will turn off below this temperature.</string>
                  </property>
@@ -4170,7 +4467,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                 </widget>
                </item>
                <item row="1" column="2">
-                <widget class="QLabel" name="configure_fan_driver_max_label">
+                <widget class="QLabel" name="configure_fan_max_label">
                  <property name="toolTip">
                   <string>Internal fan speed will linearly increase with temperature, reaching full speed at this temperature.</string>
                  </property>
@@ -4186,7 +4483,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                 </widget>
                </item>
                <item row="1" column="3">
-                <widget class="QSpinBox" name="configure_fan_driver_max_box">
+                <widget class="QSpinBox" name="configure_fan_max_box">
                  <property name="toolTip">
                   <string>Internal fan speed will linearly increase with temperature, reaching full speed at this temperature.</string>
                  </property>
@@ -4290,8 +4587,8 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>469</width>
-     <height>21</height>
+     <width>675</width>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_connection">
@@ -4494,28 +4791,23 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
   </property>
  </designerdata>
  <buttongroups>
-  <buttongroup name="sync_confocal_scan_mode_button_group"/>
-  <buttongroup name="configure_ch_merge_3_button_group"/>
-  <buttongroup name="main_intensity_button_group"/>
-  <buttongroup name="main_toggle_control_group"/>
-  <buttongroup name="sync_confocal_line_analog_polarity_button_group"/>
   <buttongroup name="configure_indication_group"/>
-  <buttongroup name="sync_confocal_shutter_polarity_button_group"/>
-  <buttongroup name="configure_ch_merge_1_button_group"/>
-  <buttongroup name="sync_digital_trigger_button_group"/>
-  <buttongroup name="sync_digital_trigger_low_channel_button_group"/>
-  <buttongroup name="sync_output_button_group"/>
-  <buttongroup name="sync_confocal_line_input_button_group"/>
-  <buttongroup name="sync_confocal_flyback_LED_channel_button_group"/>
-  <buttongroup name="sync_analog_input_channel_button_group"/>
-  <buttongroup name="sync_confocal_line_digital_polarity_button_group"/>
-  <buttongroup name="configure_ch_merge_4_button_group"/>
-  <buttongroup name="sync_digital_trigger_high_channel_button_group"/>
-  <buttongroup name="configure_pushbutton_LED_button_group"/>
-  <buttongroup name="configure_ch_merge_2_button_group"/>
+  <buttongroup name="main_intensity_button_group"/>
   <buttongroup name="sync_confocal_image_LED_channel_button_group"/>
-  <buttongroup name="sync_analog_led_channel_button_group"/>
-  <buttongroup name="configure_ext_fan_button_group"/>
+  <buttongroup name="sync_confocal_flyback_LED_channel_button_group"/>
+  <buttongroup name="sync_confocal_line_analog_polarity_button_group"/>
+  <buttongroup name="sync_confocal_line_digital_polarity_button_group"/>
+  <buttongroup name="sync_confocal_shutter_polarity_button_group"/>
+  <buttongroup name="sync_confocal_line_input_button_group"/>
+  <buttongroup name="main_toggle_control_group"/>
+  <buttongroup name="configure_pushbutton_LED_button_group"/>
+  <buttongroup name="sync_digital_trigger_button_group"/>
+  <buttongroup name="sync_confocal_scan_mode_button_group"/>
   <buttongroup name="main_channel_button_group"/>
+  <buttongroup name="sync_digital_trigger_low_channel_button_group"/>
+  <buttongroup name="sync_digital_trigger_high_channel_button_group"/>
+  <buttongroup name="sync_analog_board1_channel_button_group"/>
+  <buttongroup name="sync_analog_board2_channel_button_group"/>
+  <buttongroup name="sync_analog_board3_channel_button_group"/>
  </buttongroups>
 </ui>

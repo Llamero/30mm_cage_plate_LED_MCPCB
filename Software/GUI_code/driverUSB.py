@@ -13,7 +13,6 @@ import guiMapper
 import tempfile
 import sys
 from timeit import default_timer as timer
-import calibrationPlot
 import traceback
 import pyautogui
 
@@ -308,7 +307,6 @@ class usbSerial(QtWidgets.QWidget): #Implementation based on: https://stackoverf
                              self.prefix_dict["uploadStream"]: self.uploadStream,
                              self.prefix_dict["downloadStream"]: self.downloadStream,
                              self.prefix_dict["updateStatus"]: self.updateStatus,
-                             self.prefix_dict["driverCalibration"]: self.driverCalibration,
                              self.prefix_dict["disconnectSerial"]: self.disconnectSerial,
                              self.prefix_dict["measurePeriod"]: self.measurePeriod,
                              self.prefix_dict["testCurrent"]: self.testCurrent,
@@ -523,29 +521,6 @@ class usbSerial(QtWidgets.QWidget): #Implementation based on: https://stackoverf
                 status_list[5] = widgetIndex(self.gui.main_model["Control"])
                 status_list = struct.pack("<BHHB??HHHHH", *status_list)
                 self.sendWithoutReply(status_list, True, 0)
-
-    def driverCalibration(self, reply=None):
-        if reply:
-            current_limit = 0
-            adc_current_limit = 1
-            packet_format = "<%dH" % (len(reply) / 2)
-            for index, widget in enumerate(self.gui.main_model["Channel"]):  # Find active LED channel
-                if widget.isChecked():
-                    adc_current_limit = float(self.gui.config_model["LED" + str(index + 1)]["Current Limit"].whatsThis())
-                    current_limit = self.gui.getValue(self.gui.config_model["LED" + str(index + 1)]["Current Limit"])
-            reply = list(struct.unpack(packet_format, reply))
-            data = [(x/adc_current_limit)*current_limit for x in reply]
-            calibrationPlot.updatePlot(self.gui, data)
-
-        else:
-            if self.portConnected():
-                current_limit = 0
-                percent_current = self.gui.getValue(self.gui.calibration_current_box)
-                for index, widget in enumerate(self.gui.main_model["Channel"]): #Find active LED channel
-                    if widget.isChecked():
-                        current_limit = int(self.gui.config_model["LED" + str(index+1)]["Current Limit"].whatsThis())
-                message = struct.pack("<H", round(percent_current * current_limit / 100))
-                self.sendWithoutReply(message, True, 10) #Send request for calibration packet
 
     def measurePeriod(self, reply=None):
         if reply:

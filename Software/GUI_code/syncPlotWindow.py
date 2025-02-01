@@ -12,7 +12,6 @@ import pyqtgraph as pg
 import guiMapper
 import guiSequence as seq
 import guiConfigIO as fileIO
-import calibrationPlot as plot
 import driverUSB
 import time
 import copy
