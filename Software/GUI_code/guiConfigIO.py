@@ -138,7 +138,6 @@ def bytesToConfig(byte_array, gui, prefix):
             gui.setValue(gui.config_model["Resistor" + str(resistor)]["Value"], resistance)
             gui.setValue(gui.config_model["Resistor" + str(resistor)]["Active"], active)
         total_resistance = 1 / total_resistance
-        checkCurrentLimits(gui) #Set new current limits in GUI
 
         for led_number in range(1, 5):
             current_limit = config_values[led_number + 3]

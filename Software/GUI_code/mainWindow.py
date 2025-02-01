@@ -299,17 +299,19 @@ class Ui(QtWidgets.QMainWindow):
         self.status_dict["Name"] = name
 
 
-    def toggleLedActive(self, led_number):
+    def toggleLedActive(self):
+        widget = self.sender() #Get id of widget that called the function
+        led_number = int(''.join(filter(str.isdigit, widget.objectName()))) #Get led number from widget's object name - https://stackoverflow.com/questions/4289331/how-to-extract-numbers-from-a-string-in-python
+        board_number = math.floor(led_number/10)
+        led_index = led_number%10 - 1
         led_state = self.getValue(self.config_model["LED" + str(led_number)]["Active"])
         widget_list = [self.config_model["LED" + str(led_number)]["ID"], self.config_model["LED" + str(led_number)]["Current Limit"]]
-        for channel in range(1,5):
-            widget_list.append(eval("self.configure_LED_merge_channel" + str(channel) + "_button" + str(led_number) + ""))
-        widget_list.append(self.sync_model["Digital"]["High"]["LED"][led_number])
-        widget_list.append(self.sync_model["Digital"]["Low"]["LED"][led_number])
-        widget_list.append(self.sync_model["Analog"]["LED"][led_number])
-        widget_list.append(self.sync_model["Confocal"]["Standby"]["LED"][led_number])
-        widget_list.append(self.sync_model["Confocal"]["Scanning"]["LED"][led_number])
-        widget_list.append(self.main_model["Channel"][led_number-1])
+        widget_list.append(self.sync_model["Digital"]["High"]["LED"]["Board" + str(board_number)][led_index])
+        widget_list.append(self.sync_model["Digital"]["Low"]["LED"]["Board" + str(board_number)][led_index])
+        widget_list.append(self.sync_model["Analog"]["Board" + str(board_number)][led_index])
+        widget_list.append(self.sync_model["Confocal"]["Standby"]["LED"]["Board" + str(board_number)][led_index])
+        widget_list.append(self.sync_model["Confocal"]["Scanning"]["LED"]["Board" + str(board_number)][led_index])
+        widget_list.append(self.main_model["Channel"]["Board" + str(board_number)][led_index])
         for widget in widget_list:
             widget.setEnabled(led_state)
 
@@ -318,17 +320,19 @@ class Ui(QtWidgets.QMainWindow):
             self.config_model["Resistor" + str(resistor_number)]["Value"].setEnabled(resistor_state)
             fileIO.checkCurrentLimits(self)
 
-    def changeLedName(self, led_number, widget):
+    def changeLedName(self):
+        widget = self.sender() #Get id of widget that called the function
+        led_number = int(''.join(filter(str.isdigit, widget.objectName()))) #Get led number from widget's object name - https://stackoverflow.com/questions/4289331/how-to-extract-numbers-from-a-string-in-python
+        board_number = math.floor(led_number/10)
+        led_index = led_number%10 - 1
         name = self.getValue(widget)
-        widget_list = [self.main_model["Channel"][led_number-1],
-                       self.sync_model["Digital"]["Low"]["LED"][led_number],
-                       self.sync_model["Digital"]["High"]["LED"][led_number],
-                       self.sync_model["Analog"]["LED"][led_number],
-                       self.sync_model["Confocal"]["Standby"]["LED"][led_number],
-                       self.sync_model["Confocal"]["Scanning"]["LED"][led_number],
+        widget_list = [self.main_model["Channel"]["Board" + str(board_number)][led_index],
+                       self.sync_model["Digital"]["Low"]["LED"]["Board" + str(board_number)][led_index],
+                       self.sync_model["Digital"]["High"]["LED"]["Board" + str(board_number)][led_index],
+                       self.sync_model["Analog"]["Board" + str(board_number)][led_index],
+                       self.sync_model["Confocal"]["Standby"]["LED"]["Board" + str(board_number)][led_index],
+                       self.sync_model["Confocal"]["Scanning"]["LED"]["Board" + str(board_number)][led_index],
                        eval("self.configure_current_limit_LED" + str(led_number) + "_label")]
-        for channel in range(1,5):
-            widget_list.append(self.config_model["Channel" + str(channel)][led_number-1])
 
         for widget in widget_list:
             widget.setText(str(name))

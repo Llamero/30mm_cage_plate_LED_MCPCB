@@ -59,6 +59,7 @@ def initializeSyncModel(gui):
             sync_model["Digital"][trigger]["Sequence"] = ""
 
     def initializeAnalog():
+        nonlocal gui
         sync_model["Analog"] = OrderedDict()
         for board_number in range(1, gui.nBoards() + 1):
             sync_model["Analog"]["Board" + str(board_number)] = []
@@ -84,9 +85,11 @@ def initializeSyncModel(gui):
         for event in ["Standby", "Scanning"]:
             sync_model["Confocal"][event] = OrderedDict()
             sync_model["Confocal"][event]["Mode"] = eval("gui.sync_confocal_" + event.lower() + "_tab")
-            sync_model["Confocal"][event]["LED"] = []
-            for led_number in range(5):
-                sync_model["Confocal"][event]["LED"].append(eval("gui.sync_confocal_" + event.lower() + "_constant_LED" + str(led_number) + "_button"))
+            sync_model["Confocal"][event]["LED"] = OrderedDict()
+            for board_number in range(1, gui.nBoards() + 1):
+                sync_model["Confocal"][event]["LED"]["Board" + str(board_number)] = []
+                for led_number in range(1, gui.nLeds() + 1):
+                    sync_model["Confocal"][event]["LED"]["Board" + str(board_number)].append(eval("gui.sync_confocal_" + event.lower() + "_constant_LED" + str(board_number) + str(led_number) + "_button"))
             sync_model["Confocal"][event]["PWM"] = eval("gui.sync_confocal_" + event.lower() + "_constant_config_PWM_box")
             sync_model["Confocal"][event]["Current"] = eval("gui.sync_confocal_" + event.lower() + "_constant_config_current_box")
             sync_model["Confocal"][event]["Duration"] = eval("gui.sync_confocal_" + event.lower() + "_constant_config_duration_box")
@@ -165,7 +168,8 @@ def initializeEvents(gui):
         #Update configure plot current limits when active LED is changed
         for board_number in range(1, gui.nBoards() + 1):
             for led_number in range(1, gui.nLeds() + 1):
-                eval("gui.main_channel_LED" + str(board_number) + str(led_number) + "_button.clicked.connect(lambda: gui.ser.updateStatus())")
+                event = eval("gui.main_channel_LED" + str(board_number) + str(led_number) + "_button.clicked")
+                event.connect(lambda: gui.ser.updateStatus())
 
         #Update status if mode or control change
         gui.main_intensity_PWM_button.clicked.connect(lambda: gui.ser.updateStatus())
@@ -180,6 +184,7 @@ def initializeEvents(gui):
     def configureEvents():
         nonlocal gui
         def driverNameEvents():
+            nonlocal gui
             gui.config_model["Driver name"].textChanged.connect(lambda: gui.changeDriverName(gui.configure_name_driver_line_edit))
 
         def ledCheckBoxEvents():
@@ -187,16 +192,17 @@ def initializeEvents(gui):
             # Changes to LED check boxes - toggle whether LED is active
             for board_number in range(1, gui.nBoards() + 1):
                 for led_number in range(1, gui.nLeds() + 1):
-                    eval("gui.config_model[\"LED" + str(board_number) + str(led_number) + "\"][\"Active\"].stateChanged.connect(lambda: gui.toggleLedActive(" + str(board_number) + str(led_number) + "))")
+                    gui.config_model["LED" + str(board_number) + str(led_number)]["Active"].stateChanged.connect(lambda: gui.toggleLedActive())
 
         def ledNameEvents():
             nonlocal gui
             # Changes to LED names - updates GUI LED references with new name
             for board_number in range(1, gui.nBoards() + 1):
                 for led_number in range(1, gui.nLeds() + 1):
-                    eval("gui.config_model[\"LED" + str(board_number) + str(led_number) + "\"][\"ID\"].textChanged.connect(lambda: gui.changeLedName(" + str(board_number) + str(led_number) + ", gui.config_model[\"LED" + str(board_number) + str(led_number) + "\"][\"ID\"]))")
+                    gui.config_model["LED" + str(board_number) + str(led_number)]["ID"].textChanged.connect(lambda: gui.changeLedName())
 
         def temperatureValueEvents():
+            nonlocal gui
             gui.config_model["Temperature"]["Warn"].valueChanged.connect(lambda: fileIO.checkTemperatures(gui, ["Temperature", "Warn"]))
             gui.config_model["Temperature"]["Fault"].valueChanged.connect(lambda: fileIO.checkTemperatures(gui, ["Temperature", "Fault"]))
 
