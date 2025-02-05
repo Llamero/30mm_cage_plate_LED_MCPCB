@@ -315,11 +315,6 @@ class Ui(QtWidgets.QMainWindow):
         for widget in widget_list:
             widget.setEnabled(led_state)
 
-    def toggleResistorActive(self, resistor_number):
-            resistor_state = self.getValue(self.config_model["Resistor" + str(resistor_number)]["Active"])
-            self.config_model["Resistor" + str(resistor_number)]["Value"].setEnabled(resistor_state)
-            fileIO.checkCurrentLimits(self)
-
     def changeLedName(self):
         widget = self.sender() #Get id of widget that called the function
         led_number = int(''.join(filter(str.isdigit, widget.objectName()))) #Get led number from widget's object name - https://stackoverflow.com/questions/4289331/how-to-extract-numbers-from-a-string-in-python

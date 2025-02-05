@@ -62,11 +62,7 @@ struct syncStruct{ //158 bytes
   uint16_t digital_current[2]; //The DAC value in the LOW and HIGH trigger states respectively
   uint32_t digital_duration[2]; //The maximum number of milliseconds to hold LED state
 
-  uint8_t analog_channel; //The input channel for the sync signal
-  uint8_t analog_led; //The active LED channel
-  uint8_t analog_mode; //The analog sync mode
-  uint16_t analog_pwm; //ADC averages per PWM update
-  uint16_t analog_current; //ADC averages per DAC update
+  uint8_t analog_led[3]; //The active LED channel for each board
   
   boolean shutter_polarity; //Shutter polarity when scan is active
   uint8_t confocal_channel; //The input channel for the line sync signal
@@ -97,11 +93,7 @@ const struct defaultSyncStruct{ //158 bytes
   uint16_t digital_current[2] = {0,0}; //The DAC value in the LOW and HIGH trigger states respectively
   uint32_t digital_duration[2] = {0,0}; //The maximum number of milliseconds to hold LED state
   
-  uint8_t analog_channel = 0; //The input channel for the sync signal
-  uint8_t analog_led = 0; //The active LED channel
-  uint8_t analog_mode = 0; //The analog sync mode
-  uint16_t analog_pwm = 1; //ADC averages per PWM update
-  uint16_t analog_current = 1; //ADC averages per DAC update
+  uint8_t analog_led[3] = {0, 0, 0}; //The active LED channel for each board
 
   boolean shutter_polarity = true; //Shutter polarity when scan is active
   uint8_t confocal_channel = 0; //The input channel for the line sync signal

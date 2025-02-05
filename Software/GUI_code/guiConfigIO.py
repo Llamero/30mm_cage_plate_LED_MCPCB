@@ -83,16 +83,6 @@ def loadConfiguration(gui, model, file=None):
                     showMessage(gui, "Error: \"" + key +"\" is not a valid value in \"" + line + "\". Load aborted at this step.")
                     return
 
-    #Check if external fan and sync out are on the same channel and disable used channels
-    for channel in range(1,4):
-        if gui.getValue(gui.config_model["Fan"]["Channel"][channel]) and gui.getValue(gui.sync_model["Output"][channel]):
-            showMessage(gui, "Warning: The external fan output and sync output are both using output #" + str(channel) + ". Change one of these channels for the driver to function properly.")
-        else:
-            if gui.getValue(gui.config_model["Fan"]["Channel"][channel]):
-                gui.disableUsedOutputs(channel, "config")
-            else:
-                gui.disableUsedOutputs(channel, "sync")
-
 def checkTemperatures(gui, key_list):
     if key_list[0] == "Temperature":
         labels = ["Warn", "Fault"]
@@ -112,72 +102,71 @@ def bytesToConfig(byte_array, gui, prefix):
 
     #Verify checksum of config file
     checksum = (sum(byte_array) + prefix) & 0xFF #https://stackoverflow.com/questions/44611057/checksum-generation-from-sum-of-bits-in-python
-    print(checksum)
     if checksum == 0:
+        #Get driver name - ends with NULL
         while int(byte_array[index]) != 0:
             index += 1
         gui.setValue(gui.config_model["Driver name"], byte_array[start_index:index].decode().rstrip())
 
+        # Get led names - end with NULL
         for board_number in range (1, gui.nBoards()+1):
             for led_number in range (1, gui.nLeds()+1):
                 index += 1
                 start_index = index
                 while int(byte_array[index]) != 0:
                     index += 1
-                gui.setValue(gui.config_model["LED" + str(led_number)]["ID"], byte_array[start_index:index].decode().rstrip())
+                gui.setValue(gui.config_model["LED" + str(board_number) + str(led_number)]["ID"], byte_array[start_index:index].decode().rstrip())
         index += 1
-        config_values = struct.unpack("<????HHHHBBBBffff????HHHHHHHHHHBiiBB?BB", byte_array[index:]) #Parse byte array values: https://docs.python.org/3/library/struct.html#struct-alignment
+        unpack_string = "<"
+        #Add a boolean for each LED (LED active)
+        for board_number in range (1, gui.nBoards()+1):
+            for led_number in range (1, gui.nLeds()+1):
+                unpack_string += "?"
 
-        #Calculate total resistance to be able to convert current limit values
-        total_resistance = 0
-        for resistor in range (1,5):
-            resistance = config_values[resistor + 11]
-            active = config_values[resistor + 15]
-            if active:
-                total_resistance += 1/resistance
-            gui.setValue(gui.config_model["Resistor" + str(resistor)]["Value"], resistance)
-            gui.setValue(gui.config_model["Resistor" + str(resistor)]["Active"], active)
-        total_resistance = 1 / total_resistance
+        #Add a uint16_t for each LED (current limit)
+        for board_number in range(1, gui.nBoards() + 1):
+            for led_number in range(1, gui.nLeds() + 1):
+                unpack_string += "H"
 
-        for led_number in range(1, 5):
-            current_limit = config_values[led_number + 3]
-            current_limit = (3.3*(current_limit/65535))/total_resistance
-            gui.setValue(gui.config_model["LED" + str(led_number)]["Active"], config_values[led_number - 1])
-            gui.setValue(gui.config_model["LED" + str(led_number)]["Current Limit"], current_limit)
-            channel_id = gui.getValue(gui.config_model["LED" + str(config_values[led_number + 7]+1)]["ID"])
-            gui.setValue(gui.config_model["Channel" + str(led_number)], channel_id)
+        unpack_string += "?HHHHBB?BB"
+        config_values = struct.unpack(unpack_string, byte_array[index:]) #Parse byte array values: https://docs.python.org/3/library/struct.html#struct-alignment
 
+        config_values_index = 0
+        #Get simultaneous state if in use
+        if "Simultaneous LED" in gui.config_model:
+            pass
+        config_values_index += 1
 
-        #Get external thermistor properties to convert ADC values to temperatures
-        EXT_THERMISTOR_NOMINAL = config_values[31]  # Value of external thermistor at nominal temp (25°C)
-        gui.setValue(gui.config_model["Thermistor"]["Resistance"], EXT_THERMISTOR_NOMINAL)
-        EXT_B_COEFFICIENT = config_values[32]  # Beta value for the PCB thermistor
-        gui.setValue(gui.config_model["Thermistor"]["Beta"], EXT_B_COEFFICIENT)
+        #Get LED active state
+        for board_number in range(1, gui.nBoards() + 1):
+            for led_number in range(1, gui.nLeds() + 1):
+                gui.setValue(gui.config_model["LED" + str(board_number) + str(led_number)]["Active"], config_values[config_values_index])
+                config_values_index += 1
 
-        for index, source in enumerate(["Transistor", "Resistor", "External"]):
-            external = False
-            if source == "External":
-                external = True
-            gui.setValue(gui.config_model["Temperature"][source]["Warn"], round(adcToTemp(config_values[20 + index], external)))
-            gui.setValue(gui.config_model["Temperature"][source]["Fault"], round(adcToTemp(config_values[23 + index], external)))
+        #Get LED current limits
+        for board_number in range(1, gui.nBoards() + 1):
+            for led_number in range(1, gui.nLeds() + 1):
+                current_limit = config_values[config_values_index]
+                current_limit = 100*(current_limit/65535)
+                gui.setValue(gui.config_model["LED" + str(board_number) + str(led_number)]["Current Limit"], current_limit)
+                config_values_index += 1
 
-        for index, source in enumerate(["Driver", "External"]):
-            external = False
-            if source == "External":
-                external = True
-            gui.setValue(gui.config_model["Fan"][source]["Min"], round(adcToTemp(config_values[26 + 2*index], external)))
-            gui.setValue(gui.config_model["Fan"][source]["Max"], round(adcToTemp(config_values[27 + 2*index], external)))
+        #Get warn and fault temperatures
+        gui.setValue(gui.config_model["Temperature"]["Warn"], round(adcToTemp(config_values[config_values_index])))
+        gui.setValue(gui.config_model["Temperature"]["Fault"], round(adcToTemp(config_values[config_values_index+1])))
+        config_values_index += 2
 
-        channel_id = gui.config_model["Fan"]["Channel"][config_values[30]].text()
-        gui.setValue(gui.config_model["Fan"]["Channel"], channel_id)
+        #Get fan temperatures
+        gui.setValue(gui.config_model["Fan"]["Min"], round(adcToTemp(config_values[config_values_index])))
+        gui.setValue(gui.config_model["Fan"]["Max"], round(adcToTemp(config_values[config_values_index + 1])))
+        config_values_index += 2
 
-        gui.setValue(gui.config_model["Audio"]["Status"], config_values[33])
-        gui.setValue(gui.config_model["Audio"]["Alarm"], config_values[34])
-        gui.config_model["Pushbutton"]["Indication"][int(config_values[35])].setChecked(True)
-        channel_id = gui.config_model["Pushbutton"]["Alarm"][config_values[36]].text()
+        gui.setValue(gui.config_model["Audio"]["Status"], config_values[config_values_index])
+        gui.setValue(gui.config_model["Audio"]["Alarm"], config_values[config_values_index+1])
+        gui.config_model["Pushbutton"]["Indication"][int(config_values[config_values_index+2])].setChecked(True)
+        channel_id = gui.config_model["Pushbutton"]["Alarm"][config_values[config_values_index+3]].text()
         gui.setValue(gui.config_model["Pushbutton"]["Alarm"], channel_id)
 
-        gui.setAdcCurrentLimit(config_values[4:8])  # Save current limit ADC values in current limit "what's this"
         if not gui.ser.initializing_connection:
             showMessage(gui, "Configuration file was successfully downloaded.")
 
@@ -185,7 +174,7 @@ def bytesToConfig(byte_array, gui, prefix):
         showMessage(gui, "Error: Driver config file had invalid checksum: " + str(checksum) + ". Upload aborted.")
 
 def bytesToSync(byte_array, gui, prefix):
-    sync_values = [None]* 39
+    sync_values = [None] * (15 + 2*11 + 3)
     def setWidget(widgets, index):
         try:
             widget_string = widgets[sync_values[index]].text()
@@ -198,45 +187,44 @@ def bytesToSync(byte_array, gui, prefix):
 
     checksum = (sum(byte_array) + prefix) & 0xFF  # https://stackoverflow.com/questions/44611057/checksum-generation-from-sum-of-bits-in-python
     if checksum == 0:
-        sync_values = struct.unpack("<BBBBBBBHHHHLLBBBHH?B???H?LLLLBBBBHHHHLLB", byte_array)
-
-        #Calculate total resistance for current conversions
-        total_resistance = float(gui.configure_current_limit_box.whatsThis())
+        sync_values = struct.unpack("<BBBBBBBHHHHLLBBB?B???H?LLLLBBBBHHHHLLB", byte_array)
+        index = 1
 
         #Digital
-        gui.sync_model["Mode"].setCurrentIndex(sync_values[0])
+        gui.sync_model["Mode"].setCurrentIndex(sync_values[index])
         gui.sync_model["Mode"].setWhatsThis(gui.getValue(gui.sync_model["Mode"])) #Store driver mode name in whats this
-        setWidget(gui.sync_model["Output"], 1)
-        setWidget(gui.sync_model["Digital"]["Channel"], 2)
+        setWidget(gui.sync_model["Digital"]["Channel"], sync_values[index+1])
+        index += 2
 
         current_limit = [0]*2
         for index3, key3 in enumerate(["Mode", "LED", "PWM", "Current", "Duration"]):
             for index2, key2 in enumerate(["Low", "High"]):
                 if key3 == "Mode":
-                    gui.sync_model["Digital"][key2][key3].setCurrentIndex(sync_values[(2 * index3) + index2 + 3])
+                    gui.sync_model["Digital"][key2][key3].setCurrentIndex(sync_values[(2 * index3) + index2 + index])
                 if key3 == "LED":
-                    setWidget(gui.sync_model["Digital"][key2][key3], (2 * index3) + index2 + 3)
-                    current_limit[index2] = gui.getValue(gui.config_model["LED" + str(sync_values[(2 * index3) + index2 + 3]+1)]["Current Limit"])
+                    setWidget(gui.sync_model["Digital"][key2][key3], (2 * index3) + index2 + index)
+                    current_limit[index2] = gui.getValue(gui.config_model["LED" + str(sync_values[(2 * index3) + index2 + index]+1)]["Current Limit"])
                 elif key3 == "PWM":
-                    gui.setValue(gui.sync_model["Digital"][key2][key3], sync_values[(2 * index3) + index2 + 3]/65535*100)
+                    gui.setValue(gui.sync_model["Digital"][key2][key3], sync_values[(2 * index3) + index2 + index]/65535*100)
                 elif key3 == "Current":
-                    gui.setValue(gui.sync_model["Digital"][key2][key3], (((sync_values[(2 * index3) + index2 + 3]/65535)*3.3/total_resistance)/current_limit[index2])*100)
+                    gui.setValue(gui.sync_model["Digital"][key2][key3], sync_values[(2 * index3) + index2 + index]/65535*100)
                 elif key3 == "Duration":
-                    gui.setValue(gui.sync_model["Digital"][key2][key3], sync_values[(2 * index3) + index2 + 3]/1e6)
+                    gui.setValue(gui.sync_model["Digital"][key2][key3], sync_values[(2 * index3) + index2 + index]/1e6)
+        index += 10
 
         #Analog
-        for index2, key2 in enumerate(["Channel", "LED"]):
-            setWidget(gui.sync_model["Analog"][key2], 13+index2)
-        gui.sync_model["Analog"]["Mode"].setCurrentIndex(sync_values[15])
-        gui.setValue(gui.sync_model["Analog"]["PWM"], sync_values[16])
-        gui.setValue(gui.sync_model["Analog"]["Current"], sync_values[17])
+        for board in range(1, gui.nBoards()+1):
+            setWidget(gui.sync_model["Analog"]["Board" + str(board)], index+board-1)
+        index += gui.nBoards()
 
         #Confocal
         for index2, key2 in enumerate(["Shutter", "Channel", "Line", "Digital", "Polarity"]):
             if key2 == "Line":
-                gui.sync_model["Confocal"][key2].setCurrentIndex(sync_values[18 + index2])
+                gui.sync_model["Confocal"][key2].setCurrentIndex(sync_values[index + index2])
             else:
-                setWidget(gui.sync_model["Confocal"][key2], 18+index2)
+                setWidget(gui.sync_model["Confocal"][key2], index+index2)
+        index += 5
+
         gui.setValue(gui.sync_model["Confocal"]["Threshold"], sync_values[23]/65535*3.3)
         setWidget(gui.sync_model["Confocal"]["Delay"]["Mode"], 24)
         gui.setValue(gui.sync_model["Confocal"]["Period"], sync_values[25]/DEFAULT_CLOCK_SPEED)
@@ -252,7 +240,7 @@ def bytesToSync(byte_array, gui, prefix):
                 elif key3 == "PWM":
                     gui.setValue(gui.sync_model["Confocal"][key2][key3], (sync_values[(2 * index3) + index2 + 29]/65535)*100)
                 elif key3 == "Current":
-                    gui.setValue(gui.sync_model["Confocal"][key2][key3], (((sync_values[(2 * index3) + index2 + 29]/65535)*3.3/total_resistance)/current_limit[index2])*100)
+                    gui.setValue(gui.sync_model["Confocal"][key2][key3], (((sync_values[(2 * index3) + index2 + 29]/65535)*100)))
                 elif key3 == "Duration":
                     gui.setValue(gui.sync_model["Confocal"][key2][key3], sync_values[(2 * index3) + index2 + 29]/1e6)
 
@@ -266,75 +254,79 @@ def bytesToSync(byte_array, gui, prefix):
 def configToBytes(gui, prefix, update_model=True):
     global EXT_THERMISTOR_NOMINAL
     global EXT_B_COEFFICIENT
-    config_values = [None] * 37
+    config_values = [None] * (2 * gui.nBoards() * gui.nLeds()) + 10
 
     byte_array = bytearray() #Initialize empty byte array
 
     byte_array.extend(gui.getValue(gui.config_model["Driver name"]).ljust(gui.config_model["Driver name"].maxLength(), " ").encode()) #Add string with right padding of spaces for max length of QLineEdit
     byte_array.append(0)
 
-    for led_number in range(1, 5):
-        byte_array.extend(gui.getValue(gui.config_model["LED" + str(led_number)]["ID"]).ljust(gui.config_model["LED" + str(led_number)]["ID"].maxLength()," ").encode())  # Add string with right padding of spaces for max length of QLineEdit
-        byte_array.append(0)
+    #Get LED names
+    for board_number in range(1, gui.nBoards() + 1):
+        for led_number in range(1, gui.nLeds() + 1):
+            byte_array.extend(gui.getValue(gui.config_model["LED" + str(board_number) + str(led_number)]["ID"]).ljust(gui.config_model["LED" + str(board_number) + str(led_number)]["ID"].maxLength()," ").encode())  # Add string with right padding of spaces for max length of QLineEdit
+            byte_array.append(0)
 
-    total_resistance = 0
-    for resistor in range (1,5):
-        config_values[resistor + 11] = gui.getValue(gui.config_model["Resistor" + str(resistor)]["Value"])
-        config_values[resistor + 15] = gui.getValue(gui.config_model["Resistor" + str(resistor)]["Active"])
-        if config_values[resistor + 15]:
-            total_resistance += 1/config_values[resistor + 11]
-    total_resistance = 1 / total_resistance
+    #Get LED active state
+    index = 0
+    for board_number in range(1, gui.nBoards() + 1):
+        for led_number in range(1, gui.nLeds() + 1):
+            config_values[index] = gui.getValue(gui.config_model["LED" + str(board_number) + str(led_number)]["Active"])
+            index += 1
 
-    for led_number in range(1, 5):
-        current_limit = gui.getValue(gui.config_model["LED" + str(led_number)]["Current Limit"])
-        config_values[led_number + 3] = round(((current_limit*total_resistance)/3.3)*65535) #Convert current limit to ADC reading (voltage)
-        config_values[led_number - 1] = gui.getValue(gui.config_model["LED" + str(led_number)]["Active"])
-        for index, widget in enumerate(gui.config_model["Channel" + str(led_number)]):
-            if gui.getValue(widget):
-                config_values[led_number + 7] = index
-                break
+    #Get LED current limits
+    for board_number in range(1, gui.nBoards() + 1):
+        for led_number in range(1, gui.nLeds() + 1):
+            current_limit = gui.getValue(gui.config_model["LED" + str(board_number) + str(led_number)]["Current Limit"])
+            config_values[index] = round((current_limit/100)*65535) #Convert current limit to ADC reading (voltage)
+            index += 1
 
-    EXT_THERMISTOR_NOMINAL = gui.getValue(gui.config_model["Thermistor"]["Resistance"])
-    EXT_B_COEFFICIENT = gui.getValue(gui.config_model["Thermistor"]["Beta"])
-    config_values[31] = EXT_THERMISTOR_NOMINAL  # Value of external thermistor at nominal temp (25°C)
-    config_values[32] = EXT_B_COEFFICIENT  # Beta value for the PCB thermistor
+    #Get simultaneous state if in use
+    if "Simultaneous LED" in gui.config_model:
+        pass
+    else:
+        config_values[index] = False
+    index += 1
 
-    for index, source in enumerate(["Transistor", "Resistor", "External"]):
-        external = False
-        if source == "External":
-            external = True
-        config_values[20 + index] = tempToAdc(gui.getValue(gui.config_model["Temperature"][source]["Warn"]), external)
-        config_values[23 + index] = tempToAdc(gui.getValue(gui.config_model["Temperature"][source]["Fault"]), external)
+    #Get fault temperatures
+    config_values[index] = tempToAdc(gui.getValue(gui.config_model["Temperature"]["Warn"]))
+    config_values[index+1] = tempToAdc(gui.getValue(gui.config_model["Temperature"]["Fault"]))
+    index += 2
 
-    for index, source in enumerate(["Driver", "External"]):
-        external = False
-        if source == "External":
-            external = True
-        config_values[26 + 2*index] = tempToAdc(gui.getValue(gui.config_model["Fan"][source]["Min"]), external)
-        config_values[27 + 2*index] = tempToAdc(gui.getValue(gui.config_model["Fan"][source]["Max"]), external)
+    #Get fan temperatures
+    config_values[index] = tempToAdc(gui.getValue(gui.config_model["Fan"]["Min"]))
+    config_values[index+1] = tempToAdc(gui.getValue(gui.config_model["Fan"]["Max"]))
+    index += 2
 
-    for index, widget in enumerate(gui.config_model["Fan"]["Channel"]):
+    #Get alarm volumes
+    config_values[index] = gui.getValue(gui.config_model["Audio"]["Status"])
+    config_values[index+1] = gui.getValue(gui.config_model["Audio"]["Alarm"])
+    config_values[index+2] = gui.config_model["Pushbutton"]["Indication"][1].isChecked()
+    index += 3
+
+    for idx, widget in enumerate(gui.config_model["Pushbutton"]["Alarm"]):
         if gui.getValue(widget):
-            config_values[30] = index
+            config_values[index] = idx
             break
 
-    config_values[33] = gui.getValue(gui.config_model["Audio"]["Status"])
-    config_values[34] = gui.getValue(gui.config_model["Audio"]["Alarm"])
-    config_values[35] = gui.config_model["Pushbutton"]["Indication"][1].isChecked()
+    unpack_string = "<"
+    # Add a boolean for each LED (LED active)
+    for board_number in range(1, gui.nBoards() + 1):
+        for led_number in range(1, gui.nLeds() + 1):
+            unpack_string += "?"
 
-    for index, widget in enumerate(gui.config_model["Pushbutton"]["Alarm"]):
-        if gui.getValue(widget):
-            config_values[36] = index
-            break
+    # Add a uint16_t for each LED (current limit)
+    for board_number in range(1, gui.nBoards() + 1):
+        for led_number in range(1, gui.nLeds() + 1):
+            unpack_string += "H"
 
-    byte_array.extend(struct.pack("<????HHHHBBBBffff????HHHHHHHHHHBiiBB?B", *config_values))
+    unpack_string += "?HHHHBB?BB"
+
+    byte_array.extend(struct.pack(unpack_string, *config_values))
 
     checksum = (sum(byte_array) + prefix) & 0xFF  # https://stackoverflow.com/questions/44611057/checksum-generation-from-sum-of-bits-in-python
     checksum = 256 - checksum
     byte_array.append(checksum)
-
-    if update_model:
-        gui.setAdcCurrentLimit(config_values[4:8]) #Save current limit ADC values in current limit "what's this"
 
     return byte_array
 
@@ -342,7 +334,7 @@ def syncToBytes(gui, prefix, update_model=True):
     if update_model:
         updateModelWhatsThis(gui, gui.sync_model)
 
-    sync_values = [None]* 39
+    sync_values = [None] * (15 + 2*11 + 3)
     byte_array = bytearray() #Initialize empty byte array
 
     def widgetIndex(widget_list):
@@ -414,7 +406,7 @@ def syncToBytes(gui, prefix, update_model=True):
             elif key3 == "Duration":
                 sync_values[(2 * index3) + index2 + 29] = round(gui.getValue(gui.sync_model["Confocal"][key2][key3])*1e6)
 
-    byte_array.extend(struct.pack("<BBBBBBBHHHHLLBBBHH?B???H?LLLLBBBBHHHHLL", *sync_values))
+    byte_array.extend(struct.pack("<BBBBBBBHHHHLLBBB?B???H?LLLLBBBBHHHHLL", *sync_values))
     checksum = (sum(byte_array) + prefix) & 0xFF  # https://stackoverflow.com/questions/44611057/checksum-generation-from-sum-of-bits-in-python
     checksum = 256 - checksum
     byte_array.append(checksum)
