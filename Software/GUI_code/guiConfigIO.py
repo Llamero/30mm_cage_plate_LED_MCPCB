@@ -149,6 +149,7 @@ def bytesToConfig(byte_array, gui, prefix):
                 current_limit = config_values[config_values_index]
                 current_limit = 100*(current_limit/65535)
                 gui.setValue(gui.config_model["LED" + str(board_number) + str(led_number)]["Current Limit"], current_limit)
+                gui.setAdcCurrentLimit(board_number, led_number, current_limit)
                 config_values_index += 1
 
         #Get warn and fault temperatures
@@ -278,6 +279,7 @@ def configToBytes(gui, prefix, update_model=True):
     for board_number in range(1, gui.nBoards() + 1):
         for led_number in range(1, gui.nLeds() + 1):
             current_limit = gui.getValue(gui.config_model["LED" + str(board_number) + str(led_number)]["Current Limit"])
+            gui.setAdcCurrentLimit(board_number, led_number, current_limit) #Update What's this to new value
             config_values[index] = round((current_limit/100)*65535) #Convert current limit to ADC reading (voltage)
             index += 1
 

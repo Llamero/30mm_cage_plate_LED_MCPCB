@@ -66,21 +66,22 @@ class Ui(QtWidgets.QMainWindow):
         self.intensity_delay_timer = timer() #Timer for delaying updates from intensity dial
 
         # Initialize status dictionaries
-        self.status_dynamic_dict = OrderedDict([("Channel", 0),
-                                    ("PWM", 0),
-                                    ("Current", 0),
-                                    ("Mode", 0),
-                                    ("State", 0),
-                                    ("Control", 0),
-                                    ("Transistor", 0),
-                                    ("Resistor", 0),
-                                    ("External", 0),
-                                    ("Driver Fan", 0),
-                                    ("External Fan", 0)])
+        self.status_dynamic_dict = OrderedDict()
+        for key in ["Channel", "PWM", "Current"]:
+            for board in range(1, N_BOARDS+1):
+                self.status_dynamic_dict[key + str(board)] = 0
+        self.status_dynamic_dict["Mode"] = 0
+        self.status_dynamic_dict["State"] = 0
+        self.status_dynamic_dict["Control"] = 0
+        for key in ["Temperature", "Fan"]:
+            for board in range(1, N_BOARDS+1):
+                self.status_dynamic_dict[key + str(board)] = 0
+
         self.status_dict = OrderedDict(list(self.status_dynamic_dict.items()) + [("Name", 0),
-                                                           ("COM Port", 0),
-                                                           ("Serial", 0),
-                                                           ("Control", 0)])
+                                                                                 ("COM Port", 0),
+                                                                                 ("Serial", 0),
+                                                                                 ("Control", 0)])
+
         self.status_window_list = []
         self.state_dict = OrderedDict(
             [("Digital", ["LOW", "HIGH"]), ("Analog", ["Active", "Active"]), ("Confocal", ["Standby", "Scanning"]),
@@ -426,13 +427,12 @@ class Ui(QtWidgets.QMainWindow):
         if self.splash.isVisible() and not self.startup:
             self.splash.showMessage(text, alignment=QtCore.Qt.AlignBottom, color=QtCore.Qt.white)
 
-    def setAdcCurrentLimit(self, value_list):
-        for led_number, value in enumerate(value_list):
-            self.config_model["LED" + str(led_number+1)]["Current Limit"].setWhatsThis(str(value))
+    def setAdcCurrentLimit(self, board, led, value):
+        self.config_model["LED" + str(board) + str(led)]["Current Limit"].setWhatsThis(str(value))
 
-    def getAdcCurrentLimit(self, led_number):
+    def getAdcCurrentLimit(self, board_number, led_number):
         try:
-            return int(self.config_model["LED" + str(led_number+1)]["Current Limit"].whatsThis())
+            return int(self.config_model["LED" + str(board_number) + str(led_number)]["Current Limit"].whatsThis())
         except ValueError:
             return 0.01
 

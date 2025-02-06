@@ -466,16 +466,34 @@ class usbSerial(QtWidgets.QWidget): #Implementation based on: https://stackoverf
         if reply:
             #parse status
             status_change = False
-            status_list = struct.unpack("<BHHB??HHHHH", reply)
+            unpack_string = "<"
+
+            #String for LED info
+            for byte in ["B", "H", "H"]:
+                for board_number in range(1, self.gui.nBoards() + 1):
+                    unpack_string += byte
+
+            unpack_string += "B??"
+
+            #Temp and fan info
+            for byte in ["H", "H"]:
+                for board_number in range(1, self.gui.nBoards() + 1):
+                    unpack_string += byte
+
+            status_list = struct.unpack(unpack_string, reply)
+
             for index, key in enumerate(self.gui.status_dynamic_dict):
                 self.gui.status_dynamic_dict[key] = status_list[index]
                 if self.gui.status_dynamic_dict[key] != self.gui.status_dict[key]: #Update master dictionary if a value has changed
+
+                   #Mouse autoclicker for Z-series
                     if (self.autoclick_mouse and key == "Mode" and self.gui.status_dynamic_dict["Control"] and  self.gui.status_dynamic_dict["Mode"] == 0): #If the driver has control, and the mode switched to sync, get the mouse position
                         self.autoclick_position = pyautogui.position()
                         print("Autoclick position set: " + str(self.autoclick_position))
                     if (self.autoclick_mouse and key == "State" and self.gui.status_dynamic_dict[key] == self.autoclick_state and self.gui.status_dynamic_dict["Mode"] == 0 and self.gui.status_dynamic_dict["Control"]): #If the sync status has changed to false, click the mouse
                         print("Mouse autoclick")
                         pyautogui.leftClick(self.autoclick_position)
+
                     self.gui.status_dict[key] = self.gui.status_dynamic_dict[key]
                     status_change = True
 
@@ -498,17 +516,22 @@ class usbSerial(QtWidgets.QWidget): #Implementation based on: https://stackoverf
                         self.gui.showMessage("Error: Widget index not found!")
                         return None
 
-                status_list = [0] * 11
+                status_list = [0] * (5*self.gui.nBoards() + 3)
+                status_index = 0
                 mode = widgetIndex(self.gui.main_model["Mode"])
                 dial_max = self.gui.main_model["Intensity"].maximum()
-                channel = widgetIndex(self.gui.main_model["Channel"])
+                for board in range(1, self.gui.nBoards()):
+                    channel = widgetIndex(self.gui.main_model["Channel"]["Board" + str(board)])
+                    if channel is not None:
+                        break
+
                 if mode == 1: #PWM mode
                     pwm = round((self.gui.getValue(self.gui.main_model["Intensity"]) / dial_max) * 65535)
                     current = self.gui.getAdcCurrentLimit(channel)
                 elif mode == 2: #Current mode
                     pwm = 65535
                     current = round((self.gui.getValue(
-                        self.gui.main_model["Intensity"]) / dial_max) * self.gui.getAdcCurrentLimit(channel))
+                        self.gui.main_model["Intensity"]) / dial_max) * self.gui.getAdcCurrentLimit(board, channel)/100)
                 else: #Off mode or sync mode
                     current = 0
                     pwm = 0

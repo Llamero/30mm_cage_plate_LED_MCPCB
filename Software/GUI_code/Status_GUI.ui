@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>412</width>
+    <width>416</width>
     <height>525</height>
    </rect>
   </property>
@@ -199,7 +199,7 @@
             </property>
             <layout class="QGridLayout" name="gridLayout_8">
              <item row="0" column="0">
-              <widget class="QLabel" name="text_transistor_label">
+              <widget class="QLabel" name="text_board1_label">
                <property name="font">
                 <font>
                  <pointsize>12</pointsize>
@@ -212,12 +212,12 @@
                 <string>Temperature of transistor used to regulate the LED current.</string>
                </property>
                <property name="text">
-                <string>Transistor: </string>
+                <string>Board #1:</string>
                </property>
               </widget>
              </item>
              <item row="0" column="1">
-              <widget class="QLabel" name="text_driver_fan_label">
+              <widget class="QLabel" name="text_board1_fan_label">
                <property name="font">
                 <font>
                  <pointsize>12</pointsize>
@@ -230,12 +230,12 @@
                 <string>Speed of the internal fan (0% = off, 100% = full speed)</string>
                </property>
                <property name="text">
-                <string>Driver Fan: </string>
+                <string>Fan #1:</string>
                </property>
               </widget>
              </item>
              <item row="1" column="0">
-              <widget class="QLabel" name="text_resistor_label">
+              <widget class="QLabel" name="text_board2_label">
                <property name="font">
                 <font>
                  <pointsize>12</pointsize>
@@ -248,12 +248,12 @@
                 <string>Temperature of the current sense resistors.</string>
                </property>
                <property name="text">
-                <string>Resistor: </string>
+                <string>Board #2:</string>
                </property>
               </widget>
              </item>
              <item row="2" column="0">
-              <widget class="QLabel" name="text_external_label">
+              <widget class="QLabel" name="text_board3_label">
                <property name="font">
                 <font>
                  <pointsize>12</pointsize>
@@ -266,17 +266,24 @@
                 <string>Temperature of the externally connected thermistor.</string>
                </property>
                <property name="text">
-                <string>External: </string>
+                <string>Board #3:</string>
                </property>
               </widget>
              </item>
              <item row="1" column="1">
-              <widget class="QLabel" name="text_external_fan_label">
+              <widget class="QLabel" name="text_board2_fan_label">
                <property name="toolTip">
                 <string>Speed of the external fan (0% = off, 100% = full speed)</string>
                </property>
                <property name="text">
-                <string>External Fan: </string>
+                <string>Fan #2:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLabel" name="label">
+               <property name="text">
+                <string>Fan #3:</string>
                </property>
               </widget>
              </item>
@@ -465,16 +472,16 @@
       </attribute>
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="1" column="0">
-        <widget class="QGroupBox" name="temperature_resistor_box">
+        <widget class="QGroupBox" name="temperature_board2_box">
          <property name="toolTip">
           <string>Plot of temperature of the current sense resistors.</string>
          </property>
          <property name="title">
-          <string>Temperature: Driver Resistor</string>
+          <string>Temperature: Board #2</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_14">
           <item row="0" column="0">
-           <widget class="PlotWidget" name="graph_temperature_resistor">
+           <widget class="PlotWidget" name="graph_temperature_board2">
             <property name="toolTip">
              <string>Plot of temperature of the current sense resistors.</string>
             </property>
@@ -484,16 +491,16 @@
         </widget>
        </item>
        <item row="2" column="0">
-        <widget class="QGroupBox" name="temperature_external_box">
+        <widget class="QGroupBox" name="temperature_board3_box">
          <property name="toolTip">
           <string>Plot of temperature of external thermistor.</string>
          </property>
          <property name="title">
-          <string>Temperature: External Thermistor</string>
+          <string>Temperature: Board #3</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_16">
           <item row="0" column="0">
-           <widget class="PlotWidget" name="graph_temperature_external">
+           <widget class="PlotWidget" name="graph_temperature_board3">
             <property name="toolTip">
              <string>Plot of temperature of external thermistor.</string>
             </property>
@@ -503,16 +510,16 @@
         </widget>
        </item>
        <item row="0" column="0">
-        <widget class="QGroupBox" name="temperature_transistor_box">
+        <widget class="QGroupBox" name="temperature_board1_box">
          <property name="toolTip">
           <string>Plot of temperature of transistor used to regulate the LED current.</string>
          </property>
          <property name="title">
-          <string>Temperature: Driver Transistor</string>
+          <string>Temperature: Board #1</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_13">
           <item row="0" column="0">
-           <widget class="PlotWidget" name="graph_temperature_transistor">
+           <widget class="PlotWidget" name="graph_temperature_board1">
             <property name="toolTip">
              <string>Plot of temperature of transistor used to regulate the LED current.</string>
             </property>
