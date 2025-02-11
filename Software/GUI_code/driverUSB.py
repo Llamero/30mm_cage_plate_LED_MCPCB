@@ -463,23 +463,23 @@ class usbSerial(QtWidgets.QWidget): #Implementation based on: https://stackoverf
         pass
 
     def updateStatus(self, reply=None):
+        unpack_string = "<"
+
+        # String for LED info
+        for byte in ["B", "H", "H"]:
+            for board_number in range(1, self.gui.nBoards() + 1):
+                unpack_string += byte
+
+        unpack_string += "B??"
+
+        # Temp and fan info
+        for byte in ["H", "H"]:
+            for board_number in range(1, self.gui.nBoards() + 1):
+                unpack_string += byte
+
         if reply:
             #parse status
             status_change = False
-            unpack_string = "<"
-
-            #String for LED info
-            for byte in ["B", "H", "H"]:
-                for board_number in range(1, self.gui.nBoards() + 1):
-                    unpack_string += byte
-
-            unpack_string += "B??"
-
-            #Temp and fan info
-            for byte in ["H", "H"]:
-                for board_number in range(1, self.gui.nBoards() + 1):
-                    unpack_string += byte
-
             status_list = struct.unpack(unpack_string, reply)
 
             for index, key in enumerate(self.gui.status_dynamic_dict):
@@ -513,36 +513,39 @@ class usbSerial(QtWidgets.QWidget): #Implementation based on: https://stackoverf
                         if self.gui.getValue(n_widget):
                             return w_index
                     else:
-                        self.gui.showMessage("Error: Widget index not found!")
+                        #self.gui.showMessage("Error: Widget index not found!")
                         return None
 
                 status_list = [0] * (5*self.gui.nBoards() + 3)
-                status_index = 0
+                led_dict = {"channel": [None]*self.gui.nBoards(), "pwm": [None]*self.gui.nBoards(), "current": [None]*self.gui.nBoards()}
                 mode = widgetIndex(self.gui.main_model["Mode"])
                 dial_max = self.gui.main_model["Intensity"].maximum()
-                for board in range(1, self.gui.nBoards()):
-                    channel = widgetIndex(self.gui.main_model["Channel"]["Board" + str(board)])
-                    if channel is not None:
-                        break
-
-                if mode == 1: #PWM mode
-                    pwm = round((self.gui.getValue(self.gui.main_model["Intensity"]) / dial_max) * 65535)
-                    current = self.gui.getAdcCurrentLimit(channel)
-                elif mode == 2: #Current mode
-                    pwm = 65535
-                    current = round((self.gui.getValue(
-                        self.gui.main_model["Intensity"]) / dial_max) * self.gui.getAdcCurrentLimit(board, channel)/100)
-                else: #Off mode or sync mode
-                    current = 0
-                    pwm = 0
+                for board in range(1, self.gui.nBoards()+1):
+                    led_dict["channel"][board-1] = widgetIndex(self.gui.main_model["Channel"]["Board" + str(board)])
+                    if led_dict["channel"][board-1] is not None:
+                        if mode == 1: #PWM mode
+                            led_dict["pwm"][board-1] = round((self.gui.getValue(self.gui.main_model["Intensity"]) / dial_max) * 65535)
+                            led_dict["current"][board-1] = round(self.gui.getAdcCurrentLimit(board, led_dict["channel"][board-1]+1))
+                        elif mode == 2: #Current mode
+                            led_dict["pwm"][board-1] = 65535
+                            led_dict["current"][board-1] = round((self.gui.getValue(
+                                self.gui.main_model["Intensity"]) / dial_max) * self.gui.getAdcCurrentLimit(board, led_dict["channel"][board-1]+1)/100)
+                        else: #Off mode or sync mode
+                            led_dict["current"][board-1] = 0
+                            led_dict["pwm"][board-1] = 0
+                    else:
+                        led_dict["channel"][board-1] = self.gui.nLeds()
+                        led_dict["current"][board-1] = 0
+                        led_dict["pwm"][board-1] = 0
 
                 # Send only GUI states - set all driver specific values to 0 since they are just padding
-                status_list[0] = channel
-                status_list[1] = pwm
-                status_list[2] = current
-                status_list[3] = mode
-                status_list[5] = widgetIndex(self.gui.main_model["Control"])
-                status_list = struct.pack("<BHHB??HHHHH", *status_list)
+                for board in range(0, self.gui.nBoards()):
+                    status_list[board-1] = led_dict["channel"][board-1]
+                    status_list[self.gui.nBoards() + board] = led_dict["pwm"][board]
+                    status_list[2*self.gui.nBoards() + board] = led_dict["current"][board]
+                status_list[3*self.gui.nBoards()] = mode
+                status_list[3*self.gui.nBoards()+2] = widgetIndex(self.gui.main_model["Control"])
+                status_list = struct.pack("<BBBHHHHHHB??HHHHHH", *status_list)
                 self.sendWithoutReply(status_list, True, 0)
 
     def measurePeriod(self, reply=None):
