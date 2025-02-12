@@ -24,18 +24,10 @@ const uint8_t SD_CS_PIN = SDCARD_SS_PIN;
 #define SD_CONFIG SdSpiConfig(SD_CS_PIN, SHARED_SPI, SPI_CLOCK)
 #endif  // HAS_SDIO_CLASS
 
-// Try to select the best SD card configuration.
-#if HAS_SDIO_CLASS
-#define SD_CONFIG SdioConfig(FIFO_SDIO)
-#elif  ENABLE_DEDICATED_SPI
-#define SD_CONFIG SdSpiConfig(SD_CS_PIN, DEDICATED_SPI, SPI_CLOCK)
-#else  // HAS_SDIO_CLASS
-#define SD_CONFIG SdSpiConfig(SD_CS_PIN, SHARED_SPI, SPI_CLOCK)
-#endif  // HAS_SDIO_CLASS
-
-//Assume FAT16/FAT32 format
-SdFat32 card;
-File32 f;
+//Initialie sd card and files
+SdFs card;
+FsFile f;
+FsFile root;
 
 //Classes for formatting card
 // SdCardFactory constructs and initializes the appropriate card.
@@ -76,6 +68,8 @@ boolean SDcard::initializeSD(){
   // set date time callback function for applying RTC synced time stamps to SD card file time stamps
   FsDateTime::setCallback(dateTime);
 
+
+
   //Test SD card
     //////////////////////CARD MISSING///////////////////////////
   if(!card_active){
@@ -112,7 +106,9 @@ boolean SDcard::initializeSD(){
   /////////////////CREATE EMPTY SEQ FILES IF NECESSARY///////////////////////////
   for(int a = 0; a<N_SEQ_FILES; a++){
     sprintf(message_buffer, "%s/%s", seq_bin_dir, seq_files[a]); //Path to file
+    Serial.println(message_buffer);
     if(!card.exists(message_buffer)){ //If file doesn't exist, create an empty file
+      Serial.println("save");
       f = card.open(message_buffer, FILE_WRITE);
       f.close();
     }
@@ -181,11 +177,9 @@ void SDcard::dateTime(uint16_t* date, uint16_t* time) {
 
 //Delete all files and folders on SD card
 boolean SDcard::formatSdCard(){
-  uint32_t const ERASE_SIZE = 262144L;
-  uint32_t firstBlock = 0;
-  uint32_t lastBlock;
   uint32_t cardSectorCount = 0;
   FatFormatter fatFormatter;
+  ExFatFormatter exFatFormatter;
   
   // Select and initialize proper card driver.
   m_card = cardFactory.newCard(SD_CONFIG);
@@ -201,26 +195,19 @@ boolean SDcard::formatSdCard(){
     return false;
   }
   
-  do {
-    lastBlock = firstBlock + ERASE_SIZE - 1;
-    if (lastBlock >= cardSectorCount) {
-      lastBlock = cardSectorCount - 1;
-    }
-    if (!m_card->erase(firstBlock, lastBlock)) {
-      message_size = sprintf(message_buffer, "-FORMAT error: erase failed");
-      return false;
-    }
-    firstBlock += ERASE_SIZE;
-  } while (firstBlock < cardSectorCount);
+  // Format exFAT if larger than 32GB.
+  bool rtn = cardSectorCount > 67108864 ?
+    exFatFormatter.format(m_card, (uint8_t*) message_buffer) :
+    fatFormatter.format(m_card, (uint8_t*) message_buffer);
 
-  if (!m_card->readSector(0, (uint8_t*) message_buffer)) {
-    message_size = sprintf(message_buffer, "-FORMAT error: readBlock");
+  if(!rtn){
+    message_size = sprintf(message_buffer, "-FORMAT error: Failed to format SD card.");
     return false;
   }
 
-  //Format card to FAT16/32
-  fatFormatter.format(m_card, (uint8_t*) message_buffer);
-  return true;
+  //Rebuild files
+  if(initializeSD()) return true;
+  else return false;
 }
 
 

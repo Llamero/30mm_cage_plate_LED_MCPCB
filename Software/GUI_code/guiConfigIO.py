@@ -89,10 +89,10 @@ def checkTemperatures(gui, key_list):
     else:
         labels = ["Min", "Max"]
 
-    if key_list[2] in ["Warn", "Min"]:
-        gui.config_model[key_list[0]][key_list[1]][labels[1]].setMinimum(gui.getValue(gui.config_model[key_list[0]][key_list[1]][labels[0]]) + 1)
+    if key_list[1] in ["Warn", "Min"]:
+        gui.config_model[key_list[0]][key_list[1]].setMinimum(gui.getValue(gui.config_model[key_list[0]][labels[1]]) + 1)
     else:
-        gui.config_model[key_list[0]][key_list[1]][labels[0]].setMaximum(gui.getValue(gui.config_model[key_list[0]][key_list[1]][labels[1]]) - 1)
+        gui.config_model[key_list[0]][key_list[1]].setMaximum(gui.getValue(gui.config_model[key_list[0]][labels[0]]) - 1)
 
 def bytesToConfig(byte_array, gui, prefix):
     global EXT_THERMISTOR_NOMINAL
@@ -188,8 +188,8 @@ def bytesToSync(byte_array, gui, prefix):
 
     checksum = (sum(byte_array) + prefix) & 0xFF  # https://stackoverflow.com/questions/44611057/checksum-generation-from-sum-of-bits-in-python
     if checksum == 0:
-        sync_values = struct.unpack("<BBBBBBBHHHHLLBBB?B???H?LLLLBBBBHHHHLLB", byte_array)
-        index = 1
+        sync_values = struct.unpack("<BBBBBBHHHHLLBBB?B???H?LLLLBBBBHHHHLLB", byte_array)
+        index = 0
 
         #Digital
         gui.sync_model["Mode"].setCurrentIndex(sync_values[index])
@@ -203,8 +203,10 @@ def bytesToSync(byte_array, gui, prefix):
                 if key3 == "Mode":
                     gui.sync_model["Digital"][key2][key3].setCurrentIndex(sync_values[(2 * index3) + index2 + index])
                 if key3 == "LED":
-                    setWidget(gui.sync_model["Digital"][key2][key3], (2 * index3) + index2 + index)
-                    current_limit[index2] = gui.getValue(gui.config_model["LED" + str(sync_values[(2 * index3) + index2 + index]+1)]["Current Limit"])
+                    board_number = math.floor(sync_values[(2 * index3) + index2 + index]/gui.nLeds())+1
+                    led_number = sync_values[(2 * index3) + index2 + index]%gui.nLeds()
+                    setWidget(gui.sync_model["Digital"][key2][key3]["Board" + str(board_number)], led_number)
+                    current_limit[index2] = gui.getValue(gui.config_model["LED" + str(board_number) + str(led_number+1)]["Current Limit"])
                 elif key3 == "PWM":
                     gui.setValue(gui.sync_model["Digital"][key2][key3], sync_values[(2 * index3) + index2 + index]/65535*100)
                 elif key3 == "Current":
@@ -226,30 +228,34 @@ def bytesToSync(byte_array, gui, prefix):
                 setWidget(gui.sync_model["Confocal"][key2], index+index2)
         index += 5
 
-        gui.setValue(gui.sync_model["Confocal"]["Threshold"], sync_values[23]/65535*3.3)
-        setWidget(gui.sync_model["Confocal"]["Delay"]["Mode"], 24)
-        gui.setValue(gui.sync_model["Confocal"]["Period"], sync_values[25]/DEFAULT_CLOCK_SPEED)
+        gui.setValue(gui.sync_model["Confocal"]["Threshold"], sync_values[index]/65535*3.3)
+        setWidget(gui.sync_model["Confocal"]["Delay"]["Mode"], index+1)
+        gui.setValue(gui.sync_model["Confocal"]["Period"], sync_values[index+2]/DEFAULT_CLOCK_SPEED)
+        index += 3
+
         for index3 in range(1,4):
             gui.setValue(gui.sync_model["Confocal"]["Delay"][str(index3)], sync_values[25+index3]/DEFAULT_CLOCK_SPEED)
         for index3, key3 in enumerate(["Mode", "LED", "PWM", "Current", "Duration"]):
             for index2, key2 in enumerate(["Standby", "Scanning"]):
                 if key3 == "Mode":
-                    gui.sync_model["Confocal"][key2][key3].setCurrentIndex(sync_values[(2 * index3) + index2 + 29])
+                    gui.sync_model["Confocal"][key2][key3].setCurrentIndex(sync_values[(2 * index3) + index2 + index])
                 if key3 == "LED":
-                    setWidget(gui.sync_model["Confocal"][key2][key3], (2 * index3) + index2 + 29)
-                    current_limit[index2] = gui.getValue(gui.config_model["LED" + str(sync_values[(2 * index3) + index2 + 3]+1)]["Current Limit"])
+                    board_number = math.floor(sync_values[(2 * index3) + index2 + index]/gui.nLeds())+1
+                    led_number = sync_values[(2 * index3) + index2 + index]%gui.nLeds()
+                    setWidget(gui.sync_model["Confocal"][key2][key3]["Board" + str(board_number)], led_number)
+                    current_limit[index2] = gui.getValue(gui.config_model["LED" + str(board_number) + str(led_number+1)]["Current Limit"])
                 elif key3 == "PWM":
-                    gui.setValue(gui.sync_model["Confocal"][key2][key3], (sync_values[(2 * index3) + index2 + 29]/65535)*100)
+                    gui.setValue(gui.sync_model["Confocal"][key2][key3], sync_values[(2 * index3) + index2 + index]/65535*100)
                 elif key3 == "Current":
-                    gui.setValue(gui.sync_model["Confocal"][key2][key3], (((sync_values[(2 * index3) + index2 + 29]/65535)*100)))
+                    gui.setValue(gui.sync_model["Confocal"][key2][key3], sync_values[(2 * index3) + index2 + index]/65535*100)
                 elif key3 == "Duration":
-                    gui.setValue(gui.sync_model["Confocal"][key2][key3], sync_values[(2 * index3) + index2 + 29]/1e6)
+                    gui.setValue(gui.sync_model["Confocal"][key2][key3], sync_values[(2 * index3) + index2 + index]/1e6)
 
         updateModelWhatsThis(gui, gui.sync_model)
         return True
 
     else:
-        showMessage(gui, "Error: Driver config file had invalid checksum: " + str(checksum) + ". Upload aborted.")
+        showMessage(gui, "Error: Sync config file had invalid checksum: " + str(checksum) + ". Upload aborted.")
         return False
 
 def configToBytes(gui, prefix, update_model=True):
@@ -338,6 +344,7 @@ def syncToBytes(gui, prefix, update_model=True):
 
     sync_values = [None] * (15 + 2*11 + 3)
     byte_array = bytearray() #Initialize empty byte array
+    index = 0
 
     def widgetIndex(widget_list):
         for w_index, n_widget in enumerate(widget_list):
@@ -347,30 +354,29 @@ def syncToBytes(gui, prefix, update_model=True):
             showMessage(gui, "Error: Widget index not found!")
             return None
 
-    #Calculate total resistance for current conversions
-    total_resistance = float(gui.configure_current_limit_box.whatsThis())
-
     #Digital
     sync_values[0] = gui.sync_model["Mode"].currentIndex()
     sync_values[1] = widgetIndex(gui.sync_model["Output"])
     sync_values[2] = widgetIndex(gui.sync_model["Digital"]["Channel"])
     current_limit = [0]*2
+    index += 3
+
     for index3, key3 in enumerate(["Mode", "LED", "PWM", "Current", "Duration"]):
         for index2, key2 in enumerate(["Low", "High"]):
             if key3 == "Mode":
-                sync_values[(2 * index3) + index2 + 3] = gui.sync_model["Digital"][key2][key3].currentIndex()
+                sync_values[(2 * index3) + index2 + index] = gui.sync_model["Digital"][key2][key3].currentIndex()
             if key3 == "LED":
-                sync_values[(2 * index3) + index2 + 3] = widgetIndex(gui.sync_model["Digital"][key2][key3])
-                if sync_values[(2 * index3) + index2 + 29] == 0: #If current LED is selected - get active LED channel from main window
-                    sync_values[(2 * index3) + index2 + 29] = widgetIndex(gui.main_model["Channel"])+1
-                current_limit[index2] = gui.getValue(gui.config_model["LED" + str(sync_values[(2 * index3) + index2 + 3]+1)]["Current Limit"])
+                sync_values[(2 * index3) + index2 + index] = widgetIndex(gui.sync_model["Digital"][key2][key3])
+                current_limit[index2] = gui.getValue(gui.config_model["LED" + str(sync_values[(2 * index3) + index2 + index]+1)]["Current Limit"])
             elif key3 == "PWM":
-                sync_values[(2 * index3) + index2 + 3] = round((gui.getValue(gui.sync_model["Digital"][key2][key3])/100)*65535)
+                sync_values[(2 * index3) + index2 + index] = round((gui.getValue(gui.sync_model["Digital"][key2][key3])/100)*65535)
             elif key3 == "Current":
-                sync_values[(2 * index3) + index2 + 3] = round((((gui.getValue(gui.sync_model["Digital"][key2][key3])/100)*current_limit[index2] * total_resistance) / 3.3) * 65535)  # Convert current limit to ADC reading (voltage)
-                print("Digital Input: " + str(gui.getValue(gui.sync_model["Digital"][key2][key3])) + ", Limit: " + str(current_limit[index2]) + ", Res: " + str(total_resistance))
+                sync_values[(2 * index3) + index2 + index] = round((((gui.getValue(gui.sync_model["Digital"][key2][key3])/100)*current_limit[index2]) / 3.3) * 65535)  # Convert current limit to ADC reading (voltage)
+                print("Digital Input: " + str(gui.getValue(gui.sync_model["Digital"][key2][key3])) + ", Limit: " + str(current_limit[index2]) + ", Res: ")
             elif key3 == "Duration":
-                sync_values[(2 * index3) + index2 + 3] = round(gui.getValue(gui.sync_model["Digital"][key2][key3])*1e6)  # Convert duration to microseconds
+                sync_values[(2 * index3) + index2 + index] = round(gui.getValue(gui.sync_model["Digital"][key2][key3])*1e6)  # Convert duration to microseconds
+
+    index += 10
 
     #Analog
     for index2, key2 in enumerate(["Channel", "LED"]):

@@ -110,7 +110,7 @@ const struct defaultSyncStruct{ //158 bytes
   uint16_t confocal_current[2] = {0,0}; //The DAC value in the image and flyback states respectively
   uint32_t confocal_duration[2] = {0,0}; //The maximum number of milliseconds to hold LED state
 
-  uint8_t checksum = 18; //Checksum to confirm that configuration is valid
+  uint8_t checksum = 20; //Checksum to confirm that configuration is valid
 } defaultSync;
 
 struct sequenceHeaderStruct{ //6 bytes
@@ -278,8 +278,8 @@ PacketSerial_<COBS, 0, COBS_BUFFER_SIZE> usb; //Sets Encoder, framing character,
 DAC dac;
 
 void setup() {
-  //EEPROM.update(0,0); //Uncomment to reset EEPROM to defaults - re-comment and the upload code again
-  //sd.formatSdCard(); //Uncomment to format SD card - re-comment and the upload code again
+  //EPROM.update(0,0); //Uncomment to reset EEPROM to defaults - re-comment and the upload code again
+  //sd.formatSdCard(); sd.initializeSD();//Uncomment to format SD card - re-comment and the upload code again
   
   //Count cpu cycles for submircrosecond delay precision - https://forum.pjrc.com/threads/28407-Teensyduino-access-to-counting-cpu-cycles?p=71036&viewfull=1#post71036
   ARM_DEMCR |= ARM_DEMCR_TRCENA;
@@ -294,26 +294,26 @@ void setup() {
   sequence_buffer[0][0]= 0;
   pinMode(LED_BUILTIN, OUTPUT);
   Serial.begin(9600); //Needed for non-COBS streaming, such as large sequence files
+  while(!Serial);
   usb.begin(115200);
   usb.setPacketHandler(&onPacketReceived);
 
   //Setup SD card
   if(!sd.initializeSD()){ //Initiazlize SD card first so the sequence files can be retrieved on initializeConfigurations()
-    digitalWriteFast(LED_BUILTIN, HIGH);
     if(!sd.formatSdCard()){ ; //Try reformatting the card
       sd.message_buffer[0] = prefix.message;
       usb.send((const unsigned char*) sd.message_buffer, sd.message_size);
+      return;
+    }
+    if(!sd.initializeSD()){ //Re-initialize sd card
+      sd.message_buffer[0] = prefix.message;
+      usb.send((const unsigned char*) sd.message_buffer, sd.message_size);
+      return;
     }
     else{
-      if(!sd.initializeSD()){ //Re-initialize sd card
-        sd.message_buffer[0] = prefix.message;
-        usb.send((const unsigned char*) sd.message_buffer, sd.message_size);
-      }
-      else{
-        temp_size = sprintf(temp_buffer, "-Warning: SD card fomat was invalid.  Card was successfully reformatted to FAT16/32.  All files were deleted.");
-        temp_buffer[0] = prefix.message;
-        usb.send((const unsigned char*) temp_buffer, temp_size);
-      }
+      temp_size = sprintf(temp_buffer, "-Warning: SD card fomat was invalid.  Card was successfully reformatted to FAT16/32.  All files were deleted.");
+      temp_buffer[0] = prefix.message;
+      usb.send((const unsigned char*) temp_buffer, temp_size);
     }
   }
 
@@ -336,13 +336,13 @@ void setup() {
 
 
 
-  for(uint8_t a=0; a<N_BOARDS-1; a++){
+  for(uint8_t a=0; a<N_BOARDS; a++){
     for(uint8_t b=0; b<N_LEDS; b++){
       conf.c.led_active[a][b] = true;
     }
   }
   conf.c.current_limit[0][3] = 30000;
-  conf.c.checksum = 55;
+  conf.c.checksum = 48;
 }
 
 void loop() {
@@ -504,7 +504,7 @@ void checkStatus(){
         dac.allOff(); //Set external analog input
       }
       else{ //If in sync mode
-        if(((sync.s.mode == 0 && sync.s.digital_mode[current_status.s.state] == 3) || (sync.s.mode == 2 && sync.s.confocal_mode[current_status.s.state] == 3) || (sync.s.mode == 1 && sync.s.analog_mode == 2)) && !external_analog){ //If state requires ext. analog
+        if(((sync.s.mode == 0 && sync.s.digital_mode[current_status.s.state] == 3) || (sync.s.mode == 2 && sync.s.confocal_mode[current_status.s.state] == 3) || sync.s.mode == 1) && !external_analog){ //If state requires ext. analog
           external_analog = true;
           dac.externalSignal();
         }
@@ -856,6 +856,7 @@ void loadDefaultsToEEPROM(){
 
   //Clear the SD card as well in case it has invalid sequence files
   sd.formatSdCard();
+  sd.initializeSD(); //Rebuild files
 }
 
 void loadEEPROMtoStructs(){
