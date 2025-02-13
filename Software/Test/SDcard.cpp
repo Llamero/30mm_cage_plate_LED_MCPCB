@@ -106,9 +106,7 @@ boolean SDcard::initializeSD(){
   /////////////////CREATE EMPTY SEQ FILES IF NECESSARY///////////////////////////
   for(int a = 0; a<N_SEQ_FILES; a++){
     sprintf(message_buffer, "%s/%s", seq_bin_dir, seq_files[a]); //Path to file
-    Serial.println(message_buffer);
     if(!card.exists(message_buffer)){ //If file doesn't exist, create an empty file
-      Serial.println("save");
       f = card.open(message_buffer, FILE_WRITE);
       f.close();
     }
@@ -214,5 +212,6 @@ boolean SDcard::formatSdCard(){
 //Functions below are for debugging purposes
 
 void SDcard::getFileList(){
+  card.ls("/", LS_R);
   card.ls(LS_DATE | LS_SIZE);
 }

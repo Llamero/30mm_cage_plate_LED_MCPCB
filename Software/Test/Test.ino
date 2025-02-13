@@ -384,7 +384,7 @@ void checkStatus(){
       break;
     case 3: //Check if any of the temperatures is past the fault temperature - 0.2 µs
       status_index++;
-      if(!fault_active) thermalFault();
+//      if(!fault_active) thermalFault();
       break;
     case 4: //Set fan speeds - 0.4 µs
       status_index++;

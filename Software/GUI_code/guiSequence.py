@@ -320,16 +320,16 @@ def bytesToSequence(byte_array, gui, widget):
             writer = csv.writer(stream)
             writer.writerow(widget_headers) #Add header to temp file
             converted_row = [None] * 4
-            total_resistance = float(gui.configure_current_limit_box.whatsThis())
             for key, value in gui.seq_dict[widget].items(): #Clear seq dict entry
                 gui.seq_dict[widget][key] = []
             for row_data in row_list:
                 converted_row[0] = int(row_data[0])
-                converted_row[1] = (float(row_data[1]) / 65535) * 100  # Convert ADC to percent value
+                board_number = math.floor(sync_values[(2 * index3) + index2 + index] / gui.nLeds()) + 1
+                led_number = sync_values[(2 * index3) + index2 + index] % gui.nLeds()
+                converted_row[1] = (float(row_data[1]) / 65535) * 100  # Convert PWM to percent value
                 converted_row[3] = float(row_data[3]) / 1e6  # convert microseconds to seconds
-                led_voltage = (float(row_data[2]) / 65535) * 3.3
-                led_current = led_voltage / total_resistance
-                converted_row[2] = (led_current / gui.getValue(gui.config_model["LED" + str(converted_row[0])]["Current Limit"])) * 100
+                led_current = (float(row_data[2]) / 65535) * 100  # Convert current to percent value
+                converted_row[2] = (led_current / gui.getValue(gui.config_model["LED" + str(board_number) + str(led_number)]["Current Limit"]))*100
                 converted_row[1:] = [sigFigLimit(x, 3) for x in converted_row[1:]]
                 writer.writerow(converted_row) #Write rows to temp file
 
