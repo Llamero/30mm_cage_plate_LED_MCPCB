@@ -20,8 +20,6 @@ import pyautogui
 VENDOR_ID = 0x16C0
 PRODUCT_ID = 0x0483
 SERIAL_NUMBER = "30MMLED"
-MAGIC_SEND = "kc1oISEIZ60AYJqH4J1P" #Magic number sent to Teensy to verify that they are an LED driver
-MAGIC_RECEIVE = "kvlWfsBplgasrsh3un5K" #Magic number received from Teensy verifying it is an LED driver
 MAGIC_SEND = "51ERrUAT6ZWlThiltxJK" #Magic number sent to Teensy to verify that they are an LED driver
 MAGIC_RECEIVE = "A5DihJ3v5bbXKmAmmhQl" #Magic number received from Teensy verifying it is an LED driver
 HEARTBEAT_INTERVAL = 5 #Send a heartbeat signal every 5 seconds after the last packet was transmitted
@@ -464,7 +462,6 @@ class usbSerial(QtWidgets.QWidget): #Implementation based on: https://stackoverf
 
     def updateStatus(self, reply=None):
         unpack_string = "<"
-
         # String for LED info
         for byte in ["B", "H", "H"]:
             for board_number in range(1, self.gui.nBoards() + 1):
@@ -474,7 +471,7 @@ class usbSerial(QtWidgets.QWidget): #Implementation based on: https://stackoverf
 
         # Temp and fan info
         for byte in ["H", "H"]:
-            for board_number in range(1, self.gui.nBoards() + 1):
+            for _ in range(1, self.gui.nBoards() + 1): #https://www.datacamp.com/tutorial/role-underscore-python
                 unpack_string += byte
 
         if reply:
@@ -537,14 +534,15 @@ class usbSerial(QtWidgets.QWidget): #Implementation based on: https://stackoverf
                         led_dict["channel"][board-1] = self.gui.nLeds()
                         led_dict["current"][board-1] = 0
                         led_dict["pwm"][board-1] = 0
-
+                led_dict["channel"][board - 1]
                 # Send only GUI states - set all driver specific values to 0 since they are just padding
                 for board in range(0, self.gui.nBoards()):
-                    status_list[board-1] = led_dict["channel"][board-1]
+                    status_list[board] = led_dict["channel"][board]
                     status_list[self.gui.nBoards() + board] = led_dict["pwm"][board]
                     status_list[2*self.gui.nBoards() + board] = led_dict["current"][board]
                 status_list[3*self.gui.nBoards()] = mode
                 status_list[3*self.gui.nBoards()+2] = widgetIndex(self.gui.main_model["Control"])
+                print(status_list)
                 status_list = struct.pack("<BBBHHHHHHB??HHHHHH", *status_list)
                 self.sendWithoutReply(status_list, True, 0)
 

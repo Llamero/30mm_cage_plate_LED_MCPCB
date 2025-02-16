@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35075816-77fa-4058-88e3-96cac61cd4b3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../KiCAD/LED Controller/LED controller-backups/LED controller-2024-11-27_012300.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiSequence.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiSequence.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Test/SDcard.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Test/SDcard.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Status_GUI.ui" beforeDir="false" afterPath="$PROJECT_DIR$/Status_GUI.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driverUSB.py" beforeDir="false" afterPath="$PROJECT_DIR$/driverUSB.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statusWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/statusWindow.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Test/Test.ino" beforeDir="false" afterPath="$PROJECT_DIR$/../Test/Test.ino" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,21 +82,21 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1060" y="455" key="FileChooserDialogImpl/2560.360.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1739399298406" />
-    <state width="2539" height="401" key="GridCell.Tab.0.bottom" timestamp="1739409297172">
+    <state width="2539" height="401" key="GridCell.Tab.0.bottom" timestamp="1739666307562">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.bottom/2560.360.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1739409297172" />
-    <state width="2539" height="401" key="GridCell.Tab.0.center" timestamp="1739409297172">
+    <state width="2539" height="401" key="GridCell.Tab.0.bottom/2560.360.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1739666307562" />
+    <state width="2539" height="401" key="GridCell.Tab.0.center" timestamp="1739666307562">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.center/2560.360.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1739409297172" />
-    <state width="2539" height="401" key="GridCell.Tab.0.left" timestamp="1739409297172">
+    <state width="2539" height="401" key="GridCell.Tab.0.center/2560.360.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1739666307562" />
+    <state width="2539" height="401" key="GridCell.Tab.0.left" timestamp="1739666307562">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.left/2560.360.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1739409297172" />
-    <state width="2539" height="401" key="GridCell.Tab.0.right" timestamp="1739409297172">
+    <state width="2539" height="401" key="GridCell.Tab.0.left/2560.360.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1739666307562" />
+    <state width="2539" height="401" key="GridCell.Tab.0.right" timestamp="1739666307562">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.right/2560.360.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1739409297172" />
+    <state width="2539" height="401" key="GridCell.Tab.0.right/2560.360.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1739666307562" />
   </component>
 </project>

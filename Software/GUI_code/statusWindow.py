@@ -50,10 +50,10 @@ class statusWindow(QtWidgets.QWidget):
         self.status_dict = copy.deepcopy(self.gui.status_dict)
         self.status_dict["Count"] = 0 #Add count element to dictionary
         self.plots = OrderedDict([("PWM", self.graph_intensity_pwm), ("Current", self.graph_intensity_current),
-                                  ("Transistor", self.graph_temperature_transistor), ("Resistor", self.graph_temperature_resistor), ("External", self.graph_temperature_external)])
+                                  ("Board1", self.graph_temperature_board1), ("Board2", self.graph_temperature_board2), ("Board3", self.graph_temperature_board3)])
 
         self.y_values = OrderedDict([("PWM", deque([0]*N_MEASUREMENTS)), ("Current", deque([0]*N_MEASUREMENTS)),
-                                  ("Transistor", deque([-1000]*N_MEASUREMENTS)), ("Resistor", deque([-1000]*N_MEASUREMENTS)), ("External", deque([-1000]*N_MEASUREMENTS))])
+                                  ("Board1", deque([-1000]*N_MEASUREMENTS)), ("Board2", deque([-1000]*N_MEASUREMENTS)), ("Board3", deque([-1000]*N_MEASUREMENTS))])
 
         self.state_dict = self.gui.state_dict
         self.speed_model, self.custom_spinbox = self.initializeSpeedModel()
@@ -169,29 +169,30 @@ class statusWindow(QtWidgets.QWidget):
         round_to_n = lambda x, n: x if x == 0 else round(x, -int(math.floor(math.log10(abs(x)))) + (n - 1)) #Roudn to sig fig - https://stackoverflow.com/questions/3410976/how-to-round-a-number-to-significant-figures-in-python
         count = self.status_dict["Count"]
         if count > 0: #Update values if at least one new update was received
+            print(self.status_dict)
             for key, value in self.status_dict.items():
                 unit = ""
-                if key == "Channel":
+                if "Channel" in key:
                     value += 1
+                    board_number = key[-1]
                     self.updateLabel(key, value)
-                    key = "Channel Name"
-                    value = self.gui.getValue(self.gui.config_model["LED" + str(value)]["ID"])
-                elif key in ["Transistor", "Resistor", "External"]:
-                    if key == "External":
-                        self.status_dict[key] = fileIO.adcToTemp(value/count, True) #Use external thermistor coefficients
-                    else:
-                        self.status_dict[key] = fileIO.adcToTemp(value / count, False) #Use internal thermistor coefficients
+                    key = "Channel Name" + str(board_number)
+                    value = self.gui.getValue(self.gui.config_model["LED" + str(board_number) + str(value)]["ID"])
+                    if not isinstance(value, str):
+                        value = "Off"
+                elif "Temperature" in key:
+                    self.status_dict[key] = fileIO.adcToTemp(value / count, False) #Use internal thermistor coefficients
                     if self.status_dict[key] > -30:
                         value = round_to_n(self.status_dict[key], 3)
                         unit = " °C"
                     else:
                         self.status_dict[key] = -1000
                         value = "Not Connected"
-                elif key in ["Driver Fan", "External Fan", "PWM"]:
+                elif "PWM" in key or "Fan" in key:
                     self.status_dict[key] = ((value / count)/65535)*100
                     value = round_to_n(self.status_dict[key], 3)
                     unit = " %"
-                elif key == "Current":
+                elif "Current" in key:
                     self.status_dict[key] = ((value / count) / self.gui.getAdcCurrentLimit(self.status_dict["Channel"])) * 100
                     value = round_to_n(self.status_dict[key], 3)
                     unit = " %"
@@ -219,6 +220,7 @@ class statusWindow(QtWidgets.QWidget):
 
                 if key not in ["Count"]:
                     self.updateLabel(key, value, unit)
+
             self.status_dict["Count"] = 0 #Reset the averaging counter
 
         #Update plots
@@ -257,9 +259,14 @@ class statusWindow(QtWidgets.QWidget):
                     status_plot.plot(x_values, y_list, pen=pg.mkPen('g', width=1), connect="finite", clear=True)
 
     def updateLabel(self, key, value, unit = ""):
+        prefix = key
+        board_number = key[-1]
+        if board_number.isdigit():
+            prefix = key[:-1]
+            key = prefix + "_board" + str(board_number)
         widget = key.lower()
         widget = eval("self.text_" + widget.replace(" ", "_") + "_label")
-        widget.setText(key + ": " + str(value) + unit)
+        widget.setText(prefix + ": " + str(value) + unit)
 
     def closeEvent(self, event):
         self.stopAnimation()

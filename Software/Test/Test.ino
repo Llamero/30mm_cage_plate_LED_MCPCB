@@ -294,7 +294,6 @@ void setup() {
   sequence_buffer[0][0]= 0;
   pinMode(LED_BUILTIN, OUTPUT);
   Serial.begin(9600); //Needed for non-COBS streaming, such as large sequence files
-  while(!Serial);
   usb.begin(115200);
   usb.setPacketHandler(&onPacketReceived);
 
@@ -359,11 +358,6 @@ void loop() {
     }
 }
 
-
-
-
-
-
 void checkStatus(){
   interrupts(); //Activate interrupts to allow serial to be monitored and sent
   uint16_t a;
@@ -415,7 +409,7 @@ void checkStatus(){
     case 6: //Check pushbuttons and update LEDs - 1.05 µs
       status_index++; 
       if(!fault_active){ 
-        if(current_status.s.driver_control){ //If in manual mode and driver control, check for button presses
+        if(current_status.s.driver_control && current_status.s.mode){ //If in manual mode and driver control, check for button presses
           for(a=0; a<N_BOARDS; a++){ //Check if any pushbutton is pressed
             if(!digitalReadFast(pin.PUSHBUTTON[a])){
               delay(pin.DEBOUNCE);
@@ -449,14 +443,14 @@ void checkStatus(){
                   while(!digitalReadFast(pin.PUSHBUTTON[a])) delay(10);
                   delay(pin.DEBOUNCE);
                 }
-                else{
+                else{ //Otherwise increment LED channel
                   delay(pin.DEBOUNCE);
                   current_status.s.led_channel[a]++;
+                  if(current_status.s.led_channel[a] > N_LEDS) current_status.s.led_channel[a] = 0; //Roll over first LED at end of cycle.
                   while(current_status.s.led_channel[a] < N_LEDS){ //Check that LED channel is active
                     if(conf.c.led_active[a][current_status.s.led_channel[a]]) break;
                     else current_status.s.led_channel[a]++; //If not, skip to next channel
                   }
-                  if(current_status.s.led_channel[a] > N_LEDS) current_status.s.led_channel[a] = 0; //Roll over to LED off at end of cycle.
                   if(current_status.s.led_channel[a] >= N_LEDS){ //confirm that channel can be selected ){
                     ledOff(a);
                   }
@@ -478,6 +472,9 @@ void checkStatus(){
             }
           }
         }
+        else if(conf.c.pushbutton_intensity){
+          for(a=0; a<N_BOARDS; a++) pin.setButtonColor(a, current_status.s.led_channel[a]);
+        }     
       }
       break;
     case 7: //Send current status to led driver - 4.76 µs

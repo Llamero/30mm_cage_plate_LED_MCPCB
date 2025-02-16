@@ -248,20 +248,24 @@ uint16_t pinSetup::tempToAdc(float temperature){
 //////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM//////////////eFlexPWM
 
 void pinSetup::setButtonColor(uint8_t id, uint8_t color_index){
-  if(color_index >= sizeof(color_list)/sizeof(color_list[0])) toggleButtonLED(id, false); //Turn LED off if index = 0;
-  else{
-    toggleButtonLED(id, true); //Turn on LED
-    if(id == 0){
-      Sm42.updateDutyCyclePercent (color_list[color_index], ChanA);
-      Tm4.setPwmLdok();
-    }
-    else if(id == 1){
-      Sm22.updateDutyCyclePercent (color_list[color_index], ChanA);
-      Tm2.setPwmLdok();
-    }
+  static uint8_t cur_color[3];
+  if(cur_color[id] != color_index){ //Change color only if needed
+    cur_color[id] = color_index;
+    if(color_index >= sizeof(color_list)/sizeof(color_list[0])) toggleButtonLED(id, false); //Turn LED off if index = 0;
     else{
-      Sm13.updateDutyCyclePercent (color_list[color_index], ChanA);
-      Tm1.setPwmLdok();
+      toggleButtonLED(id, true); //Turn on LED
+      if(id == 0){
+        Sm42.updateDutyCyclePercent (color_list[color_index], ChanA);
+        Tm4.setPwmLdok();
+      }
+      else if(id == 1){
+        Sm22.updateDutyCyclePercent (color_list[color_index], ChanA);
+        Tm2.setPwmLdok();
+      }
+      else{
+        Sm13.updateDutyCyclePercent (color_list[color_index], ChanA);
+        Tm1.setPwmLdok();
+      }
     }
   }
 }

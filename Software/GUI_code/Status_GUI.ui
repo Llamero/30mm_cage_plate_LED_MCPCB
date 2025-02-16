@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>315</width>
-    <height>529</height>
+    <width>418</width>
+    <height>714</height>
    </rect>
   </property>
   <property name="font">
@@ -240,7 +240,7 @@
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QLabel" name="text_channel__board1_label">
+                 <widget class="QLabel" name="text_channel_board1_label">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -321,7 +321,7 @@
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QLabel" name="text_channel__board2_label">
+                 <widget class="QLabel" name="text_channel_board2_label">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -402,7 +402,7 @@
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QLabel" name="text_channel__board3_label">
+                 <widget class="QLabel" name="text_channel_board3_label">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
