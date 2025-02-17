@@ -543,7 +543,6 @@ class usbSerial(QtWidgets.QWidget): #Implementation based on: https://stackoverf
                     status_list[2*self.gui.nBoards() + board] = led_dict["current"][board]
                 status_list[3*self.gui.nBoards()] = mode
                 status_list[3*self.gui.nBoards()+2] = widgetIndex(self.gui.main_model["Control"])
-                print(status_list)
                 status_list = struct.pack("<BBBHHHHHHB??HHHHHH", *status_list)
                 self.sendWithoutReply(status_list, True, 0)
 
