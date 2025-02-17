@@ -24,12 +24,12 @@ def loadSequence(gui, widget, get_path=False):  # derived from - https://stackov
     if path: #If path is specified, load file
         try: #Try to open file at path
             # Count number of rows in CSV file
-            with open(str(path), 'rU') as stream: #Verify that the seq table is valid
+            with open(str(path), 'r') as stream: #Verify that the seq table is valid
                 widget_headers = verifySequence(gui, stream, widget)
 
             # Import csv file
             if widget_headers: #Load valid seq table into widget
-                with open(str(path), 'rU') as stream:
+                with open(str(path), 'r') as stream:
                     reader = csv.reader(stream)
 
                     # Remove header from stream

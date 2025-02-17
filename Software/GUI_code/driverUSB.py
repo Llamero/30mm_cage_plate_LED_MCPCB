@@ -520,13 +520,14 @@ class usbSerial(QtWidgets.QWidget): #Implementation based on: https://stackoverf
                 for board in range(1, self.gui.nBoards()+1):
                     led_dict["channel"][board-1] = widgetIndex(self.gui.main_model["Channel"]["Board" + str(board)])
                     if led_dict["channel"][board-1] is not None:
+                        led_number = led_dict["channel"][board-1]+1
                         if mode == 1: #PWM mode
                             led_dict["pwm"][board-1] = round((self.gui.getValue(self.gui.main_model["Intensity"]) / dial_max) * 65535)
-                            led_dict["current"][board-1] = round(self.gui.getAdcCurrentLimit(board, led_dict["channel"][board-1]+1))
+                            led_dict["current"][board-1] = self.gui.getAdcCurrentLimit(board, led_number)
                         elif mode == 2: #Current mode
-                            led_dict["pwm"][board-1] = 65535
+                            led_dict["pwm"][board - 1] = 65535
                             led_dict["current"][board-1] = round((self.gui.getValue(
-                                self.gui.main_model["Intensity"]) / dial_max) * self.gui.getAdcCurrentLimit(board, led_dict["channel"][board-1]+1)/100)
+                                self.gui.main_model["Intensity"]) / dial_max) * self.gui.getAdcCurrentLimit(board, led_number))
                         else: #Off mode or sync mode
                             led_dict["current"][board-1] = 0
                             led_dict["pwm"][board-1] = 0

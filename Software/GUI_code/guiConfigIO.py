@@ -1,8 +1,5 @@
-import copy
 import math
 import struct
-import sys
-import tempfile
 from PyQt5 import QtWidgets
 from collections import OrderedDict
 import ast
@@ -182,8 +179,6 @@ def bytesToSync(byte_array, gui, prefix):
             gui.setValue(widgets, widget_string)
         except:
             showMessage(gui, "Error: Widget index not found for " + str(widgets))
-            print(str(widgets[0].objectName())  + " " + str(index) + " " + str(sync_values[index]))
-            sys.exit()
             return None
 
     checksum = (sum(byte_array) + prefix) & 0xFF  # https://stackoverflow.com/questions/44611057/checksum-generation-from-sum-of-bits-in-python
@@ -409,8 +404,7 @@ def syncToBytes(gui, prefix, update_model=True):
             elif key3 == "PWM":
                 sync_values[(2 * index3) + index2 + 29]  = round((gui.getValue(gui.sync_model["Confocal"][key2][key3]) / 100) * 65535) #Convert to clock-cycles, where 100% = # of clock cycles in delay #2
             elif key3 == "Current":
-                sync_values[(2 * index3) + index2 + 29] = round((((gui.getValue(gui.sync_model["Confocal"][key2][key3])/100)*current_limit[index2] * total_resistance) / 3.3) * 65535)  # Convert current to ADC reading (voltage) as percent of current limit
-                print("Confocal Input: " + str(gui.getValue(gui.sync_model["Confocal"][key2][key3])) + ", Limit: " + str(current_limit[index2]) + ", Res: " + str(total_resistance))
+                sync_values[(2 * index3) + index2 + 29] = round((gui.getValue(gui.sync_model["Confocal"][key2][key3])/current_limit[index2]) * 100)  # Convert current to ADC reading (voltage) as percent of current limit
             elif key3 == "Duration":
                 sync_values[(2 * index3) + index2 + 29] = round(gui.getValue(gui.sync_model["Confocal"][key2][key3])*1e6)
 

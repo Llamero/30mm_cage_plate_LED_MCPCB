@@ -110,7 +110,7 @@
             </property>
             <layout class="QGridLayout" name="gridLayout_8">
              <item row="0" column="0">
-              <widget class="QLabel" name="text_board1_label">
+              <widget class="QLabel" name="text_temperature_board1_label">
                <property name="font">
                 <font>
                  <pointsize>12</pointsize>
@@ -128,7 +128,7 @@
               </widget>
              </item>
              <item row="0" column="1">
-              <widget class="QLabel" name="text_board1_fan_label">
+              <widget class="QLabel" name="text_fan_board1_label">
                <property name="font">
                 <font>
                  <pointsize>12</pointsize>
@@ -146,7 +146,7 @@
               </widget>
              </item>
              <item row="1" column="0">
-              <widget class="QLabel" name="text_board2_label">
+              <widget class="QLabel" name="text_temperature_board2_label">
                <property name="font">
                 <font>
                  <pointsize>12</pointsize>
@@ -164,7 +164,7 @@
               </widget>
              </item>
              <item row="2" column="0">
-              <widget class="QLabel" name="text_board3_label">
+              <widget class="QLabel" name="text_temperature_board3_label">
                <property name="font">
                 <font>
                  <pointsize>12</pointsize>
@@ -182,7 +182,7 @@
               </widget>
              </item>
              <item row="1" column="1">
-              <widget class="QLabel" name="text_board2_fan_label">
+              <widget class="QLabel" name="text_fan_board2_label">
                <property name="toolTip">
                 <string>Speed of the external fan (0% = off, 100% = full speed)</string>
                </property>
@@ -192,7 +192,7 @@
               </widget>
              </item>
              <item row="2" column="1">
-              <widget class="QLabel" name="label">
+              <widget class="QLabel" name="text_fan_board3_label">
                <property name="text">
                 <string>Fan #3:</string>
                </property>
