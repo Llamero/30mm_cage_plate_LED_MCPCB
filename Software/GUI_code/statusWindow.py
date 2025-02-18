@@ -249,38 +249,38 @@ class statusWindow(QtWidgets.QWidget):
             if show_plot:
                 status_plot.setXRange(self.x_axis_offset, N_MEASUREMENTS+self.x_axis_offset, padding=0)
 
-                if "Temperature" in key:
-                    self.y_values[key][0] = self.status_dict[key]
-                    self.y_values[key].rotate(-1)
+            if "Temperature" in key:
+                self.y_values[key][0] = self.status_dict[key]
+                self.y_values[key].rotate(-1)
+                if show_plot:
+                    y_list = list(self.y_values[key])
+                    try:
+                        list_max = max(y for y in y_list if y > -273.15)  # Exclude None: https://stackoverflow.com/questions/2295461/list-minimum-in-python-with-none
+                        list_min = min(y for y in y_list if y > -273.15)
+                        y_mean = (list_max + list_min) / 2
+                        y_range = list_max - list_min
+                        if y_range < MIN_TEMP_RANGE * PLOT_PADDING:
+                            y_range = MIN_TEMP_RANGE * PLOT_PADDING
+                        status_plot.setYRange(y_mean - y_range / 2, y_mean + y_range / 2, padding=0)
+                    except ValueError:
+                        pass
+                    status_plot.plot(x_values, y_list, pen=pg.mkPen('g', width=1), connect="finite", clear=True)
+
+            else:
+                color_list = ['m','y','c']
+                max_value = 0
+                for board in range(self.gui.nBoards()):
+                    max_value = max(max(self.y_values[key][board]), max_value)
+                max_value *= PLOT_PADDING
+
+                for board in range(1, self.gui.nBoards()+1):
+                    if board == 1:
+                        clear_graph = True
+                    else:
+                        clear_graph = False
+                    self.y_values[key][board-1][0] = self.status_dict[key + str(board)]
+                    self.y_values[key][board-1].rotate(-1)
                     if show_plot:
-                        y_list = list(self.y_values[key])
-                        try:
-                            list_max = max(y for y in y_list if y > -273.15)  # Exclude None: https://stackoverflow.com/questions/2295461/list-minimum-in-python-with-none
-                            list_min = min(y for y in y_list if y > -273.15)
-                            y_mean = (list_max + list_min) / 2
-                            y_range = list_max - list_min
-                            if y_range < MIN_TEMP_RANGE * PLOT_PADDING:
-                                y_range = MIN_TEMP_RANGE * PLOT_PADDING
-                            status_plot.setYRange(y_mean - y_range / 2, y_mean + y_range / 2, padding=0)
-                        except ValueError:
-                            pass
-                        status_plot.plot(x_values, y_list, pen=pg.mkPen('g', width=1), connect="finite", clear=True)
-
-                else:
-                    color_list = ['m','y','c']
-                    max_value = 0
-                    for board in range(self.gui.nBoards()):
-                        max_value = max(max(self.y_values[key][board]), max_value)
-                    max_value *= PLOT_PADDING
-
-                    for board in range(1, self.gui.nBoards()+1):
-                        if board == 1:
-                            clear_graph = True
-                        else:
-                            clear_graph = False
-                        self.y_values[key][board-1][0] = self.status_dict[key + str(board)]
-                        self.y_values[key][board-1].rotate(-1)
-
                         y_list = list(self.y_values[key][board-1])
                         status_plot.setYRange(0, max_value, padding=0)
                         status_plot.plot(x_values, y_list, pen=pg.mkPen(color_list[board-1], width=1), connect="finite", clear=clear_graph)

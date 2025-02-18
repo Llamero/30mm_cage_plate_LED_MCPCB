@@ -7,10 +7,8 @@ import guiSequence as seq
 
 #Thermistor properties
 PCB_THERMISTOR_NOMINAL = 4700 #Value of thermistor on PCB at nominal temp (25°C)
-PCB_B_COEFFICIENT = 3545 #Beta value for the PCB thermistor
-EXT_THERMISTOR_NOMINAL = 4700 #Value of external thermistor at nominal temp (25°C)
-EXT_B_COEFFICIENT = 3545 #Beta value for the PCB thermistor
-SERIES_RESISTOR = 4700 #Resistor value in series with thermistor on PCB board
+PCB_B_COEFFICIENT = 3500 #Beta value for the PCB thermistor
+SERIES_RESISTOR = 3600 #Resistor value in series with thermistor on PCB board
 DEFAULT_CLOCK_SPEED = 600 #Clock speed of the Teensy in MHz - used to convert confocal delay times to clock cycles for sub-microsecond precision
 N_BOARDS = 3 #Number of boards connected to the driver
 N_LEDS = 4 #Number of LEDs on each boards
@@ -81,15 +79,16 @@ def loadConfiguration(gui, model, file=None):
                     return
 
 def checkTemperatures(gui, key_list):
+    print(key_list)
     if key_list[0] == "Temperature":
         labels = ["Warn", "Fault"]
     else:
         labels = ["Min", "Max"]
 
-    if key_list[1] in ["Warn", "Min"]:
-        gui.config_model[key_list[0]][key_list[1]].setMinimum(gui.getValue(gui.config_model[key_list[0]][labels[1]]) + 1)
+    if key_list[1] in ["Fault", "Max"]:
+        gui.config_model[key_list[0]][key_list[1]].setMinimum(gui.getValue(gui.config_model[key_list[0]][labels[0]]) + 1)
     else:
-        gui.config_model[key_list[0]][key_list[1]].setMaximum(gui.getValue(gui.config_model[key_list[0]][labels[0]]) - 1)
+        gui.config_model[key_list[0]][key_list[1]].setMaximum(gui.getValue(gui.config_model[key_list[0]][labels[1]]) - 1)
 
 def bytesToConfig(byte_array, gui, prefix):
     global EXT_THERMISTOR_NOMINAL

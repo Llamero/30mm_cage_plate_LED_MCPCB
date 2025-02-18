@@ -25,7 +25,7 @@ Timer &Tm4 = Sm42.timer();
 uint8_t dutyCyclePercent = 0;
 
 //NOTE: It seems that in this compiler lists longer than 4 need to be built in CPP while shorter lists need to be built in header with constexpr
-const int pinSetup::RELAY[][4] = {{17,16, 15, 14}, {13, 41, 40, 39}, {38, 37, 36, 35}}; //SSR relays for changing LED channel
+const int pinSetup::RELAY[][4] = {{14, 15, 16, 17}, {39, 40, 41, 13}, {35, 36, 37, 38}}; //SSR relays for changing LED channel
 const int pinSetup::INTERLINE[] = {10, 11, 12}; //Switch between analog input and gnd to turn off LED
 const int pinSetup::ALARM[] = {24, 25}; //Audible alarm
 const int pinSetup::BOARD_TEMP[] = {20, 19, 18}; //NTC thermistor monitoring LED board temperature(s)
