@@ -44,7 +44,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="main_tab">
        <property name="toolTip">
@@ -127,6 +127,9 @@
               </sizepolicy>
              </property>
              <property name="maximum">
+              <number>1</number>
+             </property>
+             <property name="pageStep">
               <number>1</number>
              </property>
              <property name="orientation">
@@ -292,7 +295,7 @@
               <string>Tiriac knob</string>
              </property>
              <property name="maximum">
-              <number>100000</number>
+              <number>10000</number>
              </property>
              <property name="singleStep">
               <number>10</number>
@@ -3422,7 +3425,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-42</y>
+             <y>0</y>
              <width>436</width>
              <height>1011</height>
             </rect>
@@ -4940,23 +4943,23 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
   </property>
  </designerdata>
  <buttongroups>
-  <buttongroup name="sync_digital_trigger_high_channel_button_group"/>
-  <buttongroup name="main_toggle_control_group"/>
   <buttongroup name="sync_analog_board3_channel_button_group"/>
-  <buttongroup name="sync_confocal_scanning_LED_channel_button_group"/>
-  <buttongroup name="sync_confocal_line_digital_polarity_button_group"/>
-  <buttongroup name="configure_indication_group"/>
-  <buttongroup name="sync_confocal_line_input_button_group"/>
   <buttongroup name="sync_analog_board2_channel_button_group"/>
-  <buttongroup name="sync_confocal_scan_mode_button_group"/>
-  <buttongroup name="main_intensity_button_group"/>
-  <buttongroup name="main_channel_button_group"/>
-  <buttongroup name="sync_confocal_shutter_polarity_button_group"/>
-  <buttongroup name="sync_digital_trigger_button_group"/>
+  <buttongroup name="sync_confocal_line_input_button_group"/>
+  <buttongroup name="main_toggle_control_group"/>
+  <buttongroup name="sync_digital_trigger_high_channel_button_group"/>
   <buttongroup name="configure_pushbutton_LED_button_group"/>
   <buttongroup name="sync_analog_board1_channel_button_group"/>
-  <buttongroup name="sync_confocal_line_analog_polarity_button_group"/>
+  <buttongroup name="main_channel_button_group"/>
+  <buttongroup name="sync_confocal_scanning_LED_channel_button_group"/>
+  <buttongroup name="main_intensity_button_group"/>
   <buttongroup name="sync_confocal_standby_LED_channel_button_group"/>
+  <buttongroup name="sync_confocal_line_analog_polarity_button_group"/>
   <buttongroup name="sync_digital_trigger_low_channel_button_group"/>
+  <buttongroup name="sync_confocal_line_digital_polarity_button_group"/>
+  <buttongroup name="sync_confocal_scan_mode_button_group"/>
+  <buttongroup name="configure_indication_group"/>
+  <buttongroup name="sync_confocal_shutter_polarity_button_group"/>
+  <buttongroup name="sync_digital_trigger_button_group"/>
  </buttongroups>
 </ui>

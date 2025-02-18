@@ -15,6 +15,7 @@ import sys
 from timeit import default_timer as timer
 import pickle
 import syncPlotWindow
+import traceback
 
 N_BOARDS = 3
 N_LEDS = 4
@@ -212,40 +213,65 @@ class Ui(QtWidgets.QMainWindow):
         self.status_dict["Serial"] = serial_number
 
     def updateMain(self, status_dict):
+        def widgetIndex(widget_list):
+            nonlocal self
+            for w_index, n_widget in enumerate(widget_list):
+                if self.getValue(n_widget):
+                    return w_index
+            else:
+                # self.gui.showMessage("Error: Widget index not found!")
+                return None
+
         if self.getValue(self.main_model["Control"]) == "LED Driver": #If the LED driver is the input source, update GUI with driver status
-            self.main_model["Channel"][status_dict["Channel"]].setChecked(True)
+            for board_number in range(1, self.N_BOARDS+1):
+                led_number = self.status_dict["Channel" + str(board_number)]
+                if led_number < self.N_LEDS:
+                    self.main_model["Channel"]["Board" + str(board_number)][led_number].setChecked(True)
+                    break
+            else: #If LED driver doesn't have any active LED channels (i.e. LED off) then set led number to current widget number
+                for board_number in range(1, self.N_BOARDS + 1):
+                    led_number = widgetIndex(self.main_model["Channel"]["Board" + str(board_number)])
+                    if led_number is not None:
+                        self.main_model["Channel"]["Board" + str(board_number)][led_number].setChecked(True)
+                        break
             if status_dict["Mode"] > 0:
                 self.setValue(self.main_model["Mode"][0], 0) #Set slider to Manual
-                status_list = list(status_dict.items())
                 self.main_model["Mode"][status_dict["Mode"]].setChecked(True)
                 try:
-                    if status_dict["Mode"] in [1,2]: #Check if knob is for PWM or current
-                        intensity = status_list[status_dict["Mode"]][1]
+                    if status_dict["Mode"] == 1: #Check if knob is for PWM or current
+                        intensity = status_dict["PWM" + str(board_number)]
+                    elif status_dict["Mode"] == 2:
+                        intensity = status_dict["Current" + str(board_number)]
                     else:
                         intensity = 0
-                    self.setValue(self.main_model["Intensity"], (intensity/self.getAdcCurrentLimit(status_dict["Channel"]))*self.main_model["Intensity"].maximum())
+                    self.setValue(self.main_model["Intensity"], round((intensity/self.getAdcCurrentLimit(board_number, led_number+1))*self.main_model["Intensity"].maximum()))
                 except (OverflowError, ZeroDivisionError): #This can happen when initializing connection - so default intensity to 0
                     self.setValue(self.main_model["Intensity"], 0)
 
             else:
                 self.setValue(self.main_model["Mode"][0], 1) #Set slider to Sync
 
-    def syncDisableMain(self, sync_active): #Disable manual control widgets if the sync is active
+    def syncDisableMain(self): #Disable manual control widgets if the sync is active
+        sync_active = False
+        if self.getValue(self.main_model["Mode"][0]) == 1:
+            sync_active = True
         self.main_model["Intensity"].setEnabled(not sync_active)
         self.main_intensity_spinbox.setReadOnly(sync_active)
         for widget in self.main_model["Mode"][1:4]:
             widget.setEnabled(not sync_active)
 
         if sync_active:
-            for led_widget in self.main_model["Channel"]:
-                led_widget.setEnabled(False)
+            for board_number in range(1, self.N_BOARDS+1):
+                for led_widget in self.main_model["Channel"]["Board" + str(board_number)]:
+                    led_widget.setEnabled(False)
 
         if not sync_active:
             software_control = self.getValue(self.main_model["Control"]) == "Software"
             self.toggleSoftwareControl(software_control)
             if not self.status_dict["Control"]: #Restore LED channel widgets if software control
-                for led_number in range(1, N_LEDS+1):
-                    self.toggleLedActive(led_number)
+                for board_number in range(1, self.N_BOARDS + 1):
+                    for led_number in range(1, N_LEDS+1):
+                        self.toggleLedActive(board_number, led_number)
 
 
         self.ser.updateStatus()
@@ -300,10 +326,13 @@ class Ui(QtWidgets.QMainWindow):
         self.status_dict["Name"] = name
 
 
-    def toggleLedActive(self):
-        widget = self.sender() #Get id of widget that called the function
-        led_number = int(''.join(filter(str.isdigit, widget.objectName()))) #Get led number from widget's object name - https://stackoverflow.com/questions/4289331/how-to-extract-numbers-from-a-string-in-python
-        board_number = math.floor(led_number/10)
+    def toggleLedActive(self, board_number = None, led_number = None):
+        if None in [board_number, led_number]:
+            widget = self.sender() #Get id of widget that called the function
+            led_number = int(''.join(filter(str.isdigit, widget.objectName()))) #Get led number from widget's object name - https://stackoverflow.com/questions/4289331/how-to-extract-numbers-from-a-string-in-python
+            board_number = math.floor(led_number/10)
+        else:
+            led_number  = int(str(board_number) + str(led_number))
         led_index = led_number%10 - 1
         led_state = self.getValue(self.config_model["LED" + str(led_number)]["Active"])
         widget_list = [self.config_model["LED" + str(led_number)]["ID"], self.config_model["LED" + str(led_number)]["Current Limit"]]
@@ -396,13 +425,16 @@ class Ui(QtWidgets.QMainWindow):
         for widget in self.main_model["Mode"]:
             widget.setEnabled(software_enable)
         if self.status_dict["Mode"] != 0 and software_enable: #Enable channel widgets if software control and in manual mode
-            for led_number in range(1, 5):
-                self.toggleLedActive(led_number)
-        else:
-            for led_widget in self.main_model["Channel"]:
-                led_widget.setEnabled(False)
-        for widget in self.main_model["Channel"]:
-            widget.setEnabled(software_enable)
+            for board_number in range(1, self.N_BOARDS+1):
+                for led_number in range(1, self.N_LEDS+1):
+                    self.toggleLedActive(board_number, led_number)
+        else: #Otherwise disable widgets
+            for board_number in range(1, self.N_BOARDS + 1):
+                for led_widget in self.main_model["Channel"]["Board" + str(board_number)]:
+                    led_widget.setEnabled(False)
+        for board_number in range(1, self.N_BOARDS + 1):
+            for widget in self.main_model["Channel"]["Board" + str(board_number)]:
+                widget.setEnabled(software_enable)
         self.main_intensity_spinbox.setReadOnly(not software_enable)
         if not software_enable:
             self.main_model["Mode"][1].setChecked(True) #Force to PWM for safety when driver is in manual mode

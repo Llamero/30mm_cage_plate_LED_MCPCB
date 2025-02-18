@@ -58,7 +58,7 @@ class usbSerial(QtWidgets.QWidget): #Implementation based on: https://stackoverf
         self.initializing_connection = True #Flag to suppress unnecessary notifications if connection is being initialized
         self.stop_receive = False #Blocks receive thread when a packet is being processed
         self.heartbeat_timer = timer() #Timer to track if a heartbeat signal needs to be sent
-        self.autoclick_mouse = True #Automatically click the mouse when the sync switches to the set state
+        self.autoclick_mouse = False #Automatically click the mouse when the sync switches to the set state
         self.autoclick_state = False #State of the sync status that will trigger an auto-mouse click
         self.autoclick_position = (0, 0) #Position to click mouse
 
@@ -507,45 +507,49 @@ class usbSerial(QtWidgets.QWidget): #Implementation based on: https://stackoverf
                 def widgetIndex(widget_list):
                     nonlocal self
                     for w_index, n_widget in enumerate(widget_list):
-                        if self.gui.getValue(n_widget):
+                        if self.gui.getValue(n_widget) in [True, 1]:
+                            if(n_widget is self.gui.main_model["Mode"][0]): #if the slider has a value of 1 this means mode is 0
+                                w_index = 0
                             return w_index
                     else:
                         #self.gui.showMessage("Error: Widget index not found!")
                         return None
 
-                status_list = [0] * (5*self.gui.nBoards() + 3)
-                led_dict = {"channel": [None]*self.gui.nBoards(), "pwm": [None]*self.gui.nBoards(), "current": [None]*self.gui.nBoards()}
-                mode = widgetIndex(self.gui.main_model["Mode"])
-                dial_max = self.gui.main_model["Intensity"].maximum()
-                for board in range(1, self.gui.nBoards()+1):
-                    led_dict["channel"][board-1] = widgetIndex(self.gui.main_model["Channel"]["Board" + str(board)])
-                    if led_dict["channel"][board-1] is not None:
-                        led_number = led_dict["channel"][board-1]+1
-                        if mode == 1: #PWM mode
-                            led_dict["pwm"][board-1] = round((self.gui.getValue(self.gui.main_model["Intensity"]) / dial_max) * 65535)
-                            led_dict["current"][board-1] = self.gui.getAdcCurrentLimit(board, led_number)
-                        elif mode == 2: #Current mode
-                            led_dict["pwm"][board - 1] = 65535
-                            led_dict["current"][board-1] = round((self.gui.getValue(
-                                self.gui.main_model["Intensity"]) / dial_max) * self.gui.getAdcCurrentLimit(board, led_number))
-                        else: #Off mode or sync mode
+                if self.gui.getValue(self.gui.main_model["Control"]) == 0: #Send a status control command only if GUI has control
+                    status_list = [0] * (5*self.gui.nBoards() + 3)
+                    led_dict = {"channel": [None]*self.gui.nBoards(), "pwm": [None]*self.gui.nBoards(), "current": [None]*self.gui.nBoards()}
+                    mode = widgetIndex(self.gui.main_model["Mode"])
+                    dial_max = self.gui.main_model["Intensity"].maximum()
+                    for board in range(1, self.gui.nBoards()+1):
+                        led_dict["channel"][board-1] = widgetIndex(self.gui.main_model["Channel"]["Board" + str(board)])
+                        if led_dict["channel"][board-1] is not None:
+                            led_number = led_dict["channel"][board-1]+1
+                            if mode == 1: #PWM mode
+                                led_dict["pwm"][board-1] = round((self.gui.getValue(self.gui.main_model["Intensity"]) / dial_max) * 65535)
+                                led_dict["current"][board-1] = self.gui.getAdcCurrentLimit(board, led_number)
+                            elif mode == 2: #Current mode
+                                led_dict["pwm"][board - 1] = 65535
+                                led_dict["current"][board-1] = round((self.gui.getValue(
+                                    self.gui.main_model["Intensity"]) / dial_max) * self.gui.getAdcCurrentLimit(board, led_number))
+                            else: #Off mode or sync mode
+                                led_dict["current"][board-1] = 0
+                                led_dict["pwm"][board-1] = 0
+                                led_dict["channel"][board - 1] = self.gui.nLeds()
+                        else:
+                            led_dict["channel"][board-1] = self.gui.nLeds()
                             led_dict["current"][board-1] = 0
                             led_dict["pwm"][board-1] = 0
-                            led_dict["channel"][board - 1] = self.gui.nLeds()
-                    else:
-                        led_dict["channel"][board-1] = self.gui.nLeds()
-                        led_dict["current"][board-1] = 0
-                        led_dict["pwm"][board-1] = 0
-                led_dict["channel"][board - 1]
-                # Send only GUI states - set all driver specific values to 0 since they are just padding
-                for board in range(0, self.gui.nBoards()):
-                    status_list[board] = led_dict["channel"][board]
-                    status_list[self.gui.nBoards() + board] = led_dict["pwm"][board]
-                    status_list[2*self.gui.nBoards() + board] = led_dict["current"][board]
-                status_list[3*self.gui.nBoards()] = mode
-                status_list[3*self.gui.nBoards()+2] = widgetIndex(self.gui.main_model["Control"])
-                status_list = struct.pack("<BBBHHHHHHB??HHHHHH", *status_list)
-                self.sendWithoutReply(status_list, True, 0)
+                    led_dict["channel"][board - 1]
+                    # Send only GUI states - set all driver specific values to 0 since they are just padding
+                    for board in range(0, self.gui.nBoards()):
+                        status_list[board] = led_dict["channel"][board]
+                        status_list[self.gui.nBoards() + board] = led_dict["pwm"][board]
+                        status_list[2*self.gui.nBoards() + board] = led_dict["current"][board]
+                    status_list[3*self.gui.nBoards()] = mode
+                    print("updateStatus: " + str(mode))
+                    status_list[3*self.gui.nBoards()+2] = widgetIndex(self.gui.main_model["Control"])
+                    status_list = struct.pack("<BBBHHHHHHB??HHHHHH", *status_list)
+                    self.sendWithoutReply(status_list, True, 0)
 
     def measurePeriod(self, reply=None):
         if reply:

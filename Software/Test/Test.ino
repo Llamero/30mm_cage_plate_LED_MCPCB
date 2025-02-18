@@ -338,6 +338,7 @@ void loop() {
     update_flag = false; //Reset the update flag
     if(ARM_DWT_CYCCNT-cpu_cycles > 60000000){
       cpu_cycles += 60000000ul;
+      //Serial.println(current_status.s.mode);
       // for(uint8_t a=0; a<N_BOARDS; a++){
       //   Serial.print(pin.adcToTemp(current_status.s.temp[a]));
       //   Serial.print(" ");
@@ -399,7 +400,7 @@ void checkStatus(){
     case 6: //Check pushbuttons and update LEDs - 1.05 µs
       status_index++; 
       if(!fault_active){ 
-        if(current_status.s.driver_control && current_status.s.mode){ //If in manual mode and driver control, check for button presses
+        if(current_status.s.driver_control){ //If in driver control, check for button presses
           for(a=0; a<N_BOARDS; a++){ //Check if any pushbutton is pressed
             if(!digitalReadFast(pin.PUSHBUTTON[a])){
               delay(pin.DEBOUNCE);
@@ -408,14 +409,13 @@ void checkStatus(){
                 for(c=0; c<N_BOARDS; c++){ //Check if another button is also pressed
                     if(!digitalReadFast(pin.PUSHBUTTON[c]) && c != a){ //If two buttons are pressed simultaneously - switch to sync mode
                       playStatusTone();
-                      ledOff(); //Turn off LEDs
                       if(current_status.s.mode){
+                        ledOff(); //ledOff overrides mode, so check mode before turning off leds
                         manual_mode = 0;
                         current_status.s.mode = manual_mode;
                       } 
                       else{ //Play second tone to indicate manual mode
-                        manual_mode = 1;
-                        current_status.s.mode = manual_mode;
+                        ledOff();
                         delay(100);
                         playStatusTone();
                       } 
@@ -429,7 +429,8 @@ void checkStatus(){
               if(current_status.s.mode){ //If not in sync mode, update LED intensity
                 if(b >= 1000){ //If button was held for 1 second, turn off LED
                   playStatusTone();
-                  ledOff(a);
+                  if(conf.c.simul_led) ledOff(a); //For simul, only turn off a single LED
+                  else ledOff(); //If not simul led, one off means all off = mode 3
                   while(!digitalReadFast(pin.PUSHBUTTON[a])) delay(10);
                   delay(pin.DEBOUNCE);
                 }
@@ -441,8 +442,9 @@ void checkStatus(){
                     if(conf.c.led_active[a][current_status.s.led_channel[a]]) break;
                     else current_status.s.led_channel[a]++; //If not, skip to next channel
                   }
-                  if(current_status.s.led_channel[a] >= N_LEDS){ //confirm that channel can be selected ){
-                    ledOff(a);
+                  if(current_status.s.led_channel[a] >= N_LEDS){ //Turn LED off when finished cycling through all available LEDs
+                    if(conf.c.simul_led) ledOff(a); //For simul, only turn off a single LED
+                    else ledOff(); //If not simul led, one off means all off = mode 3
                   }
                   else{
                     manual_mode = 1;
@@ -1121,7 +1123,9 @@ static void updateStatus(const uint8_t* buffer, size_t size){
       for(a=0; a<N_BOARDS; a++) current_status.s.led_current[a] = recv_status.s.led_current[a];
     }
     else{
-      if(!manual_mode) manual_mode = 1;
+      if(!manual_mode){
+        manual_mode = 1;
+      }
     }
     memcpy(stored_status.byte_buffer, current_status.byte_buffer, sizeof(stored_status.byte_buffer)); //Update the stored status
     update_flag = true;
