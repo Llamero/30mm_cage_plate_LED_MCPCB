@@ -127,12 +127,7 @@ def bytesToConfig(byte_array, gui, prefix):
 
         unpack_string += "?HHHHBB?BB"
         config_values = struct.unpack(unpack_string, byte_array[index:]) #Parse byte array values: https://docs.python.org/3/library/struct.html#struct-alignment
-
         config_values_index = 0
-        #Get simultaneous state if in use
-        if "Simultaneous LED" in gui.config_model:
-            pass
-        config_values_index += 1
 
         #Get LED active state
         for board_number in range(1, gui.nBoards() + 1):
@@ -148,6 +143,11 @@ def bytesToConfig(byte_array, gui, prefix):
                 gui.setValue(gui.config_model["LED" + str(board_number) + str(led_number)]["Current Limit"], current_limit)
                 gui.setAdcCurrentLimit(board_number, led_number, current_limit)
                 config_values_index += 1
+
+        #Get simultaneous state if in use
+        if "Simultaneous LED" in gui.config_model:
+            pass
+        config_values_index += 1
 
         #Get warn and fault temperatures
         gui.setValue(gui.config_model["Temperature"]["Warn"], round(adcToTemp(config_values[config_values_index])))
@@ -256,7 +256,7 @@ def bytesToSync(byte_array, gui, prefix):
 def configToBytes(gui, prefix, update_model=True):
     global EXT_THERMISTOR_NOMINAL
     global EXT_B_COEFFICIENT
-    config_values = [None] * (2 * gui.nBoards() * gui.nLeds()) + 10
+    config_values = [None] * ((2 * gui.nBoards() * gui.nLeds()) + 9)
 
     byte_array = bytearray() #Initialize empty byte array
 
@@ -323,10 +323,8 @@ def configToBytes(gui, prefix, update_model=True):
         for led_number in range(1, gui.nLeds() + 1):
             unpack_string += "H"
 
-    unpack_string += "?HHHHBB?BB"
-
+    unpack_string += "?HHHHBB?B"
     byte_array.extend(struct.pack(unpack_string, *config_values))
-
     checksum = (sum(byte_array) + prefix) & 0xFF  # https://stackoverflow.com/questions/44611057/checksum-generation-from-sum-of-bits-in-python
     checksum = 256 - checksum
     byte_array.append(checksum)

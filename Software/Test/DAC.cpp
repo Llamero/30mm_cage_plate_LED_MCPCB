@@ -40,7 +40,7 @@ void DAC::setSingleCurrent(uint8_t board_id, uint16_t intensity){
 void DAC::setSyncedCurrent(uint16_t *intensity){
   for(uint8_t i = 0; i<sizeof(pins.INTERLINE)/sizeof(pins.INTERLINE[0]); i++){
     command.bytes_var = 0;
-    if(i == 2) command.bytes[1] = SET_WITH_UPDATE;
+    if(i == sizeof(pins.INTERLINE)/sizeof(pins.INTERLINE[0])-1) command.bytes[1] = SET_WITH_UPDATE;
     else command.bytes[1] = SET_NO_UPDATE;
     command.bytes[1] += i << 6;
     command.bytes_var += intensity[i] >> 4;
@@ -61,9 +61,10 @@ void DAC::allOff(){
   for(uint8_t i = 0; i<sizeof(pins.INTERLINE)/sizeof(pins.INTERLINE[0]); i++){
     pinMode(pins.INTERLINE[i], OUTPUT);
     digitalWriteFast(pins.INTERLINE[i], LOW); //Set switch to 0V ref
-    for(uint8_t j = 0; j<sizeof(pins.RELAY[0])/sizeof(pins.RELAY[0][0]); j++){
-      digitalWriteFast(pins.RELAY[i][j], !pins.RELAY_CLOSE); //open all mux fets
-    }
+    //Do not open/close fets, as this causes off-channel flashing
+    // for(uint8_t j = 0; j<sizeof(pins.RELAY[0])/sizeof(pins.RELAY[0][0]); j++){
+    //   digitalWriteFast(pins.RELAY[i][j], pins.RELAY_CLOSE); //close all mux fets
+    // }
   }
 }
 
@@ -71,10 +72,10 @@ void DAC::singleOff(uint8_t board_id){
   setSingleCurrent(board_id, 0); //Turn off DAC voltage
   pinMode(pins.INTERLINE[board_id], OUTPUT);
   digitalWriteFast(pins.INTERLINE[board_id], LOW); //Set switch to 0V ref
-  for(uint8_t j = 0; j<sizeof(pins.RELAY[0])/sizeof(pins.RELAY[0][0]); j++){
-    digitalWriteFast(pins.RELAY[board_id][j], !pins.RELAY_CLOSE); //open all mux fets
-  }
-  
+  //Do not open/close fets, as this causes off-channel flashing
+  // for(uint8_t j = 0; j<sizeof(pins.RELAY[0])/sizeof(pins.RELAY[0][0]); j++){
+  //   digitalWriteFast(pins.RELAY[board_id][j], !pins.RELAY_CLOSE); //open all mux fets
+  // }
 }
 
 void DAC::externalSignal(){
@@ -96,9 +97,9 @@ void DAC::setSinglePWM(uint8_t board_id, uint16_t intensity){
   }
 }
 
-void DAC::setAllPWM(uint16_t intensity){
+void DAC::setAllPWM(uint16_t *intensity){
   for(uint8_t i = 0; i<sizeof(pins.INTERLINE)/sizeof(pins.INTERLINE[0]); i++){
-    if(intensity) analogWrite(pins.INTERLINE[i], intensity);
+    if(intensity[i]) analogWrite(pins.INTERLINE[i], intensity[i]);
     else{
       pinMode(pins.INTERLINE[i], OUTPUT);
       digitalWriteFast(pins.INTERLINE[i], LOW); 

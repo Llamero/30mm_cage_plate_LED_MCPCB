@@ -331,21 +331,11 @@ void setup() {
   current_status.s.driver_control = defaultStatus.driver_control; //True = driver controls itself, False = GUI controls driver
   for(uint8_t b=0; b<N_BOARDS; b++) current_status.s.temp[b] = pin.boardTemp(b) << 4; //Initialize board temperatures 
   for(uint8_t a=0; a==status_index; a++) checkStatus(); //Perform full round of status checks to get starting status of driver
-
-
-
-
-  for(uint8_t a=0; a<N_BOARDS; a++){
-    for(uint8_t b=0; b<N_LEDS; b++){
-      conf.c.led_active[a][b] = true;
-    }
-  }
-  conf.c.current_limit[0][3] = 30000;
-  conf.c.checksum = 48;
 }
 
 void loop() {
     checkStatus();
+    update_flag = false; //Reset the update flag
     if(ARM_DWT_CYCCNT-cpu_cycles > 60000000){
       cpu_cycles += 60000000ul;
       // for(uint8_t a=0; a<N_BOARDS; a++){
@@ -519,25 +509,28 @@ void checkStatus(){
 
 void updateIntensity(){
   for(uint8_t a = 0; a<N_BOARDS; a++){
-    if(prev_status.s.led_current[a] != current_status.s.led_current[a]){
-      dac.setSingleCurrent(a, current_status.s.led_current[a]);
-      prev_status.s.led_current[a] = current_status.s.led_current[a];
-    } 
-    if(prev_status.s.led_pwm[a] != current_status.s.led_pwm[a]){
-      dac.setSinglePWM(a, current_status.s.led_pwm[a]);
-      prev_status.s.led_current[a] = current_status.s.led_current[a];
-    } 
     if(prev_status.s.led_channel[a] != current_status.s.led_channel[a]){
       for(uint8_t b=0; b<N_LEDS; b++){
         if(current_status.s.led_channel[a] == b) digitalWriteFast(pin.RELAY[a][b], pin.RELAY_CLOSE);
         else digitalWriteFast(pin.RELAY[a][b], !pin.RELAY_CLOSE);
       }
+      prev_status.s.led_channel[a] = current_status.s.led_channel[a];
+      //pin.toggleButtonLED(a, current_status.s.led_channel[a]);
+    }
+    if(prev_status.s.led_current[a] != current_status.s.led_current[a]){
+      digitalWriteFast(pin.RELAY[a][prev_status.s.led_channel[a]], pin.RELAY_CLOSE);
+      dac.setSingleCurrent(a, current_status.s.led_current[a]);
+      prev_status.s.led_current[a] = current_status.s.led_current[a];
       if(pin.FAN_PWM[a] == 1){
         pinMode(1, OUTPUT);
         analogWrite(pin.FAN_PWM[a], current_status.s.fan_speed[a]); //_________________________________________________________________________________________________________________________________
       }
-      prev_status.s.led_channel[a] = current_status.s.led_channel[a];
     }
+    if(prev_status.s.led_pwm[a] != current_status.s.led_pwm[a]){
+      digitalWriteFast(pin.RELAY[a][prev_status.s.led_channel[a]], pin.RELAY_CLOSE);
+      dac.setSinglePWM(a, current_status.s.led_pwm[a]);
+      prev_status.s.led_pwm[a] = current_status.s.led_pwm[a];
+    } 
   }
 }
 
@@ -756,7 +749,7 @@ void ledOff(){
       dac.allOff();
       turned_off = true;
     }
-    current_status.s.led_channel[a] = 0;
+    current_status.s.led_channel[a] = N_LEDS;
     current_status.s.led_current[a] = 0;
     current_status.s.led_pwm[a] = 0;
     pin.toggleButtonLED(a, false);
@@ -874,10 +867,7 @@ static void onPacketReceived(const uint8_t* buffer, size_t size){
   heartbeat = 0; //Reset heartbeat timer as a serial packet has been received
   uint8_t buffer_prefix = buffer[0];
   if(buffer_prefix){ //Turn off LED for safety before processing packet if packet isn't a heartbeat update
-    for(uint8_t a = 0; a < N_BOARDS; a++){
-      pinMode(pin.INTERLINE[a], OUTPUT);
-      digitalWriteFast(pin.INTERLINE[a], 0); //Turn of LED while driver transitions between sync and manual modes
-    }
+    ledOff();
   }
   if(buffer_prefix == prefix.message) serial_connection_active = true; //Start/continue sending status packets; 
   else if(buffer_prefix == prefix.connection) magicExchange(buffer, size);
@@ -1137,8 +1127,8 @@ static void updateStatus(const uint8_t* buffer, size_t size){
       if(!manual_mode) manual_mode = 1;
     }
     memcpy(stored_status.byte_buffer, current_status.byte_buffer, sizeof(stored_status.byte_buffer)); //Update the stored status
-    updateIntensity();
     update_flag = true;
+    updateIntensity();
   }
   else{
     temp_size = sprintf(temp_buffer, "-Error: LED  driver received an invalid status packet.  Expected %d bytes and received %d bytes.", sizeof(recv_status.byte_buffer)+1, size);
@@ -1150,7 +1140,6 @@ static void updateStatus(const uint8_t* buffer, size_t size){
 void disconnectSerial(){
   serial_connection_active = false; //Stop sending status packets
   ledOff(); //Set LED off on disconnect
-  updateIntensity();
   manual_mode = 3;
   update_flag = true;
 }

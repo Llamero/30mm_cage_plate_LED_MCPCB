@@ -18,7 +18,7 @@ class DAC
     static void singleOff(uint8_t board_id);
     static void allOff();
     static void setSinglePWM(uint8_t board_id, uint16_t intensity);
-    static void setAllPWM(uint16_t intensity);
+    static void setAllPWM(uint16_t *intensity);
     static void externalSignal();
     static void setExternalImpedance(uint8_t impedance);
 

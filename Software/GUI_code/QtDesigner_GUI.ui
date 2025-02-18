@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>380</width>
-    <height>691</height>
+    <width>485</width>
+    <height>799</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -238,13 +238,13 @@
               <bool>false</bool>
              </property>
              <property name="decimals">
-              <number>3</number>
+              <number>2</number>
              </property>
              <property name="maximum">
               <double>100.000000000000000</double>
              </property>
              <property name="singleStep">
-              <double>0.001000000000000</double>
+              <double>0.010000000000000</double>
              </property>
             </widget>
            </item>
@@ -541,8 +541,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>804</width>
-             <height>767</height>
+             <width>441</width>
+             <height>659</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_23">
@@ -559,7 +559,7 @@
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>769</width>
+                 <width>408</width>
                  <height>704</height>
                 </rect>
                </property>
@@ -1796,7 +1796,7 @@ CAUTION: Ensure that the external signal does not exceed 0 V minimum, 3.3 V maxi
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>769</width>
+                 <width>434</width>
                  <height>1152</height>
                 </rect>
                </property>
@@ -4174,14 +4174,14 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="0" column="2">
-                   <widget class="QLabel" name="configure_current_limit_LED33_label">
+                   <widget class="QLabel" name="configure_current_limit_LED32_label">
                     <property name="text">
                      <string>LED #10</string>
                     </property>
                    </widget>
                   </item>
                   <item row="0" column="3">
-                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED33_spin_box">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED32_spin_box">
                     <property name="toolTip">
                      <string>Set the current limit (in amps) for LED channel #3</string>
                     </property>
@@ -4203,14 +4203,14 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    </widget>
                   </item>
                   <item row="1" column="0">
-                   <widget class="QLabel" name="configure_current_limit_LED32_label">
+                   <widget class="QLabel" name="configure_current_limit_LED33_label">
                     <property name="text">
                      <string>LED #11</string>
                     </property>
                    </widget>
                   </item>
                   <item row="1" column="1">
-                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED32_spin_box">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED33_spin_box">
                     <property name="toolTip">
                      <string>Set the current limit (in amps) for LED channel #2</string>
                     </property>
@@ -4298,17 +4298,10 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                     </property>
                    </widget>
                   </item>
-                  <item row="0" column="2">
-                   <widget class="QLabel" name="configure_current_limit_LED13_label">
-                    <property name="text">
-                     <string>LED #3</string>
-                    </property>
-                   </widget>
-                  </item>
                   <item row="0" column="3">
-                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED13_spin_box">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED12_spin_box">
                     <property name="toolTip">
-                     <string>Set the current limit (in amps) for LED channel #3</string>
+                     <string>Set the current limit (in amps) for LED channel #2</string>
                     </property>
                     <property name="specialValueText">
                      <string/>
@@ -4327,17 +4320,10 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                     </property>
                    </widget>
                   </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="configure_current_limit_LED12_label">
-                    <property name="text">
-                     <string>LED #2</string>
-                    </property>
-                   </widget>
-                  </item>
                   <item row="1" column="1">
-                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED12_spin_box">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED13_spin_box">
                     <property name="toolTip">
-                     <string>Set the current limit (in amps) for LED channel #2</string>
+                     <string>Set the current limit (in amps) for LED channel #3</string>
                     </property>
                     <property name="specialValueText">
                      <string/>
@@ -4360,6 +4346,20 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                    <widget class="QLabel" name="configure_current_limit_LED14_label">
                     <property name="text">
                      <string>LED #4</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="configure_current_limit_LED12_label">
+                    <property name="text">
+                     <string>LED #2</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="configure_current_limit_LED13_label">
+                    <property name="text">
+                     <string>LED #3</string>
                     </property>
                    </widget>
                   </item>
@@ -4393,14 +4393,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                  <property name="title">
                   <string>Board #2</string>
                  </property>
-                 <layout class="QGridLayout" name="gridLayout_56" columnstretch="0,9,0,9">
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="configure_current_limit_LED21_label">
-                    <property name="text">
-                     <string>LED #5</string>
-                    </property>
-                   </widget>
-                  </item>
+                 <layout class="QGridLayout" name="gridLayout_56" columnstretch="0,1,0,1">
                   <item row="0" column="1">
                    <widget class="QDoubleSpinBox" name="configure_current_limit_LED21_spin_box">
                     <property name="toolTip">
@@ -4423,15 +4416,22 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                     </property>
                    </widget>
                   </item>
-                  <item row="0" column="2">
-                   <widget class="QLabel" name="configure_current_limit_LED23_label">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="configure_current_limit_LED21_label">
                     <property name="text">
-                     <string>LED #6</string>
+                     <string>LED #5</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QLabel" name="configure_current_limit_LED24_label">
+                    <property name="text">
+                     <string>LED #8</string>
                     </property>
                    </widget>
                   </item>
                   <item row="0" column="3">
-                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED23_spin_box">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED22_spin_box">
                     <property name="toolTip">
                      <string>Set the current limit (in amps) for LED channel #3</string>
                     </property>
@@ -4449,42 +4449,6 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                     </property>
                     <property name="value">
                      <double>100.000000000000000</double>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="configure_current_limit_LED22_label">
-                    <property name="text">
-                     <string>LED #7</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1">
-                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED22_spin_box">
-                    <property name="toolTip">
-                     <string>Set the current limit (in amps) for LED channel #2</string>
-                    </property>
-                    <property name="specialValueText">
-                     <string/>
-                    </property>
-                    <property name="decimals">
-                     <number>0</number>
-                    </property>
-                    <property name="minimum">
-                     <double>0.000000000000000</double>
-                    </property>
-                    <property name="maximum">
-                     <double>100.000000000000000</double>
-                    </property>
-                    <property name="value">
-                     <double>100.000000000000000</double>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="2">
-                   <widget class="QLabel" name="configure_current_limit_LED24_label">
-                    <property name="text">
-                     <string>LED #8</string>
                     </property>
                    </widget>
                   </item>
@@ -4507,6 +4471,42 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                     </property>
                     <property name="value">
                      <double>100.000000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="configure_current_limit_LED22_label">
+                    <property name="text">
+                     <string>LED #6</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QDoubleSpinBox" name="configure_current_limit_LED23_spin_box">
+                    <property name="toolTip">
+                     <string>Set the current limit (in amps) for LED channel #2</string>
+                    </property>
+                    <property name="specialValueText">
+                     <string/>
+                    </property>
+                    <property name="decimals">
+                     <number>0</number>
+                    </property>
+                    <property name="minimum">
+                     <double>0.000000000000000</double>
+                    </property>
+                    <property name="maximum">
+                     <double>100.000000000000000</double>
+                    </property>
+                    <property name="value">
+                     <double>100.000000000000000</double>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="configure_current_limit_LED23_label">
+                    <property name="text">
+                     <string>LED #7</string>
                     </property>
                    </widget>
                   </item>
@@ -4736,7 +4736,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>380</width>
+     <width>485</width>
      <height>21</height>
     </rect>
    </property>

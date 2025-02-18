@@ -531,6 +531,7 @@ class usbSerial(QtWidgets.QWidget): #Implementation based on: https://stackoverf
                         else: #Off mode or sync mode
                             led_dict["current"][board-1] = 0
                             led_dict["pwm"][board-1] = 0
+                            led_dict["channel"][board - 1] = self.gui.nLeds()
                     else:
                         led_dict["channel"][board-1] = self.gui.nLeds()
                         led_dict["current"][board-1] = 0
