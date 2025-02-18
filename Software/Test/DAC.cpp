@@ -90,7 +90,10 @@ void DAC::setExternalImpedance(uint8_t impedance){
 }
 
 void DAC::setSinglePWM(uint8_t board_id, uint16_t intensity){
-  if(intensity) analogWrite(pins.INTERLINE[board_id], intensity);
+  if(intensity){
+    analogWrite(pins.INTERLINE[board_id], intensity);
+    delayMicroseconds(pins.LED_PERIOD); //Wait for PWM bus to settle
+  }
   else{
     pinMode(pins.INTERLINE[board_id], OUTPUT);
     digitalWriteFast(pins.INTERLINE[board_id], LOW); 

@@ -509,27 +509,24 @@ void checkStatus(){
 
 void updateIntensity(){
   for(uint8_t a = 0; a<N_BOARDS; a++){
-    if(prev_status.s.led_channel[a] != current_status.s.led_channel[a]){
+    if(prev_status.s.led_channel[a] != current_status.s.led_channel[a]){ //Update channel first to avoid LED flahsing on changes
       for(uint8_t b=0; b<N_LEDS; b++){
         if(current_status.s.led_channel[a] == b) digitalWriteFast(pin.RELAY[a][b], pin.RELAY_CLOSE);
         else digitalWriteFast(pin.RELAY[a][b], !pin.RELAY_CLOSE);
       }
       prev_status.s.led_channel[a] = current_status.s.led_channel[a];
-      //pin.toggleButtonLED(a, current_status.s.led_channel[a]);
     }
-    if(prev_status.s.led_current[a] != current_status.s.led_current[a]){
-      digitalWriteFast(pin.RELAY[a][prev_status.s.led_channel[a]], pin.RELAY_CLOSE);
+    if(prev_status.s.led_pwm[a] != current_status.s.led_pwm[a]){
+      dac.setSinglePWM(a, current_status.s.led_pwm[a]);
+      prev_status.s.led_pwm[a] = current_status.s.led_pwm[a];
+    }
+    if(prev_status.s.led_current[a] != current_status.s.led_current[a]){ //Update current last to avoid LED flahsing on changes
       dac.setSingleCurrent(a, current_status.s.led_current[a]);
       prev_status.s.led_current[a] = current_status.s.led_current[a];
       if(pin.FAN_PWM[a] == 1){
         pinMode(1, OUTPUT);
         analogWrite(pin.FAN_PWM[a], current_status.s.fan_speed[a]); //_________________________________________________________________________________________________________________________________
       }
-    }
-    if(prev_status.s.led_pwm[a] != current_status.s.led_pwm[a]){
-      digitalWriteFast(pin.RELAY[a][prev_status.s.led_channel[a]], pin.RELAY_CLOSE);
-      dac.setSinglePWM(a, current_status.s.led_pwm[a]);
-      prev_status.s.led_pwm[a] = current_status.s.led_pwm[a];
     } 
   }
 }
