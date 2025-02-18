@@ -44,7 +44,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="main_tab">
        <property name="toolTip">
@@ -3422,7 +3422,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
+             <y>-42</y>
              <width>436</width>
              <height>1011</height>
             </rect>
@@ -3871,7 +3871,7 @@ This input is clamped to 0-3.3V, and is rated for -3V to +6V max. A small negati
                 </widget>
                </item>
                <item row="4" column="0" colspan="5">
-                <widget class="QGroupBox" name="configure_name_board11_box">
+                <widget class="QGroupBox" name="configure_name_board1_box">
                  <property name="title">
                   <string>Board #1</string>
                  </property>

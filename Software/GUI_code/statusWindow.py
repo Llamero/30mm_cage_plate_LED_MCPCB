@@ -267,7 +267,7 @@ class statusWindow(QtWidgets.QWidget):
                     status_plot.plot(x_values, y_list, pen=pg.mkPen('g', width=1), connect="finite", clear=True)
 
             else:
-                color_list = ['m','y','c']
+                color_list = ['c','y','m']
                 max_value = 0
                 for board in range(self.gui.nBoards()):
                     max_value = max(max(self.y_values[key][board]), max_value)

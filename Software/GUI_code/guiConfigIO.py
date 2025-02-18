@@ -79,7 +79,6 @@ def loadConfiguration(gui, model, file=None):
                     return
 
 def checkTemperatures(gui, key_list):
-    print(key_list)
     if key_list[0] == "Temperature":
         labels = ["Warn", "Fault"]
     else:

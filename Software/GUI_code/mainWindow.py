@@ -244,7 +244,7 @@ class Ui(QtWidgets.QMainWindow):
             software_control = self.getValue(self.main_model["Control"]) == "Software"
             self.toggleSoftwareControl(software_control)
             if not self.status_dict["Control"]: #Restore LED channel widgets if software control
-                for led_number in range(1,5):
+                for led_number in range(1, N_LEDS+1):
                     self.toggleLedActive(led_number)
 
 
@@ -315,6 +315,13 @@ class Ui(QtWidgets.QMainWindow):
         widget_list.append(self.main_model["Channel"]["Board" + str(board_number)][led_index])
         for widget in widget_list:
             widget.setEnabled(led_state)
+
+    def toggleBoardActive(self):
+        widget = self.sender() #Get id of widget that called the function
+        board_number = int(''.join(filter(str.isdigit, widget.objectName()))) #Get led number from widget's object name - https://stackoverflow.com/questions/4289331/how-to-extract-numbers-from-a-string-in-python
+        checked = widget.isChecked()
+        for led_number in range(1, N_LEDS+1):
+            self.config_model["LED" + str(board_number) + str(led_number)]["Active"].setChecked(checked)
 
     def changeLedName(self):
         widget = self.sender() #Get id of widget that called the function

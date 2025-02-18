@@ -13,6 +13,7 @@ def initializeConfigModel(gui):
                 [("ID", eval("gui.configure_name_LED" + str(board_number) + str(led_number) + "_line_edit")),
                  ("Active", eval("gui.configure_name_LED" + str(board_number) + str(led_number) + "_box")),
                  ("Current Limit", eval("gui.configure_current_limit_LED" + str(board_number) + str(led_number) + "_spin_box"))])
+        config_model["Board" + str(board_number)] = eval("gui.configure_name_board" + str(board_number) + "_box")
 
     #Simultaneous LED operation
 #    config_model["Simultaneous LED"] = [gui.configure_pushbutton_simul_off_button, gui.configure_pushbutton_simul_on_button]
@@ -194,6 +195,13 @@ def initializeEvents(gui):
                 for led_number in range(1, gui.nLeds() + 1):
                     gui.config_model["LED" + str(board_number) + str(led_number)]["Active"].stateChanged.connect(lambda: gui.toggleLedActive())
 
+        def boardCheckBoxEvents():
+            nonlocal gui
+            for board_number in range(1, gui.nBoards() + 1):
+                gui.config_model["Board" + str(board_number)].clicked.connect(
+                    lambda: gui.toggleBoardActive())
+
+
         def ledNameEvents():
             nonlocal gui
             # Changes to LED names - updates GUI LED references with new name
@@ -211,6 +219,7 @@ def initializeEvents(gui):
 
         driverNameEvents()
         ledCheckBoxEvents()
+        boardCheckBoxEvents()
         ledNameEvents()
         temperatureValueEvents()
 
