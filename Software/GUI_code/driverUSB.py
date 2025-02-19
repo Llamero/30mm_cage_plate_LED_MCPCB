@@ -460,7 +460,7 @@ class usbSerial(QtWidgets.QWidget): #Implementation based on: https://stackoverf
     def downloadStream(self, message):
         pass
 
-    def updateStatus(self, reply=None):
+    def updateStatus(self, reply=None, force_tx = False):
         unpack_string = "<"
         # String for LED info
         for byte in ["B", "H", "H"]:
@@ -514,8 +514,7 @@ class usbSerial(QtWidgets.QWidget): #Implementation based on: https://stackoverf
                     else:
                         #self.gui.showMessage("Error: Widget index not found!")
                         return None
-
-                if self.gui.getValue(self.gui.main_model["Control"]) == 0: #Send a status control command only if GUI has control
+                if widgetIndex(self.gui.main_model["Control"]) == 0 or force_tx: #Send a status control command only if GUI has control
                     status_list = [0] * (5*self.gui.nBoards() + 3)
                     led_dict = {"channel": [None]*self.gui.nBoards(), "pwm": [None]*self.gui.nBoards(), "current": [None]*self.gui.nBoards()}
                     mode = widgetIndex(self.gui.main_model["Mode"])
@@ -546,7 +545,6 @@ class usbSerial(QtWidgets.QWidget): #Implementation based on: https://stackoverf
                         status_list[self.gui.nBoards() + board] = led_dict["pwm"][board]
                         status_list[2*self.gui.nBoards() + board] = led_dict["current"][board]
                     status_list[3*self.gui.nBoards()] = mode
-                    print("updateStatus: " + str(mode))
                     status_list[3*self.gui.nBoards()+2] = widgetIndex(self.gui.main_model["Control"])
                     status_list = struct.pack("<BBBHHHHHHB??HHHHHH", *status_list)
                     self.sendWithoutReply(status_list, True, 0)

@@ -179,7 +179,8 @@ class statusWindow(QtWidgets.QWidget):
                     value += 1
                     board_number = key[-1]
                     if value <= self.gui.nLeds():
-                        self.updateLabel(key, value)
+                        led_number = value + (int(board_number)-1)*self.gui.nLeds()
+                        self.updateLabel(key, led_number)
                         key = "Channel Name" + str(board_number)
                         value = self.gui.getValue(self.gui.config_model["LED" + str(board_number) + str(value)]["ID"])
                     else:

@@ -1,21 +1,17 @@
 import math
-
 from PyQt5 import QtGui, QtCore, QtWidgets, uic
 from PyQt5.QtGui import QFont
 import qdarkstyle  # This awesome style sheet was made by Colin Duquesnoy and Daniel Cosmo Pizetta - https://github.com/ColinDuquesnoy/QDarkStyleSheet
 from collections import OrderedDict
 import os
-import pyqtgraph as pg
 import guiMapper
 import guiSequence as seq
-import guiConfigIO as fileIO
 import driverUSB
 import statusWindow
 import sys
 from timeit import default_timer as timer
 import pickle
 import syncPlotWindow
-import traceback
 
 N_BOARDS = 3
 N_LEDS = 4
@@ -438,6 +434,8 @@ class Ui(QtWidgets.QMainWindow):
         self.main_intensity_spinbox.setReadOnly(not software_enable)
         if not software_enable:
             self.main_model["Mode"][1].setChecked(True) #Force to PWM for safety when driver is in manual mode
+        self.status_dict["Control"] = software_enable
+        self.ser.updateStatus(None, True) #Force send status update to hand control driver between gui and software
 
     def verifyCell(self, item):
         seq.verifyCell(self, item.column(), item.row(), item.text(), item.tableWidget())
