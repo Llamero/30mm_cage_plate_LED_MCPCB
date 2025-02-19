@@ -408,57 +408,55 @@ void getSeqStep(uint16_t sync_step){
 }
 
 void digitalSync(){ //5 µs jitter + 2 µs phase delay
-  // elapsedMicros duration;
-  // uint16_t sync_step;
+  elapsedMicros duration;
+  uint16_t sync_step;
   
-  // pinMode(pin.INPUTS[sync.s.digital_channel], INPUT); //Set sync input pin to input
-  // while(!current_status.s.mode && sync.s.mode == 0){
-  //   sync_step = 0;
-  //   current_status.s.state = digitalReadFast(pin.INPUTS[sync.s.digital_channel]); //Get state of sync input
-  //   if(sync.s.sync_output_channel) digitalWriteFast(pin.OUTPUTS[sync.s.sync_output_channel-1], current_status.s.state); //Drive output sync signal
-  //   active_channel = current_status.s.led_channel;
-  //   getSeqStep(sync_step); //Get first sequence step
-  //   duration = 0;
-  //   while(current_status.s.state == digitalReadFast(pin.INPUTS[sync.s.digital_channel]) && !update_flag){ //While trigger state doesn't change and driver still in digital sync mode 
-  //     if(sync_step < seq_steps[current_status.s.state]){ //If the end of the sequence list has not been reached
-  //       updateIntensity(); //Set led intensity to new values     
-  //       if(seq.s.led_duration){ //If hold for a specific duration
-  //         checkStatus(); //Check status at least once
-  //         if(update_flag) return; //Exit on update
-  //         while(current_status.s.state == digitalReadFast(pin.INPUTS[sync.s.digital_channel]) && !update_flag && duration < (seq.s.led_duration-status_step_time_duration)){ //Perform status checks during step is enough time
-  //           checkStatus();
-  //           if(update_flag) return; //Exit on update
-  //         }
-  //         while(current_status.s.state == digitalReadFast(pin.INPUTS[sync.s.digital_channel]) && duration < seq.s.led_duration); //Only check time during the last few microseconds for a precise incremental step
-  //         duration -= seq.s.led_duration; //Reset duration timer
-  //       }
-  //       else{
-  //         checkStatus(); //Check status at least once
-  //         if(update_flag) return; //Exit on update
-  //         while(current_status.s.state == digitalReadFast(pin.INPUTS[sync.s.digital_channel]) && !current_status.s.mode && sync.s.mode == 0){
-  //           checkStatus(); //Hold until trigger changes
-  //           if(update_flag) return; //Exit on update
-  //         }
-  //         break;
-  //       }
-  //       sync_step++; //Increment the sync step counter
-  //       getSeqStep(sync_step); //Get next sequence step        
-  //     }
-  //     else{ //Report error if driver ran off the end of the sequence list (i.e. never encountered a hold)
-  //       temp_size = sprintf(temp_buffer, "-Error: Digital Sync - %s reached the end of the sequence without encountering a hold. Step #%d of %d steps.", current_status.s.state ? "LOW":"HIGH", sync_step, seq_steps[current_status.s.state]);
-  //       temp_buffer[0] = prefix.message;
-  //       usb.send((const unsigned char*) temp_buffer, temp_size);
-  //       duration = 0;
-  //       initializeSeq(); //Try reloading seq
-  //       while(duration < 200000){
-  //         checkStatus(); //This can happen if there was rapid bounce in the trigger, so pause to avoid spamming this error for every bounce
-  //         if(update_flag) return; //Exit on update
-  //       }
-  //       return;
-  //     }
-  //   }
-  // }
-  // pinMode(pin.INPUTS[sync.s.digital_channel], INPUT_DISABLE);   
+  pinMode(pin.INPUTS[sync.s.digital_channel], INPUT); //Set sync input pin to input
+  while(!current_status.s.mode && sync.s.mode == 0){
+    sync_step = 0;
+    current_status.s.state = digitalReadFast(pin.INPUTS[sync.s.digital_channel]); //Get state of sync input
+    getSeqStep(sync_step); //Get first sequence step
+    duration = 0;
+    while(current_status.s.state == digitalReadFast(pin.INPUTS[sync.s.digital_channel]) && !update_flag){ //While trigger state doesn't change and driver still in digital sync mode 
+      if(sync_step < seq_steps[current_status.s.state]){ //If the end of the sequence list has not been reached
+        updateIntensity(); //Set led intensity to new values     
+        if(seq.s.led_duration){ //If hold for a specific duration
+          checkStatus(); //Check status at least once
+          if(update_flag) return; //Exit on update
+          while(current_status.s.state == digitalReadFast(pin.INPUTS[sync.s.digital_channel]) && !update_flag && duration < (seq.s.led_duration-status_step_time_duration)){ //Perform status checks during step is enough time
+            checkStatus();
+            if(update_flag) return; //Exit on update
+          }
+          while(current_status.s.state == digitalReadFast(pin.INPUTS[sync.s.digital_channel]) && duration < seq.s.led_duration); //Only check time during the last few microseconds for a precise incremental step
+          duration -= seq.s.led_duration; //Reset duration timer
+        }
+        else{
+          checkStatus(); //Check status at least once
+          if(update_flag) return; //Exit on update
+          while(current_status.s.state == digitalReadFast(pin.INPUTS[sync.s.digital_channel]) && !current_status.s.mode && sync.s.mode == 0){
+            checkStatus(); //Hold until trigger changes
+            if(update_flag) return; //Exit on update
+          }
+          break;
+        }
+        sync_step++; //Increment the sync step counter
+        getSeqStep(sync_step); //Get next sequence step        
+      }
+      else{ //Report error if driver ran off the end of the sequence list (i.e. never encountered a hold)
+        temp_size = sprintf(temp_buffer, "-Error: Digital Sync - %s reached the end of the sequence without encountering a hold. Step #%d of %d steps.", current_status.s.state ? "LOW":"HIGH", sync_step, seq_steps[current_status.s.state]);
+        temp_buffer[0] = prefix.message;
+        usb.send((const unsigned char*) temp_buffer, temp_size);
+        duration = 0;
+        initializeSeq(); //Try reloading seq
+        while(duration < 200000){
+          checkStatus(); //This can happen if there was rapid bounce in the trigger, so pause to avoid spamming this error for every bounce
+          if(update_flag) return; //Exit on update
+        }
+        return;
+      }
+    }
+  }
+  pinMode(pin.INPUTS[sync.s.digital_channel], INPUT_DISABLE);   
 }
 
 void analogSync(){
@@ -1170,7 +1168,7 @@ void checkStatus(){
       break;
     case 3: //Check if any of the temperatures is past the fault temperature - 0.2 µs
       status_index++;
-//      if(!fault_active) thermalFault();
+      if(!fault_active) thermalFault();
       break;
     case 4: //Set fan speeds - 0.4 µs
       status_index++;
