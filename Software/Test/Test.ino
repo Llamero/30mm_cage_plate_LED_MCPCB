@@ -949,7 +949,7 @@ void initializeSeq(){ //Setup seq
     }
     for(uint8_t a=0; a<2; a++){
       if((sync.s.mode == 0 && sync.s.digital_mode[a] == 0) || (sync.s.mode == 2 && sync.s.confocal_mode[a] == 0)){ //If mode is off
-        seq.s.led_id = 255; //Don't change LED channel
+        seq.s.led_id = 0; //Don't change LED channel
         seq.s.led_pwm = 0; //Turn off led PWM
         seq.s.led_current = 0; //Turn off led current
         seq.s.led_duration = 0; //Hold at off
@@ -958,7 +958,7 @@ void initializeSeq(){ //Setup seq
       }
       else if((sync.s.mode == 0 && sync.s.digital_mode[a] == 1) || (sync.s.mode == 2 && sync.s.confocal_mode[a] == 1)){ //If single event
         memcpy(&seq.s.led_id, sync_pointer+a, sizeof(seq.s.led_id));
-        seq.s.led_id -= 1; //Shift from id# to list index
+        //seq.s.led_id -= 1; //Shift from id# to list index
         memcpy(&seq.s.led_pwm, sync_pointer+2+2*a, sizeof(seq.s.led_pwm));
         memcpy(&seq.s.led_current, sync_pointer+6+2*a, sizeof(seq.s.led_current));
         memcpy(&seq.s.led_duration, sync_pointer+10+4*a, sizeof(seq.s.led_duration));
@@ -973,11 +973,11 @@ void initializeSeq(){ //Setup seq
         }
         else{
           seq_steps[a] = sd.file_size/sizeof(seq.byte_buffer); //Calculate number of sequence steps given file size
-          for(int b=0; b<seq_steps[a]; b++) --*(sequence_buffer[a]+b*sizeof(seq.byte_buffer));  //Decrement LED IDs 
+          //for(int b=0; b<seq_steps[a]; b++) --*(sequence_buffer[a]+b*sizeof(seq.byte_buffer));  //Decrement LED IDs 
         }
       }
       else if(sync.s.mode == 2 && sync.s.confocal_mode[a] == 3){ //If confocal sync with external analog
-        seq.s.led_id = 255; //Don't change LED channel
+        seq.s.led_id = 0; //Don't change LED channel
         seq.s.led_pwm = 65535; //Set PWM to max
         seq.s.led_current = 0; //Turn off led current
         seq.s.led_duration = 0; //Hold at off
@@ -986,7 +986,7 @@ void initializeSeq(){ //Setup seq
       }
       memcpy(seq.byte_buffer, sequence_buffer[a]+(seq_steps[a]-1)*sizeof(seq.byte_buffer), sizeof(seq.byte_buffer)); //Get the last sequence step
       if(seq.s.led_duration){ //If the last step is not a hold (duration > 0) then add a hold to the end of the sequence
-        seq.s.led_id = 255; //Don't change LED channel
+        seq.s.led_id = 0; //Don't change LED channel
         seq.s.led_pwm = 0; //Turn off led PWM
         seq.s.led_current = 0; //Turn off led current
         seq.s.led_duration = 0; //Hold at off

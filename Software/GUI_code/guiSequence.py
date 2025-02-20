@@ -293,7 +293,6 @@ def sequenceToBytes(gui, widget):
                     led_number = (converted_row[0])%gui.nLeds() + 1
                     converted_row[2] = round(float(row_data[2]) / gui.getValue(gui.config_model["LED" + str(board_number) + str(led_number)]["Current Limit"]) * 65535)
                     byte_array.extend(struct.pack("<BHHI", *converted_row))
-                    print(converted_row)
                     # Save data to sequence dictionary
                     for header_index, header in enumerate(widget_headers):
                         gui.seq_dict[widget][header].append(row_data[header_index])
