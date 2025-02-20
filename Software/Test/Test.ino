@@ -1048,7 +1048,7 @@ void checkStatus(){
     case 6: //Check pushbuttons and update LEDs - 1.05 µs
       status_index++; 
       if(!fault_active){ 
-        if(current_status.s.driver_control){ //If in driver control, check for button presses
+        if(current_status.s.driver_control){ //If in driver control and in manual mode, check for button presses
           for(a=0; a<N_BOARDS; a++){ //Check if any pushbutton is pressed
             if(!digitalReadFast(pin.PUSHBUTTON[a])){
               delay(pin.DEBOUNCE);
@@ -1061,11 +1061,13 @@ void checkStatus(){
                         ledOff(); //ledOff overrides mode, so check mode before turning off leds
                         manual_mode = 0;
                         current_status.s.mode = manual_mode;
+                        update_flag = true;
                       } 
                       else{ //Play second tone to indicate manual mode
                         ledOff();
                         delay(100);
                         playStatusTone();
+                        update_flag = true;
                       } 
                       while(!digitalReadFast(pin.PUSHBUTTON[a]) || !digitalReadFast(pin.PUSHBUTTON[c])) delay(10);
                       delay(pin.DEBOUNCE);
@@ -1106,20 +1108,14 @@ void checkStatus(){
                     } 
                   }         
                   if(conf.c.pushbutton_intensity){
-                    // for(b=0; b<a+1; b++){
-                    //   playStatusTone();
-                    //   delay(100);
-                    // }
-                    // delay(300);
-                    // for(b=0; b<current_status.s.led_channel[a]+1; b++){
-                    //   playStatusTone();
-                    //   delay(100);
-                    // }
                     pin.setButtonColor(a, current_status.s.led_channel[a]);
                   } 
                   else pin.setButtonColor(a, N_LEDS);      
                 }
               }
+            }
+            else if(conf.c.pushbutton_intensity){
+               pin.setButtonColor(a, current_status.s.led_channel[a]);
             }
           }
         }
