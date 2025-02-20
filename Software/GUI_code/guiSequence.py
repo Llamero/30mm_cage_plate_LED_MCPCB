@@ -206,7 +206,6 @@ def verifyCell(gui, column=None, row=None, data=None, widget=None):
                 item.setText("")
         return False
 
-
     if item is not None:
         print()
     return True
@@ -283,17 +282,18 @@ def sequenceToBytes(gui, widget):
         if widget_headers:
             stream.seek(0)
             converted_row=[None]*4
-            total_resistance = float(gui.configure_current_limit_box.whatsThis())
             for key, value in gui.seq_dict[widget].items(): #Clear seq dict entry
                 gui.seq_dict[widget][key] = []
             for index, row_data in enumerate(csv.reader(stream)):
                 if index > 0: #Don't send headers to LED driver
-                    converted_row[0] = int(row_data[0])
+                    converted_row[0] = int(row_data[0])-1
                     converted_row[1] = round((float(row_data[1])*65535)/100) #Convert percent to ADC value
                     converted_row[3] = round(float(row_data[3])*1e6) #convert seconds to microseconds
-                    converted_row[2] = round(float(row_data[2]) * gui.getValue(gui.config_model["LED" + str(converted_row[0])]["Current Limit"]) / 100)
+                    board_number = math.floor((converted_row[0])/gui.nLeds()) + 1
+                    led_number = (converted_row[0])%gui.nLeds() + 1
+                    converted_row[2] = round(float(row_data[2]) / gui.getValue(gui.config_model["LED" + str(board_number) + str(led_number)]["Current Limit"]) * 65535)
                     byte_array.extend(struct.pack("<BHHI", *converted_row))
-
+                    print(converted_row)
                     # Save data to sequence dictionary
                     for header_index, header in enumerate(widget_headers):
                         gui.seq_dict[widget][header].append(row_data[header_index])
@@ -321,10 +321,12 @@ def bytesToSequence(byte_array, gui, widget):
             for key, value in gui.seq_dict[widget].items(): #Clear seq dict entry
                 gui.seq_dict[widget][key] = []
             for row_data in row_list:
-                converted_row[0] = int(row_data[0])
+                converted_row[0] = int(row_data[0])+1
                 converted_row[1] = (float(row_data[1]) / 65535) * 100  # Convert ADC to percent value
                 converted_row[3] = float(row_data[3]) / 1e6  # convert microseconds to seconds
-                converted_row[2] = (float(row_data[2]) / gui.getValue(gui.config_model["LED" + str(converted_row[0])]["Current Limit"])) * 100
+                board_number = math.floor((converted_row[0] - 1) / gui.nLeds()) + 1
+                led_number = (converted_row[0] - 1) % gui.nLeds() + 1
+                converted_row[2] = ((float(row_data[2])/655.35) / gui.getValue(gui.config_model["LED" + str(board_number) + str(led_number)]["Current Limit"])) * 100
                 converted_row[1:] = [sigFigLimit(x, 3) for x in converted_row[1:]]
                 writer.writerow(converted_row) #Write rows to temp file
 

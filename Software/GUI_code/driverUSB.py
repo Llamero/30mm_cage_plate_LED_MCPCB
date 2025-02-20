@@ -113,6 +113,7 @@ class usbSerial(QtWidgets.QWidget): #Implementation based on: https://stackoverf
                     self.active_port.readyRead.connect(self.receive)
                     self.active_port.clear() #Clear buffer of any remaining data
                     self.gui.status_dict["COM Port"] = self.getPortInfo(self.active_port)["Port"]
+                    self.active_port.errorOccurred.connect(self.disconnectSerial) #Add signal for a connection error -
                     return True
                 else:
                     if debug:
@@ -127,17 +128,25 @@ class usbSerial(QtWidgets.QWidget): #Implementation based on: https://stackoverf
             self.disconnectSerial()
             return False
 
-    def disconnectSerial(self):
-        if self.active_port is not None:
-            if self.active_port.isOpen(): #Close serial port if it is already open
-                self.sendWithoutReply()  #Infrom the LED driver of disconnect
+    def disconnectSerial(self, error = None):
+        if error in [None, QSerialPort.SerialPortError.ResourceError, QSerialPort.SerialPortError.DeviceNotFoundError]:
+            if error == QSerialPort.SerialPortError.ResourceError:
+                self.showMessage("Error: Serial port disconnected (Resource error)")
+                self.active_port.close() #close connection
+            elif error == QSerialPort.SerialPortError.DeviceNotFoundError:
+                self.showMessage("Error: Serial port disconnected (Device not found)")
+                self.active_port.close()  # close connection
+            if self.active_port is not None:
+                error = self.active_port.error()
+                if self.active_port.isOpen() and error == 12: #Close serial port if it is already open
+                    self.sendWithoutReply()  #Infrom the LED driver of disconnect
                 self.active_port.clear() #Clear buffer of any remaining data
                 self.active_port.close() #close connection
                 self.active_port = None
 
-        self.gui.menu_connection_disconnect.setChecked(True)
-        self.gui.updateSerialNumber(self.default_serial_number)
-        self.gui.status_dict["COM Port"] = "Disconnect"
+            self.gui.menu_connection_disconnect.setChecked(True)
+            self.gui.updateSerialNumber(self.default_serial_number)
+            self.gui.status_dict["COM Port"] = "Disconnect"
 
     @QtCore.pyqtSlot()
     def receive(self):
@@ -224,6 +233,7 @@ class usbSerial(QtWidgets.QWidget): #Implementation based on: https://stackoverf
         else:
             if not self.initializing_connection:
                 self.showMessage("Error: Message buffer failed to be sent to driver, please check driver connection.")
+                self.disconnectSerial()
 
     def onTriggered(self, action):
         if str(action.objectName()) == "menu_connection_disconnect":
@@ -600,13 +610,15 @@ class usbSerial(QtWidgets.QWidget): #Implementation based on: https://stackoverf
     def sendWithReply(self, callback, message=None, cobs_encode=True, wait_time=500):
         self.expected_callback = callback
         self.send(message, cobs_encode)
-        self.active_port.waitForReadyRead(wait_time)
+        if self.active_port is not None:
+            self.active_port.waitForReadyRead(wait_time)
 
 
     def sendWithoutReply(self, message=None, cobs_encode=True, wait_time=500):
         self.expected_callback = None
         self.send(message, cobs_encode)
-        self.active_port.waitForReadyRead(wait_time)
+        if self.active_port is not None:
+            self.active_port.waitForReadyRead(wait_time)
 
     def showMessage(self, text):
         self.gui.waitCursor(False)

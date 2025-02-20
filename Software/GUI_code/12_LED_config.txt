@@ -11,6 +11,7 @@ LED13::Current Limit::100.0
 LED14::ID::500 nm
 LED14::Active::True
 LED14::Current Limit::100.0
+Board1::None
 LED21::ID::530 nm
 LED21::Active::True
 LED21::Current Limit::100.0
@@ -23,6 +24,7 @@ LED23::Current Limit::100.0
 LED24::ID::570 PC
 LED24::Active::True
 LED24::Current Limit::100.0
+Board2::None
 LED31::ID::590 nm
 LED31::Active::True
 LED31::Current Limit::100.0
@@ -35,11 +37,12 @@ LED33::Current Limit::100.0
 LED34::ID::660 nm
 LED34::Active::True
 LED34::Current Limit::100.0
-Temperature::Warn::45
-Temperature::Fault::50
+Board3::None
+Temperature::Warn::40
+Temperature::Fault::45
 Fan::Min::30
-Fan::Max::40
-Audio::Status::5
+Fan::Max::35
+Audio::Status::2
 Audio::Alarm::127
 Pushbutton::Indication::On
 Pushbutton::Alarm::Flash

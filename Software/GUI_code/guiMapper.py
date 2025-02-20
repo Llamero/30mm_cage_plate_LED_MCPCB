@@ -44,6 +44,7 @@ def initializeSyncModel(gui):
         nonlocal gui
         sync_model["Digital"] = OrderedDict()
         sync_model["Digital"]["Channel"] = []
+        sync_model["Digital"]["Channel"] = []
         for channel_number in range(1, 5):
             sync_model["Digital"]["Channel"].append(eval("gui.sync_digital_input" + str(channel_number) + "_button"))
         for trigger in ["Low", "High"]:
@@ -73,7 +74,7 @@ def initializeSyncModel(gui):
         sync_model["Confocal"]["Shutter"] = [gui.sync_confocal_shutter_low_button, gui.sync_confocal_shutter_high_button]
         sync_model["Confocal"]["Channel"] = []
         for channel_number in range(1, 5):
-            sync_model["Confocal"]["Channel"].append(eval("gui.sync_confocal_line_input" + str(channel_number) + "_button"))
+            sync_model["Confocal"]["Channel"].append(eval("gui.sync_digital_input" + str(channel_number) + "_button"))
         sync_model["Confocal"]["Line"] = gui.sync_confocal_line_tab
         sync_model["Confocal"]["Digital"] = [gui.sync_confocal_line_digital_low_button, gui.sync_confocal_line_digital_high_button]
         sync_model["Confocal"]["Threshold"] = gui.sync_confocal_line_analog_threshold_box

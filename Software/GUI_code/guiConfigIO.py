@@ -333,10 +333,19 @@ def syncToBytes(gui, prefix, update_model=True):
     if update_model:
         updateModelWhatsThis(gui, gui.sync_model)
 
-    sync_values = [None] * (15 + 2*11 + 3)
+    sync_values = [None] * (8 + 2*11 + 2*3)
     byte_array = bytearray() #Initialize empty byte array
     index = 0
 
+    unpack_string = "<B"
+    #Digital sync
+    unpack_string += "BBBBBHHHHLL"
+    #Analog sync
+    for _ in range(gui.nBoards()):
+        unpack_string += "B"
+    #Confocal sync
+    unpack_string += "?B???H?LLLLBBBBHHHHLL"
+    print(unpack_string)
     def widgetIndex(widget_list):
         for w_index, n_widget in enumerate(widget_list):
             if gui.getValue(n_widget):
@@ -347,64 +356,67 @@ def syncToBytes(gui, prefix, update_model=True):
 
     #Digital
     sync_values[0] = gui.sync_model["Mode"].currentIndex()
-    sync_values[1] = widgetIndex(gui.sync_model["Output"])
-    sync_values[2] = widgetIndex(gui.sync_model["Digital"]["Channel"])
+    sync_values[1] = widgetIndex(gui.sync_model["Digital"]["Channel"])
     current_limit = [0]*2
-    index += 3
+    index += 2
 
     for index3, key3 in enumerate(["Mode", "LED", "PWM", "Current", "Duration"]):
         for index2, key2 in enumerate(["Low", "High"]):
             if key3 == "Mode":
                 sync_values[(2 * index3) + index2 + index] = gui.sync_model["Digital"][key2][key3].currentIndex()
             if key3 == "LED":
-                sync_values[(2 * index3) + index2 + index] = widgetIndex(gui.sync_model["Digital"][key2][key3])
-                current_limit[index2] = gui.getValue(gui.config_model["LED" + str(sync_values[(2 * index3) + index2 + index]+1)]["Current Limit"])
+                for board_number in range(1, gui.nBoards() +1):
+                    sync_values[(2 * index3) + index2 + index] = widgetIndex(gui.sync_model["Digital"][key2][key3]["Board" + str(board_number)])
+                    current_limit[index2] = gui.getValue(gui.config_model["LED" + str(board_number) + str(sync_values[(2 * index3) + index2 + index]+1)]["Current Limit"])
+                    if sync_values is not None:
+                        break
             elif key3 == "PWM":
                 sync_values[(2 * index3) + index2 + index] = round((gui.getValue(gui.sync_model["Digital"][key2][key3])/100)*65535)
             elif key3 == "Current":
-                sync_values[(2 * index3) + index2 + index] = round((((gui.getValue(gui.sync_model["Digital"][key2][key3])/100)*current_limit[index2]) / 3.3) * 65535)  # Convert current limit to ADC reading (voltage)
-                print("Digital Input: " + str(gui.getValue(gui.sync_model["Digital"][key2][key3])) + ", Limit: " + str(current_limit[index2]) + ", Res: ")
+                sync_values[(2 * index3) + index2 + index] = round(gui.getValue(gui.sync_model["Digital"][key2][key3])/current_limit[index2]*65535)  # Convert current limit to ADC reading (voltage)
             elif key3 == "Duration":
                 sync_values[(2 * index3) + index2 + index] = round(gui.getValue(gui.sync_model["Digital"][key2][key3])*1e6)  # Convert duration to microseconds
 
     index += 10
 
     #Analog
-    for index2, key2 in enumerate(["Channel", "LED"]):
-        sync_values[13+index2] = widgetIndex(gui.sync_model["Analog"][key2])
-    sync_values[15] = gui.sync_model["Analog"]["Mode"].currentIndex()
-    sync_values[16] = gui.getValue(gui.sync_model["Analog"]["PWM"])
-    sync_values[17] = gui.getValue(gui.sync_model["Analog"]["Current"])
+    for board_number in range(gui.nBoards()):
+        sync_values[index+board_number] = widgetIndex(gui.sync_model["Analog"]["Board" + str(board_number+1)])
+    index += gui.nBoards()
 
     #Confocal
     for index2, key2 in enumerate(["Shutter", "Channel", "Line", "Digital", "Polarity"]):
         if key2 == "Line":
-            sync_values[18 + index2] = gui.sync_model["Confocal"][key2].currentIndex()
+            sync_values[index + index2] = gui.sync_model["Confocal"][key2].currentIndex()
         else:
-            sync_values[18+index2] = widgetIndex(gui.sync_model["Confocal"][key2])
-    sync_values[23] = round(gui.getValue(gui.sync_model["Confocal"]["Threshold"])/3.3*65535)
-    sync_values[24] = widgetIndex(gui.sync_model["Confocal"]["Delay"]["Mode"])
-    sync_values[25] = round(gui.getValue(gui.sync_model["Confocal"]["Period"]) * DEFAULT_CLOCK_SPEED)
+            sync_values[index+index2] = widgetIndex(gui.sync_model["Confocal"][key2])
+    index += 5
+    sync_values[index] = round(gui.getValue(gui.sync_model["Confocal"]["Threshold"])/3.3*65535)
+    sync_values[index+1] = widgetIndex(gui.sync_model["Confocal"]["Delay"]["Mode"])
+    sync_values[index+2] = round(gui.getValue(gui.sync_model["Confocal"]["Period"]) * DEFAULT_CLOCK_SPEED)
+    index += 3
 
-    for index3 in range(1,4):
-        sync_values[25+index3] = round(gui.getValue(gui.sync_model["Confocal"]["Delay"][str(index3)])*DEFAULT_CLOCK_SPEED) #Convert the delay times to clock cycles at default Teensy speed
+    for index3 in range(3):
+        sync_values[index+index3] = round(gui.getValue(gui.sync_model["Confocal"]["Delay"][str(index3+1)])*DEFAULT_CLOCK_SPEED) #Convert the delay times to clock cycles at default Teensy speed
+    index += 3
     for index3, key3 in enumerate(["Mode", "LED", "PWM", "Current", "Duration"]):
         for index2, key2 in enumerate(["Standby", "Scanning"]):
             if key3 == "Mode":
-                sync_values[(2 * index3) + index2 + 29] = gui.sync_model["Confocal"][key2][key3].currentIndex()
+                sync_values[(2 * index3) + index2 + index] = gui.sync_model["Confocal"][key2][key3].currentIndex()
             if key3 == "LED":
-                sync_values[(2 * index3) + index2 + 29] = widgetIndex(gui.sync_model["Confocal"][key2][key3])
-                if sync_values[(2 * index3) + index2 + 29] == 0: #If current LED is selected - get active LED channel from main window
-                    sync_values[(2 * index3) + index2 + 29] = widgetIndex(gui.main_model["Channel"])+1
-                current_limit[index2] = gui.getValue(gui.config_model["LED" + str(sync_values[(2 * index3) + index2 + 29])]["Current Limit"])
+                for board_number in range(1, gui.nBoards() +1):
+                    sync_values[(2 * index3) + index2 + index] = widgetIndex(gui.sync_model["Confocal"][key2][key3]["Board" + str(board_number)])
+                    current_limit[index2] = gui.getValue(gui.config_model["LED" + str(board_number) + str(sync_values[(2 * index3) + index2 + index]+1)]["Current Limit"])
+                    if sync_values is not None:
+                        break
             elif key3 == "PWM":
-                sync_values[(2 * index3) + index2 + 29]  = round((gui.getValue(gui.sync_model["Confocal"][key2][key3]) / 100) * 65535) #Convert to clock-cycles, where 100% = # of clock cycles in delay #2
+                sync_values[(2 * index3) + index2 + index]  = round((gui.getValue(gui.sync_model["Confocal"][key2][key3]) / 100) * 65535) #Convert to clock-cycles, where 100% = # of clock cycles in delay #2
             elif key3 == "Current":
-                sync_values[(2 * index3) + index2 + 29] = round((gui.getValue(gui.sync_model["Confocal"][key2][key3])/current_limit[index2]) * 100)  # Convert current to ADC reading (voltage) as percent of current limit
+                sync_values[(2 * index3) + index2 + index] = round(gui.getValue(gui.sync_model["Confocal"][key2][key3])/current_limit[index2]*65535) # Convert current to ADC reading (voltage) as percent of current limit
             elif key3 == "Duration":
-                sync_values[(2 * index3) + index2 + 29] = round(gui.getValue(gui.sync_model["Confocal"][key2][key3])*1e6)
+                sync_values[(2 * index3) + index2 + index] = round(gui.getValue(gui.sync_model["Confocal"][key2][key3])*1e6)
 
-    byte_array.extend(struct.pack("<BBBBBBBHHHHLLBBB?B???H?LLLLBBBBHHHHLL", *sync_values))
+    byte_array.extend(struct.pack(unpack_string, *sync_values))
     checksum = (sum(byte_array) + prefix) & 0xFF  # https://stackoverflow.com/questions/44611057/checksum-generation-from-sum-of-bits-in-python
     checksum = 256 - checksum
     byte_array.append(checksum)

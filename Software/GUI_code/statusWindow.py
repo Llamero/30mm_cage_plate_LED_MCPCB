@@ -172,7 +172,9 @@ class statusWindow(QtWidgets.QWidget):
     def updateStatusWindow(self):
         round_to_n = lambda x, n: x if x == 0 else round(x, -int(math.floor(math.log10(abs(x)))) + (n - 1)) #Roudn to sig fig - https://stackoverflow.com/questions/3410976/how-to-round-a-number-to-significant-figures-in-python
         count = self.status_dict["Count"]
-        if count > 0: #Update values if at least one new update was received
+        for key in ["Name", "COM Port", "Serial"]:
+            self.status_dict[key] = self.gui.status_dict[key]
+        if count > 0:
             for key, value in self.status_dict.items():
                 unit = ""
                 if "Channel" in key:
@@ -238,7 +240,14 @@ class statusWindow(QtWidgets.QWidget):
                 if key not in ["Count"]:
                     self.updateLabel(key, value, unit)
 
-            self.status_dict["Count"] = 0 #Reset the averaging counter
+        else:
+            for key, value in self.status_dict.items():
+                if key not in ["Name", "COM Port", "Serial"]:
+                    value = "N/A"
+                if key not in ["Count"]:
+                    self.updateLabel(key, value)
+
+        self.status_dict["Count"] = 0 #Reset the averaging counter
 
         #Update plots
         show_plot = self.isVisible() and self.gui.getValue(self.main_tab) in ["Intensity Plots", "Temperature Plots"]
