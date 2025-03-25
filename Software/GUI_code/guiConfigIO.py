@@ -173,10 +173,10 @@ def bytesToSync(byte_array, gui, prefix):
     sync_values = [None] * (15 + 2*11 + 3)
     def setWidget(widgets, index):
         try:
-            widget_string = widgets[sync_values[index]].text()
+            widget_string = widgets[index].text()
             gui.setValue(widgets, widget_string)
         except:
-            showMessage(gui, "Error: Widget index not found for " + str(widgets))
+            showMessage(gui, "Error: Widget index not found at index " + str(index) + " for " + str(widgets))
             return None
 
     checksum = (sum(byte_array) + prefix) & 0xFF  # https://stackoverflow.com/questions/44611057/checksum-generation-from-sum-of-bits-in-python
@@ -210,7 +210,7 @@ def bytesToSync(byte_array, gui, prefix):
 
         #Analog
         for board in range(1, gui.nBoards()+1):
-            setWidget(gui.sync_model["Analog"]["Board" + str(board)], index+board-1)
+            setWidget(gui.sync_model["Analog"]["Board" + str(board)], sync_values[index+board-1])
         index += gui.nBoards()
 
         #Confocal
@@ -218,19 +218,22 @@ def bytesToSync(byte_array, gui, prefix):
             if key2 == "Line":
                 gui.sync_model["Confocal"][key2].setCurrentIndex(sync_values[index + index2])
             else:
-                setWidget(gui.sync_model["Confocal"][key2], index+index2)
+                setWidget(gui.sync_model["Confocal"][key2], sync_values[index+index2])
         index += 5
 
         gui.setValue(gui.sync_model["Confocal"]["Threshold"], sync_values[index]/65535*3.3)
-        setWidget(gui.sync_model["Confocal"]["Delay"]["Mode"], index+1)
+        setWidget(gui.sync_model["Confocal"]["Delay"]["Mode"], sync_values[index+1])
         gui.setValue(gui.sync_model["Confocal"]["Period"], sync_values[index+2]/DEFAULT_CLOCK_SPEED)
         index += 3
 
-        for index3 in range(1,4):
-            gui.setValue(gui.sync_model["Confocal"]["Delay"][str(index3)], sync_values[25+index3]/DEFAULT_CLOCK_SPEED)
+        for index3 in range(3):
+            gui.setValue(gui.sync_model["Confocal"]["Delay"][str(index3+1)], sync_values[index+index3]/DEFAULT_CLOCK_SPEED)
+        index += 3
+
         for index3, key3 in enumerate(["Mode", "LED", "PWM", "Current", "Duration"]):
             for index2, key2 in enumerate(["Standby", "Scanning"]):
                 if key3 == "Mode":
+                    print(sync_values[(2 * index3) + index2 + index])
                     gui.sync_model["Confocal"][key2][key3].setCurrentIndex(sync_values[(2 * index3) + index2 + index])
                 if key3 == "LED":
                     board_number = math.floor(sync_values[(2 * index3) + index2 + index]/gui.nLeds())+1
@@ -325,6 +328,8 @@ def configToBytes(gui, prefix, update_model=True):
     byte_array.extend(struct.pack(unpack_string, *config_values))
     checksum = (sum(byte_array) + prefix) & 0xFF  # https://stackoverflow.com/questions/44611057/checksum-generation-from-sum-of-bits-in-python
     checksum = 256 - checksum
+    if(checksum == 256):
+        checksum = 0
     byte_array.append(checksum)
 
     return byte_array
@@ -346,12 +351,13 @@ def syncToBytes(gui, prefix, update_model=True):
     #Confocal sync
     unpack_string += "?B???H?LLLLBBBBHHHHLL"
     print(unpack_string)
-    def widgetIndex(widget_list):
+    def widgetIndex(widget_list, showerror = True):
         for w_index, n_widget in enumerate(widget_list):
             if gui.getValue(n_widget):
                 return w_index
         else:
-            showMessage(gui, "Error: Widget index not found!")
+            if(showerror):
+                showMessage(gui, "Error: Widget index not found!")
             return None
 
     #Digital
@@ -365,10 +371,14 @@ def syncToBytes(gui, prefix, update_model=True):
             if key3 == "Mode":
                 sync_values[(2 * index3) + index2 + index] = gui.sync_model["Digital"][key2][key3].currentIndex()
             if key3 == "LED":
-                for board_number in range(1, gui.nBoards() +1):
-                    sync_values[(2 * index3) + index2 + index] = widgetIndex(gui.sync_model["Digital"][key2][key3]["Board" + str(board_number)])
-                    current_limit[index2] = gui.getValue(gui.config_model["LED" + str(board_number) + str(sync_values[(2 * index3) + index2 + index]+1)]["Current Limit"])
-                    if sync_values is not None:
+                for board_number in range(1, gui.nBoards()+1):
+                    showerror = False #Only show the none error if on the last board and a clicked widget still hasn't been found
+                    if board_number == gui.nBoards():
+                        showerror = True
+                    sync_values[(2 * index3) + index2 + index] = widgetIndex(gui.sync_model["Digital"][key2][key3]["Board" + str(board_number)], showerror)
+                    if sync_values[(2 * index3) + index2 + index] is not None:
+                        current_limit[index2] = gui.getValue(gui.config_model["LED" + str(board_number) + str(sync_values[(2 * index3) + index2 + index] + 1)]["Current Limit"])
+                        sync_values[(2 * index3) + index2 + index] += gui.nLeds()*(board_number-1) #Add board number offset to final led number
                         break
             elif key3 == "PWM":
                 sync_values[(2 * index3) + index2 + index] = round((gui.getValue(gui.sync_model["Digital"][key2][key3])/100)*65535)
@@ -403,11 +413,16 @@ def syncToBytes(gui, prefix, update_model=True):
         for index2, key2 in enumerate(["Standby", "Scanning"]):
             if key3 == "Mode":
                 sync_values[(2 * index3) + index2 + index] = gui.sync_model["Confocal"][key2][key3].currentIndex()
+                print(sync_values[(2 * index3) + index2 + index])
             if key3 == "LED":
                 for board_number in range(1, gui.nBoards() +1):
-                    sync_values[(2 * index3) + index2 + index] = widgetIndex(gui.sync_model["Confocal"][key2][key3]["Board" + str(board_number)])
-                    current_limit[index2] = gui.getValue(gui.config_model["LED" + str(board_number) + str(sync_values[(2 * index3) + index2 + index]+1)]["Current Limit"])
-                    if sync_values is not None:
+                    showerror = False #Only show the none error if on the last board and a clicked widget still hasn't been found
+                    if board_number == gui.nBoards():
+                        showerror = True
+                    sync_values[(2 * index3) + index2 + index] = widgetIndex(gui.sync_model["Confocal"][key2][key3]["Board" + str(board_number)], showerror)
+                    if sync_values[(2 * index3) + index2 + index] is not None:
+                        current_limit[index2] = gui.getValue(gui.config_model["LED" + str(board_number) + str(sync_values[(2 * index3) + index2 + index] + 1)]["Current Limit"])
+                        sync_values[(2 * index3) + index2 + index] += gui.nLeds() * (board_number - 1)  # Add board number offset to final led number
                         break
             elif key3 == "PWM":
                 sync_values[(2 * index3) + index2 + index]  = round((gui.getValue(gui.sync_model["Confocal"][key2][key3]) / 100) * 65535) #Convert to clock-cycles, where 100% = # of clock cycles in delay #2
@@ -419,6 +434,8 @@ def syncToBytes(gui, prefix, update_model=True):
     byte_array.extend(struct.pack(unpack_string, *sync_values))
     checksum = (sum(byte_array) + prefix) & 0xFF  # https://stackoverflow.com/questions/44611057/checksum-generation-from-sum-of-bits-in-python
     checksum = 256 - checksum
+    if(checksum == 256):
+        checksum = 0
     byte_array.append(checksum)
     return byte_array
 

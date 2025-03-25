@@ -42,7 +42,7 @@ Temperature::Warn::40
 Temperature::Fault::45
 Fan::Min::30
 Fan::Max::35
-Audio::Status::2
+Audio::Status::16
 Audio::Alarm::127
 Pushbutton::Indication::On
 Pushbutton::Alarm::Flash

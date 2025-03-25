@@ -63,7 +63,7 @@ struct syncStruct{ //158 bytes
   uint32_t digital_duration[2]; //The maximum number of milliseconds to hold LED state
 
   uint8_t analog_led[3]; //The active LED channel for each board
-  
+
   boolean shutter_polarity; //Shutter polarity when scan is active
   uint8_t confocal_channel; //The input channel for the line sync signal
   boolean confocal_sync_mode; //Whether the line sync is digital (true) or analog (false)
@@ -72,13 +72,13 @@ struct syncStruct{ //158 bytes
   boolean confocal_scan_mode; //Whether scan is unidirectional (true) or bidrectional (false)
   uint32_t confocal_mirror_period; //Time in clock cycles for the scanning mirror to complete one cycle
   uint32_t confocal_delay[3]; //Delay in clock cycles for each sync delay
- 
+
   uint8_t confocal_mode[2]; //The digital sync mode  in the image and flyback states respectively
   uint8_t confocal_led[2]; //The active LED channel in the image and flyback states respectively
   uint16_t confocal_pwm[2]; //The PWM value in the image and flyback states respectively
   uint16_t confocal_current[2]; //The DAC value in the image and flyback states respectively
   uint32_t confocal_duration[2]; //The maximum number of milliseconds to hold LED state
-  
+
   uint8_t checksum; //Checksum to confirm that configuration is valid
 };
 
