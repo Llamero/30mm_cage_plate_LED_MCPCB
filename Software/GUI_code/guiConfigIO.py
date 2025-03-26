@@ -199,7 +199,7 @@ def bytesToSync(byte_array, gui, prefix):
                     board_number = math.floor(sync_values[(2 * index3) + index2 + index]/gui.nLeds())+1
                     led_number = sync_values[(2 * index3) + index2 + index]%gui.nLeds()
                     setWidget(gui.sync_model["Digital"][key2][key3]["Board" + str(board_number)], led_number)
-                    current_limit[index2] = gui.getValue(gui.config_model["LED" + str(board_number) + str(led_number+1)]["Current Limit"])
+                    current_limit[index2] = gui.getAdcCurrentLimit(board_number, led_number+1)
                 elif key3 == "PWM":
                     gui.setValue(gui.sync_model["Digital"][key2][key3], sync_values[(2 * index3) + index2 + index]/65535*100)
                 elif key3 == "Current":
@@ -233,13 +233,12 @@ def bytesToSync(byte_array, gui, prefix):
         for index3, key3 in enumerate(["Mode", "LED", "PWM", "Current", "Duration"]):
             for index2, key2 in enumerate(["Standby", "Scanning"]):
                 if key3 == "Mode":
-                    print(sync_values[(2 * index3) + index2 + index])
                     gui.sync_model["Confocal"][key2][key3].setCurrentIndex(sync_values[(2 * index3) + index2 + index])
                 if key3 == "LED":
                     board_number = math.floor(sync_values[(2 * index3) + index2 + index]/gui.nLeds())+1
                     led_number = sync_values[(2 * index3) + index2 + index]%gui.nLeds()
                     setWidget(gui.sync_model["Confocal"][key2][key3]["Board" + str(board_number)], led_number)
-                    current_limit[index2] = gui.getValue(gui.config_model["LED" + str(board_number) + str(led_number+1)]["Current Limit"])
+                    current_limit[index2] = gui.getAdcCurrentLimit(board_number, led_number+1)
                 elif key3 == "PWM":
                     gui.setValue(gui.sync_model["Confocal"][key2][key3], sync_values[(2 * index3) + index2 + index]/65535*100)
                 elif key3 == "Current":
@@ -280,7 +279,7 @@ def configToBytes(gui, prefix, update_model=True):
     #Get LED current limits
     for board_number in range(1, gui.nBoards() + 1):
         for led_number in range(1, gui.nLeds() + 1):
-            current_limit = gui.getValue(gui.config_model["LED" + str(board_number) + str(led_number)]["Current Limit"])
+            current_limit = gui.getAdcCurrentLimit(board_number, led_number)
             gui.setAdcCurrentLimit(board_number, led_number, current_limit) #Update What's this to new value
             config_values[index] = round((current_limit/100)*65535) #Convert current limit to ADC reading (voltage)
             index += 1
@@ -350,7 +349,6 @@ def syncToBytes(gui, prefix, update_model=True):
         unpack_string += "B"
     #Confocal sync
     unpack_string += "?B???H?LLLLBBBBHHHHLL"
-    print(unpack_string)
     def widgetIndex(widget_list, showerror = True):
         for w_index, n_widget in enumerate(widget_list):
             if gui.getValue(n_widget):
@@ -377,7 +375,7 @@ def syncToBytes(gui, prefix, update_model=True):
                         showerror = True
                     sync_values[(2 * index3) + index2 + index] = widgetIndex(gui.sync_model["Digital"][key2][key3]["Board" + str(board_number)], showerror)
                     if sync_values[(2 * index3) + index2 + index] is not None:
-                        current_limit[index2] = gui.getValue(gui.config_model["LED" + str(board_number) + str(sync_values[(2 * index3) + index2 + index] + 1)]["Current Limit"])
+                        current_limit[index2] = gui.getAdcCurrentLimit(board_number, sync_values[(2 * index3) + index2 + index] + 1)
                         sync_values[(2 * index3) + index2 + index] += gui.nLeds()*(board_number-1) #Add board number offset to final led number
                         break
             elif key3 == "PWM":
@@ -413,7 +411,6 @@ def syncToBytes(gui, prefix, update_model=True):
         for index2, key2 in enumerate(["Standby", "Scanning"]):
             if key3 == "Mode":
                 sync_values[(2 * index3) + index2 + index] = gui.sync_model["Confocal"][key2][key3].currentIndex()
-                print(sync_values[(2 * index3) + index2 + index])
             if key3 == "LED":
                 for board_number in range(1, gui.nBoards() +1):
                     showerror = False #Only show the none error if on the last board and a clicked widget still hasn't been found
@@ -421,7 +418,7 @@ def syncToBytes(gui, prefix, update_model=True):
                         showerror = True
                     sync_values[(2 * index3) + index2 + index] = widgetIndex(gui.sync_model["Confocal"][key2][key3]["Board" + str(board_number)], showerror)
                     if sync_values[(2 * index3) + index2 + index] is not None:
-                        current_limit[index2] = gui.getValue(gui.config_model["LED" + str(board_number) + str(sync_values[(2 * index3) + index2 + index] + 1)]["Current Limit"])
+                        current_limit[index2] = gui.getAdcCurrentLimit(board_number, sync_values[(2 * index3) + index2 + index] + 1)
                         sync_values[(2 * index3) + index2 + index] += gui.nLeds() * (board_number - 1)  # Add board number offset to final led number
                         break
             elif key3 == "PWM":

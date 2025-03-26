@@ -291,7 +291,8 @@ def sequenceToBytes(gui, widget):
                     converted_row[3] = round(float(row_data[3])*1e6) #convert seconds to microseconds
                     board_number = math.floor((converted_row[0])/gui.nLeds()) + 1
                     led_number = (converted_row[0])%gui.nLeds() + 1
-                    converted_row[2] = round(float(row_data[2]) / gui.getValue(gui.config_model["LED" + str(board_number) + str(led_number)]["Current Limit"]) * 65535)
+                    converted_row[2] = round(float(row_data[2]) * gui.getAdcCurrentLimit(board_number, led_number) * 6.5535)
+                    print(converted_row)
                     byte_array.extend(struct.pack("<BHHI", *converted_row))
                     # Save data to sequence dictionary
                     for header_index, header in enumerate(widget_headers):
@@ -325,7 +326,7 @@ def bytesToSequence(byte_array, gui, widget):
                 converted_row[3] = float(row_data[3]) / 1e6  # convert microseconds to seconds
                 board_number = math.floor((converted_row[0] - 1) / gui.nLeds()) + 1
                 led_number = (converted_row[0] - 1) % gui.nLeds() + 1
-                converted_row[2] = ((float(row_data[2])/655.35) / gui.getValue(gui.config_model["LED" + str(board_number) + str(led_number)]["Current Limit"])) * 100
+                converted_row[2] = ((float(row_data[2])/655.35) / gui.getAdcCurrentLimit(board_number, led_number)) * 100
                 converted_row[1:] = [sigFigLimit(x, 3) for x in converted_row[1:]]
                 writer.writerow(converted_row) #Write rows to temp file
 

@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35075816-77fa-4058-88e3-96cac61cd4b3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../KiCAD/LED Controller/LED controller-backups/LED controller-2024-11-27_220838.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12_LED_config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/12_LED_config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QtDesigner_GUI.ui" beforeDir="false" afterPath="$PROJECT_DIR$/QtDesigner_GUI.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12 LED cycle.csv" beforeDir="false" afterPath="$PROJECT_DIR$/12 LED cycle.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/guiConfigIO.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiConfigIO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui_state.obj" beforeDir="false" afterPath="$PROJECT_DIR$/gui_state.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guiSequence.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiSequence.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainWindow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statusWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/statusWindow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test/pinSetup.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Test/pinSetup.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,10 +25,10 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="ProjectErrors" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2sJkpO1qYjHeqVIoDZM5v3wDUTd" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -37,7 +40,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "git-widget-placeholder": "4x-LED-array",
-    "settings.editor.selected.configurable": "preferences.customizations"
+    "settings.editor.selected.configurable": "configurable.group.tools"
   }
 }]]></component>
   <component name="PyFindUsagesOptions">

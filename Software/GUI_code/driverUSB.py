@@ -535,11 +535,10 @@ class usbSerial(QtWidgets.QWidget): #Implementation based on: https://stackoverf
                             led_number = led_dict["channel"][board-1]+1
                             if mode == 1: #PWM mode
                                 led_dict["pwm"][board-1] = round((self.gui.getValue(self.gui.main_model["Intensity"]) / dial_max) * 65535)
-                                led_dict["current"][board-1] = self.gui.getAdcCurrentLimit(board, led_number)
+                                led_dict["current"][board-1] = round(self.gui.getAdcCurrentLimit(board, led_number)*655.35)
                             elif mode == 2: #Current mode
                                 led_dict["pwm"][board - 1] = 65535
-                                led_dict["current"][board-1] = round((self.gui.getValue(
-                                    self.gui.main_model["Intensity"]) / dial_max) * self.gui.getAdcCurrentLimit(board, led_number))
+                                led_dict["current"][board-1] = round((self.gui.getValue(self.gui.main_model["Intensity"]) / dial_max) * self.gui.getAdcCurrentLimit(board, led_number) * 655.35)
                             else: #Off mode or sync mode
                                 led_dict["current"][board-1] = 0
                                 led_dict["pwm"][board-1] = 0
@@ -556,6 +555,7 @@ class usbSerial(QtWidgets.QWidget): #Implementation based on: https://stackoverf
                         status_list[2*self.gui.nBoards() + board] = led_dict["current"][board]
                     status_list[3*self.gui.nBoards()] = mode
                     status_list[3*self.gui.nBoards()+2] = widgetIndex(self.gui.main_model["Control"])
+                    print(status_list)
                     status_list = struct.pack("<BBBHHHHHHB??HHHHHH", *status_list)
                     self.sendWithoutReply(status_list, True, 0)
 

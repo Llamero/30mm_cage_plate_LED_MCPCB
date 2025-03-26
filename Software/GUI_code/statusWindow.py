@@ -110,23 +110,6 @@ class statusWindow(QtWidgets.QWidget):
 
         return speed_model, custom_spinbox
 
-    def activeCurrent(self):
-        # Get current limit of active LED
-        for led_number in range(1, 5):
-            widget = eval("self.gui.main_channel_LED" + str(led_number) + "_button")
-            if self.gui.getValue(widget):
-                return self.gui.getValue(self.gui.config_model["LED" + str(led_number)]["Current Limit"]) * self.gui.getValue(
-                    self.gui.calibration_current_box) / 100  # Return current limit * scale
-        else:
-            return None
-
-    def setCalibrationScale(self):
-        current = self.activeCurrent()
-        self.gui.calibration_plot_window.setYRange(0, current * 1.2, padding=0)
-        xlim = self.gui.calibration_plot_window.getViewBox().state["targetRange"][0][1]
-        x = [0, xlim]
-        y = [current, current]
-
     def startAnimation(self):
         self.plot_timeline.setFrameRange(0, 100)
         self.plot_timeline.frameChanged.connect(lambda: self.updateStatusWindow())
@@ -199,21 +182,23 @@ class statusWindow(QtWidgets.QWidget):
                         value = "Not Connected"
                 elif "PWM" in key or "Fan" in key:
                     board_number = key[-1]
-                    led_number = round(self.status_dict["Channel" + str(board_number)]/count) + 1
-                    if led_number <= self.gui.nLeds():
-                        self.status_dict[key] = ((value / count)/65535)*100
-                        value = round_to_n(self.status_dict[key], 3)
-                        unit = " %"
-                    else:
+                    led_number = round(self.status_dict["Channel" + str(board_number)]) + 1
+                    self.status_dict[key] = ((value / count)/65535)*100
+                    value = round_to_n(self.status_dict[key], 3)
+                    unit = " %"
+                    if ("PWM" in key and led_number > self.gui.nLeds()):
+                        self.status_dict[key] = 0
                         value = "Off"
+                        unit = ""
                 elif "Current" in key:
                     board_number = key[-1]
-                    led_number = round(self.status_dict["Channel" + str(board_number)]/count) + 1
+                    led_number = round(self.status_dict["Channel" + str(board_number)]) + 1
                     if led_number <= self.gui.nLeds():
-                        self.status_dict[key] = ((value / count) / self.gui.getAdcCurrentLimit(board_number,                                                                        led_number)) * 100
+                        self.status_dict[key] = ((value / count)/6.5535) / self.gui.getAdcCurrentLimit(board_number, led_number)
                         value = round_to_n(self.status_dict[key], 3)
                         unit = " %"
                     else:
+                        self.status_dict[key] = 0
                         value = "Off"
                 elif key == "Control":
                     value = self.gui.main_model["Control"][int(value)].text()
@@ -289,6 +274,8 @@ class statusWindow(QtWidgets.QWidget):
                     else:
                         clear_graph = False
                     self.y_values[key][board-1][0] = self.status_dict[key + str(board)]
+                    if self.y_values[key][board-1][0] > 100:
+                        print(str(count))
                     self.y_values[key][board-1].rotate(-1)
                     if show_plot:
                         y_list = list(self.y_values[key][board-1])

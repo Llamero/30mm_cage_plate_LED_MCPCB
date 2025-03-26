@@ -1034,7 +1034,7 @@ void checkStatus(){
               updateIntensity(a); //Update the LED intensity with the new values
             }
             else if(current_status.s.mode == 2){
-              current_status.s.led_current[a] = ((uint32_t) pin.potValue(a) * (uint32_t) conf.c.current_limit[a][current_status.s.led_channel[a]])>>8;
+              current_status.s.led_current[a] = ((uint32_t) pin.potValue(a) * (uint32_t) conf.c.current_limit[a][current_status.s.led_channel[a]])>>16;
               current_status.s.led_pwm[a] = 65535; 
               updateIntensity(a); //Update the LED intensity with the new values
             }

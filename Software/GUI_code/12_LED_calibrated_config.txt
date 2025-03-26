@@ -1,0 +1,48 @@
+Driver name::Tuten 12-LED
+LED11::ID::410 nm
+LED11::Active::True
+LED11::Current Limit::100.0
+LED12::ID::455 nm
+LED12::Active::True
+LED12::Current Limit::100.0
+LED13::ID::475 nm
+LED13::Active::True
+LED13::Current Limit::100.0
+LED14::ID::500 nm
+LED14::Active::True
+LED14::Current Limit::100.0
+Board1::None
+LED21::ID::530 nm
+LED21::Active::True
+LED21::Current Limit::100.0
+LED22::ID::540 PC
+LED22::Active::True
+LED22::Current Limit::100.0
+LED23::ID::545 PC
+LED23::Active::True
+LED23::Current Limit::100.0
+LED24::ID::570 PC
+LED24::Active::True
+LED24::Current Limit::100.0
+Board2::None
+LED31::ID::590 nm
+LED31::Active::True
+LED31::Current Limit::53.0
+LED32::ID::615 nm
+LED32::Active::True
+LED32::Current Limit::69.0
+LED33::ID::625 nm
+LED33::Active::True
+LED33::Current Limit::100.0
+LED34::ID::660 nm
+LED34::Active::True
+LED34::Current Limit::100.0
+Board3::None
+Temperature::Warn::40
+Temperature::Fault::45
+Fan::Min::30
+Fan::Max::35
+Audio::Status::16
+Audio::Alarm::127
+Pushbutton::Indication::On
+Pushbutton::Alarm::Flash

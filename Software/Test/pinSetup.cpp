@@ -35,7 +35,7 @@ const int pinSetup::LED[][2] = {{2, 3}, {6, 9}, {8, 7}}; //Indicator LEDs on pus
 const int pinSetup::POT[] = {23, 22, 21}; //Input voltage from potentiometer
 const int pinSetup::INPUTS[] = {33, 34, 32, 31}; //4-channel analog/digital inputs
 //const uint8_t pinSetup::color_list[] = {0, 13, 50, 100}; //4 color settings for pushbutton
-const uint8_t pinSetup::color_list[] = {100, 90, 60, 0}; //4 color settings for pushbutton
+const uint8_t pinSetup::color_list[] = {0, 60, 90, 100}; //4 color settings for pushbutton
 
 pinSetup::pinSetup()
 {

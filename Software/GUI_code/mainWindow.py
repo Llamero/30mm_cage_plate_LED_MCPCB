@@ -469,7 +469,7 @@ class Ui(QtWidgets.QMainWindow):
 
     def getAdcCurrentLimit(self, board_number, led_number):
         try:
-            return round(self.getValue(self.config_model["LED" + str(board_number) + str(led_number)]["Current Limit"])*655.35)
+            return self.getValue(self.config_model["LED" + str(board_number) + str(led_number)]["Current Limit"])
         except ValueError:
             return 0.01
 
