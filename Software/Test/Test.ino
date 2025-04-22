@@ -712,7 +712,8 @@ void customSync(){ //Two channel interline sequence, with external trigger betwe
   //const uint32_t frame_timeout = 600*600; //Number of clock cycles before timing out at end of 24 bit sequence
   //const uint32_t frame_timeout = 1500*600; //Number of clock cycles before timing out at end of 24 bit sequence
   const uint32_t resync_timeout = 20000*600; //Number of clock cycles before timing waiting to catch start of a new frame
-  
+  const uint32_t RELAY_OPEN_DURATION = 3; //duration, in µs, to pulse mosfets open to speed up off time of LED
+
   uint32_t duration; //Duration timer for sequence steps
   uint8_t sync_step; //sequence step counter
   uint32_t cpu_cycles = 0; //Timer from LED on to LED off - solves issue with line clock edge occuring during the flyback.
@@ -773,6 +774,8 @@ void customSync(){ //Two channel interline sequence, with external trigger betwe
           if(ARM_DWT_CYCCNT - cpu_cycles > pwm_clock_list[current_status.s.state][sync_step]){
             digitalWriteFast(pin.INTERLINE[board_number], LOW);  //Turn off LED if at end of PWM cycle
             digitalWriteFast(pin.RELAY[board_number][led_number], !pin.RELAY_CLOSE); //Open Mosfet for faster off time
+            delayMicroseconds(RELAY_OPEN_DURATION);
+            digitalWriteFast(pin.RELAY[board_number][led_number], pin.RELAY_CLOSE); //Open Mosfet
           }
           else if(ARM_DWT_CYCCNT - cpu_cycles > pwm_delay_list[current_status.s.state][sync_step]){
             digitalWriteFast(pin.INTERLINE[board_number], HIGH); //Turn on LED at start of PWM cycle
@@ -794,6 +797,8 @@ void customSync(){ //Two channel interline sequence, with external trigger betwe
           if(ARM_DWT_CYCCNT - cpu_cycles > pwm_clock_list[current_status.s.state][sync_step]){
             digitalWriteFast(pin.INTERLINE[board_number], LOW);  //Turn off LED if at end of PWM cycle
             digitalWriteFast(pin.RELAY[board_number][led_number], !pin.RELAY_CLOSE); //Open Mosfet for faster off time
+            delayMicroseconds(RELAY_OPEN_DURATION);
+            digitalWriteFast(pin.RELAY[board_number][led_number], pin.RELAY_CLOSE); //Open Mosfet
           }
           else if(ARM_DWT_CYCCNT - cpu_cycles > pwm_delay_list[current_status.s.state][sync_step]){
             digitalWriteFast(pin.INTERLINE[board_number], HIGH); //Turn on LED at start of PWM cycle
@@ -815,6 +820,8 @@ void customSync(){ //Two channel interline sequence, with external trigger betwe
           if(ARM_DWT_CYCCNT - cpu_cycles > pwm_clock_list[current_status.s.state][sync_step]){
             digitalWriteFast(pin.INTERLINE[board_number], LOW);  //Turn off LED if at end of PWM cycle
             digitalWriteFast(pin.RELAY[board_number][led_number], !pin.RELAY_CLOSE); //Open Mosfet for faster off time
+            delayMicroseconds(RELAY_OPEN_DURATION);
+            digitalWriteFast(pin.RELAY[board_number][led_number], pin.RELAY_CLOSE); //Open Mosfet
           }
           else if(ARM_DWT_CYCCNT - cpu_cycles > pwm_delay_list[current_status.s.state][sync_step]){
             digitalWriteFast(pin.INTERLINE[board_number], HIGH); //Turn on LED at start of PWM cycle
