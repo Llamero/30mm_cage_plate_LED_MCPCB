@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35075816-77fa-4058-88e3-96cac61cd4b3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../KiCAD/LED Controller/LED controller-backups/LED controller-2024-11-27_220838.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12 LED cycle.csv" beforeDir="false" afterPath="$PROJECT_DIR$/12 LED cycle.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiConfigIO.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiConfigIO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiSequence.py" beforeDir="false" afterPath="$PROJECT_DIR$/guiSequence.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainWindow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statusWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/statusWindow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Test/pinSetup.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Test/pinSetup.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="35075816-77fa-4058-88e3-96cac61cd4b3" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,24 +16,16 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="ProjectErrors" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 2
-}</component>
   <component name="ProjectId" id="2sJkpO1qYjHeqVIoDZM5v3wDUTd" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="sortByType" value="true" />
-    <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "git-widget-placeholder": "4x-LED-array",
-    "settings.editor.selected.configurable": "configurable.group.tools"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
   <component name="PyFindUsagesOptions">
     <option name="isSearchForTextOccurrences" value="true" />
   </component>
@@ -55,7 +38,6 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="C:\Users\Feller Macroscope\AppData\Local\Programs\Python\Python39\python.exe" />
-      <option name="SDK_NAME" value="Python 3.10" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="false" />
@@ -98,5 +80,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
