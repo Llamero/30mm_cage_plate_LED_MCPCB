@@ -1,12 +1,18 @@
 # 30 mm Cage Plate LED Driver
-![Top view of LED driver](https://github.com/Llamero/30mm_cage_plate_LED_MCPCB/blob/main/Images/Top.jpg)
-## Description:
+![Top view of LED driver](https://github.com/Llamero/30mm_cage_plate_LED_MCPCB/blob/4x-LED-array/Images/LED%20demo.gif)
+## 4x LED 30 mm Cage Plate Board Description:
 This board is an entirely self-contained LED and driver circuitry designed to be compatible with the Thorlabs 30 mm cage plate system: https://www.thorlabs.com/navigation.cfm?guide_id=2004
+
+
+
+Each board can drive up to four individual LEDs, and includes a thermistor for temperature monitoring.  The the LED current is regulated by an ![AL8843](https://www.diodes.com/part/view/AL8843), allowing LEDs to be driven with up to three amps of current.  The ![AL8843](https://www.diodes.com/part/view/AL8843) also allows for both PWM control as well as analog current control down to 10% of the current limit (see below for setting max current limit).
+
+To turn the LEDs off more rapidly, there is also a 38V TVS diode that can be used to dump the residual energy stored in the inductor simply by open all four mux mosfets.
 
 ## Design:
 To view and modify the board, download KiCAD https://www.kicad.org/, and open the project file.
 
-Make sure to modify the LED footprint to match the footprint for your desired LED, and to change the current limit resistor to the desired value (see AL8843Q datasheet, p. 11):
+Make sure to modify the LED footprint to match the footprint for your desired LEDs, and to change the current limit resistor to the desired value (see ![AL8843](https://www.diodes.com/part/view/AL8843) datasheet, p. 11):
 ```
 RSET (Ω)  Nominal Average Output Current (mA)
 0.033     3,000
