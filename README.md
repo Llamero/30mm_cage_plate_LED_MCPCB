@@ -11,7 +11,7 @@ The LEDs on the board are closely spaced so that all four LEDs efficiently coupl
 
 Each board can drive up to four individual LEDs, and includes a thermistor for temperature monitoring.  The the LED current is regulated by an ![AL8843](https://www.diodes.com/part/view/AL8843), allowing LEDs to be driven with up to three amps of current.  The ![AL8843](https://www.diodes.com/part/view/AL8843) also allows for both PWM control as well as analog current control down to 10% of the current limit (see below for setting max current limit).
 
-Four n-channel mosfets on the board create a 1x4 multiplexer that allows individual LEDs to be toggled on by applying 18V to the corresponding LED channel.  Each gate has a 4.7 kOhm pulldown resistor so that each channel defaults to being off if no voltage is connected.
+Four p-channel mosfets on the board create a 1x4 multiplexer that allows individual LEDs to be toggled on by pulling the corresponding LED channel's gate to ground.  Each gate has a 4.7 kOhm pullup resistor so that each channel defaults to being off if not connected.
 
 To turn the LEDs off more rapidly, there is also a 38V TVS diode that can be used to dump the residual energy stored in the inductor simply by pulling all four multiplexer channels low.
 
@@ -77,4 +77,4 @@ Finally, use thermal epoxy to connect the heatsink to the Thorlabs cage plate, p
 ![heatsink](https://github.com/Llamero/30mm_cage_plate_LED_MCPCB/blob/4x-LED-array/Images/Back%20(no%20fan).jpg)
 
 ## Operation:
-Connect a 5V to 12V power supply, with the positive terminal connected to the Vin pin and the negative terminal connected to the Gnd pin. To control the LED current, you can send a +0.4V (10% current) to +2.5V (100% current) to the Ctrl pin. The LED can also be dimmed with PWM with a voltage up to 5V.  To control the mux, apply a voltage that is greater than power supply voltage + 6V and less than 20V to the channel you want to turn on.  To monitor temperature, measure the resistance of the thermistor.
+Connect a 5V to 20V power supply, with the positive terminal connected to the Vin pin and the negative terminal connected to the Gnd pin. To control the LED current, you can send a +0.4V (10% current) to +2.5V (100% current) to the Ctrl pin. The LED can also be dimmed with PWM with a voltage up to 5V.  To control the mux, pull the channel you want to turn on to ground (0V).  To monitor temperature, measure the resistance of the thermistor.
