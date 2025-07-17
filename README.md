@@ -23,7 +23,7 @@ This repository also includes the design files for a controller that can operate
 
 ![LED controller top](https://github.com/Llamero/30mm_cage_plate_LED_MCPCB/blob/4x-LED-array/Images/LED%20controller%20top.jpg)
 
-The controller is powered by a Teensy 4.1 which allows for precise timing control (<10 ns hysteresis) of each LED, as well a complex progrommable control.  
+The controller is powered by a Teensy 4.1 which allows for precise timing control (<10 ns hysteresis) of each LED, as well a complex programmable control.  
 
 On the back of the driver, each board connects to the driver via a shielded cat5 ethernet cable.  Additionally, there is a cat5 port with both a 12V supply and three channels of 5V PWM outputs for both powering the fans for each board as well as controlling the fan speed.  Finally, there are four protected digital inputs allowing for control signals up to -15V/+18V.
 
