@@ -13,7 +13,7 @@ Each board can drive up to four individual LEDs, and includes a thermistor for t
 
 Four p-channel mosfets on the board create a 1x4 multiplexer that allows individual LEDs to be toggled on by pulling the corresponding LED channel's gate to ground.  Each gate has a 4.7 kOhm pullup resistor so that each channel defaults to being off if not connected.
 
-To turn the LEDs off more rapidly, there is also a 38V TVS diode that can be used to dump the residual energy stored in the inductor simply by pulling all four multiplexer channels low.
+To turn the LEDs off more rapidly, there is also a 38V TVS diode parallel to the inductor that can be used to dump the residual energy stored in the inductor by setting all four multiplexer channels high.
 
 A heatsink and fan can also be mounted to the backside of the cage plate for active cooling of high-current LEDs.
 
