@@ -368,9 +368,9 @@ void syncRouter(){
     case 2: //Confocal sync
       confocalSync();
       break;
-//    case 3: //Serial sync
-//      serialSync();
-//      break;
+   case 3: //Serial sync
+     serialSync();
+     break;
     case 4: //Custom sync
       customSync();
       break;
@@ -698,13 +698,85 @@ void confocalSync(){
   //   external_analog = false;
 }
 
+void serialSync(){
+  playStatusTone();
+  delay(100);
+  playStatusTone();
+  uint8_t a;
+  const uint8_t board_number = 0; //All LEDs are on board #1
+  const uint8_t seq_offset = 3;
+  uint8_t led_channel = 0;
+  uint8_t sync_step = 0;
+  bool led_state = false; //Whether an LED is on or off
+  uint16_t duration;
+
+  pinMode(pin.INPUTS[0], INPUT); //Set sync input pin to input
+  pinMode(pin.INPUTS[1], INPUT); //Set sync input pin to input
+  pinMode(pin.INPUTS[2], INPUT); //Set sync input pin to input
+  pinMode(pin.INPUTS[3], INPUT_DISABLE);
+  
+  analogWriteFrequency(pin.INTERLINE[0], 36621.09);//36621.09 = 12-bit, 18310.55 = 13-bit, 9155.27 = 14-bit, 4577.64 = 15-bit
+  analogWriteResolution(16);
+  
+  auto checkChannel = [&] (){ //Check which DMD channel is active - 2.4 µs per cycle          
+    for(a=0; a<seq_offset; a++){ //check if any pin is high
+      if(digitalReadFast(pin.INPUTS[a])){ 
+        if(sync_step != a || !led_state){
+          sync_step = a;
+          led_channel = current_status.s.led_channel[a];
+          dac.setSingleCurrent(board_number, current_status.s.led_current[a]); //Set LED current
+          digitalWriteFast(pin.RELAY[board_number][led_channel], pin.RELAY_CLOSE); //Open Mosfet
+          analogWrite(pin.INTERLINE[board_number], current_status.s.led_pwm[a]);
+          led_state = true;
+        }
+        return; 
+      }
+    }
+    if(led_state){ //If all channels are LOW, turn off LED to dark blank between frames.  This is essential for proper image encoding.; 
+      digitalWriteFast(pin.RELAY[board_number][led_channel], !pin.RELAY_CLOSE); //Open Mosfet
+      dac.allOff();
+      led_state = false;
+      checkStatus();
+    }
+  };
+  
+  while(!current_status.s.mode && sync.s.mode == 3){ //This loop is maintained as long as in serial sync mode - checked each time the status state changes (imaging/standby)
+    checkStatus(); //Check status at least once per mirror cycle
+    while(!update_flag){ //While driver still in serial sync mode - checked each time a seq step is complete
+      if(sync_step < seq_offset){ //If the end of the sequence list has not been reached  
+        checkChannel();
+        if(update_flag && current_status.s.mode) goto quit; //Exit on update
+        else update_flag = false;
+      }
+      else{ //Report error if driver ran off the end of the sequence list (i.e. never encountered a hold)
+        temp_size = sprintf(temp_buffer, "-Error: Serial Sync - %s reached the end of the sequence without encountering a hold.", current_status.s.state ? "STANDBY":"SCANNING");
+        temp_buffer[0] = prefix.message;
+        usb.send((const unsigned char*) temp_buffer, temp_size);
+        duration = 0;
+        while(duration < 200000){
+          checkStatus(); //This can happen if there was rapid bounce in the trigger, so pause to avoid spamming this error for every bounce
+          if(update_flag) goto quit; //Exit on update
+        }
+        goto quit;
+      }
+    }
+  }
+  quit:
+    interrupts();
+    external_analog = false;
+    pinMode(pin.INPUTS[0], INPUT_DISABLE); //Set sync input pin to input
+    pinMode(pin.INPUTS[1], INPUT_DISABLE); //Set sync input pin to input
+    pinMode(pin.INPUTS[2], INPUT_DISABLE); //Set sync input pin to input
+    pinMode(pin.INPUTS[3], INPUT_DISABLE); //Set sync input pin to input
+}
+
 void customSync(){ //Two channel interline sequence, with external trigger between steps
   //const float mask_duration_cycles[8] = {433440, 216720, 108360, 54180, 42300, 42300, 42300, 42300}; //Duration of each mask MSB->LSB in clock cycles 
   //const float mask_duration_cycles[8] = {75600, 75600, 75600, 75600, 75600, 75600, 75600, 75600};
   const float mask_duration_cycles[8] = {742435, 371217, 185609, 141000, 141000, 141000, 141000, 141000};
   //const float mask_exp_cycles[8] = {361440, 180720, 90360, 45180, 22590, 11295, 5648, 2824}; //Max duration of LED exposure on each mask
   //const float mask_exp_cycles[8] = {70000, 70000, 70000, 70000, 70000, 70000, 70000, 70000};
-  const float mask_exp_cycles[8] = {622435, 311217, 155609, 77804, 38902, 19451, 9726, 4863};
+  const float mask_exp_cycles[8] = {742435, 371217, 185609, 92804, 92804, 92804, 92804, 92804}; //{622435, 311217, 155609, 77804, 38902, 19451, 9726, 4863};
   //const uint32_t intermask_timeout = 1800; //Number of clock cycles before timing out between masks in a 24 bit sequence
   const uint32_t intermask_timeout = 260*600; //Number of clock cycles before timing out between masks in a 24 bit sequence
   //const uint32_t min_end_frame_duration = 200*600; //Number of clock cycles that marks the end of a frame
@@ -847,6 +919,7 @@ void customSync(){ //Two channel interline sequence, with external trigger betwe
       }
       else{ //If all channels are LOW, turn off LED to dark blank between frames.  This is essential for proper image encoding.; 
         for(uint8_t a=0; a<N_BOARDS; a++) digitalWriteFast(pin.INTERLINE[a], LOW);  //Turn off LED
+        digitalWriteFast(pin.RELAY[board_number][led_number], !pin.RELAY_CLOSE); //Open Mosfet
         cpu_cycles = ARM_DWT_CYCCNT; //Reset clock cycle timer
         if(sync_step < seq_offset-1){ //If not at the last frame wait for next frame
           while(ARM_DWT_CYCCNT - cpu_cycles < intermask_timeout){ //wait for a pin to go high
@@ -873,6 +946,7 @@ void customSync(){ //Two channel interline sequence, with external trigger betwe
         cpu_cycles = ARM_DWT_CYCCNT; //Reset timer
         while(!(digitalReadFast(pin.INPUTS[0]) || digitalReadFast(pin.INPUTS[1]) || digitalReadFast(pin.INPUTS[2])) && resync){
           if(ARM_DWT_CYCCNT-cpu_cycles > min_end_frame_duration){ //If extended dark frame is found
+//noInterrupts();
             while(!(digitalReadFast(pin.INPUTS[0]) || digitalReadFast(pin.INPUTS[1]) || digitalReadFast(pin.INPUTS[2]))){ //Wait for end of dark frame
               if(ARM_DWT_CYCCNT-cpu_cycles > resync_timeout) return; //Quit if frame duration is too long - prevent while loop from blocking in the event of a lost connection
             } 
@@ -925,6 +999,7 @@ void customSync(){ //Two channel interline sequence, with external trigger betwe
       if(sync_step < seq_steps[current_status.s.state]){ //If the end of the sequence list has not been reached
         if(update_flag) goto quit;     
         noInterrupts();
+//Remove noInterrupts here
         checkChannel();
       }
       else{ //Report error if driver ran off the end of the sequence list (i.e. never encountered a hold)
@@ -1722,21 +1797,21 @@ static void updateStatus(const uint8_t* buffer, size_t size){
   if(size == sizeof(recv_status.byte_buffer)+1){
     memcpy(recv_status.byte_buffer, buffer+1, sizeof(recv_status.byte_buffer));
     for(a=0; a<N_BOARDS; a++) current_status.s.led_channel[a] = recv_status.s.led_channel[a];
-    current_status.s.driver_control = recv_status.s.driver_control;
+    current_status.s.driver_control = recv_status.s.driver_control; //Set LED driver control to received control
     if(current_status.s.mode) manual_mode = recv_status.s.mode; //Set manual mode to recv'd mode if not in sync
-    if(!current_status.s.driver_control){
+    if(!current_status.s.driver_control || (!current_status.s.mode && sync.s.mode == 3)){ //If software is controlling the LED driver, use received status
       current_status.s.mode = recv_status.s.mode;
       for(a=0; a<N_BOARDS; a++) current_status.s.led_pwm[a] = recv_status.s.led_pwm[a];
       for(a=0; a<N_BOARDS; a++) current_status.s.led_current[a] = recv_status.s.led_current[a];
     }
-    else{
+    else{ //Otherwise, if a status was received and the driver is in sync mode, revert to manual mode
       if(!manual_mode){
         manual_mode = 1;
       }
     }
     memcpy(stored_status.byte_buffer, current_status.byte_buffer, sizeof(stored_status.byte_buffer)); //Update the stored status
     update_flag = true;
-    updateIntensity();
+    if(!(!current_status.s.mode && sync.s.mode == 3)) updateIntensity(); //If not in serial mode, update intensity
   }
   else{
     temp_size = sprintf(temp_buffer, "-Error: LED  driver received an invalid status packet.  Expected %d bytes and received %d bytes.", sizeof(recv_status.byte_buffer)+1, size);
