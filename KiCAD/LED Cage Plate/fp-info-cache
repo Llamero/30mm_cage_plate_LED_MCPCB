@@ -1,4 +1,4 @@
-24221935123967636
+24224239437753888
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -54886,6 +54886,13 @@ AL8843QSP-13
 0
 9
 9
+Custom
+SON8_DMP4025SFGQ-13_DIO
+
+DMP4025SFGQ-13 
+0
+9
+3
 Custom
 SOP-8_3.9x4.9mm_P1.27mm
 SOP, 8 Pin (http://www.macronix.com/Lists/Datasheet/Attachments/7534/MX25R3235F,%20Wide%20Range,%2032Mb,%20v1.6.pdf#page=79), generated with kicad-footprint-generator ipc_gullwing_generator.py

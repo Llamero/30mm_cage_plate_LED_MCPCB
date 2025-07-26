@@ -2231,6 +2231,574 @@
 				)
 			)
 		)
+		(symbol "Device:Q_NMOS_GSD"
+			(pin_names
+				(offset 0) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "Q"
+				(at 5.08 1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "Q_NMOS_GSD"
+				(at 5.08 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "N-MOSFET transistor, gate/source/drain"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "transistor NMOS N-MOS N-MOSFET"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Q_NMOS_GSD_0_1"
+				(polyline
+					(pts
+						(xy 0.254 0) (xy -2.54 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.254 1.905) (xy 0.254 -1.905)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 -1.27) (xy 0.762 -2.286)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 0.508) (xy 0.762 -0.508)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 2.286) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 2.54) (xy 2.54 1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 -2.54) (xy 2.54 0) (xy 0.762 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 -1.778) (xy 3.302 -1.778) (xy 3.302 1.778) (xy 0.762 1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.016 0) (xy 2.032 0.381) (xy 2.032 -0.381) (xy 1.016 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.794 0.508) (xy 2.921 0.381) (xy 3.683 0.381) (xy 3.81 0.254)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.302 0.381) (xy 2.921 -0.254) (xy 3.683 -0.254) (xy 3.302 0.381)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 1.651 0)
+					(radius 2.794)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.54 -1.778)
+					(radius 0.254)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(circle
+					(center 2.54 1.778)
+					(radius 0.254)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+			)
+			(symbol "Q_NMOS_GSD_1_1"
+				(pin input line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "G"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 -5.08 90)
+					(length 2.54)
+					(name "S"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 5.08 270)
+					(length 2.54)
+					(name "D"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "Device:Q_PMOS_SGD"
+			(pin_names
+				(offset 0) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "Q"
+				(at 5.08 1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "Q_PMOS_SGD"
+				(at 5.08 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "P-MOSFET transistor, source/gate/drain"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "transistor PMOS P-MOS P-MOSFET"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Q_PMOS_SGD_0_1"
+				(polyline
+					(pts
+						(xy 0.254 0) (xy -2.54 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.254 1.905) (xy 0.254 -1.905)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 -1.27) (xy 0.762 -2.286)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 0.508) (xy 0.762 -0.508)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 2.286) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 2.54) (xy 2.54 1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 -2.54) (xy 2.54 0) (xy 0.762 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 1.778) (xy 3.302 1.778) (xy 3.302 -1.778) (xy 0.762 -1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.286 0) (xy 1.27 0.381) (xy 1.27 -0.381) (xy 2.286 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.794 -0.508) (xy 2.921 -0.381) (xy 3.683 -0.381) (xy 3.81 -0.254)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.302 -0.381) (xy 2.921 0.254) (xy 3.683 0.254) (xy 3.302 -0.381)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 1.651 0)
+					(radius 2.794)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.54 -1.778)
+					(radius 0.254)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(circle
+					(center 2.54 1.778)
+					(radius 0.254)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+			)
+			(symbol "Q_PMOS_SGD_1_1"
+				(pin passive line
+					(at 2.54 -5.08 90)
+					(length 2.54)
+					(name "S"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "G"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 5.08 270)
+					(length 2.54)
+					(name "D"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Device:R"
 			(pin_numbers hide)
 			(pin_names
@@ -2343,373 +2911,6 @@
 						)
 					)
 					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
-		(symbol "Device:R_Pack04"
-			(pin_names
-				(offset 0) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "RN"
-				(at -7.62 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "R_Pack04"
-				(at 5.08 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 6.985 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "4 resistor network, parallel topology"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "R network parallel topology isolated"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "DIP* SOIC* R*Array*Concave* R*Array*Convex* MSOP*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "R_Pack04_0_1"
-				(rectangle
-					(start -6.35 -2.413)
-					(end 3.81 2.413)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(rectangle
-					(start -5.715 1.905)
-					(end -4.445 -1.905)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -3.175 1.905)
-					(end -1.905 -1.905)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -0.635 1.905)
-					(end 0.635 -1.905)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -5.08 -2.54) (xy -5.08 -1.905)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -5.08 1.905) (xy -5.08 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 -2.54) (xy -2.54 -1.905)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 1.905) (xy -2.54 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.54) (xy 0 -1.905)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 1.905) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 -2.54) (xy 2.54 -1.905)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 1.905) (xy 2.54 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 1.905 1.905)
-					(end 3.175 -1.905)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "R_Pack04_1_1"
-				(pin passive line
-					(at -5.08 -5.08 90)
-					(length 2.54)
-					(name "R1.1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -2.54 -5.08 90)
-					(length 2.54)
-					(name "R2.1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -5.08 90)
-					(length 2.54)
-					(name "R3.1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -5.08 90)
-					(length 2.54)
-					(name "R4.1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 5.08 270)
-					(length 2.54)
-					(name "R4.2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 5.08 270)
-					(length 2.54)
-					(name "R3.2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -2.54 5.08 270)
-					(length 2.54)
-					(name "R2.2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 5.08 270)
-					(length 2.54)
-					(name "R1.2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "8"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3106,804 +3307,6 @@
 					)
 					(fill
 						(type outline)
-					)
-				)
-			)
-		)
-		(symbol "LED Driver 1x8 Mux-rescue:IRF9358TRPBF-2x_p-channel-Custom_parts"
-			(pin_names
-				(offset 0.254)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "Q"
-				(at -25.4 -4.4196 0)
-				(effects
-					(font
-						(size 1.524 1.524)
-					)
-				)
-			)
-			(property "Value" "Custom_parts_IRF9358TRPBF-2x_p-channel"
-				(at -24.13 -3.175 0)
-				(effects
-					(font
-						(size 1.524 1.524)
-					)
-					(hide yes)
-				)
-			)
-			(property "Footprint" "SO8_IRF9358TRPBF_INF"
-				(at -24.13 -4.699 0)
-				(effects
-					(font
-						(size 1.524 1.524)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at -36.83 -13.335 0)
-				(effects
-					(font
-						(size 1.524 1.524)
-					)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "SO8_IRF9358TRPBF_INF SO8_IRF9358TRPBF_INF-M SO8_IRF9358TRPBF_INF-L"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "IRF9358TRPBF-2x_p-channel-Custom_parts_0_1"
-				(rectangle
-					(start -31.75 -6.223)
-					(end -16.891 -26.924)
-					(stroke
-						(width 0)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center -19.558 -17.78)
-					(radius 0.127)
-					(stroke
-						(width 0)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center -19.558 -7.62)
-					(radius 0.127)
-					(stroke
-						(width 0)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -30.48 -20.32) (xy -25.908 -20.32)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -30.48 -15.24) (xy -22.86 -15.24)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -30.48 -10.16) (xy -25.908 -10.16)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -23.622 -12.954) (xy -23.622 -10.922)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -23.622 -8.255) (xy -23.622 -8.7376)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -17.78 -20.32) (xy -19.558 -20.32) (xy -19.558 -17.78)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -17.78 -17.78) (xy -22.86 -17.78) (xy -22.86 -18.288)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -17.78 -10.16) (xy -19.558 -10.16) (xy -19.558 -7.62)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -17.78 -7.62) (xy -22.86 -7.62) (xy -22.86 -8.255)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -30.48 -25.4) (xy -22.86 -25.4) (xy -22.86 -23.622) (xy -22.86 -23.368)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -24.765 -20.32) (xy -24.765 -21.59) (xy -23.495 -20.955) (xy -24.765 -20.32)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -24.765 -10.16) (xy -24.765 -11.43) (xy -23.495 -10.795) (xy -24.765 -10.16)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -22.098 -21.336) (xy -21.59 -20.574) (xy -22.606 -20.574) (xy -22.098 -21.336)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -22.098 -11.176) (xy -21.59 -10.414) (xy -22.606 -10.414) (xy -22.098 -11.176)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "IRF9358TRPBF-2x_p-channel-Custom_parts_1_1"
-				(circle
-					(center -24.13 -20.955)
-					(radius 3.81)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center -24.13 -10.795)
-					(radius 3.81)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center -23.622 -22.987)
-					(radius 0.127)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center -22.86 -23.495)
-					(radius 0.127)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center -22.86 -18.415)
-					(radius 0.127)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center -22.86 -13.335)
-					(radius 0.127)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center -22.86 -8.255)
-					(radius 0.127)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -25.908 -23.495) (xy -25.908 -18.415)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -25.908 -8.255) (xy -25.908 -13.335)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -25.4 -23.495) (xy -25.4 -22.479)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -25.4 -22.987) (xy -23.622 -22.987)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -25.4 -21.463) (xy -25.4 -20.447)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -25.4 -20.955) (xy -23.622 -20.955)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -25.4 -19.431) (xy -25.4 -18.415)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -25.4 -18.923) (xy -23.622 -18.923)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -25.4 -12.827) (xy -23.622 -12.827)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -25.4 -12.319) (xy -25.4 -13.335)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -25.4 -10.795) (xy -23.622 -10.795)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -25.4 -10.287) (xy -25.4 -11.303)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -25.4 -8.763) (xy -23.622 -8.763)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -25.4 -8.255) (xy -25.4 -9.271)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -23.622 -23.495) (xy -23.622 -20.955)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -23.622 -23.495) (xy -22.098 -23.495)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -23.622 -18.923) (xy -23.622 -18.415)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -23.622 -18.415) (xy -22.098 -18.415)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -23.622 -13.335) (xy -22.098 -13.335)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -23.622 -12.827) (xy -23.622 -13.335)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -23.622 -8.255) (xy -22.098 -8.255)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -22.86 -15.24) (xy -22.86 -13.335)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -22.606 -11.303) (xy -21.59 -11.303)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -22.098 -23.495) (xy -22.098 -18.415)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -22.098 -8.255) (xy -22.098 -13.335)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -21.59 -21.463) (xy -22.606 -21.463)
-					)
-					(stroke
-						(width 0.127)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin unspecified line
-					(at -38.1 -15.24 0)
-					(length 7.62)
-					(name "S2"
-						(effects
-							(font
-								(size 1.4986 1.4986)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.4986 1.4986)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at -38.1 -10.16 0)
-					(length 7.62)
-					(name "G2"
-						(effects
-							(font
-								(size 1.4986 1.4986)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.4986 1.4986)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at -38.1 -25.4 0)
-					(length 7.62)
-					(name "S1"
-						(effects
-							(font
-								(size 1.4986 1.4986)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.4986 1.4986)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at -38.1 -20.32 0)
-					(length 7.62)
-					(name "G1"
-						(effects
-							(font
-								(size 1.4986 1.4986)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.4986 1.4986)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at -10.16 -20.32 180)
-					(length 7.62)
-					(name "D1"
-						(effects
-							(font
-								(size 1.4986 1.4986)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.4986 1.4986)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at -10.16 -17.78 180)
-					(length 7.62)
-					(name "D1"
-						(effects
-							(font
-								(size 1.4986 1.4986)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.4986 1.4986)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at -10.16 -10.16 180)
-					(length 7.62)
-					(name "D2"
-						(effects
-							(font
-								(size 1.4986 1.4986)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.4986 1.4986)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at -10.16 -7.62 180)
-					(length 7.62)
-					(name "D2"
-						(effects
-							(font
-								(size 1.4986 1.4986)
-							)
-						)
-					)
-					(number "8"
-						(effects
-							(font
-								(size 1.4986 1.4986)
-							)
-						)
 					)
 				)
 			)
@@ -4609,10 +4012,16 @@
 		)
 	)
 	(junction
-		(at 125.73 33.02)
+		(at 173.99 35.56)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "145335b8-02e4-47d1-b766-41f9f6f1c565")
+		(uuid "174629bc-6f63-4fd7-a3cf-835bf12fd6fc")
+	)
+	(junction
+		(at 177.8 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "182715c5-6c2c-4fae-99f8-e8ec021dc97b")
 	)
 	(junction
 		(at 179.07 111.76)
@@ -4639,46 +4048,28 @@
 		(uuid "2d90c7f0-a9f9-4c25-a710-f85f027ecda3")
 	)
 	(junction
-		(at 170.18 52.07)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "37762ec2-b769-4473-bbea-27b107a38fa1")
-	)
-	(junction
-		(at 125.73 22.86)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "3f6674a8-8fcd-4747-b318-5f4c34416388")
-	)
-	(junction
 		(at 113.03 87.63)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "45ee65b0-b73c-461e-a194-35957f181c1d")
 	)
 	(junction
-		(at 170.18 31.75)
+		(at 199.39 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "482d6376-0ab0-4927-bae2-926931e736f9")
+		(uuid "56f9b960-0148-46c1-a684-fa584f6614d3")
 	)
 	(junction
-		(at 125.73 55.88)
+		(at 199.39 48.26)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "552ad8c0-ca03-47a6-acb4-e10860b7a538")
+		(uuid "5fa27ed0-506f-4842-bc07-36a68444f0dc")
 	)
 	(junction
-		(at 162.56 69.85)
+		(at 166.37 35.56)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "751bcba4-16f5-4574-b306-37b9e693ab64")
-	)
-	(junction
-		(at 170.18 44.45)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "79f76d89-cbf6-4426-b8d2-3ec56627888a")
+		(uuid "80d81af5-ebd9-4ed6-8380-d188943cbdcd")
 	)
 	(junction
 		(at 129.54 107.95)
@@ -4687,46 +4078,16 @@
 		(uuid "904b8ff2-8ef1-40c2-851e-1bf3f5602eaf")
 	)
 	(junction
-		(at 170.18 69.85)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9058bc50-49e5-4d96-8a3f-5852b26a1ab3")
-	)
-	(junction
-		(at 170.18 26.67)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "94c222b8-b2dd-4285-b513-2d30083a24f2")
-	)
-	(junction
-		(at 170.18 39.37)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9cdc30a8-bb77-4f62-a99c-a6c880bb17fa")
-	)
-	(junction
-		(at 175.26 67.31)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a7df913b-43a7-480f-af8f-d256243b5d69")
-	)
-	(junction
 		(at 184.15 106.68)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ada7e5b9-ac17-4875-ae88-db04734fcb4d")
 	)
 	(junction
-		(at 170.18 64.77)
+		(at 199.39 38.1)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "adbd32e0-1df6-4afc-834a-cafa6dc27794")
-	)
-	(junction
-		(at 125.73 48.26)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b1266596-8596-4e98-9d7f-c24f084f378b")
+		(uuid "b09010ec-1568-4764-9b78-70ff348d57c5")
 	)
 	(junction
 		(at 179.07 106.68)
@@ -4735,16 +4096,10 @@
 		(uuid "b51923d1-8f56-4dd4-8198-0d226db9e2b6")
 	)
 	(junction
-		(at 170.18 57.15)
+		(at 158.75 35.56)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "bd97551f-5c67-41f6-bff7-2f94377b885d")
-	)
-	(junction
-		(at 175.26 64.77)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "cb99129a-62f0-41ab-a91a-4e7499e77490")
+		(uuid "d353d021-c7a3-4a1e-971b-0011f69f305e")
 	)
 	(junction
 		(at 173.99 111.76)
@@ -4765,34 +4120,10 @@
 		(uuid "de55d430-4de0-49b8-b5aa-8cd73bc761e5")
 	)
 	(junction
-		(at 175.26 69.85)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "dea1b35d-a688-4d36-9c16-3b57150ed95d")
-	)
-	(junction
-		(at 125.73 30.48)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "df8019c0-5ec9-4e9e-8989-39671620a5af")
-	)
-	(junction
-		(at 125.73 45.72)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e669fcda-37a8-4864-a781-bab64afd91ae")
-	)
-	(junction
 		(at 184.15 111.76)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f8c3a0cd-8f18-441f-83db-351c9e9cffab")
-	)
-	(junction
-		(at 125.73 58.42)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "fc3756ee-1ae8-4ebe-8785-5192587c21b8")
 	)
 	(no_connect
 		(at 87.63 120.65)
@@ -4800,23 +4131,13 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 39.37) (xy 170.18 39.37)
+			(xy 151.13 35.56) (xy 158.75 35.56)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "015af83a-aef1-4c21-b291-bb306bd4e124")
-	)
-	(wire
-		(pts
-			(xy 125.73 45.72) (xy 125.73 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "01a41430-2ef6-438b-b0ec-0182f7a76eb0")
+		(uuid "038d1b18-8370-40e0-90ac-91fda50277a6")
 	)
 	(wire
 		(pts
@@ -4830,43 +4151,13 @@
 	)
 	(wire
 		(pts
-			(xy 153.67 52.07) (xy 158.75 52.07)
+			(xy 240.03 105.41) (xy 242.57 105.41)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "05521f50-3b8d-41b2-9af5-677d919ca471")
-	)
-	(wire
-		(pts
-			(xy 144.78 72.39) (xy 125.73 72.39)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0e522ef7-9bdf-4d7b-8f08-da3d531acd63")
-	)
-	(wire
-		(pts
-			(xy 175.26 39.37) (xy 170.18 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0fe006fb-e332-4fe9-8e71-3f71a9af0ddb")
-	)
-	(wire
-		(pts
-			(xy 153.67 63.5) (xy 153.67 64.77)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "13acb8c4-b788-48ec-a7dd-76146b4dd0da")
+		(uuid "0fc47fac-89c7-4205-9a99-38dedc5e0133")
 	)
 	(wire
 		(pts
@@ -4880,23 +4171,23 @@
 	)
 	(wire
 		(pts
-			(xy 170.18 26.67) (xy 175.26 26.67)
+			(xy 177.8 30.48) (xy 189.23 30.48)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1cfd62fd-5416-43c4-8205-99e033ba04ee")
+		(uuid "18954a8d-306a-4059-a278-d1c498b64f32")
 	)
 	(wire
 		(pts
-			(xy 125.73 55.88) (xy 125.73 58.42)
+			(xy 146.05 20.32) (xy 146.05 30.48)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1fae725c-d15d-493f-99ec-98db723b1c50")
+		(uuid "1abbc6c2-fb30-4e3e-879d-054b79da2374")
 	)
 	(wire
 		(pts
@@ -4910,23 +4201,13 @@
 	)
 	(wire
 		(pts
-			(xy 157.48 116.84) (xy 157.48 114.3)
+			(xy 158.75 35.56) (xy 166.37 35.56)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "27798142-b98e-42d2-9373-bf19ef8ef848")
-	)
-	(wire
-		(pts
-			(xy 240.03 105.41) (xy 256.54 105.41)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2b52f91b-9bb6-46ca-a939-13e5d412dddf")
+		(uuid "2ae95158-a074-4ce2-99be-a01c0976a1f1")
 	)
 	(wire
 		(pts
@@ -4940,63 +4221,43 @@
 	)
 	(wire
 		(pts
-			(xy 125.73 22.86) (xy 125.73 30.48)
+			(xy 166.37 35.56) (xy 173.99 35.56)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "36e34e80-20a9-4fc7-8dc3-a855dbdec5d6")
+		(uuid "389bc85c-307d-44ce-9256-c55ed8c0a4a2")
 	)
 	(wire
 		(pts
-			(xy 240.03 100.33) (xy 256.54 100.33)
+			(xy 199.39 20.32) (xy 177.8 20.32)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "383981f3-3c4d-474f-9ff8-0d9079f090d8")
+		(uuid "3a0e5542-c5d6-46f5-b37b-019caf2a0eb8")
 	)
 	(wire
 		(pts
-			(xy 162.56 57.15) (xy 170.18 57.15)
+			(xy 199.39 35.56) (xy 199.39 38.1)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "42301f0b-51bf-4685-9158-4f890a6c0ce7")
+		(uuid "3acabc7e-451b-4593-97ca-1395bc97bea7")
 	)
 	(wire
 		(pts
-			(xy 153.67 38.1) (xy 153.67 39.37)
+			(xy 208.28 109.22) (xy 210.82 109.22)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "457f4d59-daa7-4466-a3e1-79dc004ab3de")
-	)
-	(wire
-		(pts
-			(xy 175.26 64.77) (xy 175.26 67.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "48f80d2f-8437-4bea-8ce2-889f16242082")
-	)
-	(wire
-		(pts
-			(xy 153.67 26.67) (xy 158.75 26.67)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4c9736ef-572e-453d-9ca1-5547f8d0cae3")
+		(uuid "44695211-1a79-43d8-a47e-3af232297ff4")
 	)
 	(wire
 		(pts
@@ -5020,33 +4281,23 @@
 	)
 	(wire
 		(pts
-			(xy 153.67 39.37) (xy 158.75 39.37)
+			(xy 210.82 99.06) (xy 208.28 99.06)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "55e8ed5b-715c-4180-9691-f8def3e59153")
+		(uuid "56476701-e916-4e15-99b0-5060e046e4f7")
 	)
 	(wire
 		(pts
-			(xy 170.18 64.77) (xy 166.37 64.77)
+			(xy 240.03 95.25) (xy 242.57 95.25)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "57256fbb-5241-4f83-9049-ad02cd1b9a99")
-	)
-	(wire
-		(pts
-			(xy 170.18 31.75) (xy 170.18 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5b025a49-2049-4e3f-a660-f011a9ec6df9")
+		(uuid "5d5dec38-51a7-476f-8b11-4dd025a59bb1")
 	)
 	(wire
 		(pts
@@ -5070,26 +4321,6 @@
 	)
 	(wire
 		(pts
-			(xy 240.03 97.79) (xy 256.54 97.79)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "62957c88-58a6-43e2-b083-0a88af9f3b48")
-	)
-	(wire
-		(pts
-			(xy 166.37 52.07) (xy 170.18 52.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6453bbf0-6289-4614-8bd4-91ed00e69804")
-	)
-	(wire
-		(pts
 			(xy 156.21 111.76) (xy 163.83 111.76)
 		)
 		(stroke
@@ -5100,26 +4331,6 @@
 	)
 	(wire
 		(pts
-			(xy 162.56 31.75) (xy 170.18 31.75)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6a84bf9e-d1eb-4598-a42e-19b638477762")
-	)
-	(wire
-		(pts
-			(xy 125.73 58.42) (xy 125.73 72.39)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6a88ef4c-3657-4933-90f8-806e40024ff2")
-	)
-	(wire
-		(pts
 			(xy 189.23 111.76) (xy 194.31 111.76)
 		)
 		(stroke
@@ -5127,26 +4338,6 @@
 			(type default)
 		)
 		(uuid "6c311391-ff85-43e6-afc7-a57978e1dac8")
-	)
-	(wire
-		(pts
-			(xy 125.73 20.32) (xy 125.73 22.86)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6e8127eb-1918-4a57-89be-48d944eeda64")
-	)
-	(wire
-		(pts
-			(xy 240.03 102.87) (xy 256.54 102.87)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "711d3eca-42a0-4ad0-82d6-f6bd440307b9")
 	)
 	(wire
 		(pts
@@ -5170,33 +4361,23 @@
 	)
 	(wire
 		(pts
-			(xy 170.18 44.45) (xy 170.18 52.07)
+			(xy 240.03 100.33) (xy 242.57 100.33)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7a70019a-aa56-4f9e-99d7-bd85dbb22d8e")
+		(uuid "76cb91c7-2e73-46cc-9e2a-4ebd40da210f")
 	)
 	(wire
 		(pts
-			(xy 175.26 67.31) (xy 175.26 69.85)
+			(xy 173.99 35.56) (xy 177.8 35.56)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7a9260c0-9cbe-40ff-9b48-8f27265e93b8")
-	)
-	(wire
-		(pts
-			(xy 170.18 57.15) (xy 170.18 64.77)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7bc34c10-151a-4ce2-9f24-1daaa669d55c")
+		(uuid "78491e80-db75-443a-b148-c0b0ae678a11")
 	)
 	(wire
 		(pts
@@ -5210,43 +4391,43 @@
 	)
 	(wire
 		(pts
-			(xy 175.26 62.23) (xy 175.26 64.77)
+			(xy 210.82 104.14) (xy 208.28 104.14)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "85ef4b15-ffdb-4a78-ad3c-16390e464789")
+		(uuid "8d891114-22f2-4028-9480-ecac35f07924")
 	)
 	(wire
 		(pts
-			(xy 170.18 52.07) (xy 170.18 57.15)
+			(xy 199.39 30.48) (xy 199.39 20.32)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "89b40b57-108c-4262-8be2-a90535f9b17e")
+		(uuid "8ea70c2b-5df2-4861-b292-30448066e742")
 	)
 	(wire
 		(pts
-			(xy 170.18 26.67) (xy 170.18 31.75)
+			(xy 191.77 48.26) (xy 199.39 48.26)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "8df8bed7-efcf-4852-a74b-d2042c2a850a")
+		(uuid "8ffef3f9-5122-48e7-bd44-b59ed4db1382")
 	)
 	(wire
 		(pts
-			(xy 153.67 52.07) (xy 153.67 53.34)
+			(xy 199.39 38.1) (xy 194.31 38.1)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "937c86f7-07e0-4fad-a735-655e9ceb4457")
+		(uuid "93c4a051-142e-4913-ae5a-14f6e5225fbc")
 	)
 	(wire
 		(pts
@@ -5257,26 +4438,6 @@
 			(type default)
 		)
 		(uuid "972f2ec6-1687-4336-baa2-faf5d943323e")
-	)
-	(wire
-		(pts
-			(xy 170.18 69.85) (xy 170.18 64.77)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9d86ac9e-14ab-49ae-8c54-386e6a86e8ef")
-	)
-	(wire
-		(pts
-			(xy 125.73 48.26) (xy 125.73 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9fa6ec56-2323-47f7-abb6-8c94f81bca4d")
 	)
 	(wire
 		(pts
@@ -5310,6 +4471,16 @@
 	)
 	(wire
 		(pts
+			(xy 177.8 35.56) (xy 177.8 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a864e275-04be-438f-9169-366e0379a4fa")
+	)
+	(wire
+		(pts
 			(xy 179.07 111.76) (xy 184.15 111.76)
 		)
 		(stroke
@@ -5317,6 +4488,16 @@
 			(type default)
 		)
 		(uuid "a9145043-7cd7-4add-866d-753082b71d99")
+	)
+	(wire
+		(pts
+			(xy 146.05 30.48) (xy 147.32 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aa2babbd-7a36-4b06-9cba-fb64540330f0")
 	)
 	(wire
 		(pts
@@ -5330,83 +4511,33 @@
 	)
 	(wire
 		(pts
-			(xy 162.56 72.39) (xy 152.4 72.39)
+			(xy 240.03 97.79) (xy 256.54 97.79)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "aa57fc7c-8e9d-4de3-b165-ab7a11d845bd")
+		(uuid "bd613965-485f-43fb-b1f7-160472bb3d1e")
 	)
 	(wire
 		(pts
-			(xy 162.56 44.45) (xy 170.18 44.45)
+			(xy 240.03 107.95) (xy 256.54 107.95)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ba7362e7-2205-4b9e-a558-99c31cf7156a")
+		(uuid "c6bc01f2-d9ef-4006-b32a-52d86d87ab2f")
 	)
 	(wire
 		(pts
-			(xy 175.26 34.29) (xy 175.26 39.37)
+			(xy 210.82 93.98) (xy 208.28 93.98)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "bb2f0604-9aee-4ba1-b6d4-b84a831ffde7")
-	)
-	(wire
-		(pts
-			(xy 240.03 95.25) (xy 256.54 95.25)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bdf9f403-64fb-448e-8786-2f7fc81a14ec")
-	)
-	(wire
-		(pts
-			(xy 153.67 64.77) (xy 158.75 64.77)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c42a82a3-fbc0-43db-addb-2ace559a562b")
-	)
-	(wire
-		(pts
-			(xy 153.67 26.67) (xy 153.67 27.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c86f1d9c-3505-4a25-a105-c123bf847aa7")
-	)
-	(wire
-		(pts
-			(xy 170.18 69.85) (xy 175.26 69.85)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c901cd76-3261-440d-be0c-db04acbe8580")
-	)
-	(wire
-		(pts
-			(xy 125.73 33.02) (xy 125.73 45.72)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cc3a2ca3-ed31-4e76-a3c1-c5f74c022738")
+		(uuid "ce287e66-194d-47c6-bc63-ba77c74ee548")
 	)
 	(wire
 		(pts
@@ -5430,33 +4561,13 @@
 	)
 	(wire
 		(pts
-			(xy 162.56 69.85) (xy 170.18 69.85)
+			(xy 240.03 102.87) (xy 256.54 102.87)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "dcd94c60-ffb1-4f59-9a98-103bd9e45ef7")
-	)
-	(wire
-		(pts
-			(xy 125.73 30.48) (xy 125.73 33.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e53a6697-4e5a-4736-8be2-01e741aa7782")
-	)
-	(wire
-		(pts
-			(xy 166.37 26.67) (xy 170.18 26.67)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e6d3dcf6-31c9-4664-9094-c52352a8e0be")
+		(uuid "dda0c75f-2170-4784-a67f-8197874c6e6e")
 	)
 	(wire
 		(pts
@@ -5470,16 +4581,6 @@
 	)
 	(wire
 		(pts
-			(xy 170.18 39.37) (xy 170.18 44.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e7ea06d0-17ec-4e16-b8e9-4eafdcc39414")
-	)
-	(wire
-		(pts
 			(xy 160.02 106.68) (xy 156.21 106.68)
 		)
 		(stroke
@@ -5490,26 +4591,6 @@
 	)
 	(wire
 		(pts
-			(xy 208.28 109.22) (xy 210.82 109.22)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e9ca025c-5e6f-44e1-8f4e-af853760a8ed")
-	)
-	(wire
-		(pts
-			(xy 162.56 69.85) (xy 162.56 72.39)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ec15c18f-880c-4c79-a101-b2aa0e8cd9a9")
-	)
-	(wire
-		(pts
 			(xy 240.03 113.03) (xy 256.54 113.03)
 		)
 		(stroke
@@ -5517,16 +4598,6 @@
 			(type default)
 		)
 		(uuid "f28b2046-63d5-495b-a93d-639fadbeaa41")
-	)
-	(wire
-		(pts
-			(xy 240.03 107.95) (xy 256.54 107.95)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f29f5e56-ad10-442d-9128-8d976b84772d")
 	)
 	(wire
 		(pts
@@ -5557,6 +4628,16 @@
 			(type default)
 		)
 		(uuid "f792fcaf-e5a5-4429-a798-bbf972e15311")
+	)
+	(wire
+		(pts
+			(xy 170.18 20.32) (xy 146.05 20.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f8a65bfd-0e0b-4b68-8515-8f3655a1d2e1")
 	)
 	(wire
 		(pts
@@ -5598,6 +4679,28 @@
 		)
 		(uuid "ae5b187f-7b43-44db-b407-fe215eeb31e2")
 	)
+	(label "LED+"
+		(at 199.39 30.48 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "062be841-e1f6-4e9f-a0bb-773d525b0476")
+	)
+	(label "Vin"
+		(at 210.82 111.76 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "137103fa-6263-49ad-98eb-d44a0cfd74df")
+	)
 	(label "Vin"
 		(at 113.03 111.76 180)
 		(fields_autoplaced yes)
@@ -5610,7 +4713,7 @@
 		(uuid "19c45725-3f39-4ee6-be3b-0bb55ac99e69")
 	)
 	(label "Temp"
-		(at 240.03 105.41 0)
+		(at 240.03 102.87 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5620,8 +4723,8 @@
 		)
 		(uuid "1d70e068-868a-4b8e-93ca-83e2fdb37515")
 	)
-	(label "1"
-		(at 153.67 22.86 0)
+	(label "PWM"
+		(at 240.03 107.95 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5629,62 +4732,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "1fdc323c-42fd-42c4-9be1-8e907cac8ac7")
-	)
-	(label "Vin"
-		(at 210.82 111.76 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "212f21a1-f291-4d3e-9399-b54839e61a57")
-	)
-	(label "4"
-		(at 185.42 69.85 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "26b29041-1d31-4a4c-bcc5-1baefe223bc6")
-	)
-	(label "2"
-		(at 153.67 33.02 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "2fbd4b6c-db3b-4f60-912c-56ceb7968800")
-	)
-	(label "2"
-		(at 185.42 64.77 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "475c080a-4360-4eee-bbd4-f090cbdc482a")
-	)
-	(label "3"
-		(at 153.67 48.26 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "4905c10d-6bb7-4ab8-b2e5-d334b7b114ca")
+		(uuid "3910d89e-c564-4193-bec8-8d25f015f933")
 	)
 	(label "Vin"
 		(at 95.25 115.57 0)
@@ -5708,19 +4756,8 @@
 		)
 		(uuid "5ec25a82-628e-49d4-850e-c38b47c8aac6")
 	)
-	(label "LED+"
-		(at 170.18 26.67 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "696cafec-2bb4-4654-8636-39edb519ab14")
-	)
-	(label "3"
-		(at 210.82 99.06 180)
+	(label "LED-"
+		(at 146.05 30.48 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5728,7 +4765,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "74018d26-d2ae-4236-845a-45f05fafc610")
+		(uuid "647ea5c9-a1c7-42e3-910d-b94d8a74b17a")
 	)
 	(label "Vin"
 		(at 157.48 111.76 0)
@@ -5740,39 +4777,6 @@
 			(justify left bottom)
 		)
 		(uuid "787ff7a3-8169-449a-a7c8-776a627463c7")
-	)
-	(label "1"
-		(at 210.82 93.98 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "79c48a70-5b3b-4977-b407-19a3008afce1")
-	)
-	(label "1"
-		(at 240.03 95.25 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "7a7dde46-e759-444c-b2d5-4a090a829718")
-	)
-	(label "2"
-		(at 210.82 96.52 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "7c175366-2aec-4303-b64c-dccfbfd5173d")
 	)
 	(label "LED+"
 		(at 123.19 111.76 0)
@@ -5786,7 +4790,7 @@
 		(uuid "7f5f3e11-5f18-4d97-a891-16f2f61bb2d3")
 	)
 	(label "Temp"
-		(at 210.82 104.14 180)
+		(at 210.82 101.6 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5794,18 +4798,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "807031fc-0b7f-4139-b9cc-917f5810d766")
-	)
-	(label "1"
-		(at 185.42 62.23 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "830450bc-d8a8-486c-b49b-9473d8384aea")
+		(uuid "8bf293ae-3054-4756-b98b-b8c826cea573")
 	)
 	(label "Vin"
 		(at 240.03 113.03 0)
@@ -5829,29 +4822,7 @@
 		)
 		(uuid "8fc5a433-41d2-4418-b096-9fd33e9c1768")
 	)
-	(label "3"
-		(at 240.03 100.33 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "9bb2b89c-9515-44c9-a055-1d3860987926")
-	)
-	(label "4"
-		(at 153.67 58.42 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "b123af1e-f76c-47b5-8307-867305a3483f")
-	)
-	(label "2"
+	(label "Gate"
 		(at 240.03 97.79 0)
 		(fields_autoplaced yes)
 		(effects
@@ -5860,7 +4831,40 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "b1f66d99-d088-46a0-9b91-8332ec709ebf")
+		(uuid "9582ced1-955b-45ca-b657-30b0f03ff727")
+	)
+	(label "Gate"
+		(at 191.77 43.18 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "95bff187-d2b8-45ad-abff-e594aa6bd908")
+	)
+	(label "PWM"
+		(at 210.82 106.68 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "9dfefe6e-be91-43a6-ae83-e7b35564e725")
+	)
+	(label "Gate"
+		(at 210.82 96.52 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "accc9ffb-26b2-44a4-9a54-f7e10333f4b8")
 	)
 	(label "Temp"
 		(at 173.99 87.63 180)
@@ -5873,28 +4877,6 @@
 		)
 		(uuid "b6d6341c-dce0-4f1e-a517-b012285cab76")
 	)
-	(label "PWM"
-		(at 240.03 107.95 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ccb7afad-65e5-416c-9e5c-8d2facab61f0")
-	)
-	(label "PWM"
-		(at 210.82 106.68 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "cdc98efa-f991-48c4-a967-b5256d1e8914")
-	)
 	(label "LED-"
 		(at 156.21 95.25 180)
 		(fields_autoplaced yes)
@@ -5906,49 +4888,159 @@
 		)
 		(uuid "cde532d8-21bb-4131-9855-41fc634772e7")
 	)
-	(label "3"
-		(at 185.42 67.31 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
+	(symbol
+		(lib_id "Device:Q_PMOS_SGD")
+		(at 194.31 33.02 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "0491fc28-80bc-4a0a-93c7-ab1c24669980")
+		(property "Reference" "Q1"
+			(at 194.31 24.4305 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
-			(justify left bottom)
 		)
-		(uuid "cfa85dfe-7d9c-4d0f-96d9-323bf1300826")
+		(property "Value" "Q_PMOS"
+			(at 194.056 26.924 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Custom:SON8_DMP4025SFGQ-13_DIO"
+			(at 191.77 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/DMP4025SFGQ.pdf"
+			(at 194.31 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "P-MOSFET transistor, source/gate/drain"
+			(at 194.31 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Diodes Incorporated"
+			(at 194.31 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "DMP4025SFGQ-13"
+			(at 194.31 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "006efed2-4e2f-4a86-a6a2-73d5fd40d0aa")
+		)
+		(pin "2"
+			(uuid "6bbb6546-2977-42ed-b9e6-5cb999b8ee2a")
+		)
+		(pin "3"
+			(uuid "844fa77d-a85d-4cdf-bd07-2c0ae8d4922d")
+		)
+		(instances
+			(project ""
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "Q1")
+					(unit 1)
+				)
+			)
+		)
 	)
-	(label "LED-"
-		(at 125.73 20.32 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
+	(symbol
+		(lib_id "power:GND")
+		(at 256.54 105.41 270)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "103f0099-3af5-4eb1-a353-90d8a356239a")
+		(property "Reference" "#PWR015"
+			(at 250.19 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
-			(justify right bottom)
 		)
-		(uuid "dd9cba8d-c904-4291-a3f8-39e503208b42")
-	)
-	(label "4"
-		(at 210.82 101.6 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
+		(property "Value" "GND"
+			(at 251.714 105.41 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
-			(justify right bottom)
 		)
-		(uuid "dde60faf-a619-4cd0-a106-7e09b8748f1d")
-	)
-	(label "4"
-		(at 240.03 102.87 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
+		(property "Footprint" ""
+			(at 256.54 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
-			(justify left bottom)
 		)
-		(uuid "e0a1e8cc-8e26-441c-8628-7e2b6f6cb77e")
+		(property "Datasheet" ""
+			(at 256.54 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 256.54 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "65c1182b-f058-4504-8455-bf49e07078cb")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "#PWR015")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_name "MountingHole_1")
@@ -6036,70 +5128,51 @@
 		)
 	)
 	(symbol
-		(lib_id "LED Driver 1x8 Mux-rescue:IRF9358TRPBF-2x_p-channel-Custom_parts")
-		(at 115.57 12.7 0)
-		(mirror y)
+		(lib_id "power:GND")
+		(at 208.28 93.98 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "197df6d1-0924-45d0-b4ee-9f499f8ac596")
-		(property "Reference" "Q5"
-			(at 140.462 40.894 0)
+		(uuid "16f124b2-77d8-4907-a512-7f6a7b919fb5")
+		(property "Reference" "#PWR016"
+			(at 201.93 93.98 0)
 			(effects
 				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Value" "2x_p-channel"
-			(at 139.7 15.875 0)
-			(effects
-				(font
-					(size 1.524 1.524)
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Custom:SOP-8_3.9x4.9mm_P1.27mm"
-			(at 139.7 17.399 0)
+		(property "Value" "GND"
+			(at 203.454 93.98 90)
 			(effects
 				(font
-					(size 1.524 1.524)
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 208.28 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.gofordsemi.com/upload/cn/propdf/G200P04S2.pdf"
-			(at 139.7 16.4846 0)
+		(property "Datasheet" ""
+			(at 208.28 93.98 0)
 			(effects
 				(font
-					(size 1.524 1.524)
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
 		)
 		(property "Description" ""
-			(at 115.57 12.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Goford Semiconductor"
-			(at 115.57 12.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "G200P04S2"
-			(at 115.57 12.7 0)
+			(at 208.28 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6108,33 +5181,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "272b1b44-2bb8-4180-b377-014f4ff8102d")
-		)
-		(pin "6"
-			(uuid "8a3bd5f5-e206-48ec-9417-0c02dede304d")
-		)
-		(pin "7"
-			(uuid "281a5142-2b7b-4f78-a707-9f2d62f2e039")
-		)
-		(pin "2"
-			(uuid "4e4764e9-15d4-4ea5-9f9e-6693f1d56f37")
-		)
-		(pin "4"
-			(uuid "40ca2215-1ce8-401c-9a89-056cec0e0b53")
-		)
-		(pin "8"
-			(uuid "37ab4d37-78a6-4428-bf57-e1f3cb4d3e71")
-		)
-		(pin "3"
-			(uuid "f484efb6-a2d5-4fb1-82a4-b32725cf3ac6")
-		)
-		(pin "5"
-			(uuid "f6c40d35-693f-400e-b679-a657fa557612")
+			(uuid "088ff8ac-ba74-4405-a379-ddd31e30cd32")
 		)
 		(instances
 			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
-					(reference "Q5")
+					(reference "#PWR016")
 					(unit 1)
 				)
 			)
@@ -6515,34 +5567,17 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:D_Zener")
-		(at 148.59 72.39 0)
-		(mirror y)
+		(lib_id "power:GND")
+		(at 242.57 105.41 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2d89d732-dc1b-4960-9375-4b5d377f51b6")
-		(property "Reference" "D2"
-			(at 148.59 66.9755 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "D_Zener"
-			(at 148.59 69.3998 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Custom:DFN6_TDS3011_SEM"
-			(at 148.59 72.39 0)
+		(uuid "2ab76e44-c1e2-484d-9822-5c4c6f9e8dc4")
+		(property "Reference" "#PWR014"
+			(at 248.92 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6550,8 +5585,16 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://semtech.my.salesforce.com/sfc/p/#E0000000JelG/a/2R000000UnaW/6sOvwFk2B_mQIjtUCoaHvma6qnHHWm9s784Kyn_XC9w"
-			(at 148.59 72.39 0)
+		(property "Value" "GND"
+			(at 247.396 105.41 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 242.57 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6559,8 +5602,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Zener diode"
-			(at 148.59 72.39 0)
+		(property "Datasheet" ""
+			(at 242.57 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6568,34 +5611,88 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Semtech Corporation"
-			(at 148.59 72.39 0)
+		(property "Description" ""
+			(at 242.57 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
-		)
-		(property "Part" "TDS3011P.C"
-			(at 148.59 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "287eb03d-6662-4bad-920b-0b684c5911e2")
 		)
 		(pin "1"
-			(uuid "f6df0971-8c64-4e87-b2ad-e7f2a3734cab")
+			(uuid "0dbed047-3074-4a64-bb6c-30bd44195fc8")
 		)
 		(instances
-			(project ""
+			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
-					(reference "D2")
+					(reference "#PWR014")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 256.54 95.25 270)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "322875e7-9132-4eb4-af03-aca0abd22aef")
+		(property "Reference" "#PWR011"
+			(at 250.19 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 251.714 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 256.54 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 256.54 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 256.54 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5b22d55b-17da-43a2-826f-48e6706ade90")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "#PWR011")
 					(unit 1)
 				)
 			)
@@ -6798,6 +5895,71 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 199.39 48.26 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "45d8604c-4d80-4a0b-980d-0fb6e16fa038")
+		(property "Reference" "#PWR04"
+			(at 199.39 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 199.39 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 199.39 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 199.39 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 199.39 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2e5b43e7-a275-4f0b-bc34-37ee4bfc63c0")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "#PWR04")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Graphic:Logo_Open_Hardware_Small")
 		(at 97.79 72.39 0)
 		(unit 1)
@@ -6874,6 +6036,95 @@
 			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
 					(reference "SYM2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED_Pad")
+		(at 173.99 30.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4ada045a-de9c-44a9-98a1-9345ac7757e5")
+		(property "Reference" "D3"
+			(at 173.99 23.5415 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LED_Pad"
+			(at 173.99 25.9658 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Custom:LED_XLAMP_XE-G_CRW"
+			(at 173.99 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://downloads.cree-led.com/files/ds/x/XLamp-XE-G.pdf"
+			(at 173.99 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Light emitting diode with pad"
+			(at 173.99 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
+			(at 173.99 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "XEGAGR-H0-0000-000-000000T6001"
+			(at 173.99 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "00dbfa48-0784-4e66-8ef3-a87e8514e664")
+		)
+		(pin "2"
+			(uuid "8083f035-d41e-4a11-b26d-9c847b69de52")
+		)
+		(pin "3"
+			(uuid "c3ca7e31-797c-4a7e-bf23-ff60cce11e9c")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "D3")
 					(unit 1)
 				)
 			)
@@ -6988,72 +6239,6 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 157.48 121.92 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "54dbd532-b4cc-4dd1-8b05-9eadc7a79e89")
-		(property "Reference" "#PWR03"
-			(at 157.48 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 157.48 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 157.48 121.92 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 157.48 121.92 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 157.48 121.92 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ad3653bb-4daa-4e3d-87e6-0a3e9ea37d57")
-		)
-		(instances
-			(project "30 mm Cage Plate LED MCPCB"
-				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
-					(reference "#PWR03")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
 		(at 229.87 118.11 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -7119,52 +6304,34 @@
 		)
 	)
 	(symbol
-		(lib_id "LED Driver 1x8 Mux-rescue:IRF9358TRPBF-2x_p-channel-Custom_parts")
-		(at 115.57 38.1 0)
-		(mirror y)
+		(lib_id "Device:Q_NMOS_GSD")
+		(at 196.85 43.18 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "632c9a29-8783-4aee-b276-a9b6e69a0459")
-		(property "Reference" "Q6"
-			(at 140.462 66.294 0)
+		(uuid "5a9da5c2-d97e-4fcd-ad8d-cbed0bf14c7d")
+		(property "Reference" "Q2"
+			(at 202.0569 41.9678 0)
 			(effects
 				(font
-					(size 1.524 1.524)
+					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "2x_p-channel"
-			(at 139.7 41.275 0)
+		(property "Value" "Q_NMOS"
+			(at 202.0569 44.3921 0)
 			(effects
 				(font
-					(size 1.524 1.524)
+					(size 1.27 1.27)
 				)
-				(hide yes)
+				(justify left)
 			)
 		)
-		(property "Footprint" "Custom:SOP-8_3.9x4.9mm_P1.27mm"
-			(at 139.7 42.799 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.gofordsemi.com/upload/cn/propdf/G200P04S2.pdf"
-			(at 139.7 41.8846 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 115.57 38.1 0)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+			(at 201.93 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7172,8 +6339,8 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Goford Semiconductor"
-			(at 115.57 38.1 0)
+		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/DMN30H4D0L.pdf"
+			(at 196.85 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7181,8 +6348,8 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "G200P04S2"
-			(at 115.57 38.1 0)
+		(property "Description" "N-MOSFET transistor, gate/source/drain"
+			(at 196.85 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7190,34 +6357,37 @@
 				(hide yes)
 			)
 		)
-		(pin "1"
-			(uuid "92b4b50b-8b1b-463b-889b-7780be084acd")
+		(property "Manufacturer" "Diodes Incorporated"
+			(at 196.85 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
 		)
-		(pin "6"
-			(uuid "aed1e477-74f2-46ae-924b-e68606c7c813")
-		)
-		(pin "7"
-			(uuid "4853cac3-17ff-4c0a-9f06-8bc5b8ed77d4")
+		(property "Part" "DMN30H4D0L-13"
+			(at 196.85 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
 		)
 		(pin "2"
-			(uuid "5a21813b-c3b8-48b6-bce2-ec519c975f34")
+			(uuid "25092491-1650-4b90-902e-ae447e32d639")
 		)
-		(pin "4"
-			(uuid "42589324-918b-4a61-8b0f-8d529abdb652")
-		)
-		(pin "8"
-			(uuid "d88c75c5-7489-488f-81e7-402260f71cd9")
+		(pin "1"
+			(uuid "f17ef102-d21d-4728-b063-d7c5f1f453b4")
 		)
 		(pin "3"
-			(uuid "d052485d-df45-49b8-a3f9-9649c0c188ad")
-		)
-		(pin "5"
-			(uuid "53e0a536-391f-44b9-a175-15c17645f737")
+			(uuid "14e6504f-5988-4c7d-a067-f6d036b3d700")
 		)
 		(instances
-			(project "30 mm Cage Plate LED MCPCB"
+			(project ""
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
-					(reference "Q6")
+					(reference "Q2")
 					(unit 1)
 				)
 			)
@@ -7306,95 +6476,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:LED_Pad")
-		(at 162.56 52.07 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "67514efa-5ca9-43ba-8b5d-63aa5b61e066")
-		(property "Reference" "D5"
-			(at 162.56 45.1315 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LED_Pad"
-			(at 162.56 47.5558 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Custom:LED_XLAMP_XE-G_CRW"
-			(at 162.56 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://downloads.cree-led.com/files/ds/x/XLamp-XE-G.pdf"
-			(at 162.56 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Light emitting diode with pad"
-			(at 162.56 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Cree LED"
-			(at 162.56 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "XEGAGR-H0-0000-000-000000T6001"
-			(at 162.56 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "1e830e3e-91ae-42ee-843e-c556ab976fa6")
-		)
-		(pin "2"
-			(uuid "9c9f5cc5-715e-4a8a-b5c5-617eea5fa9c2")
-		)
-		(pin "3"
-			(uuid "d869c2a6-97a9-49c8-b0eb-b380cdbceb10")
-		)
-		(instances
-			(project "30 mm Cage Plate LED MCPCB"
-				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
-					(reference "D5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_name "MountingHole_1")
 		(lib_id "Mechanical:MountingHole")
 		(at 92.71 143.51 0)
@@ -7474,6 +6555,95 @@
 			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
 					(reference "H6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED_Pad")
+		(at 151.13 30.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6a3cc878-486f-455f-9a97-57cca8cad7d6")
+		(property "Reference" "D6"
+			(at 151.13 23.5415 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LED_Pad"
+			(at 151.13 25.9658 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Custom:LED_XLAMP_XE-G_CRW"
+			(at 151.13 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://downloads.cree-led.com/files/ds/x/XLamp-XE-G.pdf"
+			(at 151.13 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Light emitting diode with pad"
+			(at 151.13 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
+			(at 151.13 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "XEGAGR-H0-0000-000-000000T6001"
+			(at 151.13 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4924727d-dfa3-4609-8106-c9b8553ae379")
+		)
+		(pin "2"
+			(uuid "53d8c0a9-7ecc-420e-a930-79131a0d35d5")
+		)
+		(pin "3"
+			(uuid "cabfbf8d-1990-492b-9ed5-33f564c79f55")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "D6")
 					(unit 1)
 				)
 			)
@@ -7612,95 +6782,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:LED_Pad")
-		(at 162.56 39.37 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7d3f7b7e-9c4a-4648-9f6d-0bf71b8b058c")
-		(property "Reference" "D4"
-			(at 162.56 32.4315 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LED_Pad"
-			(at 162.56 34.8558 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Custom:LED_XLAMP_XE-G_CRW"
-			(at 162.56 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://downloads.cree-led.com/files/ds/x/XLamp-XE-G.pdf"
-			(at 162.56 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Light emitting diode with pad"
-			(at 162.56 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Cree LED"
-			(at 162.56 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "XEGAGR-H0-0000-000-000000T6001"
-			(at 162.56 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "bc63817e-4530-4f4f-b887-7319eb293724")
-		)
-		(pin "2"
-			(uuid "90ba3747-5835-49cf-8716-33d3d9567a28")
-		)
-		(pin "3"
-			(uuid "1ae66cdc-989f-4c5e-9263-aa5db01a084f")
-		)
-		(instances
-			(project "30 mm Cage Plate LED MCPCB"
-				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
-					(reference "D4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Custom:AL8843QSP-13")
 		(at 129.54 106.68 0)
 		(unit 1)
@@ -7810,32 +6891,16 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 175.26 30.48 0)
+		(lib_id "power:GND")
+		(at 208.28 109.22 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "82fd75f4-0f24-4280-9d4a-75f44c68909c")
-		(property "Reference" "J2"
-			(at 178.054 30.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0"
-			(at 175.26 30.48 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
-			(at 173.482 30.48 90)
+		(uuid "7f23309d-bc9e-4cb1-8541-f741292ce7d6")
+		(property "Reference" "#PWR019"
+			(at 201.93 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7843,8 +6908,25 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.keyelco.com/userAssets/file/M65p54.pdf"
-			(at 175.26 30.48 0)
+		(property "Value" "GND"
+			(at 203.454 109.22 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 208.28 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 208.28 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7853,25 +6935,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 175.26 30.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Keystone Electronics"
-			(at 175.26 30.48 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "5108"
-			(at 175.26 30.48 90)
+			(at 208.28 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7880,15 +6944,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "32f231b3-75d7-4beb-b0fb-3b377e167810")
-		)
-		(pin "2"
-			(uuid "1ae2ab29-391b-497f-bda3-290aad4b5c2a")
+			(uuid "877f6cfa-45d1-4e1d-8593-f5973df480b3")
 		)
 		(instances
 			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
-					(reference "J2")
+					(reference "#PWR019")
 					(unit 1)
 				)
 			)
@@ -7956,95 +7017,6 @@
 			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
 					(reference "#PWR02")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED_Pad")
-		(at 162.56 26.67 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "89dde107-5f68-4314-ae34-ab45c20f41be")
-		(property "Reference" "D3"
-			(at 162.56 19.7315 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LED_Pad"
-			(at 162.56 22.1558 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Custom:LED_XLAMP_XE-G_CRW"
-			(at 162.56 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://downloads.cree-led.com/files/ds/x/XLamp-XE-G.pdf"
-			(at 162.56 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Light emitting diode with pad"
-			(at 162.56 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Cree LED"
-			(at 162.56 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "XEGAGR-H0-0000-000-000000T6001"
-			(at 162.56 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "c4a4cd79-5d10-437a-97a0-6f84f3e22431")
-		)
-		(pin "2"
-			(uuid "008520ee-1467-42be-ad94-d7447920e05e")
-		)
-		(pin "3"
-			(uuid "9c39a03e-dce7-4972-af2a-4b62224237e7")
-		)
-		(instances
-			(project ""
-				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
-					(reference "D3")
 					(unit 1)
 				)
 			)
@@ -8133,6 +7105,72 @@
 			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
 					(reference "C1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 256.54 100.33 270)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8deed804-a323-420c-8eae-0891782fe50e")
+		(property "Reference" "#PWR013"
+			(at 250.19 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 251.714 100.33 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 256.54 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 256.54 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 256.54 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ed8e6897-960e-49d5-9a86-3486bc31c584")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "#PWR013")
 					(unit 1)
 				)
 			)
@@ -8564,15 +7602,16 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 208.28 109.22 270)
+		(at 242.57 95.25 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "9fa89103-f148-4a91-a816-b93d57719b79")
-		(property "Reference" "#PWR04"
-			(at 201.93 109.22 0)
+		(uuid "9c1bfbaf-3a28-4739-880d-47e151e2ec60")
+		(property "Reference" "#PWR03"
+			(at 248.92 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8581,7 +7620,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 203.454 109.22 90)
+			(at 247.396 95.25 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8589,7 +7628,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 208.28 109.22 0)
+			(at 242.57 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8598,7 +7637,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 208.28 109.22 0)
+			(at 242.57 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8607,7 +7646,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 208.28 109.22 0)
+			(at 242.57 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8616,12 +7655,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "fdd29358-67fe-4e65-bbaa-bc9bf20ce789")
+			(uuid "f100fc2a-0e39-48f4-a303-ee8908322fec")
 		)
 		(instances
 			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
-					(reference "#PWR04")
+					(reference "#PWR03")
 					(unit 1)
 				)
 			)
@@ -8707,6 +7746,95 @@
 			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
 					(reference "H8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED_Pad")
+		(at 158.75 30.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a59ba463-ac38-4f76-904c-3858d57a6132")
+		(property "Reference" "D5"
+			(at 158.75 23.5415 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LED_Pad"
+			(at 158.75 25.9658 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Custom:LED_XLAMP_XE-G_CRW"
+			(at 158.75 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://downloads.cree-led.com/files/ds/x/XLamp-XE-G.pdf"
+			(at 158.75 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Light emitting diode with pad"
+			(at 158.75 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Cree LED"
+			(at 158.75 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "XEGAGR-H0-0000-000-000000T6001"
+			(at 158.75 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b26cfd42-6ba4-4343-b47b-ef5bb4e2f36b")
+		)
+		(pin "2"
+			(uuid "60242dfe-c6bd-49ed-bd5a-df020873d988")
+		)
+		(pin "3"
+			(uuid "dad77d01-735f-4d86-b669-867606b25df0")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "D5")
 					(unit 1)
 				)
 			)
@@ -8932,33 +8060,17 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Pack04")
-		(at 180.34 64.77 270)
+		(lib_id "power:GND")
+		(at 242.57 100.33 90)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "c0b9f92d-3946-4f23-a861-6fc72f3baf95")
-		(property "Reference" "RN1"
-			(at 180.34 58.166 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "4700"
-			(at 180.34 59.944 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_Array_Convex_4x1206"
-			(at 180.34 57.785 90)
+		(uuid "c01ff1a0-5d98-41cc-9d22-163f6733fd26")
+		(property "Reference" "#PWR012"
+			(at 248.92 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8966,8 +8078,16 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.yageo.com/upload/media/product/app/datasheet/rchip/pyu-yc_tc_group_51_rohs_l.pdf"
-			(at 180.34 64.77 0)
+		(property "Value" "GND"
+			(at 247.396 100.33 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 242.57 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8975,8 +8095,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "4 resistor network, parallel topology"
-			(at 180.34 64.77 0)
+		(property "Datasheet" ""
+			(at 242.57 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8984,52 +8104,87 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "YAGEO"
-			(at 180.34 64.77 0)
+		(property "Description" ""
+			(at 242.57 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
-		)
-		(property "Part" "YC324-JK-074K7L"
-			(at 180.34 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "7"
-			(uuid "22fd774c-3882-449b-921e-85feba2b9d1d")
 		)
 		(pin "1"
-			(uuid "5ac1ec80-df09-474b-810a-2ca272fef37a")
-		)
-		(pin "4"
-			(uuid "1da167b3-95f6-4f66-9b53-c76b1f515b36")
-		)
-		(pin "2"
-			(uuid "c357bc9c-a7fc-46c6-9c7d-2e1b467d240c")
-		)
-		(pin "5"
-			(uuid "2eb95d56-c279-4cbe-b9c2-ca02ab5d7ce3")
-		)
-		(pin "8"
-			(uuid "530d9147-a6b0-49b9-b99b-3a4eaec88189")
-		)
-		(pin "6"
-			(uuid "b5397767-c2a6-4c29-94d9-d6d2bfd35015")
-		)
-		(pin "3"
-			(uuid "7b3333ac-5cd1-48fd-aa25-452c4079c902")
+			(uuid "d73da294-94b9-4acb-97e3-906b100eb19b")
 		)
 		(instances
-			(project ""
+			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
-					(reference "RN1")
+					(reference "#PWR012")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 208.28 104.14 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c09ace55-7c62-47e5-a2dc-a366e4f1fc2d")
+		(property "Reference" "#PWR018"
+			(at 201.93 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 203.454 104.14 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 208.28 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 208.28 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 208.28 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f426593f-cdc8-44f6-a06c-fcfa8fd60eed")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "#PWR018")
 					(unit 1)
 				)
 			)
@@ -9184,6 +8339,159 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 208.28 99.06 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d019edc5-9cff-4339-8dcb-13cea971daaa")
+		(property "Reference" "#PWR017"
+			(at 201.93 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 203.454 99.06 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 208.28 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 208.28 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 208.28 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9d639768-b16d-45e0-8f72-816d6ba2feae")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "#PWR017")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 191.77 45.72 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d1d6c275-7bbb-4f92-b9e5-1716a0e17813")
+		(property "Reference" "R3"
+			(at 190.2714 44.5078 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 190.2714 46.9321 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 191.77 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.vishay.com/docs/20067/rcahp.pdf"
+			(at 191.77 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RES 10K OHM 1% 1/3W 0603"
+			(at 191.77 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Vishay Dale"
+			(at 191.77 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "RCA060310K0FKEAHP"
+			(at 191.77 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9ea81170-276f-48a5-aee1-0e9fbb491b83")
+		)
+		(pin "2"
+			(uuid "9e18aea3-2f72-4b51-88a6-e6edd3815e68")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "R3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Mechanical:MountingHole")
 		(at 93.98 87.63 0)
 		(unit 1)
@@ -9267,16 +8575,16 @@
 	)
 	(symbol
 		(lib_id "Device:LED_Pad")
-		(at 162.56 64.77 0)
+		(at 166.37 30.48 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "d962bd19-d442-470d-99bd-211c2b33e781")
-		(property "Reference" "D6"
-			(at 162.56 57.8315 0)
+		(uuid "e14aadf9-a23d-4e2f-b4f9-40012471506c")
+		(property "Reference" "D4"
+			(at 166.37 23.5415 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9284,7 +8592,7 @@
 			)
 		)
 		(property "Value" "LED_Pad"
-			(at 162.56 60.2558 0)
+			(at 166.37 25.9658 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9292,7 +8600,7 @@
 			)
 		)
 		(property "Footprint" "Custom:LED_XLAMP_XE-G_CRW"
-			(at 162.56 64.77 0)
+			(at 166.37 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9301,7 +8609,7 @@
 			)
 		)
 		(property "Datasheet" "https://downloads.cree-led.com/files/ds/x/XLamp-XE-G.pdf"
-			(at 162.56 64.77 0)
+			(at 166.37 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9310,7 +8618,7 @@
 			)
 		)
 		(property "Description" "Light emitting diode with pad"
-			(at 162.56 64.77 0)
+			(at 166.37 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9319,7 +8627,7 @@
 			)
 		)
 		(property "Manufacturer" "Cree LED"
-			(at 162.56 64.77 0)
+			(at 166.37 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9328,7 +8636,7 @@
 			)
 		)
 		(property "Part" "XEGAGR-H0-0000-000-000000T6001"
-			(at 162.56 64.77 0)
+			(at 166.37 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9337,18 +8645,18 @@
 			)
 		)
 		(pin "1"
-			(uuid "2225e86e-5143-4d60-b00c-a28edcef2ce4")
+			(uuid "44cd02b8-bc82-45d1-8641-680d5eb419e0")
 		)
 		(pin "2"
-			(uuid "fb5d0d09-b9d5-4c99-9797-8cd90b547d82")
+			(uuid "84fb7bdc-90a8-4a71-b079-d5b10dd6e67a")
 		)
 		(pin "3"
-			(uuid "a8a26771-0134-4887-b941-a1cc389005b6")
+			(uuid "e7d00bea-a073-4c3a-8a2d-da673838455d")
 		)
 		(instances
 			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
-					(reference "D6")
+					(reference "D4")
 					(unit 1)
 				)
 			)
@@ -9525,43 +8833,34 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 157.48 119.38 0)
+		(lib_id "Device:D_Zener")
+		(at 173.99 20.32 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "e8d90dfd-15bb-446f-bbc4-00ffecc8933c")
-		(property "Reference" "R2"
-			(at 158.9786 118.1678 0)
+		(fields_autoplaced yes)
+		(uuid "eaba042c-bdd2-4aa6-b163-213dcb4142ce")
+		(property "Reference" "D11"
+			(at 173.99 14.9055 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "4700"
-			(at 158.75 120.142 0)
+		(property "Value" "D_Zener"
+			(at 173.99 17.3298 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 157.48 119.38 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf"
-			(at 157.48 119.38 0)
+		(property "Footprint" "Custom:DFN6_TDS3011_SEM"
+			(at 173.99 20.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9569,8 +8868,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Resistor, small symbol"
-			(at 157.48 119.38 0)
+		(property "Datasheet" "https://semtech.my.salesforce.com/sfc/p/#E0000000JelG/a/2R000000UnaW/6sOvwFk2B_mQIjtUCoaHvma6qnHHWm9s784Kyn_XC9w"
+			(at 173.99 20.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9578,8 +8877,8 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Stackpole Electronics Inc"
-			(at 157.48 119.38 0)
+		(property "Description" "Zener diode"
+			(at 173.99 20.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9587,8 +8886,17 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "RMCF0603FT4K70"
-			(at 157.48 119.38 0)
+		(property "Manufacturer" "Semtech Corporation"
+			(at 173.99 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "TDS3011P.C"
+			(at 173.99 20.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9597,10 +8905,98 @@
 			)
 		)
 		(pin "2"
-			(uuid "74f692d4-3756-4878-abb1-f35674890f7b")
+			(uuid "f1ed6226-989d-4df5-a41c-5e211927ca61")
 		)
 		(pin "1"
-			(uuid "6757a9d0-05af-445e-87ce-2db0eb522260")
+			(uuid "e99e1c4b-c0c2-4153-a49a-44fa24be47be")
+		)
+		(instances
+			(project "30 mm Cage Plate LED MCPCB"
+				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
+					(reference "D11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 199.39 33.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "eb84c60d-2dfa-471d-bf21-220ffe513611")
+		(property "Reference" "R2"
+			(at 200.8886 31.8078 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 200.8886 34.2321 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 199.39 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.vishay.com/docs/20067/rcahp.pdf"
+			(at 199.39 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RES 10K OHM 1% 1/3W 0603"
+			(at 199.39 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Vishay Dale"
+			(at 199.39 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "RCA060310K0FKEAHP"
+			(at 199.39 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "330fa721-7850-4cdb-87ab-80bebe57ec60")
+		)
+		(pin "2"
+			(uuid "893e2c7c-81d6-432b-b070-68a29393e67a")
 		)
 		(instances
 			(project ""
