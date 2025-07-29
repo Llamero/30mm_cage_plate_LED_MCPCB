@@ -51,7 +51,7 @@ RSET (Ω)  Nominal Average Output Current (mA)
 When changing the LED footprints, ensure that the LEDs remain closely spaced for efficient coupling into a liquid light guide.
 
 ## Ordering:
-The BOM can be found here: ![30mm_cage_plate_LED_MCPCB/4x-LED-array/BOM%20-%20Portable%20Tetrachromatic%20Display.xlsx]([https://github.com/Llamero/30mm_cage_plate_LED_MCPCB/blob/4x-LED-array/BOM.xlsx](https://github.com/Llamero/30mm_cage_plate_LED_MCPCB/raw/refs/heads/4x-LED-array/BOM%20-%20Portable%20Tetrachromatic%20Display.xlsx))
+The BOM can be found here: ![30mm_cage_plate_LED_MCPCB/4x-LED-array/BOM%20-%20Portable%20Tetrachromatic%20Display.xlsx](https://github.com/Llamero/30mm_cage_plate_LED_MCPCB/raw/refs/heads/4x-LED-array/BOM%20-%20Portable%20Tetrachromatic%20Display.xlsx)
 
 This BOM includes all the parts needed to build both the LED driver boards as well as the LED controller board.
 
