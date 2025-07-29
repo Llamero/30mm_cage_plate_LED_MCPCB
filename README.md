@@ -9,7 +9,7 @@ The LEDs on the board are closely spaced so that all four LEDs efficiently coupl
 
 ![Side view of LED with opticas](https://github.com/Llamero/30mm_cage_plate_LED_MCPCB/blob/4x-LED-array/Images/4x%20LED%20board%20with%20optics.jpg)
 
-Each board can drive up to four individual LEDs, and includes a thermistor for temperature monitoring.  The the LED current is regulated by an ![AL8843](https://www.diodes.com/part/view/AL8843), allowing LEDs to be driven with up to three amps of current.  The ![AL8843](https://www.diodes.com/part/view/AL8843) also allows for both PWM control as well as analog current control down to 10% of the current limit (see below for setting max current limit).
+Each board can drive up to four individual LEDs, and includes a thermistor for temperature monitoring.  The the LED current is regulated by an [AL8843](https://www.diodes.com/part/view/AL8843), allowing LEDs to be driven with up to three amps of current.  The [AL8843](https://www.diodes.com/part/view/AL8843) also allows for both PWM control as well as analog current control down to 10% of the current limit (see below for setting max current limit).
 
 Four p-channel mosfets on the board create a 1x4 multiplexer that allows individual LEDs to be toggled on by pulling the corresponding LED channel's gate to ground.  Each gate has a 4.7 kOhm pullup resistor so that each channel defaults to being off if not connected.
 
@@ -38,7 +38,7 @@ Additionally, there is a GUI that allows for software control of the LED driver,
 ## Design:
 To view and modify the board, download KiCAD https://www.kicad.org/, and open the project file.
 
-Make sure to modify the LED footprint to match the footprint for your desired LEDs, and to change the current limit resistor to the desired value (see ![AL8843](https://www.diodes.com/part/view/AL8843) datasheet, p. 11):
+Make sure to modify the LED footprint to match the footprint for your desired LEDs, and to change the current limit resistor to the desired value (see [AL8843](https://www.diodes.com/part/view/AL8843) datasheet, p. 11):
 ```
 RSET (Ω)  Nominal Average Output Current (mA)
 0.033     3,000
@@ -58,7 +58,7 @@ This BOM includes all the parts needed to build both the LED driver boards as we
 To order the PCBs, upload the Gerber files to your desired PCB vendor, such as: [https://www.pcbway.com/project/shareproject/W55957ASK98_30_mm_Cage_Plate_LED_MCPCB_kicad_pcb_3d2c1975.html](https://www.pcbway.com/project/shareproject/W55957ASK98_30_mm_Cage_Plate_LED_MCPCB_kicad_pcb_3d2c1975.html)  Make sure that the LED boards are MCPCBs and not FR4.  The driver board can be ordered as an FR4 board.
 
 ## Assembly:
-To start, spread ![thermal epoxy](https://www.digikey.com/en/products/detail/mg-chemicals/8329TCM-6ML/6035511) onto the flat side of a ![Thorlabs 30 mm blank cage plate](https://www.thorlabs.com/thorproduct.cfm?partnumber=CP31).
+To start, spread [thermal epoxy](https://www.digikey.com/en/products/detail/mg-chemicals/8329TCM-6ML/6035511) onto the flat side of a [Thorlabs 30 mm blank cage plate](https://www.thorlabs.com/thorproduct.cfm?partnumber=CP31).
 
 ![Spread epoxy](https://github.com/Llamero/30mm_cage_plate_LED_MCPCB/blob/4x-LED-array/Images/Spread%20thermal%20epoxy%20on%20cage%20plate.jpg)
 
