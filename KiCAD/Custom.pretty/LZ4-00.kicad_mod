@@ -1,0 +1,317 @@
+(footprint "LZ4-00"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 -14.5 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "064c9e6a-834c-4962-8116-7c7f198b5124")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "LZ4-00"
+		(at 1 17.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "9b8fd0f3-cf1f-49d6-a4ca-29304578615f")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "c93aab1c-4d0b-4f93-a0ef-a0e58d67f465")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "8621e8b9-c28c-4d71-8fff-3b9b53ec0578")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "6aa81304-f579-428a-8395-70e878a0da61")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start -2.27 -4.01)
+		(end -2.27 -2.76)
+		(stroke
+			(width 0.01)
+			(type default)
+		)
+		(layer "Dwgs.User")
+		(uuid "2e58ef2f-fa72-483a-b86b-266966643873")
+	)
+	(fp_rect
+		(start -4.01 -4.01)
+		(end 4.01 4.01)
+		(stroke
+			(width 0.01)
+			(type default)
+		)
+		(fill none)
+		(layer "Dwgs.User")
+		(uuid "d9309d00-bfca-49c2-bc2f-a59df4c7dbf9")
+	)
+	(fp_rect
+		(start -4.01 -0.87)
+		(end 4.01 0.87)
+		(stroke
+			(width 0.01)
+			(type default)
+		)
+		(fill none)
+		(layer "Dwgs.User")
+		(uuid "c8b6679c-8e8c-412c-8fe1-8710de7077a9")
+	)
+	(fp_rect
+		(start 0.87 -4.01)
+		(end -0.87 4.01)
+		(stroke
+			(width 0.01)
+			(type default)
+		)
+		(fill none)
+		(layer "Dwgs.User")
+		(uuid "17b0315e-94bd-4e32-b56c-3f51373c1a26")
+	)
+	(fp_circle
+		(center 0 0)
+		(end 2.77 0)
+		(stroke
+			(width 0.01)
+			(type default)
+		)
+		(fill none)
+		(layer "Dwgs.User")
+		(uuid "fc41679d-eeeb-4800-bf99-27cda3f064e4")
+	)
+	(fp_text user "${REFERENCE}"
+		(at -0.5 20.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "4fd25b09-87ea-4934-bfc0-c1c445bf76a8")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd roundrect
+		(at -3.14 -3.14)
+		(size 1.74 1.74)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(roundrect_rratio 0.03)
+		(chamfer_ratio 0.28)
+		(chamfer bottom_right)
+		(uuid "7765be3d-c969-4c65-bb9f-c0bcf83487f6")
+	)
+	(pad "2" smd custom
+		(at -1.45 -3.38 180)
+		(size 1.16 1.16)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(thermal_bridge_angle 90)
+		(options
+			(clearance outline)
+			(anchor circle)
+		)
+		(primitives
+			(gr_poly
+				(pts
+					(xy -0.58 -0.445) (xy -0.566298 -0.513883) (xy -0.527279 -0.572279) (xy -0.468883 -0.611298) (xy -0.4 -0.625)
+					(xy 0.4 -0.625) (xy 0.468883 -0.611298) (xy 0.527279 -0.572279) (xy 0.566298 -0.513883) (xy 0.58 -0.445)
+					(xy 0.58 0.445) (xy 0.566298 0.513883) (xy 0.527279 0.572279) (xy 0.468883 0.611298) (xy 0.4 0.625)
+					(xy -0.4 0.625) (xy -0.468883 0.611298) (xy -0.527279 0.572279) (xy -0.566298 0.513883) (xy -0.58 0.445)
+				)
+				(width 0)
+				(fill yes)
+			)
+			(gr_poly
+				(pts
+					(xy 0.58 -0.38) (xy 0.58 -1.3) (xy 0.56 -1.34) (xy 0.52 -1.35) (xy 0.47 -1.35) (xy 0.41 -1.32)
+					(xy 0.34 -1.26) (xy 0.26 -1.2) (xy 0.02 -1.03) (xy -0.23 -0.89) (xy -0.42 -0.81) (xy -0.47 -0.79)
+					(xy -0.514576 -0.764007) (xy -0.56 -0.7) (xy -0.58 -0.625) (xy -0.58 -0.36)
+				)
+				(width 0.001)
+				(fill yes)
+			)
+		)
+		(uuid "4621c1f2-fb7d-4182-841e-beda652bef64")
+	)
+	(pad "3" smd roundrect
+		(at 3.14 -3.14)
+		(size 1.74 1.74)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(roundrect_rratio 0.03)
+		(chamfer_ratio 0.28)
+		(chamfer bottom_left)
+		(uuid "4283e394-53d9-4d0f-90bf-86ea9de7277e")
+	)
+	(pad "4" smd custom
+		(at 3.38 1.45 90)
+		(size 1.16 1.16)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(thermal_bridge_angle 90)
+		(options
+			(clearance outline)
+			(anchor circle)
+		)
+		(primitives
+			(gr_poly
+				(pts
+					(xy 0.58 -0.445) (xy 0.566298 -0.513883) (xy 0.527279 -0.572279) (xy 0.468883 -0.611298) (xy 0.4 -0.625)
+					(xy -0.4 -0.625) (xy -0.468883 -0.611298) (xy -0.527279 -0.572279) (xy -0.566298 -0.513883) (xy -0.58 -0.445)
+					(xy -0.58 0.445) (xy -0.566298 0.513883) (xy -0.527279 0.572279) (xy -0.468883 0.611298) (xy -0.4 0.625)
+					(xy 0.4 0.625) (xy 0.468883 0.611298) (xy 0.527279 0.572279) (xy 0.566298 0.513883) (xy 0.58 0.445)
+				)
+				(width 0)
+				(fill yes)
+			)
+			(gr_poly
+				(pts
+					(xy -0.58 -0.38) (xy -0.58 -1.3) (xy -0.56 -1.34) (xy -0.52 -1.35) (xy -0.47 -1.35) (xy -0.41 -1.32)
+					(xy -0.34 -1.26) (xy -0.26 -1.2) (xy -0.02 -1.03) (xy 0.23 -0.89) (xy 0.42 -0.81) (xy 0.47 -0.79)
+					(xy 0.514576 -0.764007) (xy 0.56 -0.7) (xy 0.58 -0.625) (xy 0.58 -0.36)
+				)
+				(width 0.001)
+				(fill yes)
+			)
+		)
+		(uuid "6374c36e-7f97-4208-bfa9-922d409ec873")
+	)
+	(pad "5" smd roundrect
+		(at 3.14 3.14 180)
+		(size 1.74 1.74)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(roundrect_rratio 0.03)
+		(chamfer_ratio 0.28)
+		(chamfer bottom_right)
+		(uuid "dc66eca6-3674-4d5b-b1f5-0b2187830f63")
+	)
+	(pad "6" smd custom
+		(at -1.45 3.38)
+		(size 1.16 1.16)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(thermal_bridge_angle 90)
+		(options
+			(clearance outline)
+			(anchor circle)
+		)
+		(primitives
+			(gr_poly
+				(pts
+					(xy 0.58 -0.445) (xy 0.566298 -0.513883) (xy 0.527279 -0.572279) (xy 0.468883 -0.611298) (xy 0.4 -0.625)
+					(xy -0.4 -0.625) (xy -0.468883 -0.611298) (xy -0.527279 -0.572279) (xy -0.566298 -0.513883) (xy -0.58 -0.445)
+					(xy -0.58 0.445) (xy -0.566298 0.513883) (xy -0.527279 0.572279) (xy -0.468883 0.611298) (xy -0.4 0.625)
+					(xy 0.4 0.625) (xy 0.468883 0.611298) (xy 0.527279 0.572279) (xy 0.566298 0.513883) (xy 0.58 0.445)
+				)
+				(width 0)
+				(fill yes)
+			)
+			(gr_poly
+				(pts
+					(xy -0.58 -0.38) (xy -0.58 -1.15) (xy -0.54 -1.22) (xy -0.47 -1.26) (xy -0.4 -1.27) (xy -0.34 -1.26)
+					(xy -0.3 -1.23) (xy -0.26 -1.2) (xy -0.02 -1.03) (xy 0.23 -0.89) (xy 0.42 -0.81) (xy 0.47 -0.79)
+					(xy 0.514576 -0.764007) (xy 0.56 -0.7) (xy 0.58 -0.625) (xy 0.58 -0.36)
+				)
+				(width 0.001)
+				(fill yes)
+			)
+		)
+		(uuid "42810a2c-b0a2-4cb2-9c4d-4b79a10c00b6")
+	)
+	(pad "7" smd roundrect
+		(at -3.14 3.14 180)
+		(size 1.74 1.74)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(roundrect_rratio 0.03)
+		(chamfer_ratio 0.28)
+		(chamfer bottom_left)
+		(uuid "f0f7c77e-3cc2-4653-9e01-d4f5e211556a")
+	)
+	(pad "8" smd custom
+		(at -3.38 1.45 270)
+		(size 1.16 1.16)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(thermal_bridge_angle 90)
+		(options
+			(clearance outline)
+			(anchor circle)
+		)
+		(primitives
+			(gr_poly
+				(pts
+					(xy -0.58 -0.445) (xy -0.566298 -0.513883) (xy -0.527279 -0.572279) (xy -0.468883 -0.611298) (xy -0.4 -0.625)
+					(xy 0.4 -0.625) (xy 0.468883 -0.611298) (xy 0.527279 -0.572279) (xy 0.566298 -0.513883) (xy 0.58 -0.445)
+					(xy 0.58 0.445) (xy 0.566298 0.513883) (xy 0.527279 0.572279) (xy 0.468883 0.611298) (xy 0.4 0.625)
+					(xy -0.4 0.625) (xy -0.468883 0.611298) (xy -0.527279 0.572279) (xy -0.566298 0.513883) (xy -0.58 0.445)
+				)
+				(width 0)
+				(fill yes)
+			)
+			(gr_poly
+				(pts
+					(xy 0.58 -0.38) (xy 0.58 -1.15) (xy 0.54 -1.22) (xy 0.49 -1.26) (xy 0.44 -1.27) (xy 0.35 -1.27)
+					(xy 0.31 -1.24) (xy 0.26 -1.2) (xy 0.02 -1.03) (xy -0.23 -0.89) (xy -0.42 -0.81) (xy -0.47 -0.79)
+					(xy -0.514576 -0.764007) (xy -0.56 -0.7) (xy -0.58 -0.625) (xy -0.58 -0.36)
+				)
+				(width 0.001)
+				(fill yes)
+			)
+		)
+		(uuid "91d57ceb-73fa-4038-b413-164bf668afde")
+	)
+	(pad "9" smd circle
+		(at 0 0)
+		(size 4.64 4.64)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "b008f6fb-0501-420d-b5e4-d588b849299c")
+	)
+	(model "C:/Users/Feller Macroscope/Documents/GitHub/30mm_cage_plate_LED_MCPCB/KiCAD/CAD models/LZ4-00UBH0-00U8.stp"
+		(offset
+			(xyz 0 0 1)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

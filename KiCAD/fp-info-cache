@@ -1,4 +1,4 @@
-24205208685476719
+24206971756403925
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -54830,6 +54830,13 @@ SST-20-WDS-A120-L5571
 0
 3
 3
+Custom
+LZ4-00
+
+
+0
+3
+2
 Custom
 SAMTEC_SSM-104-L-SH
 
