@@ -2836,7 +2836,7 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 144.78) (xy 218.44 144.78)
+			(xy 218.44 144.78) (xy 234.95 144.78)
 		)
 		(stroke
 			(width 0)
@@ -3165,7 +3165,7 @@
 		)
 		(uuid "0dcd7bbb-80b7-4f79-8f9c-3148acb74c0e")
 	)
-	(label "Vin"
+	(label "LED+"
 		(at 218.44 147.32 0)
 		(fields_autoplaced yes)
 		(effects
@@ -3186,6 +3186,17 @@
 			(justify right bottom)
 		)
 		(uuid "19c45725-3f39-4ee6-be3b-0bb55ac99e69")
+	)
+	(label "LED+"
+		(at 125.73 82.55 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "2be286e2-1dd6-4d9e-a830-12964c677899")
 	)
 	(label "CTRL"
 		(at 156.21 114.3 0)
@@ -3220,6 +3231,17 @@
 		)
 		(uuid "787ff7a3-8169-449a-a7c8-776a627463c7")
 	)
+	(label "LED-"
+		(at 218.44 144.78 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9a98489d-e189-45a4-9fa4-512537d8b5a8")
+	)
 	(label "Temp"
 		(at 218.44 152.4 0)
 		(fields_autoplaced yes)
@@ -3241,6 +3263,17 @@
 			(justify left bottom)
 		)
 		(uuid "e8c418f7-1ba3-46e7-a539-a6320ef90f16")
+	)
+	(label "LED-"
+		(at 139.7 95.25 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "f4fd57a8-8568-4467-b4e1-8b0716c81339")
 	)
 	(label "Vin"
 		(at 218.44 142.24 0)
@@ -3924,7 +3957,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "LZ4-00"
+		(property "Datasheet" "https://look.ams-osram.com/m/60f2d29fa455f5ac/original/LZ4-00R308.pdf"
 			(at 129.54 80.01 0)
 			(effects
 				(font
@@ -4347,72 +4380,6 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 234.95 144.78 270)
-		(mirror x)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "803dd2e8-8c51-4b28-ba92-e16e05d7b6ee")
-		(property "Reference" "#PWR014"
-			(at 228.6 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 230.124 144.78 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 234.95 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 234.95 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 234.95 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "df859233-2df3-4ba5-802f-dbecc10f9951")
-		)
-		(instances
-			(project "30 mm Cage Plate LED MCPCB"
-				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
-					(reference "#PWR014")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
 		(at 129.54 107.95 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4736,7 +4703,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://wakefieldthermal.com/content/data_sheets/ELLIPTICAL%20FIN%20HEAT%20SINK.pdf"
+		(property "Datasheet" "https://www.sameskydevices.com/product/resource/hsb38-707025p.pdf"
 			(at 94.2848 111.76 0)
 			(effects
 				(font
@@ -4745,7 +4712,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Heat Sink BGA Aluminum Alloy 21.7W @ 75°C Top Mount"
 			(at 93.98 111.76 0)
 			(effects
 				(font
@@ -4754,7 +4721,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Wakefield-Vette"
+		(property "Manufacturer" "Same Sky (Formerly CUI Devices)"
 			(at 93.98 111.76 0)
 			(effects
 				(font
@@ -4763,7 +4730,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "906-31-1-23-2-B-0"
+		(property "Part" "HSB38-707025P"
 			(at 93.98 111.76 0)
 			(effects
 				(font
@@ -5187,72 +5154,6 @@
 			(project "30 mm Cage Plate LED MCPCB"
 				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
 					(reference "#PWR017")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 220.98 144.78 90)
-		(mirror x)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "b20488b0-21d3-4774-b4f4-da39a499fe46")
-		(property "Reference" "#PWR013"
-			(at 227.33 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 225.806 144.78 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 220.98 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 220.98 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 220.98 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "dac37826-57bc-469e-8592-458a6da61764")
-		)
-		(instances
-			(project "30 mm Cage Plate LED MCPCB"
-				(path "/d4bfa918-6f2d-41e7-978b-b2160bded453"
-					(reference "#PWR013")
 					(unit 1)
 				)
 			)
